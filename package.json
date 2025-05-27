@@ -1,0 +1,25 @@
+{
+  "name": "astro-template",
+  "description": "Plantilla base de Astro con TailwindCSS y TypeScript preconfigurados",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --port=4000",
+    "build": "astro build",
+    "preview": "astro preview --port=5000",
+    "fmt": "pnpm biome format --write .",
+    "lint": "pnpm biome lint --write ."
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "4.1.6",
+    "astro": "5.7.12",
+    "tailwindcss": "4.1.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "22.15.17",
+    "sharp": "0.34.1",
+    "typescript": "5.8.3"
+  },
+  "packageManager": "pnpm@10.10.0"
+}
