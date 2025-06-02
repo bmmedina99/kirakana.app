@@ -10,16 +10,24 @@
     "fmt": "pnpm biome format --write .",
     "lint": "pnpm biome lint --write ."
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmmedina99/astro-template.git"
+  },
   "dependencies": {
-    "@tailwindcss/vite": "4.1.6",
-    "astro": "5.7.12",
-    "tailwindcss": "4.1.6"
+    "@astrojs/sitemap": "3.4.0",
+    "@tailwindcss/vite": "4.1.8",
+    "astro": "5.8.1",
+    "astro-robots-txt": "1.0.0",
+    "astro-seo-schema": "5.0.0",
+    "schema-dts": "1.1.5"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@types/node": "22.15.17",
-    "sharp": "0.34.1",
-    "typescript": "5.8.3"
+    "@types/node": "22.15.29",
+    "sharp": "0.34.2",
+    "typescript": "5.8.3",
+    "tailwindcss": "4.1.8"
   },
-  "packageManager": "pnpm@10.10.0"
+  "packageManager": "pnpm@10.11.0"
 }

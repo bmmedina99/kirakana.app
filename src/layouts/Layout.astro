@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 import './src/styles/global.css'
 ---
 
@@ -12,6 +13,19 @@ import './src/styles/global.css'
     <title>Astro Template</title>
   </head>
   <body>
+=======
+import Meta from '../components/Meta.astro'
+
+const { ...meta } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <Meta {...meta} />
+  </head>
+  <body class="bg-rich-black">
+>>>>>>> template/production
     <slot />
   </body>
 </html>

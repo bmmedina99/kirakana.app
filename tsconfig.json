@@ -1,10 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "module": "Node16",
-    "moduleResolution": "node16",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "isolatedModules": true,
-    "jsx": "preserve", // cambiar a "react-jsx" si usas React
+    "jsx": "preserve", // Si usas React, borra esta línea y descomenta las siguientes dos líneas
+    // "jsx": "react-jsx",
+    // "jsxImportSource": "react",
     "strict": true,
     "baseUrl": ".",
     "paths": {
