@@ -1,41 +1,55 @@
-# Astro Template con TailwindCSS y TypeScript
+# 🌟 Kirakana 🌟
 
-[![Astro version](https://img.shields.io/npm/v/astro?style=for-the-badge&logo=astro&label=Astro&color=%23BC52EE)](https://docs.astro.build/) [![TailwindCSS version](https://img.shields.io/npm/v/tailwindcss?style=for-the-badge&logo=tailwindcss&label=TailwindCSS&color=%2306B6D4)](https://tailwindcss.com/docs) [![TypeScript version](https://img.shields.io/npm/v/typescript?style=for-the-badge&logo=typescript&label=TypeScript&color=%233178C6)](https://www.typescriptlang.org/) [![Biome version](https://img.shields.io/npm/v/@biomejs/biome?style=for-the-badge&logo=biome&label=Biome&color=%2360A5FA)](https://biomejs.dev/guides/getting-started/)
+**Kirakana** es una aplicación web interactiva para practicar y aprender **Hiragana** y **Katakana**, los silabarios básicos del japonés, a través de un sistema de puzzle con opciones múltiples.
 
-Plantilla base para iniciar un nuevo proyecto con [Astro](https://astro.build/), [TailwindCSS](https://tailwindcss.com/) y [TypeScript](https://www.typescriptlang.org/).
+---
+
+## Objetivo
+
+Ayudar a los principiantes en el idioma japonés a recordar los caracteres Hiragana y Katakana con práctica visual. Además del modo de práctica, incluye una guía visual de estudio con todos los caracteres para facilitar el aprendizaje antes del juego.
 
 ---
 
 ## Características
 
-- **Astro** v5.8 configurado para contenido estático.
-- **TailwindCSS** para los estilos.
-- **TypeScript** para usar con `tsconfig.json` optimizado.
-- **Biome** para lintear y formatear el código.
+- Guía de estudio.
+- Puzzle interactivo.
+- Sin inicio de sesión.
+- Puntuación guardada en el navegador.
+- Estilo minimalista con diseño inspirado en Japón.
+- Diseño adaptado para móviles, tablets y escritorio.
 
 ---
 
-## Cómo usarlo
+## Tecnologías utilizadas
 
-1. En GitHub, haz clic en **Use this template** y crea tu repositorio nuevo.
-2. Clona tu repositorio:
+- **[Astro](https://astro.build/)** framework moderno que permite crear sitios de contenido estático.
+- **[TypeScript](https://tailwindcss.com)** aporta tipado estático al código, mejorando la solidez, el autocompletado y la detección de errores durante el desarrollo.
+- **[TailwindCSS](https://tailwindcss.com/)** framework de utilidades CSS para crear rápidamente sitios web modernos sin tener que abandonar el HTML.
 
+---
+
+## Instalación local
+
+Sigue estos pasos para clonar y ejecutar el proyecto en tu máquina local:
+
+1. Clona el repositorio
 ```bash
-  git clone https://github.com/tu-usuario/nombre-proyecto.git
-  cd nombre-proyecto
+git clone https://github.com/bmmedina99/kirakana.git
 ```
-3. Instala la dependencias
-
+2. Entra al proyecto
 ```bash
-  pnpm install
+cd kirakana
 ```
-
-4. Inicia el entorno de desarrollo
-
+3. Instala las dependencias
 ```bash
-  pnpm run dev
+pnpm i
 ```
-5. Accede a http://localhost:4000 y listo
+4. Ejecuta en entorno de desarrollo
+```bash
+pnpm dev
+```
+5. Entra al navegador y ve a http://localhost:4000
 
 ---
 
@@ -45,9 +59,7 @@ Este proyecto está bajo la [Licencia MIT](./LICENSE).
 
 ---
 
-## Recursos
+## Créditos
 
-- [Guía de Astro](https://docs.astro.build)
-- [Tailwind Docs](https://tailwindcss.com/docs)
-- [TypeScript Docs](https://www.typescriptlang.org/docs/)
-- [Biome Docs](https://biomejs.dev/guides/getting-started/)
+Desarrollado por [bmmedina99](https://github.com/bmmedina99)
+Diseñado como proyecto de porfolio.
