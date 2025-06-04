@@ -35,11 +35,11 @@ Sigue estos pasos para clonar y ejecutar el proyecto en tu máquina local:
 
 1. Clona el repositorio
 ```bash
-git clone https://github.com/bmmedina99/kirakana.git
+git clone git@github.com:bmmedina99/kirakana.app.git
 ```
 2. Entra al proyecto
 ```bash
-cd kirakana
+cd kirakana.app
 ```
 3. Instala las dependencias
 ```bash
