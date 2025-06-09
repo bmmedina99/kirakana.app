@@ -1,14 +1,47 @@
-# build output
+# Dependencias
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos de construcción de Astro
 dist/
 .astro/
 
-# dependencies
-node_modules/
+# Archivos de TypeScript
+*.tsbuildinfo
 
-# logs
-npm-debug.log*
-pnpm-debug.log*
-
-# environment variables
+# Archivos de entorno
 .env
-.env.*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+
+# Cobertura de tests
+coverage/
+*.lcov
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos del sistema operativo
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de Netlify
+.netlify
