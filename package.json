@@ -1,6 +1,6 @@
 {
-  "name": "astro-template",
-  "description": "Plantilla base de Astro con TailwindCSS y TypeScript preconfigurados",
+  "name": "kirakana",
+  "description": "Aplicación para aprender con facilidad los silabarios japonés.",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bmmedina99/astro-template.git"
+    "url": "https://github.com/bmmedina99/kirakana.app.git"
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.4.0",
+    "@astrojs/sitemap": "3.4.1",
     "@tailwindcss/vite": "4.1.8",
-    "astro": "5.8.1",
+    "astro": "5.9.2",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "5.0.0",
     "schema-dts": "1.1.5"
@@ -28,10 +28,10 @@
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/npm": "12.0.1",
-    "@types/node": "22.15.29",
+    "@types/node": "22.15.30",
     "sharp": "0.34.2",
     "tailwindcss": "4.1.8",
     "typescript": "5.8.3"
   },
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.12.1"
 }
