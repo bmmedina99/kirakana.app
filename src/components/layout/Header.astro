@@ -1,16 +1,30 @@
-<header>
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <h1 class="text-periwinkle text-2xl font-bold">Astro build</h1>
-    <nav class="space-x-6">
-      <a href="#features" class="text-gray-400 hover:text-gray-100">
-        Funcionalidades
-      </a>
+---
+import { configSite } from '@/site.config'
+import Icon from '../ui/Icon.astro'
+---
+
+<header
+  class="sticky z-50 flex items-center border-b 0 border-slate-800/50 backdrop-blur-sm bg-slate-900/50"
+>
+  <div class="container px-4 py-4 mx-auto">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <div
+          class="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-r from-orange-pantone to-medium-slate-blue"
+        >
+          <Icon name="astro" class="text-white" />
+        </div>
+        <span class="text-xl font-bold text-white">{configSite.title}</span>
+      </div>
       <a
-        href="/contacto"
-        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        href="https://github.com/bmmedina99/kirakana.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center px-4 py-2 text-orange-400 transition-colors bg-transparent border-2 rounded-lg border-orange-pantone hover:bg-orange-pantone hover:text-white"
       >
-        Contacto
+        <Icon name="github" class="mr-2" />
+        GitHub
       </a>
-    </nav>
+    </div>
   </div>
 </header>

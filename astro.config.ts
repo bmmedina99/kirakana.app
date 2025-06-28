@@ -1,11 +1,11 @@
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
-import robotsTxt from 'astro-robots-txt'
 import { defineConfig } from 'astro/config'
+import robotsTxt from 'astro-robots-txt'
+import { configSite } from './src/site.config'
 
 export default defineConfig({
-  // Cambiar la URL con el dominio de tu sitio
-  site: 'https://localhost:5000',
+  site: configSite.url,
   integrations: [sitemap(), robotsTxt()],
   vite: {
     plugins: [tailwindcss()],

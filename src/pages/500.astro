@@ -1,0 +1,60 @@
+---
+import Layout from '@/layouts/Layout.astro'
+
+const { error } = Astro.props
+---
+
+<Layout title="Error inesperado">
+  <main class="relative flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-2xl space-y-8 text-center">
+      <div class="space-y-4">
+        <h1
+          class="text-6xl font-bold text-transparent bg-gradient-to-r from-orange-pantone to-medium-slate-blue bg-clip-text"
+        >
+          Oops!
+        </h1>
+        <h2 class="text-3xl font-semibold text-white">Algo salió mal</h2>
+        <p class="max-w-md mx-auto text-lg leading-relaxed text-slate-300">
+          Ha ocurrido un error inesperado. No te preocupes, nuestro equipo ha
+          sido notificado y está trabajando para solucionarlo.
+        </p>
+        {
+          process.env.NODE_ENV === "development" && (
+            <details class="max-w-lg p-4 mx-auto mt-6 text-left border border-red-200 rounded-lg bg-red-50">
+              <summary class="font-medium text-red-700 cursor-pointer">
+                Detalles del error (desarrollo)
+              </summary>
+              <pre class="mt-2 text-sm text-red-600 break-words whitespace-pre-wrap">
+                {error.message}
+              </pre>
+            </details>
+          )
+        }
+      </div>
+
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <button
+          type="button"
+          onclick='window.location.reload()'
+          class="flex items-center gap-3 px-8 py-4 font-semibold text-black transition-all duration-200 transform rounded-full shadow-lg group bg-gradient-to-r from-orange-pantone to-medium-slate-blue hover:shadow-xl hover:scale-105"
+        >
+          Intentar de nuevo
+        </button>
+        <a
+          href="/"
+          class="flex items-center gap-3 px-8 py-4 font-semibold text-gray-700 transition-all duration-200 transform bg-white border-2 border-gray-200 rounded-full shadow-lg hover:shadow-xl hover:border-orange-pantone/30 hover:scale-105"
+        >
+          Volver al inicio
+        </a>
+      </div>
+      <div
+        class="absolute w-20 h-20 rounded-full top-20 left-10 bg-medium-slate-blue/20 blur-xl"
+      >
+      </div>
+      <div
+        class="absolute w-32 h-32 rounded-full bottom-20 right-10 bg-orange-pantone/20 blur-xl"
+      >
+      </div>
+    </div>
+  </main>
+</Layout>

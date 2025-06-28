@@ -1,45 +1,102 @@
 ---
-import '@/styles/global.css'
+import fontPoppins from '@fontsource/poppins/files/poppins-latin-400-normal.woff2?url'
 import { Schema } from 'astro-seo-schema'
+import { configSite } from '@/site.config'
+import globalCSS from '@/styles/global.css?url'
 
 const canonicalURL = new URL(Astro.request.url, Astro.site).toString()
-const { title, description } = Astro.props
+const { title } = Astro.props
+const siteTitle = `${title} | ${configSite.title}`
+const description = configSite.description
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{title}</title>
+
+<!-- Precarga la fuentes de public/fonts o de https://fontsource.org -->
+<link
+  rel="preload"
+  href={fontPoppins}
+  as="font"
+  type="font/woff2"
+  crossorigin="anonymous"
+/>
+
+<!-- Critical CSS + Fuentes  -->
+<style>
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(@fontsource/poppins/files/poppins-latin-400-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url(@fontsource/poppins/files/poppins-latin-600-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: url(@fontsource/poppins/files/poppins-latin-700-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329
+  }
+</style>
+
+<!-- Carga el CSS generado de manera asincrona -->
+<link rel="preload" href={globalCSS} as="style" onload="this.onload=null;this.rel='stylesheet'" />
+
+<!-- Datos del sitio -->
+<title>{siteTitle}</title>
 <meta name="description" content={description} />
 <meta name="generator" content={Astro.generator} />
 <meta name="robots" content="index, follow">
-<meta name="author" content="Brandon Medina">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="canonical" href={canonicalURL} />
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
-<meta property="og:title" content={title} />
+<meta name="author" content={configSite.author} />
+
+<!-- Open Graph - Imagen 1200x630 recomendado -->
+<meta property="og:title" content={siteTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:site_name" content="Astro Template" />
-<!-- Imagen Open Graph - 1200x630 recomendado -->
-<meta property="og:image" content="/images/open-graph.webp" />
-<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content="bmmedina.dev" />
+<meta property="og:image" content=`${canonicalURL}/images/open-graph.webp` />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Card - Imagen 1200x675 para summary_large_image recomendado -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
-<meta property="twitter:title" content={title} />
+<meta property="twitter:title" content={siteTitle} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:site" content="@twitter-site" />
-<meta property="twitter:creator" content="@twiiter-creator" />
-<!-- Imagen Twitter Card - 1200x675 para summary_large_image recomendado -->
-<meta property="twitter:image" content="/images/twitter-card.webp" />
-<meta property="twitter:image:alt" content={title} />
+<meta property="twitter:image" content=`${canonicalURL}/images/twitter-card.webp` />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:site" content="@twiter-site" />
+<meta property="twitter:creator" content="@twitter-author" />
+
+<!-- Propiedades + Favicon -->
+<meta name="theme-color" content="#003014" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Configura el schema según el tipo de sitio: https://schema.org/docs/full.html -->
 <Schema item={{
   "@context": "https://schema.org",
   "@type": "Person",
-  // Continua agregando propiedades según sea necesario
+  name: configSite.author,
+  url: canonicalURL,
+  description: description,
 }} />

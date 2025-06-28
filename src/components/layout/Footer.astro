@@ -1,7 +1,29 @@
-<footer
-  class="bg-gradient-to-tr from-russian-violet to-rebecca-purple text-periwinkle border-t"
->
-  <div class="container mx-auto px-4 py-8 text-center">
-    © {new Date().getFullYear()}. Todos los derechos reservados.
+---
+import Icon from '../ui/Icon.astro'
+---
+
+<footer class="flex items-center px-4 py-8 bg-slate-900">
+  <div class="container mx-auto">
+    <div class="flex flex-col items-center justify-between md:flex-row">
+      <div class="flex items-center mb-4 space-x-2 text-white md:mb-0">
+        <div
+          class="flex items-center justify-center w-6 h-6 rounded bg-gradient-to-r from-orange-pantone to-medium-slate-blue"
+        >
+          <Icon name="astro" width="12" height="12" />
+        </div>
+        <span class="font-semibold">KiraKana</span>
+      </div>
+      <p class="text-sm text-slate-400">
+        KiraKana &copy; {new Date().getFullYear()} | Desarrollado y diseñado por
+        <a
+          href="https://bmmedina.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline transition-colors hover:text-orange-pantone text-zinc-200"
+        >
+          @bmmedina99
+        </a>
+      </p>
+    </div>
   </div>
 </footer>

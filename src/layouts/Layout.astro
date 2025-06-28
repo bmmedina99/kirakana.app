@@ -1,37 +1,16 @@
 ---
-<<<<<<< HEAD
-<<<<<<< HEAD
-import './src/styles/global.css'
----
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Template</title>
-  </head>
-  <body>
-=======
-=======
->>>>>>> template/production
 import Meta from '../components/Meta.astro'
+import { configSite } from '../site.config'
 
 const { ...meta } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={configSite.lang}>
   <head>
     <Meta {...meta} />
   </head>
-  <body class="bg-rich-black">
-<<<<<<< HEAD
->>>>>>> template/production
-=======
->>>>>>> template/production
+  <body class="grid min-h-screen antialiased font-body bg-gradient-to-br from-slate-800 via-purple-800 to-slate-800">
     <slot />
   </body>
 </html>

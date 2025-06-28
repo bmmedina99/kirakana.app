@@ -1,6 +1,6 @@
 {
   "name": "kirakana",
-  "description": "Aplicación para aprender con facilidad los silabarios japonés.",
+  "description": "Aplicación web interactiva para practicar y aprender Hiragana y Katakana a través de un sistema de puzzle con opciones múltiples.",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "3.4.1",
-    "@tailwindcss/vite": "4.1.11",
+    "@fontsource/poppins": "5.2.6",
+    "@tailwindcss/vite": "4.1.8",
     "astro": "5.10.1",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "5.0.0",
