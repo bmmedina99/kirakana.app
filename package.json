@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev --port=4000",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview --port=5000",
     "fmt": "pnpm biome format --write .",
     "lint": "pnpm biome lint --write ."
@@ -17,21 +17,22 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "3.4.1",
-    "@tailwindcss/vite": "4.1.8",
-    "astro": "5.9.2",
+    "@tailwindcss/vite": "4.1.11",
+    "astro": "5.10.1",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "5.0.0",
     "schema-dts": "1.1.5"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@astrojs/check": "0.9.4",
+    "@biomejs/biome": "2.0.6",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/npm": "12.0.1",
-    "@types/node": "22.15.30",
+    "@semantic-release/npm": "12.0.2",
+    "@types/node": "24.0.7",
     "sharp": "0.34.2",
-    "tailwindcss": "4.1.8",
+    "tailwindcss": "4.1.11",
     "typescript": "5.8.3"
   },
-  "packageManager": "pnpm@10.12.1"
+  "packageManager": "pnpm@10.12.4"
 }

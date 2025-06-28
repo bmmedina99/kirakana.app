@@ -1,17 +1,8 @@
 @import "tailwindcss";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> template/production
 
 @theme {
-  --color-rich-black: #030014;
-  --color-russian-violet: #12042d;
-  --color-rebecca-purple: #5230a3;
-  --color-periwinkle: #c7c7ff;
+  --color-rich-black: oklch(9.618% 0.0562 285.061);
+  --color-russian-violet: oklch(16.872% 0.07813 292.572);
+  --color-rebecca-purple: oklch(42.208% 0.17403 290.528);
+  --color-periwinkle: oklch(84.868% 0.07781 284.614);
 }
-<<<<<<< HEAD
->>>>>>> template/production
-=======
->>>>>>> template/production

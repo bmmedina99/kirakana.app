@@ -1,4 +1,4 @@
-# 🌟 Kirakana 🌟
+# Kirakana 🌟
 
 **Kirakana** es una aplicación web interactiva para practicar y aprender **Hiragana** y **Katakana**, los silabarios básicos del japonés, a través de un sistema de puzzle con opciones múltiples.
 
@@ -43,7 +43,7 @@ cd kirakana.app
 ```
 3. Instala las dependencias
 ```bash
-pnpm i
+pnpm install
 ```
 4. Ejecuta en entorno de desarrollo
 ```bash
@@ -59,7 +59,7 @@ Este proyecto está bajo la [Licencia MIT](./LICENSE).
 
 ---
 
-## Créditos
+## Autor
 
 Desarrollado por [bmmedina99](https://github.com/bmmedina99)
-Diseñado como proyecto de porfolio.
+Diseñado como proyecto de [porfolio](https://bmmedina.dev).
