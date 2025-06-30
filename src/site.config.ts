@@ -11,15 +11,19 @@ export const configSite: Config = {
 
 export const navLinks = [
   {
-    title: 'Características',
-    href: '#features',
+    title: 'Inicio',
+    href: '/',
   },
   {
-    title: 'Integraciones',
-    href: '#integrations',
+    title: 'Aprender',
+    href: '/aprender',
   },
   {
-    title: 'Comenzar',
-    href: '#started',
+    title: 'Practicar',
+    href: '/practicar',
+  },
+  {
+    title: 'Progreso',
+    href: '/progreso',
   },
 ]
