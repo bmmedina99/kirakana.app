@@ -11,7 +11,10 @@ importers:
       '@astrojs/sitemap':
         specifier: 3.4.1
         version: 3.4.1
-      '@fontsource/poppins':
+      '@fontsource/fredoka':
+        specifier: 5.2.8
+        version: 5.2.8
+      '@fontsource/noto-sans-jp':
         specifier: 5.2.6
         version: 5.2.6
       '@tailwindcss/vite':
@@ -360,8 +363,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/poppins@5.2.6':
-    resolution: {integrity: sha512-NFr0121+vWCfzLDVvSZOzwAjRUaNj6QHA9gtUh/KHHoWf1Qn23EkwVFs63XZ6UtF5K1b3UNmCx77YEMGgV7BOQ==}
+  '@fontsource/fredoka@5.2.8':
+    resolution: {integrity: sha512-l3wJLKWlOeSvLCcTztPFmKQK/MV7dreg24ls8I7hdJQLhU8BNLDIVyqMYdmMhvblfyL0/QPLNjHP7MTGQFK2ug==}
+
+  '@fontsource/noto-sans-jp@5.2.6':
+    resolution: {integrity: sha512-BvUHYZKL87yWGRNFqInxDciU/Czp6klOEcB9l/6CnjMN77F5jc21r/A4XkMx46eY8FzVvfjCYTYUB4zExlX2Ww==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -3539,7 +3545,9 @@ snapshots:
   '@esbuild/win32-x64@0.25.5':
     optional: true
 
-  '@fontsource/poppins@5.2.6': {}
+  '@fontsource/fredoka@5.2.8': {}
+
+  '@fontsource/noto-sans-jp@5.2.6': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
