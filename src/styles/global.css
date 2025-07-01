@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --color-orange-pantone: oklch(68.4% 0.21 40.8);
-  --color-medium-slate-blue: oklch(60.5% 0.22 292.8);
-
   --font-heading: "Fredoka", sans-serif;
   --font-body: "Poppins", sans-serif;
 }
