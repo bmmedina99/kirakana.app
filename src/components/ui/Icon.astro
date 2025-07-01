@@ -11,6 +11,7 @@ const { name, width = 24, height = 24, class: classes } = Astro.props
   stroke-linecap="round"
   stroke-linejoin="round"
   stroke-width="2"
+  aria-hidden="true"
   class:list={[{ [classes]: classes }]}
 >
   <use href={`/svg/sprite.svg#${name}`} />
