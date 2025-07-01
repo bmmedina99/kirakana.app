@@ -4,39 +4,44 @@ import Icon from '../ui/Icon.astro'
 ---
 
 <header
-  class="sticky z-50 flex items-center border-b 0 border-slate-800/50 backdrop-blur-sm bg-slate-900/50"
+  class="container sticky z-50 flex items-center justify-between p-4 mx-auto border-b border-yellow-300 backdrop-blur-lg"
 >
-  <div class="container px-4 py-4 mx-auto">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <div
-          class="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-r from-orange-pantone to-medium-slate-blue"
-        >
-          <Icon name="star" class="text-yellow-300" />
-        </div>
-        <span class="text-xl font-bold text-white">{configSite.title}</span>
-      </div>
-      <nav class="items-center hidden space-x-6 md:flex">
-        {
-          navLinks.map((link) => (
+  <section
+    class="flex items-center gap-2 text-xl font-semibold uppercase font-heading"
+  >
+    <Icon name="cherry" class="text-red-400"/>
+    {configSite.title}
+  </section>
+  <nav class="hidden md:block">
+    <ul class="flex items-center gap-6">
+      {
+        navLinks.map((link) => (
+          <li>
             <a
               href={link.href}
-              class="transition-colors text-slate-300 hover:text-orange-400"
+              class="p-2 text-lg transition-colors rounded-md hover:bg-yellow-300"
             >
               {link.title}
             </a>
-          ))
-        }
-      </nav>
-      <a
-        href="https://github.com/bmmedina99/kirakana.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center px-4 py-2 text-orange-400 transition-colors bg-transparent border-2 rounded-lg border-orange-pantone hover:bg-orange-pantone hover:text-white"
-      >
-        <Icon name="github" class="mr-2" />
-        GitHub
-      </a>
-    </div>
-  </div>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <a
+    href="https://github.com/bmmedina99/kirakana.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="items-center hidden px-4 py-2 transition-colors border-2 rounded-lg md:flex hover:bg-yellow-300 hover:border-yellow-300"
+  >
+    <Icon name="github" class="mr-2" />
+    GitHub
+  </a>
+  <button
+    type="button"
+    class="flex p-2 transition-colors border-2 rounded-md md:hidden border-neutral-800 hover:bg-yellow-300"
+  >
+    <span class="sr-only">Menu</span>
+    <Icon name="menu" />
+  </button>
 </header>
