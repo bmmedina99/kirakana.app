@@ -23,7 +23,7 @@ export const navLinks = [
     href: '/practicar',
   },
   {
-    title: 'Progreso',
-    href: '/progreso',
+    title: 'Estadísticas',
+    href: '/estadisticas',
   },
 ]
