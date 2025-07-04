@@ -61,5 +61,5 @@ Este proyecto está bajo la [Licencia MIT](./LICENSE).
 
 ## Autor
 
-Desarrollado por [bmmedina99](https://github.com/bmmedina99)
+Desarrollado por [bmmedina99](https://github.com/bmmedina99)<br>
 Diseñado como proyecto de [porfolio](https://bmmedina.dev).

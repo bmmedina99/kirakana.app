@@ -2,24 +2,22 @@
 import Icon from '../ui/Icon.astro'
 ---
 
-<footer class="flex items-center px-4 py-8 bg-slate-900">
+<footer class="flex items-center px-4 py-8 border-t border-yellow-300">
   <div class="container mx-auto">
     <div class="flex flex-col items-center justify-between md:flex-row">
-      <div class="flex items-center mb-4 space-x-2 text-white md:mb-0">
-        <div
-          class="flex items-center justify-center w-6 h-6 rounded bg-gradient-to-r from-orange-pantone to-medium-slate-blue"
-        >
-          <Icon name="astro" width="12" height="12" />
+      <div class="flex items-center mb-4 space-x-2 md:mb-0">
+        <div class="flex items-center justify-center rounded">
+          <Icon name="cherry" class="text-red-600" />
         </div>
-        <span class="font-semibold">KiraKana</span>
+        <span class="font-semibold font-heading">KiraKana</span>
       </div>
-      <p class="text-sm text-slate-400">
+      <p>
         KiraKana &copy; {new Date().getFullYear()} | Desarrollado y diseñado por
         <a
           href="https://bmmedina.dev"
           target="_blank"
           rel="noopener noreferrer"
-          class="underline transition-colors hover:text-orange-pantone text-zinc-200"
+          class="underline transition-colors hover:text-cyan-700"
         >
           @bmmedina99
         </a>
