@@ -2,11 +2,12 @@
   "name": "kirakana",
   "description": "Aplicación web interactiva para practicar y aprender Hiragana y Katakana a través de un sistema de puzzle con opciones múltiples.",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev --port=4000",
     "build": "astro check && astro build",
+    "release": "pnpm dlx semantic-release",
     "preview": "astro preview --port=5000",
     "fmt": "pnpm biome format --write .",
     "lint": "pnpm biome lint --write ."
