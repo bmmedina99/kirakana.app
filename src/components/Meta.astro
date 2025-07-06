@@ -2,7 +2,7 @@
 import fontFredoka from '@fontsource/fredoka/files/fredoka-latin-700-normal.woff2?url'
 import { Schema } from 'astro-seo-schema'
 import { configSite } from '@/site.config'
-import globalCSS from '@/styles/global.css?url'
+import globalCSS from '@/styles/global.css?inline'
 
 const canonicalURL = new URL(Astro.request.url, Astro.site).toString()
 const { title } = Astro.props
@@ -22,19 +22,6 @@ const description = configSite.description
 />
 
 <style>
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 3rem;
-  }
-  body {
-    display: grid;
-    background-color: oklch(98.7% 0.022 95.277);
-    min-height: 100dvh;
-    font-family: "Poppins", sans-serif;
-    color: oklch(26.9% 0 0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
   @font-face {
     font-family: "Noto Sans JP";
     font-style: normal;
@@ -75,12 +62,7 @@ const description = configSite.description
   }
 </style>
 
-<link
-  rel="preload"
-  href={globalCSS}
-  as="style"
-  onload="this.onload=null;this.rel='stylesheet'"
-/>
+<style set:html={globalCSS}></style>
 
 <title>{siteTitle}</title>
 <meta name="description" content={description} />
