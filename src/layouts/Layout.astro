@@ -1,4 +1,6 @@
 ---
+import Footer from '@/components/layout/Footer.astro'
+import Header from '@/components/layout/Header.astro'
 import Meta from '../components/Meta.astro'
 import { configSite } from '../site.config'
 
@@ -11,7 +13,9 @@ const { ...meta } = Astro.props
     <Meta {...meta} />
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 <style is:global>
@@ -20,7 +24,8 @@ const { ...meta } = Astro.props
     scroll-padding-top: 3rem;
   }
   body {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     background-color: oklch(98.7% 0.022 95.277);
     min-height: 100dvh;
     font-family: "Poppins", sans-serif;
