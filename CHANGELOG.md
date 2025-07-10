@@ -1,3 +1,19 @@
+# [0.2.0](https://github.com/bmmedina99/kirakana.app/compare/v0.1.0...v0.2.0) (2025-07-10)
+
+
+### Bug Fixes
+
+* **css:** :bug: adjust CSS export to fix cumulative layout shift ([0bb2ff3](https://github.com/bmmedina99/kirakana.app/commit/0bb2ff37ae5e71c503459dffd764d9d569dd6570))
+
+
+### Features
+
+* **main:** :sparkles: allow children in Main component ([63df90a](https://github.com/bmmedina99/kirakana.app/commit/63df90a76d2b99a54279c5f6119ea20456a169e5))
+* **meta:** :sparkles: add open-graph image with correct dimensions ([28bcd4a](https://github.com/bmmedina99/kirakana.app/commit/28bcd4a0fa5a31e9e575d205601d39a8bf8eea83))
+* **meta:** :sparkles: add twitter-card image ([4a19499](https://github.com/bmmedina99/kirakana.app/commit/4a19499f2196afe3919cd039c49e551eb0e54e54))
+* **practice:** :sparkles: implement basic puzzle logic ([290e6c1](https://github.com/bmmedina99/kirakana.app/commit/290e6c1075e7d23e7f1ae1b4b832dd695e86552a))
+* **project:** :sparkles: add React to project ([10b94aa](https://github.com/bmmedina99/kirakana.app/commit/10b94aa59f148372939150ddac58d0edfc387682))
+
 # [0.1.0](https://github.com/bmmedina99/kirakana.app/compare/v0.0.0...v0.1.0) (2025-07-04)
 
 
