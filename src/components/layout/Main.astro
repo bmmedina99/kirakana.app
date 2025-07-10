@@ -1,7 +1,7 @@
 ---
-import Hero from '../sections/Hero.astro'
+const { class: className } = Astro.props
 ---
 
-<main>
-  <Hero />
+<main class={`flex flex-grow justify-center items-center ${className}`}>
+  <slot />
 </main>
