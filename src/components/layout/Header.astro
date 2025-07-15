@@ -1,33 +1,19 @@
 ---
-import { configSite, navLinks } from '@/site.config'
+import { configSite } from '@/site.config'
 import Icon from '../ui/Icon.astro'
+import Navigation from '../ui/Navigation.astro'
 ---
 
 <header
   class="container sticky z-50 flex items-center justify-between p-4 mx-auto border-b border-yellow-300 backdrop-blur-lg"
 >
-  <section
+  <div
     class="flex items-center gap-2 text-xl font-semibold uppercase font-heading"
   >
     <Icon name="cherry" class="text-red-700"/>
     {configSite.title}
-  </section>
-  <nav class="hidden md:block">
-    <ul class="flex items-center gap-6">
-      {
-        navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="p-2 text-lg transition-colors rounded-md hover:bg-yellow-300"
-            >
-              {link.title}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
+  </div>
+  <Navigation />
   <a
     href="https://github.com/bmmedina99/kirakana.app"
     target="_blank"
@@ -37,11 +23,4 @@ import Icon from '../ui/Icon.astro'
     <Icon name="github" class="mr-2" />
     GitHub
   </a>
-  <button
-    type="button"
-    class="flex p-2 transition-colors border-2 rounded-md md:hidden border-neutral-800 hover:bg-yellow-300"
-  >
-    <span class="sr-only">Menu</span>
-    <Icon name="menu" />
-  </button>
 </header>

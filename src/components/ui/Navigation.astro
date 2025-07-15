@@ -1,0 +1,63 @@
+---
+import { navLinks } from '@/site.config'
+import Icon from './Icon.astro'
+---
+
+<nav class="hidden md:block">
+  <ul class="flex items-center gap-6">
+    {
+      navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="p-2 text-lg transition-colors rounded-md hover:bg-yellow-300"
+          >
+            {link.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+<div class="relative md:hidden">
+  <input id="mobile-menu" type="checkbox" class="hidden peer" />
+  <label
+    for="mobile-menu"
+    class="relative flex p-2 border-2 rounded-md cursor-pointer size-10 wtransition-colors border-neutral-800 hover:bg-yellow-300"
+  >
+    <span class="sr-only">Abrir menú de navegación</span>
+  </label>
+  <Icon name="menu" class="absolute pointer-events-none top-2 left-2 peer-checked:hidden" />
+  <Icon name="close" class="absolute hidden pointer-events-none top-2 left-2 peer-checked:block" />
+  <div
+    class="absolute right-0 invisible w-48 mt-2 transition-all duration-200 transform scale-95 border-2 rounded-md opacity-0 border-neutral-800 backdrop-blur-lg bg-amber-50 peer-checked:opacity-100 peer-checked:visible peer-checked:scale-100 drop-shadow-2xl"
+  >
+    <nav class="p-2">
+      <ul class="space-y-2">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="block p-3 text-lg transition-colors rounded-md hover:bg-yellow-300"
+              >
+                {link.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="pt-2 mt-2 border-t border-yellow-300">
+        <a
+          href="https://github.com/bmmedina99/kirakana.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center p-3 text-lg transition-colors rounded-md hover:bg-yellow-300"
+        >
+          <Icon name="github" class="mr-2" />
+          GitHub
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
