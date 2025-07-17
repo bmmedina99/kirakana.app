@@ -1,3 +1,16 @@
+# [0.3.0](https://github.com/bmmedina99/kirakana.app/compare/v0.2.0...v0.3.0) (2025-07-17)
+
+
+### Bug Fixes
+
+* **css:** :adhesive_bandage: fix correct `font-family` to use 'Noto Sans JP' ([0ff0bee](https://github.com/bmmedina99/kirakana.app/commit/0ff0bee0a0320ac4ef8bc6c7822fff171b0da47b))
+* **main:** :bug: prevent `undefined` class prop in Main component ([974749e](https://github.com/bmmedina99/kirakana.app/commit/974749ec407a649be80e6b7a282bad43dc7bf7ff))
+
+
+### Features
+
+* **ui:** :lipstick: add dropdown menu for mobile view ([399f152](https://github.com/bmmedina99/kirakana.app/commit/399f152a0d0ce29f727eac1a14f5761e68061bc8))
+
 # [0.2.0](https://github.com/bmmedina99/kirakana.app/compare/v0.1.0...v0.2.0) (2025-07-10)
 
 
