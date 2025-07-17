@@ -1,34 +1,39 @@
 ---
+import Main from '@/components/layout/Main.astro'
+import Icon from '@/components/ui/Icon.astro'
 import Layout from '@/layouts/Layout.astro'
 ---
 
-<Layout title="404">
-  <main
-    class="relative flex items-center justify-center min-h-screen p-4 overflow-hidden"
-  >
-    <div class="relative z-10 w-full max-w-4xl space-y-12 text-center">
-      <p class="text-6xl font-bold leading-none text-transparent sm:text-8xl bg-clip-text bg-gradient-to-t from-orange-pantone to-medium-slate-blue">
+<Layout title="Página no encontrada">
+  <Main>
+    <section class="relative z-10 w-full max-w-4xl space-y-12 text-center">
+      <p
+        class="text-6xl font-bold leading-none text-transparent font-heading sm:text-8xl bg-clip-text bg-gradient-to-t from-red-400 to-sky-400"
+        aria-label="Error 404"
+      >
         404
       </p>
       <div class="space-y-6">
-        <h1 class="text-4xl font-bold text-white sm:text-5xl">
+        <h1
+          class="text-4xl font-bold font-heading text-neutral-800 sm:text-5xl"
+        >
           Página no encontrada
         </h1>
-        <p class="max-w-2xl mx-auto text-xl leading-relaxed text-slate-300">
-          Lo sentimos, la página que estás buscando no existe o ha sido movida.
-          Pero no te preocupes, hay muchas otras cosas increíbles que puedes
-          explorar.
+        <p
+          class="max-w-2xl mx-auto text-xl leading-relaxed text-neutral-800 text-pretty"
+        >
+          Lo sentimos, la página no existe o fue movida, pero hay muchas otras
+          cosas increíbles por explorar.
         </p>
       </div>
-      <div class="flex items-center justify-center">
-        <button
-          type="button"
-          onclick="window.history.back()"
-          class="flex gap-4 px-4 py-3 text-black border-0 rounded-md bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700"
-        >
-          Volver a la página anterior
-        </button>
-      </div>
-    </div>
-  </main>
+      <button
+        type="button"
+        onclick="window.history.back()"
+        class="px-4 py-3 transition-all duration-200 bg-red-700 border-0 rounded-md hover:scale-90 text-neutral-100 hover:bg-cyan-700"
+        aria-label="Volver a la página anterior"
+      >
+        <Icon name="backpage" />
+      </button>
+    </section>
+  </Main>
 </Layout>

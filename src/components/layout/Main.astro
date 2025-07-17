@@ -1,7 +1,7 @@
 ---
-const { class: className } = Astro.props
+const { class: classes } = Astro.props
 ---
 
-<main class={`flex flex-grow justify-center items-center ${className}`}>
+<main class:list={["relative flex flex-grow justify-center items-center overflow-hidden", { [classes]: classes }]}>
   <slot />
 </main>
