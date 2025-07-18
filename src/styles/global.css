@@ -3,3 +3,14 @@
 @theme {
   --font-heading: "Fredoka", sans-serif;
 }
+
+@layer base {
+  ::selection {
+    background-color: color-mix(
+      in oklab,
+      var(--color-yellow-400) 40%,
+      transparent
+    );
+    color: var(--color-neutral-800);
+  }
+}
