@@ -2,6 +2,7 @@
 
 @theme {
   --font-heading: "Fredoka", sans-serif;
+  --font-text: "Noto Sans JP", sans-serif;
 }
 
 @layer base {
