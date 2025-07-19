@@ -14,11 +14,12 @@ const HIRAGANA: KanaItem[] = [
 ]
 
 export default function Practice() {
-  const [mode, setMode] = useState<string>()
-  const [currentKana, setCurrentKana] = useState<KanaItem | null>()
+  const [mode, setMode] = useState<string | null>(null)
+  const [currentKana, setCurrentKana] = useState<KanaItem | null>(null)
   const [remainingKana, setRemainingKana] = useState<KanaItem[]>([])
   const [options, setOptions] = useState<string[]>([])
-  const [feedback, setFeedback] = useState<string | null>()
+  const [feedback, setFeedback] = useState<string | null>(null)
+  const [finish, setFinish] = useState<boolean>(false)
 
   const initialPuzzle = (selectMode: string) => {
     setMode(selectMode)
@@ -26,6 +27,7 @@ export default function Practice() {
     setRemainingKana([...HIRAGANA])
     setOptions([])
     setFeedback(null)
+    setFinish(false)
   }
 
   const handleSelection = (option: string) => {
@@ -39,8 +41,22 @@ export default function Practice() {
   }
 
   const nextKana = useCallback(() => {
+    if (remainingKana.length === 0) {
+      setFinish(true)
+      return
+    }
+
     const [next, ...rest] = remainingKana
     const generateOptions: string[] = next ? [next.romanji] : []
+
+    if (!next) {
+      setCurrentKana(null)
+      setOptions([])
+      return
+    }
+
+    setCurrentKana(next)
+    setRemainingKana(rest)
 
     while (generateOptions.length < 4) {
       const randomIndex = Math.floor(Math.random() * HIRAGANA.length)
@@ -53,12 +69,8 @@ export default function Practice() {
       }
     }
 
-    console.log(`Next: ${next}`)
-    setCurrentKana(next)
-    console.log(currentKana)
-    setRemainingKana(rest)
     setOptions(generateOptions)
-  }, [remainingKana, currentKana])
+  }, [remainingKana])
 
   useEffect(() => {
     if (mode && remainingKana.length > 0 && !currentKana) nextKana()
@@ -87,9 +99,24 @@ export default function Practice() {
     )
   }
 
+  if (finish) {
+    return (
+      <div className='flex flex-col items-center gap-4'>
+        <h1>¡Se ha finalizado el juego!</h1>
+        <button
+          type='button'
+          className='px-4 py-2 transition-colors bg-yellow-400 border-2 border-yellow-400 rounded-md hover:bg-yellow-100'
+          onClick={() => setMode(null)}
+        >
+          Volver al inicio
+        </button>
+      </div>
+    )
+  }
+
   return (
     <section className='flex flex-col items-center gap-4 p-4'>
-      <div className='flex items-center justify-center p-8 text-6xl bg-white border rounded shadow-lg size-24'>
+      <div className='flex items-center justify-center p-8 text-6xl bg-white border rounded-md shadow-lg size-24'>
         {currentKana ? currentKana?.kana : ''}
       </div>
       <div className='grid w-full max-w-md grid-cols-2 gap-4'>
@@ -98,7 +125,7 @@ export default function Practice() {
             type='button'
             key={opcion}
             onClick={() => handleSelection(opcion)}
-            className={`px-4 py-2 rounded border text-lg transition-all duration-200
+            className={`px-4 py-2 rounded-md border text-lg transition-all duration-200
               ${feedback && opcion === currentKana?.romanji && feedback === 'correct' ? 'bg-green-400' : ''}
               ${feedback && opcion === currentKana?.romanji && feedback === 'fail' ? 'bg-red-400' : ''}
               ${feedback && opcion !== currentKana?.romanji && feedback === 'fail' ? 'opacity-50' : ''}
