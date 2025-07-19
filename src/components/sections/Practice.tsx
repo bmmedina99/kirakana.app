@@ -15,14 +15,16 @@ const HIRAGANA: KanaItem[] = [
 
 export default function Practice() {
   const [mode, setMode] = useState<string | null>(null)
+  const [successes, setSuccesses] = useState<number>(0)
   const [currentKana, setCurrentKana] = useState<KanaItem | null>(null)
   const [remainingKana, setRemainingKana] = useState<KanaItem[]>([])
   const [options, setOptions] = useState<string[]>([])
   const [feedback, setFeedback] = useState<string | null>(null)
   const [finish, setFinish] = useState<boolean>(false)
 
-  const initialPuzzle = (selectMode: string) => {
-    setMode(selectMode)
+  const initialPuzzle = (selectedMode: string) => {
+    setMode(selectedMode)
+    setSuccesses(0)
     setCurrentKana(null)
     setRemainingKana([...HIRAGANA])
     setOptions([])
@@ -31,8 +33,10 @@ export default function Practice() {
   }
 
   const handleSelection = (option: string) => {
-    if (option === currentKana?.romanji) setFeedback('correct')
-    else setFeedback('fail')
+    if (option === currentKana?.romanji) {
+      setFeedback('correct')
+      setSuccesses((prev) => prev + 1)
+    } else setFeedback('fail')
 
     setTimeout(() => {
       setFeedback(null)
@@ -73,8 +77,8 @@ export default function Practice() {
   }, [remainingKana])
 
   useEffect(() => {
-    if (mode && remainingKana.length > 0 && !currentKana) nextKana()
-  }, [mode, remainingKana, nextKana, currentKana])
+    if (mode && remainingKana.length > 0 && !currentKana && !finish) nextKana()
+  }, [mode, remainingKana, nextKana, currentKana, finish])
 
   if (!mode) {
     return (
@@ -100,9 +104,13 @@ export default function Practice() {
   }
 
   if (finish) {
+    const total = HIRAGANA.length
     return (
       <div className='flex flex-col items-center gap-4'>
         <h1>¡Se ha finalizado el juego!</h1>
+        <p className='text-lg'>
+          Correcto: {successes} / {total}
+        </p>
         <button
           type='button'
           className='px-4 py-2 transition-colors bg-yellow-400 border-2 border-yellow-400 rounded-md hover:bg-yellow-100'
@@ -116,6 +124,7 @@ export default function Practice() {
 
   return (
     <section className='flex flex-col items-center gap-4 p-4'>
+      <p className='text-xl font-semibold'>Correcto: {successes}</p>
       <div className='flex items-center justify-center p-8 text-6xl bg-white border rounded-md shadow-lg size-24'>
         {currentKana ? currentKana?.kana : ''}
       </div>
