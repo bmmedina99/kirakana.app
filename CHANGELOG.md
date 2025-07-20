@@ -1,3 +1,19 @@
+# [0.4.0](https://github.com/bmmedina99/kirakana.app/compare/v0.3.0...v0.4.0) (2025-07-20)
+
+
+### Bug Fixes
+
+* **header:** :adhesive_bandage: correct sticky behavior ([9a6d64a](https://github.com/bmmedina99/kirakana.app/commit/9a6d64a27bb514088c2b4f0d66ba88de97f8f60d))
+* **navigation:** :bug: close mobile nav on outsite click ([a62e3ca](https://github.com/bmmedina99/kirakana.app/commit/a62e3cabd36940ed80f212094dd0d30c9f7a1074))
+
+
+### Features
+
+* **a11y:** :wheelchair: add `skip to home` link for accessibility ([37a1ab0](https://github.com/bmmedina99/kirakana.app/commit/37a1ab00e34289517d00becc5388d78a6b820e0c))
+* **hero:** :sparkles: enhance homepage landing page ([c312d87](https://github.com/bmmedina99/kirakana.app/commit/c312d87854964d74ac322b7940782517509ea568))
+* **practice:** :sparkles: add feedback on puzzle completion ([e0922b3](https://github.com/bmmedina99/kirakana.app/commit/e0922b3ddfa36aaea097c502e7cc9b8c39bcf0f1))
+* **practice:** :sparkles: stop infinite loop when all kanas are completed ([d0f2e15](https://github.com/bmmedina99/kirakana.app/commit/d0f2e158d7c1ddd72337a9a22ebeb685e6664bab))
+
 # [0.3.0](https://github.com/bmmedina99/kirakana.app/compare/v0.2.0...v0.3.0) (2025-07-17)
 
 
