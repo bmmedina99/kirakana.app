@@ -1,23 +1,78 @@
----
-import { configSite } from '@/site.config'
----
-
-<section class="container px-4 py-32 mx-auto text-center">
-  <h1 class="mb-6 font-bold leading-tight font-heading">
-    {configSite.title}
-    <span
-      class="block text-transparent bg-clip-text bg-gradient-to-b from-red-400 to-sky-400"
-    >
-      En desarrollo
-    </span>
-  </h1>
-  <p class="max-w-3xl mx-auto mb-8 text-lg leading-relaxed text-slate-800 text-pretty">
-    Aplicación interactiva para practicar y aprender
-    <strong class="text-red-700">Hiragana</strong>
-    <span class="text-sm text-red-700">(ひらがな)</span> y <strong class="text-cyan-700"
-      >Katakana</strong
-    >
-    <span class="text-sm text-cyan-700">(カタカナ)</span> a través de un sistema de puzzle con
-    opciones múltiples.
-  </p>
+<section
+  aria-labelledby="hero-title"
+  class="py-20 md:py-32 bg-gradient-to-b from-background to-amber-100"
+>
+  <div class="container px-4 mx-auto md:px-6">
+    <div class="grid gap-6 lg:grid-cols-2 lg:gap-12">
+      <div class="flex flex-col justify-center space-y-4">
+        <h1
+          class="font-bold font-heading text-balance"
+        >
+          Aprende
+          <span class="text-red-700">Hiragana</span>
+          y
+          <span class="text-cyan-700">Katakana</span>
+          con
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-sky-400"
+          >
+            KiraKana
+          </span>
+        </h1>
+        <p class="max-w-xl text-pretty md:text-xl">
+          Domina los silabarios japoneses
+          <strong class="text-red-700">Hiragana</strong>
+          <span class="sr-only">(ひらがな)</span>
+          y
+          <strong class="text-cyan-700">Katakana</strong>
+          <span class="sr-only">(カタカナ)</span>
+          a través de nuestra plataforma interactiva. Practica cada
+          kana con un puzzle intuitivo diseñado para principiantes
+          que desean memorizar estos sistemas de escritura esenciales.
+        </p>
+      </div>
+      <div class="flex items-center justify-center">
+        <ul
+          class="grid grid-cols-3 gap-4 p-4 transition-colors border border-gray-200 rounded-lg shadow-lg select-none bg-yellow-50 hover:bg-yellow-100"
+        >
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
+            <span aria-hidden="true">あ</span>
+            <span class="sr-only">Hiragana “A”</span>
+          </li>
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
+            <span aria-hidden="true">い</span>
+            <span class="sr-only">Hiragana “I”</span>
+          </li>
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
+            <span aria-hidden="true">う</span>
+            <span class="sr-only">Hiragana “U”</span>
+          </li>
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
+            <span aria-hidden="true">え</span>
+            <span class="sr-only">Hiragana “E”</span>
+          </li>
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
+            <span aria-hidden="true">お</span>
+            <span class="sr-only">Hiragana “O”</span>
+          </li>
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-cyan-700">
+            <span aria-hidden="true">カ</span>
+            <span class="sr-only">Katakana “Ka”</span>
+          </li>
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-cyan-700">
+            <span aria-hidden="true">キ</span>
+            <span class="sr-only">Katakana “Ki”</span>
+          </li>
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-cyan-700">
+            <span aria-hidden="true">ク</span>
+            <span class="sr-only">Katakana “Ku”</span>
+          </li>
+          <li class="flex items-center justify-center p-4 text-5xl font-bold text-cyan-700">
+            <span aria-hidden="true">ケ</span>
+            <span class="sr-only">Katakana “Ke”</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
