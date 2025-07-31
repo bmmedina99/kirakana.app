@@ -1,9 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-
-interface KanaItem {
-  kana: string
-  romanji: string
-}
+import type { KanaItem } from '@/types'
 
 const HIRAGANA: KanaItem[] = [
   { kana: 'あ', romanji: 'a' },
