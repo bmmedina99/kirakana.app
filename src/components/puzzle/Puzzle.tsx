@@ -1,19 +1,21 @@
 import { useCallback, useEffect, useState } from 'react'
-import type { KanaItem } from '@/types'
+import type { Feedback, KanaItem, Mode } from '@/types'
+import { dataset, totalKanas } from '@/utils/mode'
+import { shuffle } from '@/utils/shuffle'
 
 export default function Practice() {
-  const [mode, setMode] = useState<string | null>(null)
+  const [mode, setMode] = useState<Mode>(null)
   const [lives, setLives] = useState<number>(3)
   const [correctAnswers, setCorrectAnswers] = useState<number>(0)
   const [remainingKanas, setRemainingKanas] = useState<KanaItem[]>([])
   const [currentKana, setCurrentKana] = useState<KanaItem | null>(null)
   const [options, setOptions] = useState<string[]>([])
-  const [feedback, setFeedback] = useState<string | null>(null)
+  const [feedback, setFeedback] = useState<Feedback>(null)
   const [isFinished, setIsFinished] = useState<boolean>(false)
 
-  const initialPuzzle = (selectedMode: string) => {
+  const startPuzzle = (selectedMode: Mode) => {
     setMode(selectedMode)
-    setRemainingKanas([...HIRAGANA])
+    setRemainingKanas(shuffle(dataset(selectedMode)))
     setLives(3)
     setCorrectAnswers(0)
     setCurrentKana(null)
@@ -31,7 +33,7 @@ export default function Practice() {
         nextKana()
       }, 1000)
     } else {
-      setFeedback('fail')
+      setFeedback('incorrect')
       setLives((prev) => prev - 1)
       setTimeout(() => {
         setFeedback(null)
@@ -64,8 +66,8 @@ export default function Practice() {
     setRemainingKanas(rest)
 
     while (generateOptions.length < 4) {
-      const randomIndex = Math.floor(Math.random() * HIRAGANA.length)
-      const randomItem = HIRAGANA[randomIndex]
+      const randomIndex = Math.floor(Math.random() * totalKanas(mode))
+      const randomItem = dataset(mode)[randomIndex]
       if (randomItem) {
         const randomOptiom = randomItem.romanji
         if (!generateOptions.includes(randomOptiom)) {
@@ -75,7 +77,7 @@ export default function Practice() {
     }
 
     setOptions(generateOptions)
-  }, [remainingKanas, lives])
+  }, [remainingKanas, lives, mode])
 
   useEffect(() => {
     if (mode && remainingKanas.length > 0 && !currentKana && !isFinished)
@@ -93,7 +95,7 @@ export default function Practice() {
         <div className='flex items-center justify-center gap-4'>
           <button
             type='button'
-            onClick={() => initialPuzzle('hiragana')}
+            onClick={() => startPuzzle('hiragana')}
             className='px-4 py-2 transition-colors border border-red-700 rounded-lg size-32 hover:bg-red-400'
           >
             Hiragana
@@ -110,7 +112,6 @@ export default function Practice() {
   }
 
   if (isFinished) {
-    const total = HIRAGANA.length
     return (
       <section className='flex flex-col items-center gap-4 [&>p]:text-lg'>
         <h1>Se ha finalizado el juego</h1>
@@ -120,7 +121,7 @@ export default function Practice() {
             : '¡Completaste todos los caracteres!'}
         </p>
         <p>
-          Aciertos: {correctAnswers} / {total}
+          Aciertos: {correctAnswers} / {totalKanas(mode)}
         </p>
         <button
           type='button'
@@ -147,8 +148,8 @@ export default function Practice() {
             onClick={() => handleSelection(opcion)}
             className={`px-4 py-2 rounded-md border text-lg transition-all duration-200
               ${feedback && opcion === currentKana?.romanji && feedback === 'correct' ? 'bg-green-400' : ''}
-              ${feedback && opcion === currentKana?.romanji && feedback === 'fail' ? 'bg-red-400' : ''}
-              ${feedback && opcion !== currentKana?.romanji && feedback === 'fail' ? 'opacity-50' : ''}
+              ${feedback && opcion === currentKana?.romanji && feedback === 'incorrect' ? 'bg-red-400' : ''}
+              ${feedback && opcion !== currentKana?.romanji && feedback === 'incorrect' ? 'opacity-50' : ''}
               ${feedback === null ? 'hover:bg-gray-100' : ''}
             `}
             disabled={feedback !== null}
