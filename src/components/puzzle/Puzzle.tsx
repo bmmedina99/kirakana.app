@@ -1,32 +1,31 @@
 import { useCallback, useEffect, useState } from 'react'
-import { HIRAGANA } from '@/site.config'
 import type { KanaItem } from '@/types'
 
 export default function Practice() {
   const [mode, setMode] = useState<string | null>(null)
   const [lives, setLives] = useState<number>(3)
-  const [successes, setSuccesses] = useState<number>(0)
+  const [correctAnswers, setCorrectAnswers] = useState<number>(0)
+  const [remainingKanas, setRemainingKanas] = useState<KanaItem[]>([])
   const [currentKana, setCurrentKana] = useState<KanaItem | null>(null)
-  const [remainingKana, setRemainingKana] = useState<KanaItem[]>([])
   const [options, setOptions] = useState<string[]>([])
   const [feedback, setFeedback] = useState<string | null>(null)
-  const [finish, setFinish] = useState<boolean>(false)
+  const [isFinished, setIsFinished] = useState<boolean>(false)
 
   const initialPuzzle = (selectedMode: string) => {
     setMode(selectedMode)
+    setRemainingKanas([...HIRAGANA])
     setLives(3)
-    setSuccesses(0)
+    setCorrectAnswers(0)
     setCurrentKana(null)
-    setRemainingKana([...HIRAGANA])
     setOptions([])
     setFeedback(null)
-    setFinish(false)
+    setIsFinished(false)
   }
 
   const handleSelection = (option: string) => {
     if (option === currentKana?.romanji) {
       setFeedback('correct')
-      setSuccesses((prev) => prev + 1)
+      setCorrectAnswers((prev) => prev + 1)
       setTimeout(() => {
         setFeedback(null)
         nextKana()
@@ -42,17 +41,17 @@ export default function Practice() {
   }
 
   const nextKana = useCallback(() => {
-    if (remainingKana.length === 0) {
-      setFinish(true)
+    if (remainingKanas.length === 0) {
+      setIsFinished(true)
       return
     }
 
     if (lives === 0) {
-      setFinish(true)
+      setIsFinished(true)
       return
     }
 
-    const [next, ...rest] = remainingKana
+    const [next, ...rest] = remainingKanas
     const generateOptions: string[] = next ? [next.romanji] : []
 
     if (!next) {
@@ -62,7 +61,7 @@ export default function Practice() {
     }
 
     setCurrentKana(next)
-    setRemainingKana(rest)
+    setRemainingKanas(rest)
 
     while (generateOptions.length < 4) {
       const randomIndex = Math.floor(Math.random() * HIRAGANA.length)
@@ -76,14 +75,15 @@ export default function Practice() {
     }
 
     setOptions(generateOptions)
-  }, [remainingKana, lives])
+  }, [remainingKanas, lives])
 
   useEffect(() => {
-    if (mode && remainingKana.length > 0 && !currentKana && !finish) nextKana()
-  }, [mode, remainingKana, nextKana, currentKana, finish])
+    if (mode && remainingKanas.length > 0 && !currentKana && !isFinished)
+      nextKana()
+  }, [mode, remainingKanas, nextKana, currentKana, isFinished])
 
   useEffect(() => {
-    if (mode && lives === 0) setFinish(true)
+    if (mode && lives === 0) setIsFinished(true)
   }, [lives, mode])
 
   if (!mode) {
@@ -109,7 +109,7 @@ export default function Practice() {
     )
   }
 
-  if (finish) {
+  if (isFinished) {
     const total = HIRAGANA.length
     return (
       <section className='flex flex-col items-center gap-4 [&>p]:text-lg'>
@@ -120,7 +120,7 @@ export default function Practice() {
             : '¡Completaste todos los caracteres!'}
         </p>
         <p>
-          Aciertos: {successes} / {total}
+          Aciertos: {correctAnswers} / {total}
         </p>
         <button
           type='button'
