@@ -11,6 +11,6 @@ export interface KanaItem {
   romanji: string
 }
 
-export type Modo = 'hiragana' | 'katakana'
+export type Mode = 'hiragana' | 'katakana' | null
 
-export type Feedback = 'correct' | 'failed'
+export type Feedback = 'correct' | 'incorrect' | null
