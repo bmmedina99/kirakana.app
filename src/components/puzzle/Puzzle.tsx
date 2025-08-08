@@ -54,8 +54,6 @@ export default function Practice() {
     }
 
     const [next, ...rest] = remainingKanas
-    const generateOptions: string[] = next ? [next.romanji] : []
-
     if (!next) {
       setCurrentKana(null)
       setOptions([])
@@ -65,18 +63,20 @@ export default function Practice() {
     setCurrentKana(next)
     setRemainingKanas(rest)
 
-    while (generateOptions.length < 4) {
+    const generatedOptions: string[] = [next.romanji]
+
+    while (generatedOptions.length < 4) {
       const randomIndex = Math.floor(Math.random() * totalKanas(mode))
       const randomItem = dataset(mode)[randomIndex]
       if (randomItem) {
-        const randomOptiom = randomItem.romanji
-        if (!generateOptions.includes(randomOptiom)) {
-          generateOptions.push(randomOptiom)
+        const randomOption = randomItem.romanji
+        if (!generatedOptions.includes(randomOption)) {
+          generatedOptions.push(randomOption)
         }
       }
     }
 
-    setOptions(generateOptions)
+    setOptions(generatedOptions)
   }, [remainingKanas, lives, mode])
 
   useEffect(() => {
