@@ -1,13 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
+import { HIRAGANA } from '@/site.config'
 import type { KanaItem } from '@/types'
-
-const HIRAGANA: KanaItem[] = [
-  { kana: 'あ', romanji: 'a' },
-  { kana: 'い', romanji: 'i' },
-  { kana: 'う', romanji: 'u' },
-  { kana: 'え', romanji: 'e' },
-  { kana: 'お', romanji: 'o' },
-]
 
 export default function Practice() {
   const [mode, setMode] = useState<string | null>(null)
