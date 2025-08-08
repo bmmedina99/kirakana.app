@@ -4,6 +4,7 @@ import type { KanaItem } from '@/types'
 
 export default function Practice() {
   const [mode, setMode] = useState<string | null>(null)
+  const [lives, setLives] = useState<number>(3)
   const [successes, setSuccesses] = useState<number>(0)
   const [currentKana, setCurrentKana] = useState<KanaItem | null>(null)
   const [remainingKana, setRemainingKana] = useState<KanaItem[]>([])
@@ -13,6 +14,7 @@ export default function Practice() {
 
   const initialPuzzle = (selectedMode: string) => {
     setMode(selectedMode)
+    setLives(3)
     setSuccesses(0)
     setCurrentKana(null)
     setRemainingKana([...HIRAGANA])
@@ -25,16 +27,27 @@ export default function Practice() {
     if (option === currentKana?.romanji) {
       setFeedback('correct')
       setSuccesses((prev) => prev + 1)
-    } else setFeedback('fail')
-
-    setTimeout(() => {
-      setFeedback(null)
-      nextKana()
-    }, 1000)
+      setTimeout(() => {
+        setFeedback(null)
+        nextKana()
+      }, 1000)
+    } else {
+      setFeedback('fail')
+      setLives((prev) => prev - 1)
+      setTimeout(() => {
+        setFeedback(null)
+        nextKana()
+      }, 1500)
+    }
   }
 
   const nextKana = useCallback(() => {
     if (remainingKana.length === 0) {
+      setFinish(true)
+      return
+    }
+
+    if (lives === 0) {
       setFinish(true)
       return
     }
@@ -63,11 +76,15 @@ export default function Practice() {
     }
 
     setOptions(generateOptions)
-  }, [remainingKana])
+  }, [remainingKana, lives])
 
   useEffect(() => {
     if (mode && remainingKana.length > 0 && !currentKana && !finish) nextKana()
   }, [mode, remainingKana, nextKana, currentKana, finish])
+
+  useEffect(() => {
+    if (mode && lives === 0) setFinish(true)
+  }, [lives, mode])
 
   if (!mode) {
     return (
@@ -95,10 +112,15 @@ export default function Practice() {
   if (finish) {
     const total = HIRAGANA.length
     return (
-      <div className='flex flex-col items-center gap-4'>
-        <h1>¡Se ha finalizado el juego!</h1>
-        <p className='text-lg'>
-          Correcto: {successes} / {total}
+      <section className='flex flex-col items-center gap-4 [&>p]:text-lg'>
+        <h1>Se ha finalizado el juego</h1>
+        <p>
+          {lives === 0
+            ? '¡Te quedaste sin vidas!'
+            : '¡Completaste todos los caracteres!'}
+        </p>
+        <p>
+          Aciertos: {successes} / {total}
         </p>
         <button
           type='button'
@@ -107,13 +129,13 @@ export default function Practice() {
         >
           Volver al inicio
         </button>
-      </div>
+      </section>
     )
   }
 
   return (
     <section className='flex flex-col items-center gap-4 p-4'>
-      <p className='text-xl font-semibold'>Correcto: {successes}</p>
+      <p className='text-xl font-semibold'>Vidas: {lives}</p>
       <div className='flex items-center justify-center p-8 text-6xl bg-white border rounded-md shadow-lg size-24'>
         {currentKana ? currentKana?.kana : ''}
       </div>
