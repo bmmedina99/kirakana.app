@@ -4,8 +4,10 @@ const { class: classes } = Astro.props
 
 <main
   id="main-content"
-  class:list={["relative overflow-x-hidden", { [classes]: classes }]}
+  class:list={[
+    "relative flex justify-center items-center flex-col flex-grow overflow-x-hidden",
+    { [classes]: classes },
+  ]}
 >
   <slot />
 </main>
- 

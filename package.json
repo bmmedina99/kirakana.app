@@ -18,28 +18,28 @@
   },
   "dependencies": {
     "@astrojs/react": "4.3.0",
-    "@astrojs/sitemap": "3.4.1",
+    "@astrojs/sitemap": "3.4.2",
     "@fontsource/fredoka": "5.2.8",
     "@fontsource/noto-sans-jp": "5.2.6",
     "@tailwindcss/vite": "4.1.11",
-    "astro": "5.11.0",
+    "astro": "5.12.4",
     "astro-robots-txt": "1.0.0",
-    "astro-seo-schema": "5.0.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "astro-seo-schema": "5.1.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
     "schema-dts": "1.1.5"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
-    "@biomejs/biome": "2.0.6",
+    "@biomejs/biome": "2.1.2",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@types/node": "24.0.10",
+    "@types/node": "24.1.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
-    "sharp": "0.34.2",
+    "sharp": "0.34.3",
     "tailwindcss": "4.1.11",
     "typescript": "5.8.3"
   },
-  "packageManager": "pnpm@10.12.4"
+  "packageManager": "pnpm@10.13.1"
 }
