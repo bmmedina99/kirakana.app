@@ -1,3 +1,11 @@
+# [0.5.0](https://github.com/bmmedina99/kirakana.app/compare/v0.4.0...v0.5.0) (2025-08-09)
+
+
+### Features
+
+* **landing:** :sparkles: add “How It Works” section ([cab1ce6](https://github.com/bmmedina99/kirakana.app/commit/cab1ce6e395b78ab0e33cae708e09be5fc9eeed1))
+* **puzzle:** enhance puzzle system ([#6](https://github.com/bmmedina99/kirakana.app/issues/6)) ([1b1d1a3](https://github.com/bmmedina99/kirakana.app/commit/1b1d1a387d051b8235f49780453b9de6abd54414))
+
 # [0.4.0](https://github.com/bmmedina99/kirakana.app/compare/v0.3.0...v0.4.0) (2025-07-20)
 
 
