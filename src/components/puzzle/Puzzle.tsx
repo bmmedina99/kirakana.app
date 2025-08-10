@@ -114,11 +114,11 @@ export default function Practice() {
   if (isFinished) {
     return (
       <section className='flex flex-col items-center gap-4 [&>p]:text-lg'>
-        <h1>Se ha finalizado el juego</h1>
-        <p>
+        <h1 className='font-bold font-heading'>Se ha finalizado el juego</h1>
+        <p className='font-semibold'>
           {lives === 0
             ? '¡Te quedaste sin vidas!'
-            : '¡Completaste todos los caracteres!'}
+            : '¡Completaste todos los Kanas!'}
         </p>
         <p>
           Aciertos: {correctAnswers} / {totalKanas(mode)}
@@ -136,7 +136,7 @@ export default function Practice() {
 
   return (
     <section className='flex flex-col items-center gap-4 p-4'>
-      <p className='text-xl font-semibold'>Vidas: {lives}</p>
+      <h1 className='text-xl font-bold font-heading'>Vidas: {lives}</h1>
       <div className='flex items-center justify-center p-8 text-6xl bg-white border rounded-md shadow-lg size-24'>
         {currentKana ? currentKana?.kana : ''}
       </div>
