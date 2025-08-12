@@ -1,3 +1,15 @@
+# [0.6.0](https://github.com/bmmedina99/kirakana.app/compare/v0.5.0...v0.6.0) (2025-08-12)
+
+
+### Bug Fixes
+
+* **landing:** :bug: correct layout sizing on large screens ([e43a2c4](https://github.com/bmmedina99/kirakana.app/commit/e43a2c42dee1052370239d7166c40aa34d53352a))
+
+
+### Features
+
+* **puzzle:** :sparkles: add shuffle answer options ([ef7320a](https://github.com/bmmedina99/kirakana.app/commit/ef7320a225d826bf0106e7d7b7efd5bb2bc1c760))
+
 # [0.5.0](https://github.com/bmmedina99/kirakana.app/compare/v0.4.0...v0.5.0) (2025-08-09)
 
 
