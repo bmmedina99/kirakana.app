@@ -34,6 +34,16 @@ export const Hiragana: KanaItem[] = [
   { kana: 'う', romanji: 'u' },
   { kana: 'え', romanji: 'e' },
   { kana: 'お', romanji: 'o' },
+  { kana: 'か', romanji: 'ka' },
+  { kana: 'き', romanji: 'ki' },
+  { kana: 'く', romanji: 'ku' },
+  { kana: 'け', romanji: 'ke' },
+  { kana: 'こ', romanji: 'ko' },
+  { kana: 'さ', romanji: 'sa' },
+  { kana: 'し', romanji: 'shi' },
+  { kana: 'す', romanji: 'su' },
+  { kana: 'せ', romanji: 'se' },
+  { kana: 'そ', romanji: 'so' },
 ]
 
 export const Katakana: KanaItem[] = [
