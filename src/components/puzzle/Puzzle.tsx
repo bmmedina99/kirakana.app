@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { Feedback, KanaItem, Mode } from '@/types'
-import { dataset, totalKanas } from '@/utils/mode'
+import { dataset } from '@/utils/mode'
 import { shuffle } from '@/utils/shuffle'
 
 export default function Practice() {
-  const [mode, setMode] = useState<Mode>(null)
+  const [selectedMode, setSelectedMode] = useState<Mode | null>(null)
+  const [kanaSet, setKanaSet] = useState<KanaItem[]>([])
   const [lives, setLives] = useState<number>(3)
   const [correctAnswers, setCorrectAnswers] = useState<number>(0)
   const [remainingKanas, setRemainingKanas] = useState<KanaItem[]>([])
@@ -13,9 +14,11 @@ export default function Practice() {
   const [feedback, setFeedback] = useState<Feedback>(null)
   const [isFinished, setIsFinished] = useState<boolean>(false)
 
-  const startPuzzle = (selectedMode: Mode) => {
-    setMode(selectedMode)
-    setRemainingKanas(shuffle(dataset(selectedMode)))
+  const startPuzzle = (mode: Mode) => {
+    setSelectedMode(mode)
+    const data = dataset(mode)
+    setKanaSet(data)
+    setRemainingKanas(shuffle(data))
     setLives(3)
     setCorrectAnswers(0)
     setCurrentKana(null)
@@ -65,9 +68,9 @@ export default function Practice() {
 
     const generatedOptions: string[] = [next.romanji]
 
-    while (generatedOptions.length < 4) {
-      const randomIndex = Math.floor(Math.random() * totalKanas(mode))
-      const randomItem = dataset(mode)[randomIndex]
+    while (generatedOptions.length < 4 && kanaSet.length > 0) {
+      const randomIndex = Math.floor(Math.random() * kanaSet.length)
+      const randomItem = kanaSet[randomIndex]
       if (randomItem) {
         const randomOption = randomItem.romanji
         if (!generatedOptions.includes(randomOption)) {
@@ -76,19 +79,25 @@ export default function Practice() {
       }
     }
 
-    setOptions(generatedOptions)
-  }, [remainingKanas, lives, mode])
+    setOptions(shuffle(generatedOptions))
+  }, [remainingKanas, lives, kanaSet])
 
   useEffect(() => {
-    if (mode && remainingKanas.length > 0 && !currentKana && !isFinished)
+    if (
+      kanaSet.length > 0 &&
+      remainingKanas.length > 0 &&
+      !currentKana &&
+      !isFinished
+    ) {
       nextKana()
-  }, [mode, remainingKanas, nextKana, currentKana, isFinished])
+    }
+  }, [kanaSet, remainingKanas, nextKana, currentKana, isFinished])
 
   useEffect(() => {
-    if (mode && lives === 0) setIsFinished(true)
-  }, [lives, mode])
+    if (kanaSet.length > 0 && lives === 0) setIsFinished(true)
+  }, [lives, kanaSet])
 
-  if (!mode) {
+  if (!selectedMode) {
     return (
       <section className='flex flex-col items-center gap-4'>
         <h1 className='font-bold font-heading'>Elige un modo</h1>
@@ -102,6 +111,7 @@ export default function Practice() {
           </button>
           <button
             type='button'
+            onClick={() => startPuzzle('katakana')}
             className='px-4 py-2 transition-colors border rounded-lg border-cyan-700 size-32 hover:bg-sky-400'
           >
             Katakana
@@ -114,19 +124,21 @@ export default function Practice() {
   if (isFinished) {
     return (
       <section className='flex flex-col items-center gap-4 [&>p]:text-lg'>
-        <h1>Se ha finalizado el juego</h1>
-        <p>
+        <h1 className='font-bold font-heading text-center text-balance'>
+          Se ha finalizado el juego
+        </h1>
+        <p className='font-semibold'>
           {lives === 0
             ? '¡Te quedaste sin vidas!'
-            : '¡Completaste todos los caracteres!'}
+            : '¡Completaste todos los Kanas!'}
         </p>
         <p>
-          Aciertos: {correctAnswers} / {totalKanas(mode)}
+          Aciertos: {correctAnswers} / {kanaSet.length}
         </p>
         <button
           type='button'
           className='px-4 py-2 transition-colors bg-yellow-400 border-2 border-yellow-400 rounded-md hover:bg-yellow-100'
-          onClick={() => setMode(null)}
+          onClick={() => setSelectedMode(null)}
         >
           Volver al inicio
         </button>
@@ -136,7 +148,7 @@ export default function Practice() {
 
   return (
     <section className='flex flex-col items-center gap-4 p-4'>
-      <p className='text-xl font-semibold'>Vidas: {lives}</p>
+      <h1 className='text-xl font-bold font-heading'>Vidas: {lives}</h1>
       <div className='flex items-center justify-center p-8 text-6xl bg-white border rounded-md shadow-lg size-24'>
         {currentKana ? currentKana?.kana : ''}
       </div>
