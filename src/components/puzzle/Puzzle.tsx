@@ -79,7 +79,7 @@ export default function Practice() {
       }
     }
 
-    setOptions(generatedOptions)
+    setOptions(shuffle(generatedOptions))
   }, [remainingKanas, lives, kanaSet])
 
   useEffect(() => {
