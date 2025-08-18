@@ -1,0 +1,52 @@
+---
+import Main from '@/components/layout/Main.astro'
+import Layout from '@/layouts/Layout.astro'
+import { quizHistory } from '@/site.config'
+---
+
+<Layout
+  title="Progreso de aprendizaje"
+  description="Realiza un seguimiento de su progreso y ve hasta dónde has llegado"
+>
+  <Main class="flex items-center justify-center m-4">
+    <section>
+      <h1 class="font-bold font-heading text-balance">Tu progreso</h1>
+      <p class="my-4 text-pretty md:text-xl">
+        Realiza un seguimiento de su progreso y ve hasta dónde has llegado.
+      </p>
+      <div
+        class="p-4 bg-yellow-100 border border-yellow-400 rounded-lg text-neutral-800"
+      >
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold font-heading">
+            Puntaje recientes
+          </h3>
+          <p class="text-sm">
+            Últimos puntajes de Hiragana y Katakana.
+          </p>
+        </div>
+        <div class="space-y-4 text-neutral-800">
+          {
+            quizHistory.slice(0, 6).map((quiz) => (
+              <div class="flex items-center justify-between">
+                <div class="space-y-1">
+                  <p class="text-sm font-medium">
+                    {quiz.type}
+                  </p>
+                  <p class="text-xs">
+                    {quiz.date}
+                  </p>
+                </div>
+                <div class="text-right">
+                  <p class="text-xs">
+                    {quiz.score}/{quiz.total}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </Main>
+</Layout>

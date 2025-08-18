@@ -11,6 +11,7 @@ export default function Practice() {
   const [remainingKanas, setRemainingKanas] = useState<KanaItem[]>([])
   const [currentKana, setCurrentKana] = useState<KanaItem | null>(null)
   const [options, setOptions] = useState<string[]>([])
+  const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [feedback, setFeedback] = useState<Feedback>(null)
   const [isFinished, setIsFinished] = useState<boolean>(false)
 
@@ -23,11 +24,13 @@ export default function Practice() {
     setCorrectAnswers(0)
     setCurrentKana(null)
     setOptions([])
+    setSelectedOption(null)
     setFeedback(null)
     setIsFinished(false)
   }
 
   const handleSelection = (option: string) => {
+    setSelectedOption(option)
     if (option === currentKana?.romanji) {
       setFeedback('correct')
       setCorrectAnswers((prev) => prev + 1)
@@ -124,7 +127,7 @@ export default function Practice() {
   if (isFinished) {
     return (
       <section className='flex flex-col items-center gap-4 [&>p]:text-lg'>
-        <h1 className='font-bold font-heading text-center text-balance'>
+        <h1 className='font-bold text-center font-heading text-balance'>
           Se ha finalizado el juego
         </h1>
         <p className='font-semibold'>
@@ -148,8 +151,8 @@ export default function Practice() {
 
   return (
     <section className='flex flex-col items-center gap-4 p-4'>
-      <h1 className='text-xl font-bold font-heading'>Vidas: {lives}</h1>
-      <div className='flex items-center justify-center p-8 text-6xl bg-white border rounded-md shadow-lg size-24'>
+      <h1 className='font-bold font-heading'>Vidas: {lives}</h1>
+      <div className='flex items-center justify-center p-8 text-6xl border rounded-md shadow-lg bg-yellow-50 size-24'>
         {currentKana ? currentKana?.kana : ''}
       </div>
       <div className='grid w-full max-w-md grid-cols-2 gap-4'>
@@ -160,9 +163,10 @@ export default function Practice() {
             onClick={() => handleSelection(opcion)}
             className={`px-4 py-2 rounded-md border text-lg transition-all duration-200
               ${feedback && opcion === currentKana?.romanji && feedback === 'correct' ? 'bg-green-400' : ''}
-              ${feedback && opcion === currentKana?.romanji && feedback === 'incorrect' ? 'bg-red-400' : ''}
+              ${feedback && opcion === currentKana?.romanji && feedback === 'incorrect' ? 'bg-green-400' : ''}
+              ${feedback && opcion === selectedOption && feedback === 'incorrect' ? 'bg-red-400' : ''}
               ${feedback && opcion !== currentKana?.romanji && feedback === 'incorrect' ? 'opacity-50' : ''}
-              ${feedback === null ? 'hover:bg-gray-100' : ''}
+              ${feedback === null ? 'hover:bg-yellow-100' : ''}
             `}
             disabled={feedback !== null}
           >
