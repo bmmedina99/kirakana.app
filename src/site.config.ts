@@ -28,6 +28,15 @@ export const navLinks = [
   },
 ]
 
+// Temporary quiz history sample xd
+export const quizHistory = [
+  { id: 1, date: '12/08/2025', type: 'Hiragana', score: 10, total: 46 },
+  { id: 2, date: '13/08/2025', type: 'Hiragana', score: 20, total: 46 },
+  { id: 3, date: '14/08/2025', type: 'Katakana', score: 25, total: 46 },
+  { id: 4, date: '15/08/2025', type: 'Hiragana', score: 25, total: 46 },
+  { id: 5, date: '16/08/2025', type: 'Katakana', score: 30, total: 46 },
+]
+
 export const Hiragana: KanaItem[] = [
   { kana: 'あ', romanji: 'a' },
   { kana: 'い', romanji: 'i' },
