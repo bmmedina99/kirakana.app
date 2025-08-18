@@ -1,3 +1,14 @@
+# [0.7.0](https://github.com/bmmedina99/kirakana.app/compare/v0.6.0...v0.7.0) (2025-08-18)
+
+
+### Features
+
+* :sparkles: add complete gojuuon set to list ([fe5a41c](https://github.com/bmmedina99/kirakana.app/commit/fe5a41c068e086b82b19abd2b36fbe4c83aa51ef))
+* **katakana:** :wrench: add complete gojuuon set to list ([30ca9a5](https://github.com/bmmedina99/kirakana.app/commit/30ca9a51954137bd7114b72f1517fbb21574f44d))
+* **meta:** :sparkles: add title & description to `Practicar` page ([8ae6bb9](https://github.com/bmmedina99/kirakana.app/commit/8ae6bb9763be5a3e020b6f3f17cbb39b18c307a9))
+* **page:** :sparkles: add “Aprender” page ([c7bee1c](https://github.com/bmmedina99/kirakana.app/commit/c7bee1c548579982d6456c27e72bcd17afe1682e))
+* **page:** :sparkles: add “Estadísticas” page ([c28cabe](https://github.com/bmmedina99/kirakana.app/commit/c28cabe6043d4f00fad84cec854f4c24c8df3709))
+
 # [0.6.0](https://github.com/bmmedina99/kirakana.app/compare/v0.5.0...v0.6.0) (2025-08-12)
 
 
