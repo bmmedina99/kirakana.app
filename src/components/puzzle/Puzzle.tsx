@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { Feedback, KanaItem, Mode } from '@/types'
-import { dataset } from '@/utils/mode'
-import { shuffle } from '@/utils/shuffle'
+import { dataset } from '@/libs/utils/mode'
+import { shuffle } from '@/libs/utils/shuffle'
 
 export default function Practice() {
   const [selectedMode, setSelectedMode] = useState<Mode | null>(null)
