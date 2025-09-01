@@ -16,6 +16,9 @@
     "type": "git",
     "url": "https://github.com/bmmedina99/kirakana.app.git"
   },
+  "bugs": {
+    "url": "https://github.com/bmmedina99/kirakana.app/issues"
+  },
   "dependencies": {
     "@astrojs/react": "4.3.0",
     "@astrojs/sitemap": "3.5.1",
