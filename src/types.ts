@@ -11,6 +11,13 @@ export interface KanaItem {
   romanji: string
 }
 
+export interface ScoreEntry {
+  date: string
+  kanaType: string
+  correct: number
+  total: number
+}
+
 export type Mode = 'hiragana' | 'katakana' | null
 
 export type Feedback = 'correct' | 'incorrect' | null

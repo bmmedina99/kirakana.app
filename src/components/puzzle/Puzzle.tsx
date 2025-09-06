@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from 'react'
-import type { Feedback, KanaItem, Mode } from '@/types'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { dataset } from '@/libs/utils/mode'
+import { appendScore } from '@/libs/utils/score'
 import { shuffle } from '@/libs/utils/shuffle'
+import type { Feedback, KanaItem, Mode, ScoreEntry } from '@/types'
 
 export default function Practice() {
   const [selectedMode, setSelectedMode] = useState<Mode | null>(null)
@@ -14,6 +15,7 @@ export default function Practice() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [feedback, setFeedback] = useState<Feedback>(null)
   const [isFinished, setIsFinished] = useState<boolean>(false)
+  const savedScores = useRef(false)
 
   const startPuzzle = (mode: Mode) => {
     setSelectedMode(mode)
@@ -27,6 +29,7 @@ export default function Practice() {
     setSelectedOption(null)
     setFeedback(null)
     setIsFinished(false)
+    savedScores.current = false
   }
 
   const handleSelection = (option: string) => {
@@ -99,6 +102,20 @@ export default function Practice() {
   useEffect(() => {
     if (kanaSet.length > 0 && lives === 0) setIsFinished(true)
   }, [lives, kanaSet])
+
+  useEffect(() => {
+    if (!isFinished || !selectedMode) return
+    if (savedScores.current) return
+
+    const score: ScoreEntry = {
+      date: new Date().toISOString(),
+      kanaType: selectedMode,
+      correct: correctAnswers,
+      total: kanaSet.length,
+    }
+    appendScore(score)
+    savedScores.current = true
+  }, [kanaSet.length, selectedMode, isFinished, correctAnswers])
 
   if (!selectedMode) {
     return (

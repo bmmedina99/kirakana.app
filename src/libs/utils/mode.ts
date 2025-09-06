@@ -1,4 +1,5 @@
-import { Hiragana, Katakana } from '@/site.config'
+import { HIRAGANA } from '../constants/hiragana'
+import { KATAKANA } from '../constants/katakana'
 
 export const dataset = (mode: string | null) =>
-  mode === 'hiragana' ? Hiragana : Katakana
+  mode === 'hiragana' ? HIRAGANA : KATAKANA
