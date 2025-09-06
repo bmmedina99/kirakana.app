@@ -1,4 +1,4 @@
-import type { KanaItem } from "@/types";
+import type { KanaItem } from '@/types'
 
 export const HIRAGANA: KanaItem[] = [
   { kana: 'あ', romanji: 'a' },

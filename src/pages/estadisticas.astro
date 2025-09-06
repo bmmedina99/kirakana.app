@@ -1,5 +1,6 @@
 ---
 import Main from '@/components/layout/Main.astro'
+import ScorePuzzle from '@/components/puzzle/ScorePuzzle'
 import Layout from '@/layouts/Layout.astro'
 ---
 
@@ -10,7 +11,7 @@ import Layout from '@/layouts/Layout.astro'
   <Main class="flex items-center justify-center m-4">
     <section>
       <h1 class="font-bold font-heading text-balance">Tu progreso</h1>
-      <p class="my-4 text-pretty md:text-xl">
+      <p class="mb-4 text-pretty md:text-xl">
         Realiza un seguimiento de su progreso y ve hasta dónde has llegado.
       </p>
       <div
@@ -18,11 +19,18 @@ import Layout from '@/layouts/Layout.astro'
       >
         <div class="mb-4">
           <h3 class="text-lg font-semibold font-heading">Puntaje recientes</h3>
-          <p class="text-sm">Últimos puntajes de Hiragana y Katakana.</p>
+          <p class="text-sm">Los últimos 5 puntajes entre Hiragana y Katakana.</p>
         </div>
-        <div class="space-y-4 text-neutral-800">
-         Temporalmente no disponible
-        </div>
+        <ScorePuzzle client:idle />
+      </div>
+      <div class="flex justify-center">
+        <button
+          type="button"
+          class="mt-4 px-4 py-2 bg-red-700 rounded hover:bg-red-400 text-neutral-100 transition-colors"
+          onclick="localStorage.clear(); location.reload();"
+        >
+          Borrar historial
+        </button>
       </div>
     </section>
   </Main>
