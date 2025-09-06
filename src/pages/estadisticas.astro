@@ -1,7 +1,6 @@
 ---
 import Main from '@/components/layout/Main.astro'
 import Layout from '@/layouts/Layout.astro'
-import { quizHistory } from '@/site.config'
 ---
 
 <Layout
@@ -22,21 +21,7 @@ import { quizHistory } from '@/site.config'
           <p class="text-sm">Últimos puntajes de Hiragana y Katakana.</p>
         </div>
         <div class="space-y-4 text-neutral-800">
-          {
-            quizHistory.slice(0, 6).map((quiz) => (
-              <div class="flex items-center justify-between">
-                <div class="space-y-1">
-                  <p class="text-sm font-medium">{quiz.type}</p>
-                  <p class="text-xs">{quiz.date}</p>
-                </div>
-                <div class="text-right">
-                  <p class="text-xs">
-                    {quiz.score}/{quiz.total}
-                  </p>
-                </div>
-              </div>
-            ))
-          }
+         Temporalmente no disponible
         </div>
       </div>
     </section>
