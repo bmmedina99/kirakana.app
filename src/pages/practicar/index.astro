@@ -1,12 +1,6 @@
 ---
 import Main from '@/components/layout/Main.astro'
 import Layout from '@/layouts/Layout.astro'
-
-const syllabaryParam = Astro.url.searchParams.get('silabario')
-const validSyllabaries = new Set(['hiragana', 'katakana'])
-const syllabary = validSyllabaries.has(syllabaryParam ?? '')
-  ? (syllabaryParam as 'hiragana' | 'katakana')
-  : null
 ---
 
 <Layout
@@ -14,31 +8,22 @@ const syllabary = validSyllabaries.has(syllabaryParam ?? '')
   description="Elige un modo de práctica para reforzar tus conocimientos sobre los caracteres japoneses"
 >
   <Main>
-    {
-      !syllabary && (
-        <section class="mx-auto max-w-xl py-8 text-center space-y-6">
-          <h1 class="text-2xl font-bold font-heading">Elige un silabario</h1>
-          <div class="grid grid-cols-2 gap-4">
-            <a
-              href="/practicar/hiragana"
-              class="px-4 py-6 border border-red-700 rounded-lg hover:bg-red-400 transition-colors"
-            >
-              Hiragana
-            </a>
-            <a
-              href="/practicar/katakana"
-              class="px-4 py-6 border border-cyan-700 rounded-lg hover:bg-sky-400 transition-colors"
-            >
-              Katakana
-            </a>
-          </div>
-        </section>
-      )
-    }
-    {
-      syllabary && (
-        <h1>syllabary: {syllabary}</h1>
-      )
-    }
+    <section class="max-w-xl py-8 mx-auto space-y-6 text-center">
+      <h1 class="text-2xl font-bold font-heading">Elige un silabario</h1>
+      <div class="grid grid-cols-2 gap-4">
+        <a
+          href="/practicar/hiragana"
+          class="px-4 py-6 transition-colors border border-red-700 rounded-lg hover:bg-red-400"
+        >
+          Hiragana
+        </a>
+        <a
+          href="/practicar/katakana"
+          class="px-4 py-6 transition-colors border rounded-lg border-cyan-700 hover:bg-sky-400"
+        >
+          Katakana
+        </a>
+      </div>
+    </section>
   </Main>
 </Layout>
