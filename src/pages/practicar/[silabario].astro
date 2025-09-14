@@ -1,0 +1,23 @@
+---
+import Main from '@/components/layout/Main.astro'
+import Layout from '@/layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  return [
+    { params: { silabario: 'hiragana' } },
+    { params: { silabario: 'katakana' } },
+  ]
+}
+
+const { silabario } = Astro.params
+---
+
+<Layout title={`Practicar ${silabario}`} description={`Modo de práctica para reforzar tus conocimientos sobre los caracteres japoneses del silabario ${silabario}`}>
+  <Main class="flex items-center justify-center">
+    <section class="mx-auto max-w-xl py-8 text-center space-y-6">
+      <a href="/practicar"> ⬅ Regresar </a>
+      <h1 class="text-2xl font-bold font-heading">Practicando {silabario}</h1>
+      <p>Modo de práctica para reforzar tus conocimientos sobre los caracteres japoneses del silabario {silabario}.</p>
+    </section>
+  </Main>
+</Layout>

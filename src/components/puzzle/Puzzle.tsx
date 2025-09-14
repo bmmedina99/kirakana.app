@@ -117,30 +117,6 @@ export default function Practice() {
     savedScores.current = true
   }, [kanaSet.length, selectedMode, isFinished, correctAnswers])
 
-  if (!selectedMode) {
-    return (
-      <section className='flex flex-col items-center gap-4'>
-        <h1 className='font-bold font-heading'>Elige un modo</h1>
-        <div className='flex items-center justify-center gap-4'>
-          <button
-            type='button'
-            onClick={() => startPuzzle('hiragana')}
-            className='px-4 py-2 transition-colors border border-red-700 rounded-lg size-32 hover:bg-red-400'
-          >
-            Hiragana
-          </button>
-          <button
-            type='button'
-            onClick={() => startPuzzle('katakana')}
-            className='px-4 py-2 transition-colors border rounded-lg border-cyan-700 size-32 hover:bg-sky-400'
-          >
-            Katakana
-          </button>
-        </div>
-      </section>
-    )
-  }
-
   if (isFinished) {
     return (
       <section className='flex flex-col items-center gap-4 [&>p]:text-lg'>
