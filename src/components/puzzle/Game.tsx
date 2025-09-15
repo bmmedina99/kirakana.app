@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { dataset } from '@/libs/utils/mode'
+import { Options } from '@/libs/utils/options'
 import { appendScore } from '@/libs/utils/score'
 import { shuffle } from '@/libs/utils/shuffle'
+import { dataset } from '@/libs/utils/syllabary'
 import type { Feedback, KanaItem, ScoreEntry, Syllabarys } from '@/types'
+import OptionButton from './OptionButton'
 
 interface GameProps {
   syllabary: Syllabarys
@@ -42,7 +44,7 @@ export default function Game({ syllabary }: GameProps) {
     }
   }, [syllabary])
 
-  const handleSelection = (option: string) => {
+  const onSelect = (option: string) => {
     setSelectedOption(option)
     if (option === currentKana?.romanji) {
       setFeedback('correct')
@@ -81,21 +83,7 @@ export default function Game({ syllabary }: GameProps) {
 
     setCurrentKana(next)
     setRemainingKanas(rest)
-
-    const generatedOptions: string[] = [next.romanji]
-
-    while (generatedOptions.length < 4 && kanaSet.length > 0) {
-      const randomIndex = Math.floor(Math.random() * kanaSet.length)
-      const randomItem = kanaSet[randomIndex]
-      if (randomItem) {
-        const randomOption = randomItem.romanji
-        if (!generatedOptions.includes(randomOption)) {
-          generatedOptions.push(randomOption)
-        }
-      }
-    }
-
-    setOptions(shuffle(generatedOptions))
+    setOptions(Options(next.romanji, kanaSet))
   }, [remainingKanas, lives, kanaSet])
 
   useEffect(() => {
@@ -159,21 +147,14 @@ export default function Game({ syllabary }: GameProps) {
       </div>
       <div className='grid w-full max-w-md grid-cols-2 gap-4'>
         {options.map((opcion) => (
-          <button
-            type='button'
+          <OptionButton
             key={opcion}
-            onClick={() => handleSelection(opcion)}
-            className={`px-4 py-2 rounded-md border text-lg transition-all duration-200
-              ${feedback && opcion === currentKana?.romanji && feedback === 'correct' ? 'bg-green-400' : ''}
-              ${feedback && opcion === currentKana?.romanji && feedback === 'incorrect' ? 'bg-green-400' : ''}
-              ${feedback && opcion === selectedOption && feedback === 'incorrect' ? 'bg-red-400' : ''}
-              ${feedback && opcion !== currentKana?.romanji && feedback === 'incorrect' ? 'opacity-50' : ''}
-              ${feedback === null ? 'hover:bg-yellow-100' : ''}
-            `}
-            disabled={feedback !== null}
-          >
-            {opcion}
-          </button>
+            option={opcion}
+            current={currentKana?.romanji ?? null}
+            selected={selectedOption}
+            feedback={feedback}
+            onSelect={onSelect}
+          />
         ))}
       </div>
     </section>
