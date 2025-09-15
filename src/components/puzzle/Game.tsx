@@ -2,10 +2,15 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { dataset } from '@/libs/utils/mode'
 import { appendScore } from '@/libs/utils/score'
 import { shuffle } from '@/libs/utils/shuffle'
-import type { Feedback, KanaItem, Mode, ScoreEntry } from '@/types'
+import type { Feedback, KanaItem, ScoreEntry, Syllabarys } from '@/types'
 
-export default function Practice() {
-  const [selectedMode, setSelectedMode] = useState<Mode | null>(null)
+interface GameProps {
+  syllabary: Syllabarys
+}
+
+export default function Game({ syllabary }: GameProps) {
+  const [selectedSyllabary, setSelectedSyllabary] =
+    useState<Syllabarys | null>()
   const [kanaSet, setKanaSet] = useState<KanaItem[]>([])
   const [lives, setLives] = useState<number>(3)
   const [correctAnswers, setCorrectAnswers] = useState<number>(0)
@@ -17,9 +22,11 @@ export default function Practice() {
   const [isFinished, setIsFinished] = useState<boolean>(false)
   const savedScores = useRef(false)
 
-  const startPuzzle = (mode: Mode) => {
-    setSelectedMode(mode)
-    const data = dataset(mode)
+  useEffect(() => {
+    let startGame = true
+    setSelectedSyllabary(syllabary)
+    const data = dataset(syllabary)
+    if (!startGame) return
     setKanaSet(data)
     setRemainingKanas(shuffle(data))
     setLives(3)
@@ -30,7 +37,10 @@ export default function Practice() {
     setFeedback(null)
     setIsFinished(false)
     savedScores.current = false
-  }
+    return () => {
+      startGame = false
+    }
+  }, [syllabary])
 
   const handleSelection = (option: string) => {
     setSelectedOption(option)
@@ -104,18 +114,18 @@ export default function Practice() {
   }, [lives, kanaSet])
 
   useEffect(() => {
-    if (!isFinished || !selectedMode) return
+    if (!isFinished || !selectedSyllabary) return
     if (savedScores.current) return
 
     const score: ScoreEntry = {
       date: new Date().toISOString(),
-      kanaType: selectedMode,
+      kanaType: selectedSyllabary,
       correct: correctAnswers,
       total: kanaSet.length,
     }
     appendScore(score)
     savedScores.current = true
-  }, [kanaSet.length, selectedMode, isFinished, correctAnswers])
+  }, [kanaSet.length, isFinished, correctAnswers, selectedSyllabary])
 
   if (isFinished) {
     return (
@@ -131,13 +141,12 @@ export default function Practice() {
         <p>
           Aciertos: {correctAnswers} / {kanaSet.length}
         </p>
-        <button
-          type='button'
-          className='px-4 py-2 transition-colors bg-yellow-400 border-2 border-yellow-400 rounded-md hover:bg-yellow-100'
-          onClick={() => setSelectedMode(null)}
+        <a
+          href='/practicar'
+          className='px-4 py-2 bg-yellow-400 border-2 border-yellow-400 rounded-md hover:bg-yellow-100'
         >
           Volver al inicio
-        </button>
+        </a>
       </section>
     )
   }
