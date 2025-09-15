@@ -1,11 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { dataset } from '@/libs/utils/mode'
+import { Options } from '@/libs/utils/options'
 import { appendScore } from '@/libs/utils/score'
 import { shuffle } from '@/libs/utils/shuffle'
-import type { Feedback, KanaItem, Mode, ScoreEntry } from '@/types'
+import { dataset } from '@/libs/utils/syllabary'
+import type { Feedback, KanaItem, ScoreEntry, Syllabarys } from '@/types'
+import OptionButton from './OptionButton'
 
-export default function Practice() {
-  const [selectedMode, setSelectedMode] = useState<Mode | null>(null)
+interface GameProps {
+  syllabary: Syllabarys
+}
+
+export default function Game({ syllabary }: GameProps) {
+  const [selectedSyllabary, setSelectedSyllabary] =
+    useState<Syllabarys | null>()
   const [kanaSet, setKanaSet] = useState<KanaItem[]>([])
   const [lives, setLives] = useState<number>(3)
   const [correctAnswers, setCorrectAnswers] = useState<number>(0)
@@ -17,9 +24,11 @@ export default function Practice() {
   const [isFinished, setIsFinished] = useState<boolean>(false)
   const savedScores = useRef(false)
 
-  const startPuzzle = (mode: Mode) => {
-    setSelectedMode(mode)
-    const data = dataset(mode)
+  useEffect(() => {
+    let startGame = true
+    setSelectedSyllabary(syllabary)
+    const data = dataset(syllabary)
+    if (!startGame) return
     setKanaSet(data)
     setRemainingKanas(shuffle(data))
     setLives(3)
@@ -30,9 +39,12 @@ export default function Practice() {
     setFeedback(null)
     setIsFinished(false)
     savedScores.current = false
-  }
+    return () => {
+      startGame = false
+    }
+  }, [syllabary])
 
-  const handleSelection = (option: string) => {
+  const onSelect = (option: string) => {
     setSelectedOption(option)
     if (option === currentKana?.romanji) {
       setFeedback('correct')
@@ -71,21 +83,7 @@ export default function Practice() {
 
     setCurrentKana(next)
     setRemainingKanas(rest)
-
-    const generatedOptions: string[] = [next.romanji]
-
-    while (generatedOptions.length < 4 && kanaSet.length > 0) {
-      const randomIndex = Math.floor(Math.random() * kanaSet.length)
-      const randomItem = kanaSet[randomIndex]
-      if (randomItem) {
-        const randomOption = randomItem.romanji
-        if (!generatedOptions.includes(randomOption)) {
-          generatedOptions.push(randomOption)
-        }
-      }
-    }
-
-    setOptions(shuffle(generatedOptions))
+    setOptions(Options(next.romanji, kanaSet))
   }, [remainingKanas, lives, kanaSet])
 
   useEffect(() => {
@@ -104,42 +102,18 @@ export default function Practice() {
   }, [lives, kanaSet])
 
   useEffect(() => {
-    if (!isFinished || !selectedMode) return
+    if (!isFinished || !selectedSyllabary) return
     if (savedScores.current) return
 
     const score: ScoreEntry = {
       date: new Date().toISOString(),
-      kanaType: selectedMode,
+      kanaType: selectedSyllabary,
       correct: correctAnswers,
       total: kanaSet.length,
     }
     appendScore(score)
     savedScores.current = true
-  }, [kanaSet.length, selectedMode, isFinished, correctAnswers])
-
-  if (!selectedMode) {
-    return (
-      <section className='flex flex-col items-center gap-4'>
-        <h1 className='font-bold font-heading'>Elige un modo</h1>
-        <div className='flex items-center justify-center gap-4'>
-          <button
-            type='button'
-            onClick={() => startPuzzle('hiragana')}
-            className='px-4 py-2 transition-colors border border-red-700 rounded-lg size-32 hover:bg-red-400'
-          >
-            Hiragana
-          </button>
-          <button
-            type='button'
-            onClick={() => startPuzzle('katakana')}
-            className='px-4 py-2 transition-colors border rounded-lg border-cyan-700 size-32 hover:bg-sky-400'
-          >
-            Katakana
-          </button>
-        </div>
-      </section>
-    )
-  }
+  }, [kanaSet.length, isFinished, correctAnswers, selectedSyllabary])
 
   if (isFinished) {
     return (
@@ -155,13 +129,12 @@ export default function Practice() {
         <p>
           Aciertos: {correctAnswers} / {kanaSet.length}
         </p>
-        <button
-          type='button'
-          className='px-4 py-2 transition-colors bg-yellow-400 border-2 border-yellow-400 rounded-md hover:bg-yellow-100'
-          onClick={() => setSelectedMode(null)}
+        <a
+          href='/practicar'
+          className='px-4 py-2 bg-yellow-400 border-2 border-yellow-400 rounded-md hover:bg-yellow-100'
         >
           Volver al inicio
-        </button>
+        </a>
       </section>
     )
   }
@@ -174,21 +147,14 @@ export default function Practice() {
       </div>
       <div className='grid w-full max-w-md grid-cols-2 gap-4'>
         {options.map((opcion) => (
-          <button
-            type='button'
+          <OptionButton
             key={opcion}
-            onClick={() => handleSelection(opcion)}
-            className={`px-4 py-2 rounded-md border text-lg transition-all duration-200
-              ${feedback && opcion === currentKana?.romanji && feedback === 'correct' ? 'bg-green-400' : ''}
-              ${feedback && opcion === currentKana?.romanji && feedback === 'incorrect' ? 'bg-green-400' : ''}
-              ${feedback && opcion === selectedOption && feedback === 'incorrect' ? 'bg-red-400' : ''}
-              ${feedback && opcion !== currentKana?.romanji && feedback === 'incorrect' ? 'opacity-50' : ''}
-              ${feedback === null ? 'hover:bg-yellow-100' : ''}
-            `}
-            disabled={feedback !== null}
-          >
-            {opcion}
-          </button>
+            option={opcion}
+            current={currentKana?.romanji ?? null}
+            selected={selectedOption}
+            feedback={feedback}
+            onSelect={onSelect}
+          />
         ))}
       </div>
     </section>

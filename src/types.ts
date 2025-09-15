@@ -18,6 +18,6 @@ export interface ScoreEntry {
   total: number
 }
 
-export type Mode = 'hiragana' | 'katakana' | null
+export type Syllabarys = 'hiragana' | 'katakana' | null
 
 export type Feedback = 'correct' | 'incorrect' | null
