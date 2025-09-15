@@ -2,10 +2,11 @@
 import Main from '@/components/layout/Main.astro'
 import Hero from '@/components/sections/Hero.astro'
 import Work from '@/components/sections/Work.astro'
+import { configSite } from '@/site.config'
 import Layout from '../layouts/Layout.astro'
 ---
-<Layout title="Hiragana & Katakana">
-  <Main>
+<Layout title="Hiragana & Katakana" description={configSite.description}>
+  <Main class="flex-col">
     <Hero />
     <Work />
   </Main>

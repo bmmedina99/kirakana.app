@@ -5,9 +5,8 @@ import { configSite } from '@/site.config'
 import globalCSS from '@/styles/global.css?inline'
 
 const canonicalURL = new URL(Astro.request.url, Astro.site).toString()
-const { title } = Astro.props
+const { title, description } = Astro.props
 const siteTitle = `${title} | ${configSite.title}`
-const description = configSite.description
 ---
 
 <meta charset="utf-8" />
