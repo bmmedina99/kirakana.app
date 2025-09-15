@@ -1,3 +1,23 @@
+# [0.8.0](https://github.com/bmmedina99/kirakana.app/compare/v0.7.0...v0.8.0) (2025-09-15)
+
+
+### Bug Fixes
+
+* **page:** :bug: correct import error for hiragana and katakana ([4a68767](https://github.com/bmmedina99/kirakana.app/commit/4a68767c470cf66f4c16bc8739306788af8338fc))
+* **page:** :coffin: remove import error for quizHistory ([8a44f7d](https://github.com/bmmedina99/kirakana.app/commit/8a44f7d42ed761efe54ce27e4c51bfcdf99e3e97))
+* **seo:** :mag: correct description handling in Meta component ([aadf42b](https://github.com/bmmedina99/kirakana.app/commit/aadf42b1c564e8f9eb647232e21a8ccd3849524e))
+
+
+### Features
+
+* **page:** :sparkles: implement real logic for `Estadística` page ([30223ca](https://github.com/bmmedina99/kirakana.app/commit/30223cac5b189bbfdffb075a33e4c6729912268f))
+* **puzzle:** :sparkles: add persist data with localStorage ([5b095db](https://github.com/bmmedina99/kirakana.app/commit/5b095db2bc30048b546b5995b09f23842beb52ef))
+
+
+### Performance Improvements
+
+* **puzzle:** optimize puzzle system ([#10](https://github.com/bmmedina99/kirakana.app/issues/10)) ([68697ca](https://github.com/bmmedina99/kirakana.app/commit/68697ca4d55fb7053ad38f69f8f7c48a6044c7aa))
+
 # [0.7.0](https://github.com/bmmedina99/kirakana.app/compare/v0.6.0...v0.7.0) (2025-08-18)
 
 
