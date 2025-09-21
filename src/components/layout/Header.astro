@@ -1,16 +1,14 @@
 ---
-import { configSite } from '@/site.config'
-import Icon from '../ui/Icon.astro'
-import Navigation from '../ui/Navigation.astro'
+import { configSite } from "@/site.config";
+import Icon from "../ui/Icon.astro";
+import Navigation from "../ui/Navigation.astro";
 ---
 
 <header
   class="sticky top-0 z-50 px-4 py-8 border-b border-yellow-400 select-none backdrop-blur-lg"
 >
   <section class="container flex items-center justify-between mx-auto">
-    <div
-      class="flex items-center gap-2 text-xl font-semibold uppercase font-heading"
-    >
+    <div class="flex items-center gap-2 text-2xl font-semibold font-heading">
       <Icon name="cherry" class="text-red-700" />
       {configSite.title}
     </div>
