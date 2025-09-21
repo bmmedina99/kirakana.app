@@ -9,6 +9,7 @@ body:
       label: "Feature Description"
       description: "Describe the new feature or enhancement in detail."
       placeholder: "A clear and concise description of the feature."
+      render: markdown
     validations:
       required: true
   - type: textarea
@@ -17,6 +18,7 @@ body:
       label: "Benefits"
       description: "Explain the benefits of this feature."
       placeholder: "How will this feature improve the application?"
+      render: markdown
     validations:
       required: true
   - type: textarea
@@ -34,6 +36,6 @@ body:
         - Low
         - Medium
         - High
-      default: 1
+      default: 0
     validations:
       required: true

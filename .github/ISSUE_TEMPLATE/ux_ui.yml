@@ -9,6 +9,7 @@ body:
       label: "Current State"
       description: "Describe the current user experience or interface."
       placeholder: "What is the current state of the UX/UI?"
+      render: markdown
     validations:
       required: true
   - type: textarea
@@ -17,6 +18,7 @@ body:
       label: "Proposed Change"
       description: "Describe the proposed change to the user experience or interface."
       placeholder: "What change do you want to make?"
+      render: markdown
     validations:
       required: true
   - type: textarea
@@ -40,6 +42,6 @@ body:
         - Low
         - Medium
         - High
-      default: 1
+      default: 0
     validations:
       required: true

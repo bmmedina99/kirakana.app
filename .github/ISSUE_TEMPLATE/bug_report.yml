@@ -14,12 +14,21 @@ body:
       placeholder: "e.g., v1.0.0"
     validations:
       required: true
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "The environment where the bug occurred."
+      placeholder: "e.g., FireFox 142, Chrome 140 or Safari 18"
+    validations:
+      required: true
   - type: textarea
     id: describe
     attributes:
       label: "Description"
       description: "Describe the bug or issue in detail."
       placeholder: "A clear and concise description of the bug."
+      render: markdown
     validations:
       required: true
   - type: textarea
@@ -27,15 +36,12 @@ body:
     attributes:
       label: "Steps to Reproduce"
       description: "List the steps to reproduce the behavior."
-      placeholder: "1. Go to '...'\n2. Click on '...'\n3. Scroll down to '...'\n4. See error"
-    validations:
-      required: true
-  - type: textarea
-    id: environment
-    attributes:
-      label: "Environment"
-      description: "Describe the environment where the bug occurred."
-      placeholder: "e.g., FireFox 142, Chrome 140 or Safari 18"
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. Scroll down to...
+        4. See error
+      render: markdown
     validations:
       required: true
   - type: textarea
@@ -43,4 +49,4 @@ body:
     attributes:
       label: "Logs"
       description: "Paste any relevant logs or add screenshots."
-      render: shell
+      placeholder: "Error messages, stack traces, or screenshots."
