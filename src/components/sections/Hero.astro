@@ -1,13 +1,9 @@
-<section
-  aria-labelledby="hero-title"
-  class="w-full py-20 md:py-32 bg-gradient-to-b from-amber-50 to-amber-100"
->
+<!-- TODO: change container to section -->
+<section id="hero-content" class="py-16 md:py-20 lg:py-32 relative">
   <div class="container px-4 mx-auto md:px-6">
-    <div class="grid gap-6 lg:grid-cols-2 lg:gap-12">
+    <div class="grid gap-12 lg:grid-cols-2">
       <div class="flex flex-col justify-center space-y-4">
-        <h1
-          class="font-bold font-heading text-balance"
-        >
+        <h1 class="font-bold font-heading text-balance">
           Aprende
           <span class="text-red-700">Hiragana</span>
           y
@@ -20,58 +16,71 @@
           </span>
         </h1>
         <p class="max-w-xl text-pretty md:text-xl">
-          Domina los silabarios japoneses
+          Descubre el fascinante mundo de los silabarios japoneses
           <strong class="text-red-700">Hiragana</strong>
-          <span class="sr-only">(ひらがな)</span>
+          <span class="text-red-700 text-xs">(ひらがな)</span>
           y
           <strong class="text-cyan-700">Katakana</strong>
-          <span class="sr-only">(カタカナ)</span>
-          a través de nuestra plataforma interactiva. Practica cada
-          kana con un puzzle intuitivo diseñado para principiantes
-          que desean memorizar estos sistemas de escritura esenciales.
+          <span class="text-cyan-700 text-xs">(カタカナ)</span> con nuestra plataforma
+          interactiva. Perfecta para principiantes, con ejercicios que hacen el aprendizaje
+          divertido y efectivo.
         </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/aprender"
+            class="btn bg-sky-400 text-neutral-900 hover:brightness-110 active:brightness-95 shadow-lg hover:shadow-xl"
+          >
+            Comienza a Aprender
+          </a>
+          <a
+            href="#how-it-works"
+            class="btn border border-yellow-400 text-neutral-800 active:bg-yellow-100"
+          >
+            Ver Cómo Funciona
+          </a>
+        </div>
       </div>
-      <div class="flex items-center justify-center">
-        <ul
-          class="grid grid-cols-3 gap-4 p-4 transition-colors border border-gray-200 rounded-lg shadow-lg select-none bg-yellow-50 hover:bg-yellow-100"
+      <div class="flex items-center justify-center lg:justify-end">
+        <div
+          class="grid grid-cols-3 gap-4 p-8 rounded-2xl shadow-2xl border border-yellow-400 transform rotate-3 hover:rotate-0 transition-transform duration-500"
         >
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
-            <span aria-hidden="true">あ</span>
-            <span class="sr-only">Hiragana “A”</span>
-          </li>
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
-            <span aria-hidden="true">い</span>
-            <span class="sr-only">Hiragana “I”</span>
-          </li>
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
-            <span aria-hidden="true">う</span>
-            <span class="sr-only">Hiragana “U”</span>
-          </li>
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
-            <span aria-hidden="true">え</span>
-            <span class="sr-only">Hiragana “E”</span>
-          </li>
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-red-700">
-            <span aria-hidden="true">お</span>
-            <span class="sr-only">Hiragana “O”</span>
-          </li>
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-cyan-700">
-            <span aria-hidden="true">カ</span>
-            <span class="sr-only">Katakana “Ka”</span>
-          </li>
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-cyan-700">
-            <span aria-hidden="true">キ</span>
-            <span class="sr-only">Katakana “Ki”</span>
-          </li>
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-cyan-700">
-            <span aria-hidden="true">ク</span>
-            <span class="sr-only">Katakana “Ku”</span>
-          </li>
-          <li class="flex items-center justify-center p-4 text-5xl font-bold text-cyan-700">
-            <span aria-hidden="true">ケ</span>
-            <span class="sr-only">Katakana “Ke”</span>
-          </li>
-        </ul>
+          <div
+            class="p-6 text-2xl md:text-6xl font-bold text-primary bg-red-100 rounded-xl hover:scale-110 transition-transform"
+          >
+            か
+            <span class="block text-center text-xs text-red-700 mt-2">ka</span>
+          </div>
+          <div
+            class="p-6 text-2xl md:text-6xl font-bold text-primary bg-red-100 rounded-xl hover:scale-110 transition-transform"
+          >
+            き
+            <span class="block text-center text-xs text-red-700 mt-2">i</span>
+          </div>
+          <div
+            class="p-6 text-2xl md:text-6xl font-bold text-primary bg-red-100 rounded-xl hover:scale-110 transition-transform"
+          >
+            く
+            <span class="block text-center text-xs text-red-700 mt-2">u</span>
+          </div>
+          <div
+            class="p-6 text-2xl md:text-6xl font-bold text-secondary bg-blue-100 rounded-xl hover:scale-110 transition-transform"
+          >
+            カ
+            <span class="block text-center text-xs text-cyan-700 mt-2">ka</span>
+          </div>
+          <div
+            class="p-6 text-2xl md:text-6xl font-bold text-secondary bg-blue-100 rounded-xl hover:scale-110 transition-transform"
+          >
+            キ
+            <span class="block text-center text-xs text-cyan-700 mt-2">ki</span>
+          </div>
+          <div
+            class="p-6 text-2xl md:text-6xl font-bold text-secondary bg-blue-100 rounded-xl hover:scale-110 transition-transform"
+          >
+            ク
+            <span class="block text-center text-xs text-cyan-700 mt-2">ku</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
