@@ -2,7 +2,7 @@
 import Icon from '../ui/Icon.astro'
 ---
 
-<section class="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-amber-100 to-amber-50 w-full">
+<section id="how-it-works" class="py-16 md:py-24 relative">
   <div class="container mx-auto px-4 md:px-6">
     <div
       class="flex flex-col items-center justify-center space-y-4 text-center"
@@ -22,12 +22,14 @@ import Icon from '../ui/Icon.astro'
         </p>
       </div>
     </div>
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-6 text-pretty">
+    <div
+      class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 my-6 text-pretty"
+    >
       <div
         class="flex flex-col items-center space-y-2 border border-gray-200 rounded-lg p-6 shadow-sm bg-yellow-50"
       >
         <div class="p-3 rounded-full bg-yellow-400">
-          <Icon name="learn">
+          <Icon name="learn" />
         </div>
         <h3 class="text-xl font-bold text-foreground">Aprende</h3>
         <p class="text-sm text-muted-foreground text-center">
@@ -38,7 +40,7 @@ import Icon from '../ui/Icon.astro'
         class="flex flex-col items-center space-y-2 border border-gray-200 rounded-lg p-6 shadow-sm bg-yellow-50"
       >
         <div class="p-3 rounded-full bg-yellow-400">
-          <Icon name="practice">
+          <Icon name="practice" />
         </div>
         <h3 class="text-xl font-bold text-foreground">Practica</h3>
         <p class="text-sm text-muted-foreground text-center">
@@ -49,7 +51,7 @@ import Icon from '../ui/Icon.astro'
         class="flex flex-col items-center space-y-2 border border-gray-200 rounded-lg p-6 shadow-sm bg-yellow-50"
       >
         <div class="p-3 rounded-full bg-yellow-400">
-          <Icon name="progress">
+          <Icon name="progress" />
         </div>
         <h3 class="text-xl font-bold text-foreground">Progresa</h3>
         <p class="text-sm text-muted-foreground text-center">
