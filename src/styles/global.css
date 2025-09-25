@@ -2,7 +2,6 @@
 
 @theme {
   --font-heading: "Fredoka", sans-serif;
-  --font-text: "Noto Sans JP", sans-serif;
 }
 
 @layer base {
@@ -26,7 +25,7 @@
     padding-inline: calc(var(--spacing) * 3);
     padding-block: calc(var(--spacing) * 3);
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.2s;
   }
 }
