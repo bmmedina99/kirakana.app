@@ -1,5 +1,4 @@
-<!-- TODO: change container to section -->
-<section id="hero-content" class="py-16 md:py-20 lg:py-32 relative">
+<section id="hero-content" class="relative py-16 md:py-20 lg:py-32">
   <div class="container px-4 mx-auto md:px-6">
     <div class="grid gap-12 lg:grid-cols-2">
       <div class="flex flex-col justify-center space-y-4">
@@ -18,68 +17,78 @@
         <p class="max-w-xl text-pretty md:text-xl">
           Descubre el fascinante mundo de los silabarios japoneses
           <strong class="text-red-700">Hiragana</strong>
-          <span class="text-red-700 text-xs">(ひらがな)</span>
+          <span class="text-xs text-red-700">(ひらがな)</span>
           y
           <strong class="text-cyan-700">Katakana</strong>
-          <span class="text-cyan-700 text-xs">(カタカナ)</span> con nuestra plataforma
+          <span class="text-xs text-cyan-700">(カタカナ)</span> con nuestra plataforma
           interactiva. Perfecta para principiantes, con ejercicios que hacen el aprendizaje
           divertido y efectivo.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
+        <div class="flex flex-col gap-4 sm:flex-row">
           <a
             href="/aprender"
-            class="btn bg-sky-400 text-neutral-900 hover:brightness-110 active:brightness-95 shadow-lg hover:shadow-xl"
+            class="shadow-lg bg-sky-400 btn text-neutral-900 hover:brightness-110 active:brightness-95 hover:shadow-xl"
           >
-            Comienza a Aprender
+            Comienza a aprender
           </a>
           <a
-            href="#how-it-works"
-            class="btn border border-yellow-400 text-neutral-800 active:bg-yellow-100"
+            href="#como-funciona"
+            class="border border-yellow-400 btn text-neutral-800 active:bg-yellow-100"
           >
             Ver Cómo Funciona
           </a>
         </div>
       </div>
-      <div class="flex items-center justify-center lg:justify-end">
+      <div class="flex items-center justify-center select-none lg:justify-end">
         <div
-          class="grid grid-cols-3 gap-4 p-8 rounded-2xl shadow-2xl border border-yellow-400 transform rotate-3 hover:rotate-0 transition-transform duration-500"
+          class="grid grid-cols-3 p-8 transition-transform duration-500 transform border border-yellow-400 shadow-2xl gap-x-4 gap-y-2 rounded-2xl rotate-3 hover:rotate-0"
         >
+          <h3
+            class="col-span-3 text-sm font-semibold tracking-wide text-center text-red-700 uppercase md:text-base font-heading"
+          >
+            Hiragana
+          </h3>
           <div
-            class="p-6 text-2xl md:text-6xl font-bold text-primary bg-red-100 rounded-xl hover:scale-110 transition-transform"
+            class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
           >
             か
-            <span class="block text-center text-xs text-red-700 mt-2">ka</span>
+            <span class="block mt-2 text-xs text-center text-red-700">ka</span>
           </div>
           <div
-            class="p-6 text-2xl md:text-6xl font-bold text-primary bg-red-100 rounded-xl hover:scale-110 transition-transform"
+            class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
           >
             き
-            <span class="block text-center text-xs text-red-700 mt-2">i</span>
+            <span class="block mt-2 text-xs text-center text-red-700">ki</span>
           </div>
           <div
-            class="p-6 text-2xl md:text-6xl font-bold text-primary bg-red-100 rounded-xl hover:scale-110 transition-transform"
+            class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
           >
             く
-            <span class="block text-center text-xs text-red-700 mt-2">u</span>
+            <span class="block mt-2 text-xs text-center text-red-700">ku</span>
           </div>
           <div
-            class="p-6 text-2xl md:text-6xl font-bold text-secondary bg-blue-100 rounded-xl hover:scale-110 transition-transform"
+            class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
           >
             カ
-            <span class="block text-center text-xs text-cyan-700 mt-2">ka</span>
+            <span class="block mt-2 text-xs text-center text-cyan-700">ka</span>
           </div>
           <div
-            class="p-6 text-2xl md:text-6xl font-bold text-secondary bg-blue-100 rounded-xl hover:scale-110 transition-transform"
+            class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
           >
             キ
-            <span class="block text-center text-xs text-cyan-700 mt-2">ki</span>
+            <span class="block mt-2 text-xs text-center text-cyan-700">ki</span>
           </div>
           <div
-            class="p-6 text-2xl md:text-6xl font-bold text-secondary bg-blue-100 rounded-xl hover:scale-110 transition-transform"
+            class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
           >
             ク
-            <span class="block text-center text-xs text-cyan-700 mt-2">ku</span>
+            <span class="block mt-2 text-xs text-center text-cyan-700">ku</span>
           </div>
+          <h3
+            class="col-span-3 mt-1 text-sm font-semibold tracking-wide text-center uppercase md:text-base font-heading text-cyan-700"
+          >
+            Katakana
+          </h3>
         </div>
       </div>
     </div>
