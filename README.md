@@ -1,31 +1,40 @@
-# Kirakana 🌟
+# Kirakana 🍒
 
-**Kirakana** es una aplicación web interactiva para practicar y aprender **Hiragana** y **Katakana**, los silabarios básicos del japonés, a través de un sistema de puzzle con opciones múltiples.
+**KiraKana** es una aplicación web interactiva para aprender los silabarios japoneses **Hiragana** y **Katakana**. Perfecciona tus habilidades a través de un juego de rompecabezas visual que te desafía a emparejar los silabarios con su representación en romaji.
 
 ---
 
 ## Objetivo
 
-Ayudar a los principiantes en el idioma japonés a recordar los caracteres Hiragana y Katakana con práctica visual. Además del modo de práctica, incluye una guía visual de estudio con todos los caracteres para facilitar el aprendizaje antes del juego.
+El proyecto está diseñado como parte de mi portafolio y busca ofrecer una experiencia intuitiva, tanto para principiantes como para estudiantes que deseen practicar y reforzar sus conocimientos. Además del modo de práctica, incluye una guía visual de estudio con todos los caracteres para facilitar el aprendizaje antes del juego.
 
 ---
 
 ## Características
 
-- Guía de estudio.
-- Puzzle interactivo.
-- Sin inicio de sesión.
-- Puntuación guardada en el navegador.
+- Modo de práctica: reconocimiento de caracteres del **Kana → Romanji**.
+- Interfaz simple y adaptada para escritorio y móvil.
 - Estilo minimalista con diseño inspirado en Japón.
-- Diseño adaptado para móviles, tablets y escritorio.
+- Feedback inmediato tras cada intento.
+- Sin inicio de sesión.
+
+---
+
+## Próximas funcionalidades
+
+- **Escucha y responde**: escuchar un sonido de Kana y seleccionar el símbolo correspondiente.
+- **Aprendizaje visual**: apartado con fichas de referencia para identificar y memorizar caracteres.
+- **Niveles de dificultad**: distintos modos para principiantes y avanzados.
+- **Estadísticas mejoradas**: progreso del usuario con métricas de aciertos y errores.
 
 ---
 
 ## Tecnologías utilizadas
 
 - **[Astro](https://astro.build/)** framework moderno que permite crear sitios de contenido estático.
-- **[TypeScript](https://tailwindcss.com)** aporta tipado estático al código, mejorando la solidez, el autocompletado y la detección de errores durante el desarrollo.
-- **[TailwindCSS](https://tailwindcss.com/)** framework de utilidades CSS para crear rápidamente sitios web modernos sin tener que abandonar el HTML.
+- **[React](https://react.dev)**
+- **[TypeScript](https://tailwindcss.com)** aporta tipado estático al código, mejorando la detección de errores durante el desarrollo.
+- **[TailwindCSS](https://tailwindcss.com/)** framework de utilidades CSS para crear diseños de forma rápida.
 
 ---
 
@@ -47,7 +56,7 @@ pnpm install
 ```
 4. Ejecuta en entorno de desarrollo
 ```bash
-pnpm dev
+pnpm run dev
 ```
 5. Entra al navegador y ve a http://localhost:4000
 
