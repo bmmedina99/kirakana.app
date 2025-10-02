@@ -2,22 +2,24 @@
 import Icon from '../ui/Icon.astro'
 ---
 
-<footer
-  class="flex flex-col items-center justify-between px-4 py-8 text-center border-t border-yellow-400 md:flex-row"
->
-  <div class="flex items-center mb-4 space-x-2 md:mb-0">
-    <Icon name="cherry" class="text-red-700" />
-    <span class="font-semibold font-heading">KiraKana</span>
-  </div>
-  <p>
-    KiraKana &copy; {new Date().getFullYear()} | Desarrollado y diseñado por
-    <a
-      href="https://bmmedina.dev"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="text-red-700 underline transition-colors hover:text-cyan-700"
-    >
-      @bmmedina99
-    </a>
-  </p>
+<footer class="px-4 py-8 text-center border-t border-yellow-400">
+  <section
+    class="container flex flex-col items-center justify-between gap-2 mx-auto md:flex-row"
+  >
+    <div class="flex items-center mb-4 space-x-2 md:mb-0">
+      <Icon name="cherry" class="text-red-700" />
+      <span class="font-semibold font-heading">KiraKana</span>
+    </div>
+    <p>
+      KiraKana &copy; {new Date().getFullYear()} - desarrollado y diseñado por
+      <a
+        href="https://bmmedina.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-sky-400"
+      >
+        @bmmedina99
+      </a>
+    </p>
+  </section>
 </footer>
