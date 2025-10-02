@@ -1,3 +1,22 @@
+# [0.9.0](https://github.com/bmmedina99/kirakana.app/compare/v0.8.0...v0.9.0) (2025-10-02)
+
+
+### Bug Fixes
+
+* **ui:** :bug: correcto romaji labels in kana decoration ([9df79b3](https://github.com/bmmedina99/kirakana.app/commit/9df79b3e5eb818acd10460f5b72642bb97a4c467))
+
+
+### Features
+
+* **icons:** :sparkles: add challenge icon ([e2ce037](https://github.com/bmmedina99/kirakana.app/commit/e2ce0374a86a049d6a22d85c7198074d7105fdcc))
+* **landing:** :sparkles: add CTA section ([60e2ed4](https://github.com/bmmedina99/kirakana.app/commit/60e2ed4ead681887ca1af7b02cba7127d7835848))
+* **landing:** :sparkles: add Features section ([b02cae8](https://github.com/bmmedina99/kirakana.app/commit/b02cae88549674153a9fdfbbb8d643aa69a7d798))
+
+
+### Performance Improvements
+
+* **landing:** :art: improve LCP performance on mobile ([68a3859](https://github.com/bmmedina99/kirakana.app/commit/68a385976e901a94025ec738f7008d0bece09b52))
+
 # [0.8.0](https://github.com/bmmedina99/kirakana.app/compare/v0.7.0...v0.8.0) (2025-09-15)
 
 
