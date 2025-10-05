@@ -46,7 +46,7 @@ export default function Game({ syllabary }: GameProps) {
 
   const onSelect = (option: string) => {
     setSelectedOption(option)
-    if (option === currentKana?.romanji) {
+    if (option === currentKana?.romaji) {
       setFeedback('correct')
       setCorrectAnswers((prev) => prev + 1)
       setTimeout(() => {
@@ -83,7 +83,7 @@ export default function Game({ syllabary }: GameProps) {
 
     setCurrentKana(next)
     setRemainingKanas(rest)
-    setOptions(Options(next.romanji, kanaSet))
+    setOptions(Options(next.romaji, kanaSet))
   }, [remainingKanas, lives, kanaSet])
 
   useEffect(() => {
@@ -150,7 +150,7 @@ export default function Game({ syllabary }: GameProps) {
           <OptionButton
             key={opcion}
             option={opcion}
-            current={currentKana?.romanji ?? null}
+            current={currentKana?.romaji ?? null}
             selected={selectedOption}
             feedback={feedback}
             onSelect={onSelect}

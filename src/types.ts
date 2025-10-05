@@ -8,7 +8,7 @@ export interface Config {
 
 export interface KanaItem {
   kana: string
-  romanji: string
+  romaji: string
 }
 
 export interface ScoreEntry {
