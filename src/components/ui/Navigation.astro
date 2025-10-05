@@ -27,8 +27,14 @@ import Icon from './Icon.astro'
   >
     <span class="sr-only">Abrir menú de navegación</span>
   </label>
-  <Icon name="menu" class="absolute pointer-events-none top-2 left-2 peer-checked:hidden" />
-  <Icon name="close" class="absolute hidden pointer-events-none top-2 left-2 peer-checked:block" />
+  <Icon
+    name="menu"
+    class="absolute pointer-events-none top-2 left-2 peer-checked:hidden"
+  />
+  <Icon
+    name="close"
+    class="absolute hidden pointer-events-none top-2 left-2 peer-checked:block"
+  />
   <div
     class="absolute right-0 invisible w-48 mt-2 transition-all duration-200 transform scale-95 border-2 border-yellow-400 rounded-md opacity-0 bg-yellow-50 peer-checked:opacity-100 peer-checked:visible peer-checked:scale-100 drop-shadow-2xl"
   >
@@ -62,13 +68,15 @@ import Icon from './Icon.astro'
   </div>
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuContainer = document.querySelector('#menu-container')
-    const menuToggle = document.querySelector('#mobile-menu') as HTMLInputElement
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuContainer = document.querySelector("#menu-container");
+    const menuToggle = document.querySelector(
+      "#mobile-menu",
+    ) as HTMLInputElement;
 
-    document.addEventListener('click', (e) => {
+    document.addEventListener("click", (e) => {
       if (!menuContainer?.contains(e.target as Node) && menuToggle)
-        menuToggle.checked = false
-    })
-  })
+        menuToggle.checked = false;
+    });
+  });
 </script>
