@@ -1,3 +1,10 @@
+## [0.9.1](https://github.com/bmmedina99/kirakana.app/compare/v0.9.0...v0.9.1) (2025-10-18)
+
+
+### Bug Fixes
+
+* :bug: correct spelling of `romaji` in hiragana.ts y katakana.ts ([cc3387e](https://github.com/bmmedina99/kirakana.app/commit/cc3387ed698edda084b2f5eef19c5f4b1b93cccf))
+
 # [0.9.0](https://github.com/bmmedina99/kirakana.app/compare/v0.8.0...v0.9.0) (2025-10-02)
 
 
