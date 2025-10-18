@@ -6,13 +6,13 @@
 
 ## Objetivo
 
-El proyecto está diseñado como parte de mi portafolio y busca ofrecer una experiencia intuitiva, tanto para principiantes como para estudiantes que deseen practicar y reforzar sus conocimientos. Además del modo de práctica, incluye una guía visual de estudio con todos los caracteres para facilitar el aprendizaje antes del juego.
+Como parte de mi [porfolio](https://bmmedina.dev), busco ofrecer una experiencia intuitiva, tanto para principiantes como para estudiantes que deseen practicar y reforzar sus conocimientos. Además del modo de práctica, incluye una guía visual de estudio con todos los caracteres para facilitar el aprendizaje antes del juego.
 
 ---
 
 ## Características
 
-- Modo de práctica: reconocimiento de caracteres del **Kana → Romanji**.
+- Modo de práctica: reconocimiento de caracteres del **Kana → Romaji**.
 - Interfaz simple y adaptada para escritorio y móvil.
 - Estilo minimalista con diseño inspirado en Japón.
 - Feedback inmediato tras cada intento.

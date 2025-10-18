@@ -6,7 +6,7 @@ const { name, width = 24, height = 24, class: classes } = Astro.props
   width={width}
   height={height}
   viewBox="0 0 24 24"
-  fill='none'
+  fill="none"
   stroke="currentColor"
   stroke-linecap="round"
   stroke-linejoin="round"
@@ -14,5 +14,5 @@ const { name, width = 24, height = 24, class: classes } = Astro.props
   aria-hidden="true"
   class:list={[{ [classes]: classes }]}
 >
-  <use href={`/svg/sprite.svg#${name}`} />
+  <use href={`/svg/sprite.svg#${name}`}></use>
 </svg>
