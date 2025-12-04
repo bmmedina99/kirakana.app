@@ -1,3 +1,11 @@
+## [0.9.2](https://github.com/bmmedina99/kirakana.app/compare/v0.9.1...v0.9.2) (2025-12-04)
+
+
+### Bug Fixes
+
+* **ci:** :bug: resolve multiple versions of pnpm in release.yml ([e6b3198](https://github.com/bmmedina99/kirakana.app/commit/e6b3198ed76cf0d35035604d1ce8de6ab9e29dd5))
+* **deps:** :ambulance: resolve critical vulnerability in React ([e9f8727](https://github.com/bmmedina99/kirakana.app/commit/e9f87274bf747d0f2bce700952b3ebb06602d7bc))
+
 ## [0.9.1](https://github.com/bmmedina99/kirakana.app/compare/v0.9.0...v0.9.1) (2025-10-18)
 
 
