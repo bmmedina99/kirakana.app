@@ -28,8 +28,8 @@
     "astro": "5.14.0",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "5.1.0",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
     "schema-dts": "1.1.5"
   },
   "devDependencies": {
@@ -37,12 +37,12 @@
     "@biomejs/biome": "2.2.5",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@types/node": "24.6.2",
-    "@types/react": "19.2.0",
-    "@types/react-dom": "19.2.0",
+    "@types/node": "24.8.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.2",
     "sharp": "0.34.4",
     "tailwindcss": "4.1.14",
     "typescript": "5.9.3"
   },
-  "packageManager": "pnpm@10.17.0"
+  "packageManager": "pnpm@10.18.0"
 }
