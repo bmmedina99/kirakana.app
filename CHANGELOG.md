@@ -1,3 +1,11 @@
+## [0.9.3](https://github.com/bmmedina99/kirakana.app/compare/v0.9.2...v0.9.3) (2025-12-10)
+
+
+### Bug Fixes
+
+* **deps:** resolve critical vulnerabilitiy React ([06222bf](https://github.com/bmmedina99/kirakana.app/commit/06222bfa25718f13fb83452bd7cb9a9455da3fbb))
+* **footer:** :art: correct style color contrast in Footer ([b3ff1fb](https://github.com/bmmedina99/kirakana.app/commit/b3ff1fb57d2de571503a6f272e3f414dc7709103))
+
 ## [0.9.2](https://github.com/bmmedina99/kirakana.app/compare/v0.9.1...v0.9.2) (2025-12-04)
 
 
