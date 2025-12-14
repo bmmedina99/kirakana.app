@@ -1,3 +1,10 @@
+## [0.9.4](https://github.com/bmmedina99/kirakana.app/compare/v0.9.3...v0.9.4) (2025-12-14)
+
+
+### Bug Fixes
+
+* **deps:** :ambulance: update React to resolve another critical vulnerability ([fc451e4](https://github.com/bmmedina99/kirakana.app/commit/fc451e4ae0292a723f433776f78aeca8f875eadc))
+
 ## [0.9.3](https://github.com/bmmedina99/kirakana.app/compare/v0.9.2...v0.9.3) (2025-12-10)
 
 
