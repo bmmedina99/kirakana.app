@@ -9,7 +9,7 @@ const { error } = Astro.props
   <Main class="flex items-center justify-center">
     <section class="relative z-10 w-full max-w-4xl space-y-12 text-center">
       <p
-        class="text-6xl font-bold leading-none text-transparent font-heading sm:text-8xl bg-clip-text bg-gradient-to-t from-red-400 to-sky-400"
+        class="text-6xl font-bold leading-none text-transparent font-heading sm:text-8xl bg-clip-text bg-linear-to-t from-red-400 to-sky-400"
         aria-label="Error 500"
       >
         500
@@ -32,7 +32,9 @@ const { error } = Astro.props
               <summary class="font-medium text-red-700 cursor-pointer">
                 desarrollo: mensaje de error
               </summary>
-              <pre class="mt-2 text-sm text-red-700 break-words whitespace-break-spaces">{error.message}</pre>
+              <pre class="mt-2 text-sm text-red-700 break-words whitespace-break-spaces">
+                {error.message}
+              </pre>
             </details>
           )
         }
@@ -41,7 +43,7 @@ const { error } = Astro.props
         <button
           type="button"
           onclick="window.location.reload()"
-          class="flex items-center gap-3 px-8 py-4 font-medium transition-all duration-200 transform rounded-full shadow-lg text-neutral-800 bg-gradient-to-r from-red-400 to-sky-400 hover:shadow-xl hover:scale-90"
+          class="flex items-center gap-3 px-8 py-4 font-medium transition-all duration-200 transform rounded-full shadow-lg text-neutral-800 bg-linear-to-r from-red-400 to-sky-400 hover:shadow-xl hover:scale-90"
         >
           Recargar página
         </button>
