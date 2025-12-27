@@ -1,67 +1,60 @@
 ---
 import Main from '@/components/layout/Main.astro'
+import Icon from '@/components/ui/Icon.astro'
 import Layout from '@/layouts/Layout.astro'
 
 const { error } = Astro.props
 ---
 
 <Layout title="Ha ocurrido un error">
-  <Main class="flex items-center justify-center">
-    <section class="relative z-10 w-full max-w-4xl space-y-12 text-center">
+  <Main
+    class="relative flex flex-col items-center justify-center space-y-12 text-center"
+  >
+    <p
+      class="text-6xl font-bold leading-none text-transparent font-heading sm:text-8xl bg-clip-text bg-linear-to-t from-red-400 to-sky-400"
+    >
+      500
+    </p>
+    <section class="space-y-6">
+      <h1 class="font-bold font-heading text-neutral-800">
+        Ha ocurrido un error
+      </h1>
       <p
-        class="text-6xl font-bold leading-none text-transparent font-heading sm:text-8xl bg-clip-text bg-linear-to-t from-red-400 to-sky-400"
-        aria-label="Error 500"
+        class="max-w-2xl mx-auto text-xl leading-relaxed text-neutral-800 text-pretty"
       >
-        500
+        Lo sentimos, ocurrio un error inesperado, pero no te preocupes, nuestro
+        equipo ha sido notificado y está trabajando para solucionarlo.
       </p>
-      <div class="space-y-6">
-        <h1
-          class="text-4xl font-bold font-heading text-neutral-800 sm:text-5xl"
-        >
-          Ha ocurrido un error
-        </h1>
-        <p
-          class="max-w-2xl mx-auto text-xl leading-relaxed text-neutral-800 text-pretty"
-        >
-          Lo sentimos, ocurrio un error inesperado, pero no te preocupes,
-          nuestro equipo ha sido notificado y está trabajando para solucionarlo.
-        </p>
-        {
-          process.env.NODE_ENV === "development" && (
-            <details class="max-w-lg p-4 mx-auto mt-6 text-left border border-red-200 rounded-lg bg-red-50">
-              <summary class="font-medium text-red-700 cursor-pointer">
-                desarrollo: mensaje de error
-              </summary>
-              <pre class="mt-2 text-sm text-red-700 wrap-break-word whitespace-break-spaces">
-                {error.message}
-              </pre>
-            </details>
-          )
-        }
-      </div>
-      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <button
-          type="button"
-          onclick="window.location.reload()"
-          class="flex items-center gap-3 px-8 py-4 font-medium transition-all duration-200 transform rounded-full shadow-lg text-neutral-800 bg-linear-to-r from-red-400 to-sky-400 hover:shadow-xl hover:scale-90"
-        >
-          Recargar página
-        </button>
-        <a
-          href="/"
-          class="flex items-center gap-3 px-8 py-4 font-medium transition-all duration-200 transform rounded-full shadow-lg bg-neutral-100 text-neutral-800 hover:shadow-xl hover:scale-90"
-        >
-          Volver al inicio
-        </a>
-      </div>
-      <div
-        class="absolute rounded-full size-20 top-20 left-10 bg-cyan-700/20 blur-xl"
-      >
-      </div>
-      <div
-        class="absolute rounded-full size-32 bottom-20 right-10 bg-red-700/20 blur-xl"
-      >
-      </div>
+      {
+        process.env.NODE_ENV === "development" && (
+          <details class="p-4 mx-auto mt-6 text-left border border-red-200 rounded-lg max-w-96 bg-red-50">
+            <summary class="font-medium text-red-700 cursor-pointer">
+              Mensaje de error
+            </summary>
+            <pre class="mt-2 text-sm text-red-700 whitespace-pre-line">
+              {error.message}
+            </pre>
+          </details>
+        )
+      }
     </section>
+    <div class="flex flex-row items-center justify-center gap-4">
+      <button
+        type="button"
+        onclick="window.location.reload()"
+        class="px-4 py-3 transition-all duration-200 transform rounded-md shadow-lg text-neutral-100 bg-cyan-700 hover:shadow-xl hover:shadow-cyan-700/20 hover:scale-90"
+      >
+        Recargar
+      </button>
+      <button
+        type="button"
+        onclick="window.history.back()"
+        title="Volver a la página anterior"
+        class="px-4 py-3 transition-all duration-200 bg-red-700 border-0 rounded-md hover:scale-90 text-neutral-100 hover:bg-cyan-700"
+        aria-label="Volver a la página anterior"
+      >
+        <Icon name="backpage" />
+      </button>
+    </div>
   </Main>
 </Layout>
