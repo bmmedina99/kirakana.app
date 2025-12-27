@@ -5,35 +5,33 @@ import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="Página no encontrada">
-  <Main class="flex items-center justify-center">
-    <section class="relative z-10 w-full max-w-4xl space-y-12 text-center">
+  <Main
+    class="relative flex flex-col items-center justify-center space-y-12 text-center"
+  >
+    <p
+      class="text-6xl font-bold leading-none text-transparent font-heading sm:text-8xl bg-clip-text bg-linear-to-t from-red-400 to-sky-400"
+    >
+      404
+    </p>
+    <section class="space-y-6">
+      <h1 class="font-bold font-heading text-neutral-800">
+        Página no encontrada
+      </h1>
       <p
-        class="text-6xl font-bold leading-none text-transparent font-heading sm:text-8xl bg-clip-text bg-linear-to-t from-red-400 to-sky-400"
-        aria-label="Error 404"
+        class="max-w-2xl mx-auto text-xl leading-relaxed text-neutral-800 text-pretty"
       >
-        404
+        Lo sentimos, la página no existe o fue movida, pero hay muchas otras
+        cosas increíbles por explorar.
       </p>
-      <div class="space-y-6">
-        <h1
-          class="text-4xl font-bold font-heading text-neutral-800 sm:text-5xl"
-        >
-          Página no encontrada
-        </h1>
-        <p
-          class="max-w-2xl mx-auto text-xl leading-relaxed text-neutral-800 text-pretty"
-        >
-          Lo sentimos, la página no existe o fue movida, pero hay muchas otras
-          cosas increíbles por explorar.
-        </p>
-      </div>
-      <button
-        type="button"
-        onclick="window.history.back()"
-        class="px-4 py-3 transition-all duration-200 bg-red-700 border-0 rounded-md hover:scale-90 text-neutral-100 hover:bg-cyan-700"
-        aria-label="Volver a la página anterior"
-      >
-        <Icon name="backpage" />
-      </button>
     </section>
+    <button
+      type="button"
+      onclick="window.history.back()"
+      title="Volver a la página anterior"
+      class="px-4 py-3 transition-all duration-200 bg-red-700 border-0 rounded-md hover:scale-90 text-neutral-100 hover:bg-cyan-700"
+      aria-label="Volver a la página anterior"
+    >
+      <Icon name="backpage" />
+    </button>
   </Main>
 </Layout>
