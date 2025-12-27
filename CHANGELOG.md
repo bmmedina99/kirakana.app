@@ -1,3 +1,11 @@
+## [0.9.5](https://github.com/bmmedina99/kirakana.app/compare/v0.9.4...v0.9.5) (2025-12-27)
+
+
+### Bug Fixes
+
+* update error message display to use wrap-break-word for better readability ([de10571](https://github.com/bmmedina99/kirakana.app/commit/de10571c852c0906f3eb658eca392237114ba3a6))
+* update gradient classes to use bg-linear for consistency ([dfcd458](https://github.com/bmmedina99/kirakana.app/commit/dfcd458729f27cea8308700ecf04db46b7f87176))
+
 ## [0.9.4](https://github.com/bmmedina99/kirakana.app/compare/v0.9.3...v0.9.4) (2025-12-14)
 
 
