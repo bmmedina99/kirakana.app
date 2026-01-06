@@ -1,96 +1,115 @@
 <section
   id="hero-content"
-  class="container relative px-4 my-16 mx-auto md:py-32 md:px-6"
+  class="relative w-full py-16 overflow-hidden md:py-24 bg-linear-to-br from-white via-amber-50/30 to-red-50/20"
 >
-  <div class="grid gap-12 lg:grid-cols-2">
-    <div class="flex flex-col justify-center space-y-4">
-      <h1 class="font-bold font-heading text-balance">
-        Aprende
-        <span class="text-red-700">Hiragana</span>
-        y
-        <span class="text-cyan-700">Katakana</span>
-        con
-        <span
-          class="text-transparent bg-clip-text bg-linear-to-r from-red-400 to-sky-400"
+  <div
+    class="absolute text-6xl text-red-700 top-10 left-10 opacity-10 animate-pulse"
+  >
+    あ
+  </div>
+  <div
+    class="absolute text-4xl text-red-700 delay-1000 top-32 right-20 opacity-10 animate-pulse"
+  >
+    カ
+  </div>
+  <div
+    class="absolute text-5xl text-red-700 delay-500 bottom-10 left-1/4 opacity-10 animate-pulse"
+  >
+    き
+  </div>
+  <div class="container relative px-4 mx-auto md:px-6">
+    <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <div class="flex flex-col justify-center space-y-4">
+        <h1
+          class="font-bold leading-tight tracking-tight font-heading text-balance"
         >
-          KiraKana
-        </span>
-      </h1>
-      <p class="max-w-xl text-pretty md:text-xl">
-        Descubre el fascinante mundo de los silabarios japoneses
-        <strong class="text-red-700">Hiragana</strong>
-        <span class="text-xs text-red-700">(ひらがな)</span>
-        y
-        <strong class="text-cyan-700">Katakana</strong>
-        <span class="text-xs text-cyan-700">(カタカナ)</span> con nuestra plataforma
-        interactiva. Perfecta para principiantes, con ejercicios que hacen el aprendizaje
-        divertido y efectivo.
-      </p>
-      <div class="flex flex-col gap-4 select-none sm:flex-row">
-        <a
-          href="/aprender"
-          class="bg-blue-100 shadow-lg cursor-default btn text-neutral-800 transition-transform duration-150 hover:translate-y-0.5 hover:shadow-[inset_5px_5px_10px_#bedbff,inset_-5px_-5px_10px_#dbeafe]"
-        >
-          Comienza a aprender
-        </a>
-        <a
-          href="#como-funciona"
-          class="border border-yellow-400 btn text-neutral-800 hover:bg-yellow-100 hover:brightness-105 active:brightness-95"
-        >
-          Ver cómo funciona
-        </a>
+          Domina los
+          <span class="text-red-700">Hiragana</span>
+          y
+          <span class="text-cyan-700">Katakana</span>
+          con
+          <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-red-400 to-sky-400"
+          >
+            KiraKana
+          </span>
+        </h1>
+        <p class="max-w-xl leading-relaxed md:text-xl text-pretty">
+          Descubre el fascinante mundo de los silabarios japoneses
+          <strong class="text-red-700">Hiragana</strong>
+          <span class="text-xs text-red-700">(ひらがな)</span>
+          y
+          <strong class="text-cyan-700">Katakana</strong>
+          <span class="text-xs text-cyan-700">(カタカナ)</span> con nuestra plataforma
+          interactiva. Perfecta para principiantes, con ejercicios que hacen el aprendizaje
+          divertido y efectivo.
+        </p>
+        <div class="flex flex-col gap-4 select-none sm:flex-row">
+          <a
+            href="/aprender"
+            class="bg-blue-100 shadow-lg cursor-default btn text-neutral-800 transition-transform duration-150 hover:translate-y-0.5 hover:shadow-[inset_5px_5px_10px_#bedbff,inset_-5px_-5px_10px_#dbeafe]"
+          >
+            Comienza a aprender
+          </a>
+          <a
+            href="#como-funciona"
+            class="inline-flex items-center justify-center px-8 font-medium transition-colors border border-yellow-400 rounded-md text-neutral-800 hover:bg-yellow-100 hover:brightness-105 active:brightness-95 h-11"
+          >
+            Ver cómo funciona
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="flex items-center justify-center select-none lg:justify-end">
-      <div
-        class="grid grid-cols-3 p-8 transition-transform duration-500 transform border border-yellow-400 shadow-2xl gap-x-4 gap-y-2 rounded-2xl rotate-3 hover:rotate-0"
-      >
-        <h3
-          class="col-span-3 text-sm font-semibold tracking-wide text-center text-red-700 uppercase md:text-base font-heading"
-        >
-          Hiragana
-        </h3>
+      <div class="flex items-center justify-center select-none lg:justify-end">
         <div
-          class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
+          class="grid grid-cols-3 p-8 transition-transform duration-500 transform border border-yellow-400 shadow-2xl gap-x-4 gap-y-2 rounded-2xl rotate-3 hover:rotate-0"
         >
-          か
-          <span class="block mt-2 text-xs text-center text-red-700">ka</span>
+          <h3
+            class="col-span-3 text-sm font-semibold tracking-wide text-center text-red-700 uppercase md:text-base font-heading"
+          >
+            Hiragana
+          </h3>
+          <div
+            class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
+          >
+            か
+            <span class="block mt-2 text-xs text-center text-red-700">ka</span>
+          </div>
+          <div
+            class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
+          >
+            き
+            <span class="block mt-2 text-xs text-center text-red-700">ki</span>
+          </div>
+          <div
+            class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
+          >
+            く
+            <span class="block mt-2 text-xs text-center text-red-700">ku</span>
+          </div>
+          <div
+            class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
+          >
+            カ
+            <span class="block mt-2 text-xs text-center text-cyan-700">ka</span>
+          </div>
+          <div
+            class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
+          >
+            キ
+            <span class="block mt-2 text-xs text-center text-cyan-700">ki</span>
+          </div>
+          <div
+            class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
+          >
+            ク
+            <span class="block mt-2 text-xs text-center text-cyan-700">ku</span>
+          </div>
+          <h3
+            class="col-span-3 mt-1 text-sm font-semibold tracking-wide text-center uppercase md:text-base font-heading text-cyan-700"
+          >
+            Katakana
+          </h3>
         </div>
-        <div
-          class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
-        >
-          き
-          <span class="block mt-2 text-xs text-center text-red-700">ki</span>
-        </div>
-        <div
-          class="p-6 text-2xl font-bold transition-transform bg-red-100 md:text-6xl text-primary rounded-xl hover:scale-105"
-        >
-          く
-          <span class="block mt-2 text-xs text-center text-red-700">ku</span>
-        </div>
-        <div
-          class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
-        >
-          カ
-          <span class="block mt-2 text-xs text-center text-cyan-700">ka</span>
-        </div>
-        <div
-          class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
-        >
-          キ
-          <span class="block mt-2 text-xs text-center text-cyan-700">ki</span>
-        </div>
-        <div
-          class="p-6 text-2xl font-bold transition-transform bg-blue-100 md:text-6xl text-secondary rounded-xl hover:scale-105"
-        >
-          ク
-          <span class="block mt-2 text-xs text-center text-cyan-700">ku</span>
-        </div>
-        <h3
-          class="col-span-3 mt-1 text-sm font-semibold tracking-wide text-center uppercase md:text-base font-heading text-cyan-700"
-        >
-          Katakana
-        </h3>
       </div>
     </div>
   </div>
