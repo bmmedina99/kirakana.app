@@ -3,7 +3,7 @@ export const WORK_CARDS = [
     icon: 'learn',
     color: {
       background: 'from-red-100 via-red-200 to-red-300',
-      text: 'text-red-900',
+      text: 'text-red-700',
     },
     title: '1. Aprende',
     description:
@@ -12,8 +12,8 @@ export const WORK_CARDS = [
   {
     icon: 'practice',
     color: {
-      background: 'from-blue-100 via-blue-200 to-blue-300',
-      text: 'text-blue-900',
+      background: 'from-sky-100 via-sky-200 to-sky-300',
+      text: 'text-sky-700',
     },
     title: '2. Practica',
     description:
@@ -23,7 +23,7 @@ export const WORK_CARDS = [
     icon: 'challenge',
     color: {
       background: 'from-amber-100 via-amber-200 to-amber-300',
-      text: 'text-amber-900',
+      text: 'text-amber-700',
     },
     title: '3. Desafíate',
     description:
@@ -33,7 +33,7 @@ export const WORK_CARDS = [
     icon: 'progress',
     color: {
       background: 'from-red-100 via-red-200 to-red-300',
-      text: 'text-red-900',
+      text: 'text-red-700',
     },
     title: '4. Progresa',
     description:
