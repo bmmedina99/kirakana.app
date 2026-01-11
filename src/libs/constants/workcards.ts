@@ -32,8 +32,8 @@ export const WORK_CARDS = [
   {
     icon: 'progress',
     color: {
-      background: 'from-red-100 via-red-200 to-red-300',
-      text: 'text-red-700',
+      background: 'from-teal-100 via-teal-200 to-teal-300',
+      text: 'text-teal-700',
     },
     title: '4. Progresa',
     description:
