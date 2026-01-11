@@ -1,81 +1,44 @@
 ---
-import Icon from '../ui/Icon.astro'
+import { WORK_CARDS } from "@/libs/constants/workcards";
+import Card from "../ui/Card.astro";
 ---
 
 <section
   id="como-funciona"
-  class="container relative px-4 my-16 mx-auto md:py-32 md:px-6"
+  class="relative w-full py-16 overflow-hidden md:py-24 bg-linear-to-br from-white via-amber-50/30 to-red-50/20"
 >
-  <div
-    class="flex flex-col items-center justify-center mb-16 space-y-4 text-center"
-  >
-    <h2 class="text-3xl font-bold font-heading md:text-5xl">
-      Cómo
-      <span
-        class="text-transparent bg-clip-text bg-linear-to-r from-red-400 to-sky-400"
-      >
-        KiraKana
-      </span>
-      te ayuda a aprender
-    </h2>
-    <p class="max-w-2xl text-pretty md:text-xl">
-      El enfoque de KiraKana combina aprendizaje visual, práctica interactiva y
-      seguimiento del progreso para ayudarte a dominar los silabarios japoneses
-      de manera simple, divertida y efectiva.
-    </p>
-  </div>
-  <div
-    class="grid grid-cols-1 gap-8 text-center md:grid-cols-2 lg:grid-cols-4 text-pretty"
-  >
-    <div class="card group">
-      <div
-        class="card-header bg-linear-to-br from-red-100 via-red-200 to-red-300 group-hover:scale-110"
-      >
-        <Icon name="learn" class="text-red-900" width="32" height="32" />
-      </div>
-      <h3 class="text-xl font-bold font-title">1. Aprende</h3>
-      <p class="text-sm text-center">
-        Descubre cada carácter con guías visuales, pronunciación clara y
-        ejemplos prácticos.
+  <div class="container relative px-4 mx-auto md:px-6">
+    <div
+      class="flex flex-col items-center justify-center mb-16 space-y-4 text-center"
+    >
+      <h2 class="text-3xl font-bold font-heading md:text-5xl">
+        Cómo
+        <span
+          class="text-transparent bg-clip-text bg-linear-to-r from-red-400 to-sky-400"
+        >
+          KiraKana
+        </span>
+        te ayuda a aprender
+      </h2>
+      <p class="max-w-2xl text-pretty md:text-xl">
+        El enfoque de KiraKana combina aprendizaje visual, práctica interactiva
+        y seguimiento del progreso para ayudarte a dominar los silabarios
+        japoneses de manera simple, divertida y efectiva.
       </p>
     </div>
-
-    <div class="card group">
-      <div
-        class="card-header bg-linear-to-br from-blue-100 via-blue-200 to-blue-300 group-hover:scale-110"
-      >
-        <Icon name="practice" class="text-blue-900" width="32" height="32" />
-      </div>
-      <h3 class="text-xl font-bold">2. Practica</h3>
-      <p class="text-sm text-center">
-        Refuerza tu aprendizaje con ejercicios interactivos de escritura y
-        reconocimiento
-      </p>
-    </div>
-
-    <div class="card group">
-      <div
-        class="card-header bg-linear-to-br from-amber-100 via-amber-200 to-amber-300 group-hover:scale-110"
-      >
-        <Icon name="challenge" class="text-amber-900" width="32" height="32" />
-      </div>
-      <h3 class="text-xl font-bold">3. Desafíate</h3>
-      <p class="text-sm text-center">
-        Pon a prueba tus conocimientos con puzzles que se enfocan en tus áreas
-        de mejora.
-      </p>
-    </div>
-    <div class="card group">
-      <div
-        class="card-header bg-linear-to-br from-green-100 via-green-200 to-green-300 group-hover:scale-110"
-      >
-        <Icon name="progress" class="text-green-900" width="32" height="32" />
-      </div>
-      <h3 class="text-xl font-bold">4. Progresa</h3>
-      <p class="text-sm text-center">
-        Monitorea tu avance y celebra tus logros mientras dominas cada
-        silabario.
-      </p>
+    <div
+      class="grid grid-cols-1 gap-8 text-center md:grid-cols-2 lg:grid-cols-4 text-pretty"
+    >
+      {
+        WORK_CARDS.map(({ icon, color, title, description }) => (
+          <Card
+            icon={icon}
+            color={color}
+            title={title}
+            description={description}
+          />
+        ))
+      }
     </div>
   </div>
 </section>
