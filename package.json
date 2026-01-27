@@ -21,11 +21,11 @@
   },
   "dependencies": {
     "@astrojs/react": "4.4.2",
-    "@astrojs/sitemap": "3.6.0",
+    "@astrojs/sitemap": "3.7.0",
     "@fontsource/fredoka": "5.2.10",
     "@fontsource/noto-sans-jp": "5.2.8",
     "@tailwindcss/vite": "4.1.18",
-    "astro": "5.16.5",
+    "astro": "5.16.15",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "5.1.0",
     "react": "19.2.3",
