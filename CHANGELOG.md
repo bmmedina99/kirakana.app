@@ -1,3 +1,24 @@
+# [0.10.0](https://github.com/bmmedina99/kirakana.app/compare/v0.9.5...v0.10.0) (2026-01-27)
+
+
+### Bug Fixes
+
+* **hero:** improve sentence structure for clarity in description ([e59754f](https://github.com/bmmedina99/kirakana.app/commit/e59754f9b0c446174c4027cfb3d268c4c3471b39))
+* **HowItWork:** improve sentence structure for clarity in description ([1dd5f7e](https://github.com/bmmedina99/kirakana.app/commit/1dd5f7e28531c69b1c8a34c642be30971b24da02))
+* refactor 404 page layout for improved structure ([d19eec4](https://github.com/bmmedina99/kirakana.app/commit/d19eec43c5c750b8461de836f7b970f04e6d1d1a))
+* refactor 505 page layout for improved structure ([65da7d3](https://github.com/bmmedina99/kirakana.app/commit/65da7d3313b9eaf0c4a43e8feffce27f61401223))
+* update background color for consistency across sections ([12765d0](https://github.com/bmmedina99/kirakana.app/commit/12765d004480809c4e3f241575416bc734bbfa26))
+* **workcards:** update color properties ([54e8479](https://github.com/bmmedina99/kirakana.app/commit/54e84796df905c8989179eec7aab32ad0df9c80e))
+* **workcards:** update text color for consistency across cards ([d67e54b](https://github.com/bmmedina99/kirakana.app/commit/d67e54bcc019202b4dc7eaa348d420b34f9f8f0e))
+
+
+### Features
+
+* **benefits:** add Benefits section with features and icons ([bbdebe5](https://github.com/bmmedina99/kirakana.app/commit/bbdebe57c2c8d5daedbaac53a4cbef6fd7dfd4a1))
+* **card:** :sparkles: add Card component with icon, title, and description ([db034af](https://github.com/bmmedina99/kirakana.app/commit/db034aff6e41f7d4caf7fb761334a1456a092500))
+* **HowItWork:** refactor section to use WORK_CARDS for dynamic content rendering ([f533e9b](https://github.com/bmmedina99/kirakana.app/commit/f533e9b8b73e3a7dae0c66490deea437cbed2263))
+* **worked:** add worked constant with learning steps ([e89a8bd](https://github.com/bmmedina99/kirakana.app/commit/e89a8bd4aa62a68db6e304f5ab5275345d0f47ce))
+
 ## [0.9.5](https://github.com/bmmedina99/kirakana.app/compare/v0.9.4...v0.9.5) (2025-12-27)
 
 
