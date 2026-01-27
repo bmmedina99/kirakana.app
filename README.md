@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Como parte de mi [porfolio](https://bmmedina.dev), busco ofrecer una experiencia intuitiva, tanto para principiantes como para estudiantes que deseen practicar y reforzar sus conocimientos. Además del modo de práctica, incluye una guía visual de estudio con todos los caracteres para facilitar el aprendizaje antes del juego.
+Este proyecto forma parte de mi [portafolio](https://bmmedina.dev) y tiene como propósito proporcionar una herramienta educativa accesible para el aprendizaje del hiragana y katakana. La aplicación está diseñada para ofrecer una experiencia intuitiva tanto para principiantes absolutos como para estudiantes que buscan reforzar sus conocimientos del sistema de escritura japonés.
 
 ---
 
@@ -32,7 +32,7 @@ Como parte de mi [porfolio](https://bmmedina.dev), busco ofrecer una experiencia
 ## Tecnologías utilizadas
 
 - **[Astro](https://astro.build/)** framework moderno que permite crear sitios de contenido estático.
-- **[React](https://react.dev)**
+- **[React](https://react.dev)** librería para construir interfaces de usuario interactivas.
 - **[TypeScript](https://tailwindcss.com)** aporta tipado estático al código, mejorando la detección de errores durante el desarrollo.
 - **[TailwindCSS](https://tailwindcss.com/)** framework de utilidades CSS para crear diseños de forma rápida.
 
