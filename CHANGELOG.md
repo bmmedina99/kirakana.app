@@ -1,3 +1,16 @@
+# [0.11.0](https://github.com/bmmedina99/kirakana.app/compare/v0.10.0...v0.11.0) (2026-03-08)
+
+
+### Bug Fixes
+
+* refactor release workflow to use environment variables ([b1ec392](https://github.com/bmmedina99/kirakana.app/commit/b1ec39213e39febb588d38e791e1b7dbaa64f2a9))
+
+
+### Features
+
+* **benefits:** replace SVG icons with Icon component ([ea1c1f9](https://github.com/bmmedina99/kirakana.app/commit/ea1c1f90b853319d0e113e8882abd2ca59b86666))
+* **svg:** add new icons for lightbulb, padlock, and save ([732dc2a](https://github.com/bmmedina99/kirakana.app/commit/732dc2a6247eff2f8aa1b8050f67c3ca544ab227))
+
 # [0.10.0](https://github.com/bmmedina99/kirakana.app/compare/v0.9.5...v0.10.0) (2026-01-27)
 
 
