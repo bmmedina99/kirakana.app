@@ -1,3 +1,11 @@
+## [0.11.1](https://github.com/bmmedina99/kirakana.app/compare/v0.11.0...v0.11.1) (2026-03-18)
+
+
+### Bug Fixes
+
+* correct workspace configuration ([9f0d509](https://github.com/bmmedina99/kirakana.app/commit/9f0d50924b5b4a9f23e5299bfcbd2a8b3bd8d3c8))
+* update schema version in biome configuration ([29468b7](https://github.com/bmmedina99/kirakana.app/commit/29468b7bc80ef711b1e7c07d87f4a5343f98bc58))
+
 # [0.11.0](https://github.com/bmmedina99/kirakana.app/compare/v0.10.0...v0.11.0) (2026-03-08)
 
 
