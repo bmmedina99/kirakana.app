@@ -8,6 +8,10 @@ env:
   NODE_VERSION: 24
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   release:
     name: Release
