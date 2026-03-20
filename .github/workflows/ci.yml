@@ -1,0 +1,45 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: 24
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-check:
+    name: Calidad y linting
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+
+      - name: Usando Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: Instalando dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Revisando linting
+        run: pnpm run lint
+
+      - name: Revisando formato de código
+        run: pnpm run fmt
+        continue-on-error: true
+
+      - name: Realizando la build
+        run: pnpm run build --if-present
+        if: always()
