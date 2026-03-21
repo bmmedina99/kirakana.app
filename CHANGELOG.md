@@ -1,3 +1,11 @@
+## [0.11.2](https://github.com/bmmedina99/kirakana.app/compare/v0.11.1...v0.11.2) (2026-03-21)
+
+
+### Bug Fixes
+
+* **cta:** padding to buttons for better spacing ([e6e2d0e](https://github.com/bmmedina99/kirakana.app/commit/e6e2d0ec9b7647d499ebeed99510c1c99a445bcc))
+* release workflow to use Node.js 24 ([24c97ef](https://github.com/bmmedina99/kirakana.app/commit/24c97efebd701f80471458f053cc48dc5f2cac48))
+
 ## [0.11.1](https://github.com/bmmedina99/kirakana.app/compare/v0.11.0...v0.11.1) (2026-03-18)
 
 
