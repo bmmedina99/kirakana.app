@@ -2,8 +2,11 @@
 
 @theme {
   --font-japanese: "Noto Serif JP", sans-serif;
-  --color-white-linen: oklch(0.9602 0.0171 67.62);
-  --color-red-ochre: oklch(0.5843 0.1635 36.77);
+  --color-linen-100: oklch(0.9602 0.0171 67.62);
+  --color-linen-200: oklch(0.9482 0.0172 67.62);
+  --color-ochre-100: oklch(0.5843 0.1635 36.77);
+  --color-copper-100: oklch(0.4284 0.0386 71.05);
+  --color-sun-100: oklch(0.8342 0.117 87.43);
 }
 
 @layer base {
@@ -11,7 +14,7 @@
     background-color: color-mix(
       in oklab,
       var(--color-yellow-400) 20%,
-      transparent
+      d transparent
     );
     color: inherit;
   }
