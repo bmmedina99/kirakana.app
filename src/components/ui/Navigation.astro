@@ -1,6 +1,8 @@
 ---
 import { navLinks } from '@/site.config'
 import Icon from './Icon.astro'
+
+const route = Astro.routePattern
 ---
 
 <nav class="hidden md:block">
@@ -10,7 +12,7 @@ import Icon from './Icon.astro'
         <li>
           <a
             href={link.href}
-            class="p-2 text-lg transition-colors rounded-md hover:bg-yellow-400"
+            class={`${route === link.href ? 'border-b-2 border-red-ochre text-red-ochre' : 'hover:border-b-2 hover:border-red-ochre'} py-1.5 px-3 text-lg transition-all`}
           >
             {link.title}
           </a>
