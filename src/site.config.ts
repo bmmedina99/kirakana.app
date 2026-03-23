@@ -3,7 +3,7 @@ import type { Config } from './types'
 export const configSite: Config = {
   title: 'KiraKana',
   description:
-    'Descubre el fascinante mundo de los silabarios japoneses Hiragana (ひらがな) y Katakana (カタカナ) con nuestra plataforma interactiva. Perfecta para principiantes, con ejercicios que hacen el aprendizaje divertido y efectivo.',
+    'Domina el Hiragana y Katakana con nuestro sistema interactivo. Practica el reconocimiento y la escucha, entrena tu mente para leer japonés con fluidez',
   lang: 'es',
   author: 'bmmedina99',
   url: 'https://kirakana.app',
