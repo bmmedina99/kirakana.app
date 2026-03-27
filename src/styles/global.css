@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-japanese: "Noto Serif JP", sans-serif;
+  --font-japanese: var(--font-noto-serif-jp);
   --color-linen-100: oklch(0.9602 0.0171 67.62);
   --color-linen-200: oklch(0.9482 0.0172 67.62);
   --color-ochre-100: oklch(0.5843 0.1635 36.77);
