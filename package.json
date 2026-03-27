@@ -33,8 +33,6 @@
   "devDependencies": {
     "@astrojs/check": "0.9.8",
     "@biomejs/biome": "2.4.6",
-    "@fontsource/noto-serif-jp": "5.2.8",
-    "@fontsource/outfit": "5.2.8",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@types/node": "25.5.0",
