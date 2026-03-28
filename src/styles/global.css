@@ -3,7 +3,7 @@
 @theme {
   --font-japanese: var(--font-noto-serif-jp);
   --color-linen-100: oklch(0.9602 0.0171 67.62);
-  --color-linen-200: oklch(0.9482 0.0172 67.62);
+  --color-linen-200: oklch(0.9149 0.0174 67.61);
   --color-ochre-100: oklch(0.5843 0.1635 36.77);
   --color-ochre-200: oklch(0.4978 0.1547 36.25);
   --color-copper-100: oklch(0.4284 0.0386 71.05);
