@@ -8,7 +8,7 @@ import Layout from '@/layouts/Layout.astro'
   title="Progreso"
   description="Realiza un seguimiento de tu progreso y mira hasta dónde has llegado"
 >
-  <Main class="m-4">
+  <Main class="flex items-center justify-center grow">
     <section>
       <h1 class="font-bold font-heading text-balance">Tu progreso</h1>
       <p class="mb-4 text-pretty md:text-xl">
@@ -26,7 +26,7 @@ import Layout from '@/layouts/Layout.astro'
       <div class="flex justify-center">
         <button
           type="button"
-          class="mt-4 px-4 py-2 bg-red-700 rounded hover:bg-red-400 text-neutral-100 transition-colors"
+          class="px-4 py-2 mt-4 transition-colors bg-red-700 rounded hover:bg-red-400 text-neutral-100"
           onclick="localStorage.clear(); location.reload();"
         >
           Borrar historial
