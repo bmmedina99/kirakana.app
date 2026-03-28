@@ -2,12 +2,6 @@
 const { class: classes } = Astro.props
 ---
 
-<main
-  id="main-content"
-  class:list={[
-    "relative flex items-center justify-center flex-grow",
-    { [classes]: classes },
-  ]}
->
+<main id="main-content" class:list={["relative", { [classes]: classes }]}>
   <slot />
 </main>
