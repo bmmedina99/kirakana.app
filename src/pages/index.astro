@@ -1,6 +1,5 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import Benefits from '@/components/sections/Benefits.astro'
 import Cta from '@/components/sections/Cta.astro'
 import Features from '@/components/sections/Features.astro'
 import Hero from '@/components/sections/Hero.astro'
@@ -13,9 +12,8 @@ import { configSite } from '@/site.config'
   <a href="#main-content" class="sr-only focus:not-sr-only">
     Ir al contenido principal
   </a>
-  <Main class="flex-col">
+  <Main>
     <Hero />
-    <Benefits />
     <HowItWork />
     <Features />
     <Cta />
