@@ -1,96 +1,133 @@
+---
+import Benefits from './Benefits.astro'
+---
+
 <section
   id="hero-content"
-  class="relative w-full py-16 overflow-hidden md:py-28"
+  class="relative flex flex-col px-8 justify-evenly min-h-dvh"
+  aria-label="KiraKana"
 >
-  <div class="container relative px-4 mx-auto md:px-6">
-    <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-      <div class="flex flex-col justify-center space-y-4">
-        <h1 class="font-semibold leading-tight tracking-tight text-balance">
-          Domina el
-          <span class="text-ochre-200">Hiragana</span>
+  <div
+    class="container grid items-center w-full grid-cols-1 gap-16 mx-auto lg:grid-cols-2 "
+  >
+    <div class="flex flex-col justify-center space-y-4">
+      <span
+        class="block text-sm font-semibold font-japanese text-copper-100"
+        aria-hidden="true"
+      >
+        キラカナ
+      </span>
+      <h1 class="font-semibold leading-tight tracking-tight text-balance">
+        Domina el
+        <span class="text-ochre-200">Hiragana</span>
+        y
+        <span class="text-cyan-700">Katakana</span>
+        con KiraKana
+      </h1>
+      <div class="max-w-xl md:text-xl text-pretty text-copper-100">
+        <p>
+          Descubre el fascinante mundo de los silabarios japoneses:
+          <strong class="text-ochre-200">Hiragana</strong>
+          <span
+            class="text-sm font-japanese text-ochre-200"
+            aria-label="hiragana en japonés"
+          >
+            (ひらがな)
+          </span>
           y
-          <span class="text-cyan-700">Katakana</span>
-          con KiraKana
-        </h1>
-        <div class="max-w-xl md:text-xl text-pretty text-copper-100">
-          <p>
-            Descubre el fascinante mundo de los silabarios japoneses:
-            <strong class="text-ochre-200">Hiragana</strong>
-            <span class="font-japanese text-ochre-200">(ひらがな)</span>
-            y
-            <strong class="text-cyan-700">Katakana</strong>
-            <span class="font-japanese text-cyan-700">(カタカナ)</span>.
-          </p>
-          <p>
-            Con nuestra plataforma practica el reconocimiento y la escucha,
-            entrena tu mente para leer japonés con fluidez.
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-4">
-          <a
-            href="/aprender"
-            class="px-8 py-4 font-medium transition-all shadow-lg cursor-default sm:w-auto btn bg-linear-to-r from-ochre-200 to-ochre-100 text-mauve-50 hover:scale-95"
+          <strong class="text-cyan-700">Katakana</strong>
+          <span
+            class="text-sm font-japanese text-cyan-700"
+            aria-label="katakana en japonés"
           >
-            Comenzar a aprender
-          </a>
-          <a
-            href="#como-funciona"
-            class="px-8 py-4 transition-colors border-2 border-sun-100 sm:w-auto btn text-copper-100 hover:bg-amber-100"
-          >
-            Ver cómo funciona
-          </a>
-        </div>
+            (カタカナ)
+          </span>.
+        </p>
+        <p>
+          Con nuestra plataforma practica el reconocimiento y la escucha,
+          entrena tu mente para leer japonés con fluidez.
+        </p>
       </div>
-      <div class="flex items-center justify-center select-none lg:justify-end">
-        <div
-          class="grid grid-cols-3 p-8 text-center transition-transform duration-300 transform shadow-2xl gap-x-4 gap-y-2 rounded-2xl rotate-5 hover:rotate-0 bg-mauve-50"
+      <nav class="flex flex-wrap gap-4" aria-label="Acciones">
+        <a
+          href="/aprender"
+          class="px-8 py-4 font-medium transition-all shadow-lg cursor-default sm:w-auto btn bg-linear-to-r from-ochre-200 to-ochre-100 text-mauve-50 hover:scale-95"
         >
-          <h3 class="col-span-3 font-semibold uppercase text-ochre-200">
-            Hiragana
-          </h3>
-          <div
-            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
-          >
-            <span class="mb-2 text-6xl font-japanese text-ochre-100">か</span>
-            <p class="text-sm tracking-widest uppercase text-copper-100">ka</p>
-          </div>
-          <div
-            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
-          >
-            <span class="mb-2 text-6xl font-japanese text-ochre-100">き</span>
-            <p class="text-sm tracking-widest uppercase text-copper-100">ki</p>
-          </div>
-          <div
-            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
-          >
-            <span class="mb-2 text-6xl font-japanese text-ochre-100">く</span>
-            <p class="text-sm tracking-widest uppercase text-copper-100">ku</p>
-          </div>
-          <div
-            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
-          >
-            <span class="mb-2 text-6xl font-japanese text-cyan-600">カ</span>
-            <p class="text-sm tracking-widest uppercase text-copper-100">ka</p>
-          </div>
-          <div
-            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
-          >
-            <span class="mb-2 text-6xl font-japanese text-cyan-600">キ</span>
-            <p class="text-sm tracking-widest uppercase text-copper-100">ki</p>
-          </div>
-          <div
-            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
-          >
-            <span class="mb-2 text-6xl font-japanese text-cyan-600">ク</span>
-            <p class="text-sm tracking-widest uppercase text-copper-100">ku</p>
-          </div>
-          <h3
-            class="col-span-3 font-semibold uppercase text-cyan-700"
-          >
-            Katakana
-          </h3>
-        </div>
-      </div>
+          Comenzar a aprender
+        </a>
+        <a
+          href="#como-funciona"
+          class="px-8 py-4 transition-colors border-2 border-sun-100 sm:w-auto btn text-copper-100 hover:bg-amber-100"
+        >
+          Ver cómo funciona
+        </a>
+      </nav>
     </div>
+    <figure
+      class="flex items-center justify-center select-none md:justify-end"
+      aria-label="Caracteres Hiragana y Katakana"
+    >
+      <div
+        class="grid grid-cols-3 p-8 text-center transition-transform duration-300 transform shadow-2xl gap-x-4 gap-y-2 rounded-2xl rotate-5 hover:rotate-0 bg-mauve-50"
+      >
+        <h2 class="col-span-3 font-semibold uppercase text-ochre-200">
+          Hiragana
+        </h2>
+        <dl class="contents">
+          <div
+            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
+          >
+            <dt class="mb-2 text-6xl font-japanese text-ochre-100">か</dt>
+            <dd class="text-sm tracking-widest uppercase text-copper-100">
+              ka
+            </dd>
+          </div>
+          <div
+            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
+          >
+            <dt class="mb-2 text-6xl font-japanese text-ochre-100">き</dt>
+            <dd class="text-sm tracking-widest uppercase text-copper-100">
+              ki
+            </dd>
+          </div>
+          <div
+            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
+          >
+            <dt class="mb-2 text-6xl font-japanese text-ochre-100">く</dt>
+            <dd class="text-sm tracking-widest uppercase text-copper-100">
+              ku
+            </dd>
+          </div>
+          <div
+            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
+          >
+            <dt class="mb-2 text-6xl font-japanese text-cyan-600">カ</dt>
+            <dd class="text-sm tracking-widest uppercase text-copper-100">
+              ka
+            </dd>
+          </div>
+          <div
+            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
+          >
+            <dt class="mb-2 text-6xl font-japanese text-cyan-600">キ</dt>
+            <dd class="text-sm tracking-widest uppercase text-copper-100">
+              ki
+            </dd>
+          </div>
+          <div
+            class="p-6 transition-transform bg-linen-200 rounded-xl hover:scale-105"
+          >
+            <dt class="mb-2 text-6xl font-japanese text-cyan-600">ク</dt>
+            <dd class="text-sm tracking-widest uppercase text-copper-100">
+              ku
+            </dd>
+          </div>
+        </dl>
+        <h2 class="col-span-3 font-semibold uppercase text-cyan-700">
+          Katakana
+        </h2>
+      </div>
+    </figure>
   </div>
+  <Benefits />
 </section>
