@@ -13,7 +13,7 @@ export default defineConfig({
       name: 'Outfit',
       cssVariable: '--font-outfit',
       provider: fontProviders.fontsource(),
-      weights: [400, 500, 600],
+      weights: [400, 600],
       fallbacks: ['sans-serif'],
     },
     {
