@@ -1,54 +1,53 @@
 ---
-import type { Fragment } from 'react'
 import Icon from '../ui/Icon.astro'
 ---
 
-<section class="w-full border-yellow-400 border-y">
-  <div class="max-w-6xl px-4 py-8 mx-auto">
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
-      <div class="flex flex-col items-center space-y-3 text-center">
-        <div class="flex items-center justify-center w-12 h-12">
-          <Icon name="learn" class="size-full text-red-500" />
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900">92 caracteres</h3>
-        <div class="space-y-1 text-sm text-gray-600">
-          <p>46 Hiragana + 46 Katakana</p>
-          <p>Domina ambos silabarios</p>
-        </div>
+<section
+  class="w-full py-24 border-sun-100 border-y"
+  aria-label="Características principales"
+>
+  <ul
+    class="grid grid-cols-1 gap-12 px-4 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+  >
+    <li class="flex flex-col items-center space-y-3 text-center">
+      <div class="flex items-center justify-center size-12" aria-hidden="true">
+        <Icon name="learn" class="text-ochre-100 size-full" />
       </div>
-
-      <div class="flex flex-col items-center space-y-3 text-center">
-        <div class="flex items-center justify-center w-12 h-12">
-          <Icon name="lightbulb" class="size-full text-teal-500" />
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900">Aprendizaje activo</h3>
-        <div class="space-y-1 text-sm text-gray-600">
-          <p>Reconocimiento visual</p>
-          <p>Práctica por repetición</p>
-        </div>
+      <h3 class="mb-4 text-2xl font-semibold">92 caracteres</h3>
+      <p class="space-y-1 text-sm text-copper-100">
+        46 Hiragana + 46 Katakana<br />
+        Domina ambos silabarios
+      </p>
+    </li>
+    <li class="flex flex-col items-center space-y-3 text-center">
+      <div class="flex items-center justify-center size-12" aria-hidden="true">
+        <Icon name="lightbulb" class="text-ochre-100 size-full" />
       </div>
-
-      <div class="flex flex-col items-center space-y-3 text-center">
-        <div class="flex items-center justify-center w-12 h-12">
-          <Icon name="padlock" class="size-full text-purple-500" />
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900">Privacidad total</h3>
-        <div class="space-y-1 text-sm text-gray-600">
-          <p>Sin registro ni cuentas</p>
-          <p>Sin datos personales</p>
-        </div>
+      <h3 class="mb-4 text-2xl font-semibold">Aprendizaje activo</h3>
+      <p class="space-y-1 text-sm text-copper-100">
+        Reconocimiento visual<br />
+        Práctica por repetición
+      </p>
+    </li>
+    <li class="flex flex-col items-center space-y-3 text-center">
+      <div class="flex items-center justify-center size-12" aria-hidden="true">
+        <Icon name="padlock" class="text-ochre-100 size-full" />
       </div>
-
-      <div class="flex flex-col items-center space-y-3 text-center">
-        <div class="flex items-center justify-center w-12 h-12">
-          <Icon name="save" class="size-full text-blue-500" />
-        </div>
-        <h3 class="text-2xl font-bold text-gray-900">Progreso guardado</h3>
-        <div class="space-y-1 text-sm text-gray-600">
-          <p>Almacenado localmente</p>
-          <p>Avance siempre disponible</p>
-        </div>
+      <h3 class="mb-4 text-2xl font-semibold">Privacidad total</h3>
+      <p class="space-y-1 text-sm text-copper-100">
+        Sin registro ni cuentas<br />
+        Sin datos personales
+      </p>
+    </li>
+    <li class="flex flex-col items-center space-y-3 text-center">
+      <div class="flex items-center justify-center size-12" aria-hidden="true">
+        <Icon name="save" class="text-ochre-100 size-full" />
       </div>
-    </div>
-  </div>
+      <h3 class="mb-4 text-2xl font-semibold">Progreso guardado</h3>
+      <p class="space-y-1 text-sm text-copper-100">
+        Almacenado localmente<br />
+        Avance siempre disponible
+      </p>
+    </li>
+  </ul>
 </section>
