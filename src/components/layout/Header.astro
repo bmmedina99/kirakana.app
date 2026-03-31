@@ -1,16 +1,17 @@
 ---
+import { Image } from 'astro:assets'
+import LogoKirakana from '@/assets/logo-kirakana.png'
 import { configSite } from '@/site.config'
-import Icon from '../ui/Icon.astro'
 import Navigation from '../ui/Navigation.astro'
 ---
 
 <header
-  class="sticky top-0 z-50 flex items-center justify-center w-full h-24 px-8 mx-auto bg-linen-100"
+  class="sticky top-0 z-50 flex items-center justify-center w-full h-24 px-8 bg-linen-100"
 >
   <section class="container flex items-center justify-between mx-auto">
-    <div class="flex items-center gap-2 text-2xl font-semibold">
-      <Icon name="cherry" class="text-ochre-100" />
-      {configSite.title}
+    <div class="flex items-center text-2xl md:text-5xl font-semibold">
+      <Image src={LogoKirakana} alt={configSite.title} class="aspect-square" />
+      <span class="-translate-x-4">iraKana</span>
     </div>
     <Navigation />
   </section>
