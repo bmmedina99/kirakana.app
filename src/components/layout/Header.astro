@@ -8,11 +8,15 @@ import Navigation from '../ui/Navigation.astro'
 <header
   class="sticky top-0 z-50 flex items-center justify-center w-full h-24 px-8 bg-linen-100"
 >
-  <section class="container flex items-center justify-between mx-auto">
-    <div class="flex items-center text-2xl md:text-5xl font-semibold">
-      <Image src={LogoKirakana} alt={configSite.title} class="aspect-square" />
-      <span class="-translate-x-4">iraKana</span>
-    </div>
+  <div class="container flex items-center justify-between mx-auto">
+    <a
+      href="/"
+      aria-label={configSite.title}
+      class="flex items-center text-2xl md:text-5xl font-semibold"
+    >
+      <Image src={LogoKirakana} alt="" class="aspect-square" />
+      <span class="-translate-x-4" aria-hidden="true"> iraKana </span>
+    </a>
     <Navigation />
-  </section>
+  </div>
 </header>
