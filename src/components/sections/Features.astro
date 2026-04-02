@@ -2,125 +2,47 @@
 import Icon from '../ui/Icon.astro'
 ---
 
-<section
-  id="caracteristicas"
-  class="container relative px-4 my-16 mx-auto md:my-32 md:px-6"
+<ul
+  class="container grid w-full grid-cols-1 gap-12 pb-12 mx-auto mt-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8"
 >
-  <div class="grid items-center gap-12 lg:grid-cols-2 text-pretty">
-    <div class="space-y-4">
-      <h2 class="text-3xl font-bold font-heading md:text-5xl">
-        Todo lo necesario para aprender los silabarios japoneses
-      </h2>
-      <p class="max-w-2xl md:text-lg">
-        <strong
-          class="text-transparent bg-clip-text bg-linear-to-r from-red-400 to-sky-400"
-        >
-          KiraKana
-        </strong> está diseñada para hacer que el aprendizaje de los silabarios japoneses
-        sea accesible, interactivo y efectivo.
-      </p>
-      <div class="space-y-6">
-        <div class="flex items-center gap-4">
-          <div
-            class="flex items-center justify-center size-12 bg-red-400/10 rounded-xl"
-          >
-            <Icon name="practice" />
-          </div>
-          <div>
-            <h3 class="mb-2 font-semibold font-title">Modo de práctica</h3>
-            <p>
-              Reconoce cada carácter practicando de
-              <strong class="text-red-700">Kana &RightArrow; Romaji</strong>
-              con un sistema de opciones múltiples.
-            </p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div
-            class="flex items-center justify-center size-12 bg-sky-400/10 rounded-xl"
-          >
-            <Icon name="style" />
-          </div>
-          <div>
-            <h3 class="mb-2 font-semibold font-title">Estilo minimalista</h3>
-            <p>
-              Diseño <strong class="text-cyan-700">limpio e intuitivo</strong>,
-              inspirado en la estética japonesa.
-            </p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div
-            class="flex items-center justify-center size-12 bg-yellow-400/10 rounded-xl"
-          >
-            <Icon name="feedback" />
-          </div>
-          <div>
-            <h3 class="mb-2 font-semibold font-title">Feedback inmediato</h3>
-            <p>
-              Recibe
-              <strong class="text-yellow-700">
-                retroalimentación instantánea
-              </strong>
-              después de cada intento para mejorar más rápido.
-            </p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div
-            class="flex items-center justify-center bg-green-400/10 size-12 rounded-xl"
-          >
-            <Icon name="noregister" />
-          </div>
-          <div>
-            <h3 class="mb-2 font-semibold font-title">Sin inicio de sesión</h3>
-            <p>
-              Empieza a practicar
-              <strong class="text-green-700"> sin registrarte </strong>
-              ni crear cuentas: entra, aprende y práctica al instante.
-            </p>
-          </div>
-        </div>
-      </div>
+  <li class="flex flex-col items-center space-y-3 text-center">
+    <div class="flex items-center justify-center size-12" aria-hidden="true">
+      <Icon name="learn" class="text-ochre-100 size-full" />
     </div>
-    <div class="relative select-none">
-      <div
-        class="p-8 bg-linear-to-br from-yellow-100/40 to-neutral-100/5 rounded-3xl"
-      >
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="p-4 shadow-md bg-amber-50 rounded-xl">
-            <div class="text-center">
-              <div class="mb-2 text-3xl font-bold text-red-700">あ</div>
-              <div class="text-sm">Hiragana</div>
-              <progress class="h-2 mt-2" value="85" max="100"></progress>
-            </div>
-          </div>
-          <div class="p-4 shadow-md bg-amber-50 rounded-xl">
-            <div class="text-center">
-              <div class="mb-2 text-3xl font-bold text-cyan-700">ア</div>
-              <div class="text-sm">Katakana</div>
-              <progress class="h-2 mt-2" value="65" max="100"></progress>
-            </div>
-          </div>
-        </div>
-        <div class="p-6 shadow-md bg-amber-50 rounded-xl">
-          <div class="flex items-center justify-between mb-4">
-            <h4 class="font-semibold">Progreso semanal</h4>
-            <span class="text-sm font-medium text-green-700">+15%</span>
-          </div>
-          <div class="space-y-3">
-            <div class="flex justify-between text-sm">
-              <span>Caracteres aprendidos</span>
-              <span class="font-medium">46/92</span>
-            </div>
-            <progress class="w-full h-2" value="46" max="92"></progress>
-            <div class="flex justify-between text-sm">
-              <span>Racha actual</span>
-              <span class="font-medium">12 días</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <h3 class="mb-4 text-2xl font-semibold">92 caracteres</h3>
+    <p class="space-y-1 text-sm text-copper-100">
+      46 Hiragana + 46 Katakana<br />
+      Domina ambos silabarios
+    </p>
+  </li>
+  <li class="flex flex-col items-center space-y-3 text-center">
+    <div class="flex items-center justify-center size-12" aria-hidden="true">
+      <Icon name="lightbulb" class="text-ochre-100 size-full" />
     </div>
-  </div>
-</section>
+    <h3 class="mb-4 text-2xl font-semibold">Aprendizaje activo</h3>
+    <p class="space-y-1 text-sm text-copper-100">
+      Reconocimiento visual<br />
+      Práctica por repetición
+    </p>
+  </li>
+  <li class="flex flex-col items-center space-y-3 text-center">
+    <div class="flex items-center justify-center size-12" aria-hidden="true">
+      <Icon name="padlock" class="text-ochre-100 size-full" />
+    </div>
+    <h3 class="mb-4 text-2xl font-semibold">Privacidad total</h3>
+    <p class="space-y-1 text-sm text-copper-100">
+      Sin registro ni cuentas<br />
+      Sin datos personales
+    </p>
+  </li>
+  <li class="flex flex-col items-center space-y-3 text-center">
+    <div class="flex items-center justify-center size-12" aria-hidden="true">
+      <Icon name="save" class="text-ochre-100 size-full" />
+    </div>
+    <h3 class="mb-4 text-2xl font-semibold">Progreso guardado</h3>
+    <p class="space-y-1 text-sm text-copper-100">
+      Almacenado localmente<br />
+      Avance siempre disponible
+    </p>
+  </li>
+</ul>
