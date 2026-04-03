@@ -14,8 +14,9 @@
       <path d="M7 18h10" />
     </symbol>
     <symbol id="backpage">
-      <path d="M9 14l-4 -4l4 -4" />
-      <path d="M5 10h11a4 4 0 1 1 0 8h-1" />
+      <path d="M5 12l14 0" />
+      <path d="M5 12l6 6" />
+      <path d="M5 12l6 -6" />
     </symbol>
     <symbol id="learn">
       <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
