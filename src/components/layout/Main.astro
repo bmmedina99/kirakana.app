@@ -1,10 +1,10 @@
 ---
-const { class: classes } = Astro.props
+const { class: classes } = Astro.props;
 ---
 
 <main
   id="main-content"
-  class:list={["relative pt-12 overflow-hidden", { [classes]: classes }]}
+  class:list={["relative flex-1 overflow-hidden", { [classes]: classes }]}
 >
   <slot />
 </main>
