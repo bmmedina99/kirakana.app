@@ -1,10 +1,10 @@
 ---
-import Main from '@/components/layout/Main.astro'
-import KanaPreview from '@/components/sections/KanaPreview.astro'
-import Icon from '@/components/ui/Icon.astro'
-import Layout from '@/layouts/Layout.astro'
+import Main from "@/components/layout/Main.astro";
+import KanaPreview from "@/components/sections/KanaPreview.astro";
+import Icon from "@/components/ui/Icon.astro";
+import Layout from "@/layouts/Layout.astro";
 
-const { error } = Astro.props
+const { error } = Astro.props;
 ---
 
 <Layout
@@ -13,7 +13,7 @@ const { error } = Astro.props
   robots="noindex, follow"
   errorPage
 >
-  <Main class="flex-1">
+  <Main class="pt-16">
     <section class="flex flex-col px-8">
       <div
         class="container grid items-center w-full grid-cols-1 gap-16 mx-auto lg:grid-cols-2"
@@ -34,7 +34,8 @@ const { error } = Astro.props
           </h1>
           <div class="max-w-xl md:text-xl text-pretty text-copper-100">
             <p>
-              Estamos trabajando para solucionarlo lo más pronto posible. Mientras tanto, puedes volver a intentarlo.
+              Estamos trabajando para solucionarlo lo más pronto posible.
+              Mientras tanto, puedes volver a intentarlo.
             </p>
             {
               process.env.NODE_ENV === "development" && (
