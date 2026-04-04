@@ -20,6 +20,14 @@
     );
     color: inherit;
   }
+
+  main > #hero-content:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100dvh;
+    padding: clamp(1.5rem, 5vh, 4rem) clamp(1rem, 5vw, 5rem);
+  }
 }
 
 @layer components {
