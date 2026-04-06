@@ -25,7 +25,7 @@ export default function ScorePuzzle() {
             className='flex items-center justify-between space-y-4'
           >
             <div>
-              <p className='font-medium capitalize'>{score.kanaType}</p>
+              <p className='font-semibold capitalize'>{score.kanaType}</p>
               <p className='text-sm text-neutral-800'>
                 {new Date(score.date).toLocaleDateString('es-ES', {
                   year: 'numeric',
@@ -41,7 +41,7 @@ export default function ScorePuzzle() {
                 {score.correct} / {score.total}
               </p>
               <p
-                className={`text-sm font-medium ${
+                className={`text-sm font-semibold ${
                   score.correct >= 35
                     ? 'text-green-700'
                     : score.correct >= 15
