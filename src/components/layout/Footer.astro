@@ -1,26 +1,59 @@
 ---
+import { navLinks } from '@/site.config'
 import Icon from '../ui/Icon.astro'
+
+const route = Astro.routePattern
 ---
 
-<footer class="px-4 py-8 text-center border-t border-yellow-400">
-  <section
-    class="container flex flex-col items-center justify-between gap-2 mx-auto md:flex-row"
-  >
-    <div class="flex items-center mb-4 space-x-2 md:mb-0">
-      <Icon name="cherry" class="text-red-700" />
-      <span class="font-semibold font-heading">KiraKana</span>
-    </div>
-    <p>
-      <span class="font-semibold font-heading">KiraKana</span>
-      &copy; {new Date().getFullYear()} - Desarrollado y diseñado por
+<footer class="w-full px-8 pt-16 pb-10 mt-auto">
+  <div class="container flex flex-col items-center gap-6 mx-auto text-center">
+    <p class="flex items-center gap-2 text-3xl font-semibold">
+      <Icon name="cherry" class="text-ochre-100 size-8" />
+      <span>KiraKana</span>
+    </p>
+    <figure class="flex flex-col items-center gap-2">
+      <blockquote
+        lang="ja"
+        class="text-xl font-semibold tracking-widest text-ochre-200 font-japanese"
+        aria-label="Cita en japonés"
+      >
+        <p>できるまでやってみよう</p>
+      </blockquote>
+      <figcaption class="text-sm italic text-copper-100">
+        «Inténtalo hasta lograrlo»
+      </figcaption>
+    </figure>
+    <span class="w-12 h-px bg-ochre-100" aria-hidden="true"></span>
+    <nav
+      class="flex flex-wrap justify-center text-sm gap-x-4 gap-y-2"
+      aria-label="Navegación secundaria"
+    >
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            aria-current={route === link.href ? "page" : undefined}
+            class={`${route === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} border-b-2 transition-colors`}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+    </nav>
+    <address
+      class="flex flex-wrap items-center justify-center gap-1 text-xs not-italic"
+    >
+      <span>© {new Date().getFullYear()} KiraKana.</span>
+      <span>Diseñado y desarrollado por</span>
       <a
         href="https://bmmedina.dev"
         target="_blank"
-        rel="noopener noreferrer"
-        class="font-semibold text-transparent bg-clip-text bg-linear-to-r from-red-700 to-cyan-700"
+        rel="noopener noreferrer author"
+        class="font-medium transition-colors text-copper-100 hover:text-ochre-200"
+        aria-label="Portfolio de bmmedina, desarrollador de KiraKana"
       >
         @bmmedina99
       </a>
-    </p>
-  </section>
+    </address>
+  </div>
 </footer>
