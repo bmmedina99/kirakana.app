@@ -5,22 +5,21 @@ import Icon from './Icon.astro'
 const route = Astro.routePattern
 ---
 
-<nav class="hidden md:block" aria-label="Navegación principal">
-  <ul class="flex items-center gap-6">
-    {
-      navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            aria-current={route === link.href ? "page" : undefined}
-            class={`${route === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} border-b-2 py-1.5 px-3 text-lg transition-colors`}
-          >
-            {link.title}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<nav
+  class="items-center hidden gap-6 md:flex"
+  aria-label="Navegación principal"
+>
+  {
+    navLinks.map((link) => (
+      <a
+        href={link.href}
+        aria-current={route === link.href ? "page" : undefined}
+        class={`${route === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} border-b-2 py-1.5 px-3 text-lg transition-colors`}
+      >
+        {link.title}
+      </a>
+    ))
+  }
 </nav>
 <div id="menu-container" class="relative md:hidden">
   <input
@@ -40,21 +39,20 @@ const route = Astro.routePattern
   </label>
   <nav
     id="mobile-nav"
-    class="absolute right-0 w-48 mt-2 transition-opacity border-2 rounded-md opacity-0 border-sun-100 bg-mauve-50 peer-checked:opacity-100"
+    class="absolute right-0 w-48 p-2 mt-2 space-y-2 transition-opacity border-2 rounded-md opacity-0 border-sun-100 bg-mauve-50 peer-checked:opacity-100"
+    aria-label="Navegación móvil"
   >
-    <ul class="p-2 space-y-2">
-      {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            aria-current={route === link.href ? "page" : undefined}
-            class={`${route === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} block border-b-2 py-1.5 px-3 text-lg transition-colors`}
-          >
-            {link.title}
-          </a>
-        ))
-      }
-    </ul>
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          aria-current={route === link.href ? "page" : undefined}
+          class={`${route === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} block border-b-2 py-1.5 px-3 text-lg transition-colors`}
+        >
+          {link.title}
+        </a>
+      ))
+    }
   </nav>
 </div>
 <script>
