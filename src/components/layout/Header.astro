@@ -5,17 +5,25 @@ import { configSite } from '@/site.config'
 import Navigation from '../ui/Navigation.astro'
 ---
 
-<header
-  class="sticky top-0 z-50 flex items-center justify-center w-full h-24 px-8 bg-linen-100"
->
+<header class="flex items-center justify-center h-24 px-4 my-4 bg-linen-100">
   <div class="container flex items-center justify-between mx-auto">
     <a
       href="/"
       aria-label={configSite.title}
-      class="flex items-center text-2xl md:text-5xl font-semibold"
+      class="flex items-center text-3xl font-semibold md:text-5xl"
     >
-      <Image src={LogoKirakana} alt="" class="aspect-square" />
-      <span class="-translate-x-4" aria-hidden="true"> iraKana </span>
+      <Image
+        src={LogoKirakana}
+        alt=""
+        class="aspect-square"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        densities={[1, 2]}
+        width={96}
+        height={96}
+      />
+      <span class="-translate-x-6" aria-hidden="true">iraKana</span>
     </a>
     <Navigation />
   </div>
