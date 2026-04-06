@@ -1,6 +1,6 @@
 {
   "name": "kirakana",
-  "description": "Aplicación web interactiva para practicar y aprender Hiragana y Katakana a través de un sistema de puzzle con opciones múltiples.",
+  "description": "Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. Mejora tu lectura de japonés paso a paso.",
   "type": "module",
   "version": "0.11.2",
   "private": true,
