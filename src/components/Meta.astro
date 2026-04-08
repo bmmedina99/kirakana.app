@@ -4,7 +4,13 @@ import { Schema } from 'astro-seo-schema'
 import { configSite } from '@/site.config'
 import globalCSS from '@/styles/global.css?inline'
 
-const { title, description, robots = 'index, follow', errorPage } = Astro.props
+const {
+  title,
+  description,
+  robots = 'index, follow',
+  errorPage,
+  schema,
+} = Astro.props
 const siteTitle = `${title} | ${configSite.title}`
 const siteURL = new URL(Astro.request.url, Astro.site).toString()
 const siteAuthor = configSite.author
@@ -51,12 +57,4 @@ const siteAuthor = configSite.author
 <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 <link rel="canonical" href={siteURL} />
 
-<Schema
-  item={{
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: configSite.author,
-    url: siteURL,
-    description: description,
-  }}
-/>
+{ schema && (<Schema item={schema} /> ) }
