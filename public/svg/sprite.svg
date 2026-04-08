@@ -7,6 +7,11 @@
       <path d="M17 15c-1.333 -2.333 -2.333 -5.333 -1 -9" />
       <path d="M5 6c3.667 -2.667 7.333 -2.667 11 0c-3.667 2.667 -7.333 2.667 -11 0" />
     </symbol>
+    <symbol id="arrowdown">
+      <path d="M12 5l0 14" />
+      <path d="M16 15l-4 4" />
+      <path d="M8 15l4 4" />
+    </symbol>
     <symbol id="menu">
       <path d="M7 6h10" />
       <path d="M4 12h16" />
