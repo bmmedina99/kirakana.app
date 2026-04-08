@@ -2,7 +2,7 @@
 import { navLinks } from '@/site.config'
 import Icon from './Icon.astro'
 
-const route = Astro.routePattern
+const pathname = Astro.url.pathname
 ---
 
 <nav
@@ -13,8 +13,8 @@ const route = Astro.routePattern
     navLinks.map((link) => (
       <a
         href={link.href}
-        aria-current={route === link.href ? "page" : undefined}
-        class={`${route === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} border-b-2 py-1.5 px-3 text-lg transition-colors`}
+        aria-current={pathname === link.href ? "page" : undefined}
+        class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} border-b-2 py-1.5 px-3 text-lg transition-colors`}
       >
         {link.title}
       </a>
@@ -46,8 +46,8 @@ const route = Astro.routePattern
       navLinks.map((link) => (
         <a
           href={link.href}
-          aria-current={route === link.href ? "page" : undefined}
-          class={`${route === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} block border-b-2 py-1.5 px-3 text-lg transition-colors`}
+          aria-current={pathname === link.href ? "page" : undefined}
+          class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} block border-b-2 py-1.5 px-3 text-lg transition-colors`}
         >
           {link.title}
         </a>
