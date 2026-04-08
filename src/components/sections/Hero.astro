@@ -47,18 +47,23 @@ import KanaPreview from './KanaPreview.astro'
           entrena tu mente para leer japonés con fluidez.
         </p>
       </div>
-      <nav class="flex flex-wrap gap-4" aria-label="Acciones">
+      <nav class="flex flex-wrap gap-4 font" aria-label="Acciones">
         <a
           href="/aprender"
-          class="px-8 py-4 shadow-lg cursor-default btn bg-linear-to-r from-ochre-200 to-ochre-100 text-mauve-50 hover:scale-95"
+          title="Empezar a aprender"
+          class="shadow-lg cursor-default btn bg-linear-to-r from-ochre-150 to-ochre-100 text-mauve-50 hover:scale-95"
+          aria-label="Empezar a aprender"
         >
-          Comenzar a aprender
+          Empezar a aprender
         </a>
         <a
           href="#como-funciona"
-          class="px-8 py-4 border-2 border-sun-100 btn text-copper-100 hover:bg-amber-100"
+          title="Ver cómo funciona"
+          class="border-2 border-sun-100 btn text-copper-100 hover:bg-amber-100"
+          aria-label="Ver cómo funciona"
         >
           Ver cómo funciona
+          <Icon name="arrowdown" />
         </a>
       </nav>
     </div>
