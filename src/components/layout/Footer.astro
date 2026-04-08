@@ -5,25 +5,23 @@ import Icon from '../ui/Icon.astro'
 const route = Astro.routePattern
 ---
 
-<footer class="w-full px-8 pt-16 pb-10 mt-auto">
+<footer class="w-full px-8 pt-16 pb-10 mt-auto bg-slate-550 text-mauve-50">
   <div class="container flex flex-col items-center gap-6 mx-auto text-center">
     <p class="flex items-center gap-2 text-3xl font-semibold">
-      <Icon name="cherry" class="text-ochre-100 size-8" />
+      <Icon name="cherry" class="text-rose-200 size-8" />
       <span>KiraKana</span>
     </p>
-    <figure class="flex flex-col items-center gap-2">
+    <figure class="flex flex-col items-center gap-2 text-rose-200">
       <blockquote
         lang="ja"
-        class="text-xl font-semibold tracking-widest text-ochre-200 font-japanese"
+        class="text-xl font-semibold tracking-widest font-japanese"
         aria-label="Cita en japonés"
       >
         <p>できるまでやってみよう</p>
       </blockquote>
-      <figcaption class="text-sm italic text-copper-100">
-        «Inténtalo hasta lograrlo»
-      </figcaption>
+      <figcaption class="text-sm italic">«Inténtalo hasta lograrlo»</figcaption>
     </figure>
-    <span class="w-12 h-px bg-ochre-100" aria-hidden="true"></span>
+    <span class="w-12 h-px bg-rose-200" aria-hidden="true"></span>
     <nav
       class="flex flex-wrap justify-center text-sm gap-x-4 gap-y-2"
       aria-label="Navegación secundaria"
@@ -33,7 +31,7 @@ const route = Astro.routePattern
           <a
             href={link.href}
             aria-current={route === link.href ? "page" : undefined}
-            class={`${route === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} border-b-2 transition-colors`}
+            class={`${route === link.href ? "border-rose-200 text-rose-200" : "hover:border-rose-200 border-transparent"} border-b-2 transition-colors`}
           >
             {link.title}
           </a>
@@ -49,7 +47,7 @@ const route = Astro.routePattern
         href="https://bmmedina.dev"
         target="_blank"
         rel="noopener noreferrer author"
-        class="font-semibold transition-colors text-copper-100 hover:text-ochre-200"
+        class="font-semibold transition-colors text-rose-200 hover:text-mauve-50"
         aria-label="Portfolio de bmmedina, desarrollador de KiraKana"
       >
         @bmmedina99
