@@ -11,72 +11,166 @@ import Icon from '../ui/Icon.astro'
       <p class="max-w-xl mx-auto text-lg text-copper-100 text-pretty">
         Aprende <strong class="text-ochre-200">hiragana</strong>
         y <strong class="text-cyan-900">katakana</strong>
-        con un método interactivo en tres pasos: estudia los caracteres, practica
-        con ejercicios y mide tu progreso, todo en un solo lugar.
+        con un método de aprendizaje progresivo, combinando teoría, práctica interactiva
+        y seguimiento del progreso para aprender japonés desde cero de forma efectiva.
       </p>
     </div>
-    <div class="flex items-center justify-center mb-20 flex-wrap">
-      <a href="#paso-aprende" class="flex items-center gap-3 px-7 py-4 border-b-2 border-b-transparent hover:border-b-sun-100">
-        <div class="flex items-center justify-center size-12 rounded-full bg-sun-100">
+    <div class="flex flex-wrap items-center justify-center mb-20">
+      <a
+        href="#aprende"
+        class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+      >
+        <div
+          class="flex items-center justify-center rounded-full size-12 bg-sun-100"
+        >
           <Icon name="learn" />
         </div>
-        <span class="text-copper-100 tracking-wide">Aprende</span>
+        <span class="tracking-wide text-copper-100">Aprende</span>
       </a>
-      <div class="w-12 h-px bg-copper-200 hidden md:block"></div>
-      <a href="#paso-practica" class="flex items-center gap-3 px-7 py-4 border-b-2 border-b-transparent hover:border-b-sun-100">
-        <div class="flex items-center justify-center size-12 rounded-full bg-bark-100">
+      <div class="hidden w-12 h-px bg-copper-200 md:block"></div>
+      <a
+        href="#practica"
+        class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+      >
+        <div
+          class="flex items-center justify-center rounded-full size-12 bg-copper-100"
+        >
           <Icon name="practice" class="text-mauve-50" />
         </div>
-        <span class="text-copper-100 tracking-wide">Practica</span>
+        <span class="tracking-wide text-copper-100">Practica</span>
       </a>
-      <div class="w-12 h-px bg-copper-200 hidden md:block"></div>
-      <a href="#paso-progresa" class="flex items-center gap-3 px-7 py-4 border-b-2 border-b-transparent hover:border-b-sun-100">
-        <div class="flex items-center justify-center size-12 rounded-full bg-ochre-100">
+      <div class="hidden w-12 h-px bg-copper-200 md:block"></div>
+      <a
+        href="#progresa"
+        class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+      >
+        <div
+          class="flex items-center justify-center rounded-full size-12 bg-ochre-200"
+        >
           <Icon name="progress" class="text-mauve-50" />
-
         </div>
-        <span class="text-copper-100 tracking-wide">Progresa</span>
+        <span class="tracking-wide text-copper-100">Progresa</span>
       </a>
     </div>
-    <!-- <div
-      class="relative flex flex-col items-start justify-between gap-12 md:flex-row"
+    <div
+      id="aprende"
+      class="grid items-center gap-20 pt-12 mb-32 md:grid-cols-2"
     >
-      <div class="relative flex-1 text-center">
+      <div class="relative order-2 md:order-1 rounded-4xl">
         <div
-          class="flex items-center justify-center mx-auto mb-8 rounded-full size-24 bg-sun-100 text-mauve-50"
+          class="object-cover w-full shadow-md bg-slate-550 rounded-3xl shadow-neutral-800 aspect-video"
         >
-          <Icon name="learn" class="size-12" />
         </div>
-        <h3 class="mb-4 text-2xl font-semibold">Aprende</h3>
-        <p class="px-4 leading-relaxed text-pretty text-copper-100">
-          Visualiza su forma, su lectura en romaji y su pronunciación,
-          organizados en secciones temáticas.
-        </p>
       </div>
-      <div class="relative flex-1 text-center">
+      <div class="order-1 md:order-2">
+        <span
+          class="p-4 text-sm font-semibold tracking-widest uppercase bg-sun-100 rounded-2xl"
+        >
+          Paso 01
+        </span>
+        <h3 class="mt-8 mb-6 text-3xl font-semibold text-balance">
+          Aprende Hiragana y Katakana con inmersión guiada
+        </h3>
+        <p class="mb-6 text-lg text-pretty">
+          Explora los caracteres japoneses organizados por grupos fonéticos.
+          Cada lección incluye audio, guías de trazo y asociaciones visuales
+          para entender y recordar cada símbolo de forma natural.
+        </p>
+        <ul class="space-y-4 text-copper-100">
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Audio para aprender pronunciación japonesa
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Guías visuales para escribir hiragana y katakana
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Aprendizaje progresivo desde cero
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      id="practica"
+      class="grid items-center gap-20 pt-12 mb-32 md:grid-cols-2"
+    >
+      <div>
+        <span
+          class="p-4 text-sm font-semibold tracking-widest uppercase bg-copper-100 text-mauve-50 rounded-2xl"
+        >
+          Paso 02
+        </span>
+        <h3 class="mt-8 mb-6 text-3xl font-semibold text-balance">
+          Practica Hiragana y Katakana con ejercicios interactivos
+        </h3>
+        <p class="mb-6 text-lg leading-relaxed text-copper-100 text-pretty">
+          Refuerza lo aprendido con ejercicios de reconocimiento rápido. Entrena
+          tu memoria para identificar caracteres japoneses al instante mediante
+          retos visuales y auditivos.
+        </p>
+        <ul class="space-y-4 text-copper-100">
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Ejercicios interactivos de japonés
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Reconocimiento rápido de kana
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Feedback de errores en tiempo real
+          </li>
+        </ul>
+      </div>
+      <div class="relative rounded-4xl">
         <div
-          class="flex items-center justify-center mx-auto mb-8 rounded-full size-24 bg-bark-100 text-mauve-50"
+          class="object-cover w-full shadow-md bg-slate-550 rounded-3xl shadow-neutral-800 aspect-video"
         >
-          <Icon name="practice" class="size-12" />
         </div>
-        <h3 class="mb-4 text-2xl font-semibold">Practica</h3>
-        <p class="px-4 leading-relaxed text-pretty text-copper-100">
-          Ejercicios de reconocimiento: identifica el kana, el romaji, o escucha
-          la pronunciación y selecciona el carácter correcto.
-        </p>
       </div>
-      <div class="relative flex-1 text-center">
+    </div>
+    <div
+      id="progresa"
+      class="grid items-center gap-20 pt-12 mb-32 md:grid-cols-2"
+    >
+      <div class="relative order-2 md:order-1 rounded-4xl">
         <div
-          class="flex items-center justify-center mx-auto mb-8 rounded-full size-24 bg-ochre-100 text-mauve-50"
+          class="object-cover w-full shadow-md bg-slate-550 rounded-3xl shadow-neutral-800 aspect-video"
         >
-          <Icon name="progress" class="size-12" />
         </div>
-        <h3 class="mb-4 text-2xl font-semibold">Progresa</h3>
-        <p class="px-4 leading-relaxed text-pretty text-copper-100">
-          Visualiza cuánto has avanzado: revisa tus partidas jugadas, tus
-          aciertos y el recorrido completo de tu aprendizaje.
-        </p>
       </div>
-    </div> -->
+      <div class="order-1 md:order-2">
+        <span
+          class="p-4 text-sm font-semibold tracking-widest uppercase bg-ochre-200 text-mauve-50 rounded-2xl"
+        >
+          Paso 03
+        </span>
+        <h3 class="mt-8 mb-6 text-3xl font-semibold text-balance">
+          Domina el japonés básico con seguimiento de progreso
+        </h3>
+        <p class="mb-6 text-lg leading-relaxed text-copper-100 text-pretty">
+          Consolida tu aprendizaje con un sistema de progreso inteligente.
+          Visualiza qué caracteres dominas y cuáles necesitas repasar para
+          mejorar tu fluidez en hiragana y katakana.
+        </p>
+        <ul class="space-y-4 text-copper-100">
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Seguimiento del progreso en japonés
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Identificación de puntos débiles
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="check" class="text-slate-550" />
+            Aprendizaje personalizado
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
