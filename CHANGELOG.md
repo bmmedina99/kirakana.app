@@ -1,3 +1,52 @@
+# [0.12.0](https://github.com/bmmedina99/kirakana.app/compare/v0.11.2...v0.12.0) (2026-04-25)
+
+
+### Bug Fixes
+
+* **benefits:** adjust padding and margin ([1dce579](https://github.com/bmmedina99/kirakana.app/commit/1dce579c56c59e2a1e5f24940b6109d2f74c0251))
+* **components:** correct spelling of KiraKana ([a60de22](https://github.com/bmmedina99/kirakana.app/commit/a60de22114e760a34c86f8e636b25cc55663ab87))
+* **css:** resolve ::selection color not being applied ([681e121](https://github.com/bmmedina99/kirakana.app/commit/681e1218089574cd37e81645118c6603ed34cbce))
+* **cta:** update CTA text for improved clarity ([06f976f](https://github.com/bmmedina99/kirakana.app/commit/06f976f73702b8a7a700fb5cee0943fa86f64a27))
+* **fonts:** correct main font import css variables ([aab6d0d](https://github.com/bmmedina99/kirakana.app/commit/aab6d0d399e77494796b6e4db0a0fefb0d2f821d))
+* **hero:** correct punctuation and improve sentence ([73782f1](https://github.com/bmmedina99/kirakana.app/commit/73782f121ae4ad0caccbc59ffd7e021c307a70eb))
+* **HowItWorks:** correct spelling and improve text clarity ([8027caa](https://github.com/bmmedina99/kirakana.app/commit/8027caaecd0594f3f1d98d8a96945c9f6b8bb7d8))
+* **main:** correct class list for main content layout ([e425d41](https://github.com/bmmedina99/kirakana.app/commit/e425d41dcec27f047aacc514507fe96160fe4ef6))
+* **meta:** correct theme-color value to match page design ([8f53764](https://github.com/bmmedina99/kirakana.app/commit/8f53764efe636994e68ffc6ddffb1a37ee893f14))
+* **navigation:** improve color contrast issues ([b93e792](https://github.com/bmmedina99/kirakana.app/commit/b93e792c6c1226d3f6c0d48fb72dc551783342ab))
+* **navigation:** remove hover flicker on bottom border ([8642a9e](https://github.com/bmmedina99/kirakana.app/commit/8642a9ea3f8918c69e217720763de8245e8cc9e9))
+* **styles:** update color variables ([9d58cc4](https://github.com/bmmedina99/kirakana.app/commit/9d58cc42356ca1d8a70362bea9581ec918c9b96c))
+* **ui:** correct character container rendering in mobile ([811bf6e](https://github.com/bmmedina99/kirakana.app/commit/811bf6ef72beae2a1c83a7582a65c2dc8150be66))
+
+
+### Features
+
+* **components:** create TargetAudience component ([4c761b9](https://github.com/bmmedina99/kirakana.app/commit/4c761b960a8e9a5ad8325a72d3c04bf9189c3950))
+* **components:** create WhyKirakana component ([ad3bc3d](https://github.com/bmmedina99/kirakana.app/commit/ad3bc3d8cedcecff139906e58afd446944222605))
+* **favicon:** replace favicon image ([3d02f6f](https://github.com/bmmedina99/kirakana.app/commit/3d02f6f5b88c040bc3631c3096ca0fae768ea516))
+* **header:** add logo and remove previous decoration ([4e640e2](https://github.com/bmmedina99/kirakana.app/commit/4e640e23b90f74ab72d0df44301c07b67877602a))
+* **header:** restructure header layout and improve accessibility ([2ead1c1](https://github.com/bmmedina99/kirakana.app/commit/2ead1c10b692cc94dacc1a246c4056cf76d3f6f8))
+* **hero:** add decorative icon from header ([9297da2](https://github.com/bmmedina99/kirakana.app/commit/9297da241ffac473877455e55ffb0fb101553679))
+* **hero:** add title and aria-label to CTA links ([c94f829](https://github.com/bmmedina99/kirakana.app/commit/c94f829db44b450f4469a047aa271a8366ec65c5))
+* **HowItWork:** new section enhance HowItWorks ([#21](https://github.com/bmmedina99/kirakana.app/issues/21)) ([13fdfe5](https://github.com/bmmedina99/kirakana.app/commit/13fdfe552d13e734bb864f209d9b037a91b55bee))
+* **icons:** add arrowdown icon to sprite ([bf94c49](https://github.com/bmmedina99/kirakana.app/commit/bf94c49e7afc4de49790c38d3ab7052a69f235fd))
+* **kanapreview:** add KanaPreview component ([09ccabf](https://github.com/bmmedina99/kirakana.app/commit/09ccabf3dc39940c423b99626705f698ce43ef4c))
+* **meta:** support dynamic schema via props ([6a2b515](https://github.com/bmmedina99/kirakana.app/commit/6a2b515936c9fc74e9921ac7225a8591209f3a37))
+* **navigation:** enhance mobile navigation accessibility ([83e19ae](https://github.com/bmmedina99/kirakana.app/commit/83e19aebec8cab3936db0afce26d0207910ec15e))
+* **navigation:** highlight active link based on current page ([7e86de8](https://github.com/bmmedina99/kirakana.app/commit/7e86de8b1ddcaa293e4c3c5208fce98c8411f0a4))
+* **schema:** add JSON-LD schema to landing page ([d8ec91c](https://github.com/bmmedina99/kirakana.app/commit/d8ec91c5c3b232768dc0de0a670748799766da3c))
+* **sections:** add HowItWorks component with interactive learning steps ([352cf22](https://github.com/bmmedina99/kirakana.app/commit/352cf22d915d22bd1e8e7bec4ff50533910e4b11))
+* **seo:** improve meta description for better SERP visibility ([f1d41a4](https://github.com/bmmedina99/kirakana.app/commit/f1d41a45ac9943300e6bf185464d29a467d4050b))
+
+
+### Performance Improvements
+
+* **header:** optimize main image loading priority ([0c9c38d](https://github.com/bmmedina99/kirakana.app/commit/0c9c38dba20203056eed06e46a6af8fb4f74f990))
+
+
+### Reverts
+
+* **layout:** restore flex and flex-col properties on body ([6e7f785](https://github.com/bmmedina99/kirakana.app/commit/6e7f785311681460e61b92dad4fd3ea06297dbb1))
+
 ## [0.11.2](https://github.com/bmmedina99/kirakana.app/compare/v0.11.1...v0.11.2) (2026-03-21)
 
 
