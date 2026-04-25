@@ -1,26 +1,30 @@
 ---
+import { Image } from 'astro:assets'
+import LogoKirakana from '@/assets/logo-kirakana.png'
 import { configSite } from '@/site.config'
-import Icon from '../ui/Icon.astro'
 import Navigation from '../ui/Navigation.astro'
 ---
 
-<header
-  class="sticky top-0 z-50 px-4 py-8 border-b border-yellow-400 select-none backdrop-blur-lg"
->
-  <section class="container flex items-center justify-between mx-auto">
-    <div class="flex items-center gap-2 text-2xl font-semibold font-heading">
-      <Icon name="cherry" class="text-red-700" />
-      {configSite.title}
-    </div>
-    <Navigation />
+<header class="flex items-center justify-center h-24 px-4 my-4 bg-linen-100">
+  <div class="container flex items-center justify-between mx-auto">
     <a
-      href="https://github.com/bmmedina99/kirakana.app"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="items-center hidden px-4 py-2 transition-colors border-2 rounded-lg md:flex hover:bg-yellow-400"
+      href="/"
+      aria-label={configSite.title}
+      class="flex items-center text-3xl font-semibold md:text-5xl"
     >
-      <Icon name="github" class="mr-2" />
-      GitHub
+      <Image
+        src={LogoKirakana}
+        alt=""
+        class="aspect-square"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        densities={[1, 2]}
+        width={96}
+        height={96}
+      />
+      <span class="-translate-x-6" aria-hidden="true">iraKana</span>
     </a>
-  </section>
+    <Navigation />
+  </div>
 </header>

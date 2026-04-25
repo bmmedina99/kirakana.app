@@ -1,0 +1,136 @@
+---
+import appKirakana from '@/assets/logo-kirakana.png'
+import Icon from '../ui/Icon.astro'
+import StepBlock from '../ui/StepBlock.astro'
+
+const steps = [
+  {
+    id: 'aprende',
+    stepNumber: '01',
+    stepLabel: 'Paso 01',
+    badgeClass: 'bg-sun-100',
+    title: 'Aprende Hiragana y Katakana con inmersión guiada',
+    description:
+      'Explora los caracteres japoneses organizados por grupos fonéticos. Cada lección incluye audio, guías de trazo y asociaciones visuales para entender y recordar cada símbolo de forma natural.',
+    bullets: [
+      'Guías visuales para escribir hiragana y katakana',
+      'Audio para aprender pronunciación japonesa',
+      'Aprendizaje progresivo desde cero',
+    ],
+    image: appKirakana,
+    imageAlt:
+      'Pantalla de lección de KiraKana mostrando caracteres con guía de trazo y audio',
+    imageFirst: true,
+  },
+  {
+    id: 'practica',
+    stepNumber: '02',
+    stepLabel: 'Paso 02',
+    badgeClass: 'bg-copper-100 text-mauve-50',
+    title: 'Practica Hiragana y Katakana con ejercicios interactivos',
+    description:
+      'Refuerza lo aprendido con ejercicios de reconocimiento rápido. Entrena tu memoria para identificar caracteres japoneses al instante mediante retos visuales y auditivos.',
+    bullets: [
+      'Feedback de errores en tiempo real',
+      'Ejercicios interactivos de japonés',
+      'Reconocimiento rápido de kana',
+    ],
+    image: appKirakana,
+    imageAlt:
+      'Ejercicio interactivo de KiraKana para practicar el reconocimiento de los kanas',
+    imageFirst: false,
+  },
+  {
+    id: 'progresa',
+    stepNumber: '03',
+    stepLabel: 'Paso 03',
+    badgeClass: 'bg-ochre-200 text-mauve-50',
+    title: 'Domina el japonés básico con seguimiento de progreso',
+    description:
+      'Consolida tu aprendizaje con un sistema de progreso inteligente. Visualiza qué caracteres dominas y cuáles necesitas repasar para mejorar tu fluidez en hiragana y katakana.',
+    bullets: [
+      'Seguimiento del progreso en japonés',
+      'Identificación de puntos débiles',
+      'Aprendizaje personalizado',
+    ],
+    image: appKirakana,
+    imageAlt:
+      'Panel de progreso de KiraKana mostrando caracteres dominados y pendientes de repaso',
+    imageFirst: true,
+  },
+]
+---
+
+<section
+  id="como-funciona"
+  class="relative px-4 py-12 bg-linen-50"
+  aria-labelledby="how-it-works-heading"
+>
+  <div class="container mx-auto">
+    <header class="mb-20 text-center">
+      <h2
+        id="how-it-works-heading"
+        class="mb-6 text-3xl font-semibold lg:text-5xl"
+      >
+        ¿Cómo funciona KiraKana?
+      </h2>
+      <p class="max-w-xl mx-auto text-lg text-copper-100 text-pretty">
+        Aprende <strong class="text-ochre-200">hiragana</strong>
+        y <strong class="text-cyan-900">katakana</strong>
+        con un método de aprendizaje progresivo, combinando teoría, práctica interactiva
+        y seguimiento del progreso para aprender japonés desde cero de forma efectiva.
+      </p>
+    </header>
+    <nav aria-label="Pasos del método Kirakana">
+      <ul class="flex flex-wrap items-center justify-center mb-20" role="list">
+        <li>
+          <a
+            href="#aprende"
+            class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+          >
+            <div
+              class="flex items-center justify-center rounded-full size-12 bg-sun-100"
+              aria-hidden="true"
+            >
+              <Icon name="learn" />
+            </div>
+            <span class="tracking-wide text-copper-100">Aprende</span>
+          </a>
+        </li>
+        <li aria-hidden="true" class="hidden w-12 h-px bg-copper-200 md:block">
+        </li>
+        <li>
+          <a
+            href="#practica"
+            class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+          >
+            <div
+              class="flex items-center justify-center rounded-full size-12 bg-copper-100"
+              aria-hidden="true"
+            >
+              <Icon name="practice" class="text-mauve-50" />
+            </div>
+            <span class="tracking-wide text-copper-100">Practica</span>
+          </a>
+        </li>
+        <li aria-hidden="true" class="hidden w-12 h-px bg-copper-200 md:block">
+        </li>
+        <li>
+          <a
+            href="#progresa"
+            class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+          >
+            <div
+              class="flex items-center justify-center rounded-full size-12 bg-ochre-200"
+              aria-hidden="true"
+            >
+              <Icon name="progress" class="text-mauve-50" />
+            </div>
+            <span class="tracking-wide text-copper-100">Progresa</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    {steps.map((step) => <StepBlock {...step} />)}
+  </div>
+</section>

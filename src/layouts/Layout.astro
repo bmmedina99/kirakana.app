@@ -13,9 +13,6 @@ const { ...meta } = Astro.props
     <Meta {...meta} />
   </head>
   <body>
-    <a href="#main-content" class="sr-only focus:not-sr-only">
-      Ir al contenido principal
-    </a>
     <Header />
     <slot />
     <Footer />
@@ -24,14 +21,14 @@ const { ...meta } = Astro.props
 <style is:global>
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
   }
   body {
     display: flex;
     flex-direction: column;
     min-height: 100dvh;
-    font-family: "Noto Sans JP", sans-serif;
-    color: oklch(26.9% 0 0);
+    font-family: var(--font-outfit);
+    background-color: var(--color-linen-100);
+    color: var(--color-neutral-800);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;

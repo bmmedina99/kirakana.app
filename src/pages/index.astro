@@ -1,20 +1,39 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import Benefits from '@/components/sections/Benefits.astro'
-import Cta from '@/components/sections/Cta.astro'
-import Features from '@/components/sections/Features.astro'
 import Hero from '@/components/sections/Hero.astro'
-import HowItWork from '@/components/sections/HowItWork.astro'
+import HowItWorks from '@/components/sections/HowItWorks.astro'
+import TargetAudience from '@/components/sections/TargetAudience.astro'
+import WhyKirakana from '@/components/sections/WhyKiraKana.astro'
 import Layout from '@/layouts/Layout.astro'
 import { configSite } from '@/site.config'
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: configSite.title,
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'Web',
+  description: configSite.description,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'EUR',
+  },
+}
 ---
 
-<Layout title="Hiragana & Katakana" description={configSite.description}>
-  <Main class="flex-col">
+<Layout
+  title="Aprende Hiragana y Katakana"
+  description={schema.description}
+  schema={schema}
+>
+  <a href="#main-content" class="sr-only focus:not-sr-only">
+    Ir al contenido principal
+  </a>
+  <Main>
     <Hero />
-    <Benefits />
-    <HowItWork />
-    <Features />
-    <Cta />
+    <HowItWorks />
+    <TargetAudience />
+    <WhyKirakana />
   </Main>
 </Layout>

@@ -1,0 +1,94 @@
+---
+const audiences = [
+  {
+    id: 0,
+    accent: 'Para principiantes',
+    title: 'Aprende japonés desde cero',
+    icon: '初',
+    description:
+      'Si nunca has estudiado japonés, empieza con lo esencial. Aprende hiragana y katakana paso a paso con ejercicios simples y sin estrés.',
+  },
+  {
+    id: 1,
+    accent: 'Para viajeros',
+    title: 'Aprende japonés para viajar',
+    icon: '旅',
+    description:
+      'Aprende a leer menús, carteles y estaciones en Japón. Domina hiragana y katakana para moverte con confianza en tu viaje.',
+  },
+  {
+    id: 2,
+    accent: 'Para una experiencia zen',
+    title: 'Aprende japonés a tu ritmo',
+    icon: '静',
+    description:
+      'Para quienes buscan una experiencia de aprendizaje relajada. Estudia hiragana y katakana a tu ritmo, sin estrés ni distracciones.',
+  },
+]
+---
+
+<section
+  class="relative px-4 py-32 bg-slate-550 text-mauve-50"
+  aria-labelledby="audiences-heading"
+>
+  <div class="container mx-auto">
+    <header>
+      <p
+        class="text-sm font-semibold tracking-widest uppercase"
+        aria-hidden="true"
+      >
+        Aprende japonés según tu objetivo
+      </p>
+      <h2
+        id="audiences-heading"
+        class="mt-3 text-3xl font-semibold lg:text-5xl"
+      >
+        ¿Para quién es KiraKana?
+      </h2>
+      <p class="max-w-lg mt-4 text-lg md:text-xl text-pretty">
+        <strong class="text-rose-200">KiraKana</strong> está diseñada para cualquier
+        persona que quiera aprender <strong>hiragana</strong> y
+        <strong>katakana</strong> de forma visual, tranquila y gratuita, tanto si
+        empiezas desde cero, como si preparas un viaje a Japón, estudias el idioma
+        por cuenta propia o simplemente quieres explorar la escritura japonesa sin
+        presión ni suscripciones.
+      </p>
+    </header>
+    <ul class="grid gap-12 mt-12 md:grid-cols-2 xl:grid-cols-3">
+      {
+        audiences.map((audience) => (
+          <li>
+            <article
+              class="relative flex flex-col h-full p-6 transition duration-300 border shadow-lg rounded-3xl border-rose-200 hover:-translate-y-1"
+              aria-labelledby={`audience-title-${audience.id}`}
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p
+                    class="absolute px-4 py-2 text-sm rounded-full -top-5 bg-rose-200 text-slate-550"
+                    aria-hidden="true"
+                  >
+                    {audience.accent}
+                  </p>
+                  <h3
+                    id={`audience-title-${audience.id}`}
+                    class="mt-3 text-2xl font-semibold leading-tight"
+                  >
+                    {audience.title}
+                  </h3>
+                </div>
+                <span
+                  class="p-4 text-3xl leading-none select-none shrink-0 rounded-2xl text-slate-550 bg-rose-200 md:absolute md:-bottom-5 md:-right-5 font-japanese"
+                  aria-hidden="true"
+                >
+                  {audience.icon}
+                </span>
+              </div>
+              <p class="mt-5 text-pretty">{audience.description}</p>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

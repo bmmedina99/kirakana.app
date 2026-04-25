@@ -1,71 +1,59 @@
 ---
 import { navLinks } from '@/site.config'
 import Icon from './Icon.astro'
+
+const pathname = Astro.url.pathname
 ---
 
-<nav class="hidden md:block">
-  <ul class="flex items-center gap-6">
-    {
-      navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class="p-2 text-lg transition-colors rounded-md hover:bg-yellow-400"
-          >
-            {link.title}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+<nav
+  class="items-center hidden gap-6 md:flex"
+  aria-label="Navegación principal"
+>
+  {
+    navLinks.map((link) => (
+      <a
+        href={link.href}
+        aria-current={pathname === link.href ? "page" : undefined}
+        class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} border-b-2 py-1.5 px-3 text-lg transition-colors`}
+      >
+        {link.title}
+      </a>
+    ))
+  }
 </nav>
 <div id="menu-container" class="relative md:hidden">
-  <input id="mobile-menu" type="checkbox" class="hidden peer" />
+  <input
+    id="mobile-menu"
+    type="checkbox"
+    class="hidden peer"
+    aria-hidden="true"
+  />
   <label
     for="mobile-menu"
-    class="relative flex p-2 transition-colors border-2 rounded-md cursor-pointer size-10 border-neutral-800 hover:bg-yellow-400"
+    role="button"
+    class="relative flex items-center justify-center transition-colors border-2 rounded-md cursor-pointer size-10 border-sun-100 text-copper-100"
   >
     <span class="sr-only">Abrir menú de navegación</span>
+    <Icon name="menu" class="inset-0 pointer-events-none peer-checked:hidden" />
+    <Icon name="close" class="hidden pointer-events-none peer-checked:block" />
   </label>
-  <Icon
-    name="menu"
-    class="absolute pointer-events-none top-2 left-2 peer-checked:hidden"
-  />
-  <Icon
-    name="close"
-    class="absolute hidden pointer-events-none top-2 left-2 peer-checked:block"
-  />
-  <div
-    class="absolute right-0 invisible w-48 mt-2 transition-all duration-200 transform scale-95 border-2 border-yellow-400 rounded-md opacity-0 bg-yellow-50 peer-checked:opacity-100 peer-checked:visible peer-checked:scale-100 drop-shadow-2xl"
+  <nav
+    id="mobile-nav"
+    class="absolute right-0 w-48 p-2 mt-2 space-y-2 transition-opacity border-2 rounded-md opacity-0 border-sun-100 bg-mauve-50 peer-checked:opacity-100"
+    aria-label="Navegación móvil"
   >
-    <nav class="p-2">
-      <ul class="space-y-2">
-        {
-          navLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="block p-3 text-lg transition-colors rounded-md hover:bg-yellow-400/80"
-              >
-                {link.title}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-      <div class="pt-2 mt-2 border-t border-yellow-400">
+    {
+      navLinks.map((link) => (
         <a
-          href="https://github.com/bmmedina99/kirakana.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center p-3 text-lg transition-colors rounded-md hover:bg-yellow-400"
+          href={link.href}
+          aria-current={pathname === link.href ? "page" : undefined}
+          class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} block border-b-2 py-1.5 px-3 text-lg transition-colors`}
         >
-          <Icon name="github" class="mr-2" />
-          GitHub
+          {link.title}
         </a>
-      </div>
-    </nav>
-  </div>
+      ))
+    }
+  </nav>
 </div>
 <script>
   document.addEventListener("DOMContentLoaded", () => {

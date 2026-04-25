@@ -1,37 +1,71 @@
 ---
 import Main from '@/components/layout/Main.astro'
 import Icon from '@/components/ui/Icon.astro'
+import KanaPreview from '@/components/ui/KanaPreview.astro'
 import Layout from '@/layouts/Layout.astro'
 ---
 
-<Layout title="Página no encontrada">
-  <Main
-    class="relative flex flex-col items-center justify-center space-y-12 text-center"
-  >
-    <p
-      class="text-6xl font-bold leading-none text-transparent font-heading sm:text-8xl bg-clip-text bg-linear-to-t from-red-400 to-sky-400"
-    >
-      404
-    </p>
-    <section class="space-y-6">
-      <h1 class="font-bold font-heading text-neutral-800">
-        Página no encontrada
-      </h1>
-      <p
-        class="max-w-2xl mx-auto text-xl leading-relaxed text-neutral-800 text-pretty"
+<Layout
+  title="Página no encontrada"
+  description="Parece que este camino no existe… pero puedes seguir practicando Hiragana y Katakana sin perder el ritmo."
+  robots="noindex, follow"
+  errorPage
+>
+  <Main class="pt-16">
+    <section class="flex flex-col px-8">
+      <div
+        class="container grid items-center w-full grid-cols-1 gap-16 mx-auto lg:grid-cols-2"
       >
-        Lo sentimos, la página no existe o fue movida, pero hay muchas otras
-        cosas increíbles por explorar.
-      </p>
+        <div class="flex flex-col justify-center space-y-4">
+          <p
+            class="flex items-center gap-2 text-sm font-semibold font-japanese text-copper-100"
+            aria-hidden="true"
+          >
+            <Icon name="cherry" class="text-ochre-100 size-4" />
+            <span>キラカナ</span>
+          </p>
+          <h1 class="font-semibold leading-tight tracking-tight text-balance">
+            Página no encontrada
+            <span class="block text-lg tracking-normal text-copper-100">
+              ページが見つかりません
+            </span>
+          </h1>
+          <div class="max-w-xl md:text-xl text-pretty text-copper-100">
+            <p>
+              Parece que este camino no existe… pero puedes seguir practicando
+              <strong class="text-ochre-200">Hiragana</strong>
+              <span
+                class="text-sm font-japanese text-ochre-200"
+                aria-label="hiragana en japonés"
+              >
+                (ひらがな)
+              </span>
+              y
+              <strong class="text-cyan-900">Katakana</strong>
+              <span
+                class="text-sm font-japanese text-cyan-900"
+                aria-label="katakana en japonés"
+              >
+                (カタカナ)
+              </span>
+              sin perder el ritmo.
+            </p>
+          </div>
+          <nav class="flex flex-wrap" aria-label="Acciones">
+            <button
+              type="button"
+              onclick="window.history.back()"
+              title="Volver a practicar"
+              class="shadow-lg cursor-default btn bg-linear-to-r from-ochre-200 to-ochre-100 text-mauve-50 hover:scale-95"
+              aria-label="Volver a practicar"
+            >
+              <Icon name="backpage" />
+              <span>Volver a practicar</span>
+            </button>
+          </nav>
+        </div>
+        <KanaPreview />
+      </div>
     </section>
-    <button
-      type="button"
-      onclick="window.history.back()"
-      title="Volver a la página anterior"
-      class="px-4 py-3 transition-all duration-200 bg-red-700 border-0 rounded-md hover:scale-90 text-neutral-100 hover:bg-cyan-700"
-      aria-label="Volver a la página anterior"
-    >
-      <Icon name="backpage" />
-    </button>
   </Main>
 </Layout>
