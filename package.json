@@ -24,20 +24,20 @@
     "react-dom": "19.2.5"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.8",
-    "@astrojs/react": "5.0.3",
+    "@astrojs/check": "0.9.9",
+    "@astrojs/react": "5.0.4",
     "@astrojs/sitemap": "3.7.2",
     "@biomejs/biome": "2.4.11",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@tailwindcss/vite": "4.2.2",
+    "@tailwindcss/vite": "4.2.4",
     "@types/node": "25.6.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "astro": "6.1.5",
+    "astro": "6.1.10",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "6.0.0",
-    "tailwindcss": "4.2.2",
+    "tailwindcss": "4.2.4",
     "typescript": "5.9.3"
   },
   "optionalDependencies": {
