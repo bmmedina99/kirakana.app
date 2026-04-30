@@ -1,5 +1,26 @@
 ---
 import Icon from '../ui/Icon.astro'
+
+const reasons = [
+  {
+    icon: 'dont-disturb',
+    title: 'Aprende japonés sin anuncios ni distracciones',
+    description:
+      'Practica hiragana y katakana sin interrupciones. En KiraKana priorizamos tu concentración para que aprendas japonés de forma efectiva.',
+  },
+  {
+    icon: 'free-content',
+    title: 'Aprende hiragana y katakana gratis, sin suscripciones',
+    description:
+      'Accede a ejercicios interactivos de japonés sin pagar. KiraKana es una plataforma gratuita para aprender desde cero.',
+  },
+  {
+    icon: 'dont-stress',
+    title: 'Aprende japonés a tu ritmo, sin presión',
+    description:
+      'Estudia hiragana y katakana sin estrés. Sin temporizadores ni presión, solo aprendizaje progresivo y efectivo.',
+  },
+]
 ---
 
 <section class="relative px-4 py-32">
@@ -18,56 +39,23 @@ import Icon from '../ui/Icon.astro'
         y <strong class="text-cyan-900">Katakana</strong> sin estrés.
       </p>
       <ul class="space-y-8">
-        <li class="flex gap-6">
-          <div
-            class="flex items-center justify-center rounded-full size-12 shrink-0 bg-linen-200"
-          >
-            <Icon name="learn" class="text-copper-200" />
-          </div>
-          <div>
-            <h3 class="mb-1 text-lg font-bold md:text-xl">
-              Aprende japonés sin anuncios ni distracciones
-            </h3>
-            <p class="text-copper-100 md:text-lg text-pretty">
-              Practica hiragana y katakana sin interrupciones. En KiraKana
-              priorizamos tu concentración para que aprendas japonés de forma
-              efectiva.
-            </p>
-          </div>
-        </li>
-        <li class="flex gap-6">
-          <div
-            class="flex items-center justify-center rounded-full size-12 shrink-0 bg-linen-200"
-          >
-            <Icon name="learn" class="text-copper-200" />
-          </div>
-          <div>
-            <h3 class="mb-1 text-lg font-bold md:text-xl">
-              Aprende hiragana y katakana gratis, sin suscripciones
-            </h3>
-            <p class="text-copper-100 md:text-lg text-pretty">
-              Accede a ejercicios interactivos de japonés sin pagar. KiraKana es
-              una plataforma gratuita para aprender desde cero.
-            </p>
-          </div>
-        </li>
-        <li class="flex gap-6">
-          <div
-            class="flex items-center justify-center rounded-full size-12 shrink-0 bg-linen-200"
-            aria-hidden="true"
-          >
-            <Icon name="learn" class="text-copper-200" />
-          </div>
-          <div>
-            <h3 class="mb-1 text-lg font-bold md:text-xl">
-              Aprende japonés a tu ritmo, sin presión
-            </h3>
-            <p class="text-copper-100 md:text-lg text-pretty">
-              Estudia hiragana y katakana sin estrés. Sin temporizadores ni
-              presión, solo aprendizaje progresivo y efectivo.
-            </p>
-          </div>
-        </li>
+        {
+          reasons.map((reason) => (
+            <li class="flex gap-6">
+              <div class="flex items-center justify-center rounded-full size-12 shrink-0 bg-linen-200">
+                <Icon name={reason.icon} class="text-copper-200" />
+              </div>
+              <div>
+                <h3 class="text-copper-200 mb-1 text-lg font-bold md:text-xl">
+                  {reason.title}
+                </h3>
+                <p class="text-copper-100 md:text-lg text-pretty">
+                  {reason.description}
+                </p>
+              </div>
+            </li>
+          ))
+        }
       </ul>
     </div>
     <figure
