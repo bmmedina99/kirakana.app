@@ -28,7 +28,7 @@ const audiences = [
 ---
 
 <section
-  class="relative px-4 py-32 bg-slate-550 text-mauve-50"
+  class="relative px-4 py-32 bg-linen-150"
   aria-labelledby="audiences-heading"
 >
   <div class="container mx-auto">
@@ -46,12 +46,12 @@ const audiences = [
         ¿Para quién es KiraKana?
       </h2>
       <p class="max-w-lg mt-4 text-lg md:text-xl text-pretty">
-        <strong class="text-rose-200">KiraKana</strong> está diseñada para cualquier
-        persona que quiera aprender <strong>hiragana</strong> y
-        <strong>katakana</strong> de forma visual, tranquila y gratuita, tanto si
-        empiezas desde cero, como si preparas un viaje a Japón, estudias el idioma
-        por cuenta propia o simplemente quieres explorar la escritura japonesa sin
-        presión ni suscripciones.
+        <strong>KiraKana</strong> está diseñada para cualquier persona que quiera
+        aprender <strong class="text-ochre-200">hiragana</strong> y
+        <strong class="text-cyan-900">katakana</strong> de forma visual, tranquila
+        y gratuita, tanto si empiezas desde cero, como si preparas un viaje a Japón,
+        estudias el idioma por cuenta propia o simplemente quieres explorar la escritura
+        japonesa sin presión ni suscripciones.
       </p>
     </header>
     <ul class="grid gap-12 mt-12 md:grid-cols-2 xl:grid-cols-3">
@@ -59,13 +59,13 @@ const audiences = [
         audiences.map((audience) => (
           <li>
             <article
-              class="relative flex flex-col h-full p-6 transition duration-300 border shadow-lg rounded-3xl border-rose-200 hover:-translate-y-1"
+              class="relative flex flex-col h-full p-6 transition duration-300 border shadow-lg rounded-3xl border-slate-700 hover:-translate-y-1"
               aria-labelledby={`audience-title-${audience.id}`}
             >
               <div class="flex items-start justify-between gap-4">
                 <div>
                   <p
-                    class="absolute px-4 py-2 text-sm rounded-full -top-5 bg-rose-200 text-slate-550"
+                    class="absolute px-4 py-2 text-sm rounded-full -top-5 bg-slate-700 text-linen-150"
                     aria-hidden="true"
                   >
                     {audience.accent}
@@ -78,7 +78,7 @@ const audiences = [
                   </h3>
                 </div>
                 <span
-                  class="p-4 text-3xl leading-none select-none shrink-0 rounded-2xl text-slate-550 bg-rose-200 md:absolute md:-bottom-5 md:-right-5 font-japanese"
+                  class="p-4 text-3xl leading-none select-none shrink-0 rounded-2xl text-linen-150 bg-slate-700 md:absolute md:-bottom-5 md:-right-5 font-japanese"
                   aria-hidden="true"
                 >
                   {audience.icon}
