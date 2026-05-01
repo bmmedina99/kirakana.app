@@ -1,3 +1,12 @@
+## [0.12.1](https://github.com/bmmedina99/kirakana.app/compare/v0.12.0...v0.12.1) (2026-05-01)
+
+
+### Bug Fixes
+
+* **footer:** update color scheme to use new palette ([181bb42](https://github.com/bmmedina99/kirakana.app/commit/181bb425013732ddb41a0f6dae4c6a41309c81dc))
+* **global:** remove deprecated color-slate-550 and add color-linen-150 ([b4efecb](https://github.com/bmmedina99/kirakana.app/commit/b4efecb81b6dc0fb809b8d41ed9e290869d1d934))
+* **manifest:** set application name in site.webmanifest ([9cf5462](https://github.com/bmmedina99/kirakana.app/commit/9cf5462621ada9e9cd52b7a613d57e7879f9554f))
+
 # [0.12.0](https://github.com/bmmedina99/kirakana.app/compare/v0.11.2...v0.12.0) (2026-04-25)
 
 
