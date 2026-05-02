@@ -13,6 +13,9 @@ const { ...meta } = Astro.props
     <Meta {...meta} />
   </head>
   <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only">
+      Ir al contenido principal
+    </a>
     <Header />
     <slot />
     <Footer />
