@@ -16,14 +16,14 @@ export const navLinks = [
   },
   {
     title: 'Aprender',
-    href: '/aprender',
+    href: '/aprender/',
   },
   {
     title: 'Practicar',
-    href: '/practicar',
+    href: '/practicar/',
   },
   {
     title: 'Progreso',
-    href: '/progreso',
+    href: '/progreso/',
   },
 ]

@@ -130,7 +130,7 @@ export default function Game({ syllabary }: GameProps) {
           Aciertos: {correctAnswers} / {kanaSet.length}
         </p>
         <a
-          href='/practicar'
+          href='/practicar/'
           className='px-4 py-2 bg-yellow-400 border-2 border-yellow-400 rounded-md hover:bg-yellow-100'
         >
           Volver al inicio
