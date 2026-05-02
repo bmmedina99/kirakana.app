@@ -11,7 +11,7 @@ const pathname = Astro.url.pathname
       <Icon name="cherry" class="text-ochre-200 size-8" />
       <span>KiraKana</span>
     </p>
-    <figure class="flex flex-col items-center gap-2 text-slate-700">
+    <figure class="flex flex-col items-center gap-2 text-charcoal-100">
       <blockquote
         lang="ja"
         class="text-xl font-semibold tracking-widest font-japanese"
@@ -31,7 +31,7 @@ const pathname = Astro.url.pathname
           <a
             href={link.href}
             aria-current={pathname === link.href ? "page" : undefined}
-            class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-slate-700 border-transparent"} border-b-2 transition-colors`}
+            class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-charcoal-100 border-transparent"} border-b-2 transition-colors`}
           >
             {link.title}
           </a>
