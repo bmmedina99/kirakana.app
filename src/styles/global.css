@@ -2,6 +2,7 @@
 
 @theme {
   --font-japanese: var(--font-noto-serif-jp);
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
   --color-linen-50: oklch(0.9682 0.0137 67.66);
   --color-linen-100: oklch(0.9602 0.0171 67.62);
   --color-linen-150: oklch(0.8869 0.0157 67.62);
@@ -50,6 +51,16 @@
 
     @media (width >= 40rem) {
       width: auto;
+    }
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
     }
   }
 }
