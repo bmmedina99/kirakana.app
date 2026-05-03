@@ -1,0 +1,60 @@
+---
+import Icon from './Icon.astro'
+
+const {
+  japanese,
+  title,
+  description,
+  icon,
+  color,
+  characters,
+  href,
+  buttonText,
+  buttonShadow,
+} = Astro.props
+---
+
+<article class={`shadow-xl group bg-mauve-50/40 backdrop-blur-sm rounded-2xl`}>
+  <div class="p-10 lg:p-14">
+    <header class="flex items-start justify-between mb-12">
+      <div>
+        <span class={`text-${color} text-2xl`} lang="ja" aria-hidden="true">
+          {japanese}
+        </span>
+        <h2 class="mb-2 text-4xl text-semibold">{title}</h2>
+        <p class="text-lg md:text-xl text-copper-100 text-pretty">
+          {description}
+        </p>
+      </div>
+      <div
+        class={`bg-${color} flex items-center justify-center rounded-full size-16 text-mauve-50`}
+        aria-hidden="true"
+      >
+        <Icon name={icon} class="size-8" />
+      </div>
+    </header>
+    <dl
+      class="flex items-center justify-between py-4 mb-10 overflow-hidden select-none"
+      aria-label={`Muestra de caracteres ${title}`}
+    >
+      {
+        characters.map((character: { char: string; romaji: string }) => (
+          <div class="flex flex-col items-center">
+            <dt
+              class={`text-${color} mb-2 text-4xl transition-transform duration-300 font-japanese group-hover:scale-110 group-hover:animate-wiggle`}
+            >
+              {character.char}
+            </dt>
+            <dd class="text-sm">{character.romaji}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <a
+      href={href}
+      class={`bg-${color} btn w-full tracking-widest uppercase hover:bg-primary transition-all duration-300 shadow-lg ${buttonShadow} active:shadow-transparent active:scale-95 text-mauve-50`}
+    >
+      {buttonText}
+    </a>
+  </div>
+</article>
