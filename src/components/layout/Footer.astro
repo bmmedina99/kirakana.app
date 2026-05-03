@@ -11,15 +11,17 @@ const pathname = Astro.url.pathname
       <Icon name="cherry" class="text-ochre-200 size-8" />
       <span>KiraKana</span>
     </p>
-    <figure class="flex flex-col items-center gap-2 text-charcoal-100">
+    <figure class="flex flex-col items-center gap-2">
       <blockquote
         lang="ja"
         class="text-xl font-semibold tracking-widest font-japanese"
         aria-label="Cita en japonés"
       >
-        <p>できるまでやってみよう</p>
+        <p class="text-ochre-200">できるまでやってみよう</p>
       </blockquote>
-      <figcaption class="text-sm italic">«Inténtalo hasta lograrlo»</figcaption>
+      <figcaption class="text-sm italic">
+        «Inténtalo hasta lograrlo»
+      </figcaption>
     </figure>
     <span class="w-12 h-px bg-cyan-900" aria-hidden="true"></span>
     <nav
@@ -27,15 +29,21 @@ const pathname = Astro.url.pathname
       aria-label="Navegación secundaria"
     >
       {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            aria-current={pathname === link.href ? "page" : undefined}
-            class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-charcoal-100 border-transparent"} border-b-2 transition-colors`}
-          >
-            {link.title}
-          </a>
-        ))
+        navLinks.map((link) => {
+          const isActive =
+            link.href === "/"
+              ? pathname === "/"
+              : pathname === link.href || pathname.startsWith(`${link.href}`);
+          return (
+            <a
+              href={link.href}
+              aria-current={isActive ? "page" : undefined}
+              class={`${isActive ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-100 border-transparent"} border-b-2 transition-colors`}
+            >
+              {link.title}
+            </a>
+          );
+        })
       }
     </nav>
     <address
