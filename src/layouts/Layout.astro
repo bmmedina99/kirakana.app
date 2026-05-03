@@ -21,23 +21,3 @@ const { ...meta } = Astro.props
     <Footer />
   </body>
 </html>
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100dvh;
-    font-family: var(--font-outfit);
-    background-color: var(--color-linen-100);
-    color: var(--color-neutral-800);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
-  section h1 {
-    font-size: clamp(1.875rem, 8vw, 3.75rem);
-    transition: font-family 0.15s ease-out;
-  }
-</style>
