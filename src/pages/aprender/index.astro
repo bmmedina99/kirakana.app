@@ -1,0 +1,80 @@
+---
+import Main from '@/components/layout/Main.astro'
+import LearnCard from '@/components/ui/LearnCard.astro'
+import Layout from '@/layouts/Layout.astro'
+
+const learnCards = [
+  {
+    japanese: 'ひらがな',
+    title: 'Hiragana',
+    description:
+      'El silabario básico que representa los sonidos nativos del japonés.',
+    icon: 'hiragana',
+    color: 'ochre-200',
+    characters: [
+      { char: 'あ', romaji: 'a' },
+      { char: 'い', romaji: 'i' },
+      { char: 'う', romaji: 'u' },
+      { char: 'え', romaji: 'e' },
+      { char: 'お', romaji: 'o' },
+    ],
+    href: '/aprender/hiragana',
+    buttonText: 'Aprender hiragana',
+    buttonShadow: 'shadow-ochre-200',
+  },
+  {
+    japanese: 'カタカナ',
+    title: 'Katakana',
+    description:
+      'El silabario utilizado para palabras extranjeras y onomatopeyas.',
+    icon: 'katakana',
+    color: 'cyan-900',
+    characters: [
+      { char: 'ア', romaji: 'a' },
+      { char: 'イ', romaji: 'i' },
+      { char: 'ウ', romaji: 'u' },
+      { char: 'エ', romaji: 'e' },
+      { char: 'オ', romaji: 'o' },
+    ],
+    href: '/aprender/katakana',
+    buttonText: 'Aprender katakana',
+    buttonShadow: 'shadow-cyan-900',
+  },
+]
+---
+
+<Layout
+  title="Aprender japonés"
+  description="Aprende los silabarios japoneses, hiragana y katakana para poner a prueba tus conocimientos en práctica"
+>
+  <Main>
+    <section
+      class="container px-4 pb-8 mx-auto"
+      aria-labelledby="learn-heading"
+    >
+      <header class="max-w-2xl mb-4 space-y-2 leading-relaxed">
+        <h1
+          id="learn-heading"
+          class="font-semibold leading-tight tracking-tight text-balance"
+        >
+          Aprende los silabarios <span class="text-ochre-200">japoneses</span>
+        </h1>
+        <p class="md:text-xl text-pretty text-copper-100">
+          Aprende <span class="font-semibold text-ochre-200">hiragana</span>
+          y <span class="font-semibold text-cyan-900">katakana</span> de forma visual
+          y progresiva. Elige el silabario japonés que quieres dominar y haz seguimiento
+          de tu avance con KiraKana.
+        </p>
+      </header>
+      <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2">
+        {
+          learnCards.map((card) => (
+            <li>
+              <LearnCard {...card} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </Main>
+</Layout>
