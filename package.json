@@ -1,6 +1,6 @@
 {
   "name": "kirakana",
-  "description": "Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. Mejora tu lectura de japonés paso a paso.",
+  "description": "Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. El método más fácil para empezar japonés desde cero.",
   "type": "module",
   "version": "0.12.1",
   "private": true,

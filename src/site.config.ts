@@ -3,7 +3,7 @@ import type { Config } from './types'
 export const configSite: Config = {
   title: 'KiraKana',
   description:
-    'Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. Mejora tu lectura de japonés paso a paso.',
+    'Aprende hiragana y katakana gratis con KiraKana: ejercicios visuales, audio y progreso sin registro. El método más fácil para empezar japonés desde cero.',
   lang: 'es',
   author: 'bmmedina99',
   url: 'https://kirakana.app',
