@@ -14,7 +14,7 @@ import Navigation from '../ui/Navigation.astro'
     >
       <Image
         src={LogoKirakana}
-        alt=""
+        alt="Logo de KiraKana"
         class="aspect-square"
         loading="eager"
         fetchpriority="high"
@@ -23,7 +23,9 @@ import Navigation from '../ui/Navigation.astro'
         width={96}
         height={96}
       />
-      <span class="-translate-x-6" aria-hidden="true">iraKana</span>
+      <span class="-translate-x-6" aria-hidden="true">
+        <small class="sr-only">K</small>iraKana
+      </span>
     </a>
     <Navigation />
   </div>
