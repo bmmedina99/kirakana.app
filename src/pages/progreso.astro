@@ -5,8 +5,8 @@ import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout
-  title="Progreso"
-  description="Realiza un seguimiento de tu progreso y mira hasta dónde has llegado"
+  title="Tu progreso aprendiendo japonés"
+  description="Visualiza tu progreso aprendiendo japonés: caracteres dominados, puntos débiles y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria."
 >
   <Main class="flex items-center justify-center grow">
     <section>
@@ -19,7 +19,9 @@ import Layout from '@/layouts/Layout.astro'
       >
         <div class="mb-4">
           <h3 class="text-lg font-semibold font-heading">Puntaje recientes</h3>
-          <p class="text-sm">Los últimos 5 puntajes entre Hiragana y Katakana.</p>
+          <p class="text-sm">
+            Los últimos 5 puntajes entre Hiragana y Katakana.
+          </p>
         </div>
         <ScorePuzzle client:idle />
       </div>
