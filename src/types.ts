@@ -11,6 +11,11 @@ export interface KanaItem {
   romaji: string
 }
 
+export interface KanaCard {
+  basePath: string
+  buttonLabel: string
+}
+
 export interface ScoreEntry {
   date: string
   kanaType: string
