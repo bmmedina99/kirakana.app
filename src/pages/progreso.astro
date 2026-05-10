@@ -1,6 +1,7 @@
 ---
 import Main from '@/components/layout/Main.astro'
 import ScorePuzzle from '@/components/puzzle/Score'
+import Section from '@/components/ui/Section.astro'
 import Layout from '@/layouts/Layout.astro'
 ---
 
@@ -9,6 +10,10 @@ import Layout from '@/layouts/Layout.astro'
   description="Visualiza tu progreso aprendiendo japonés: caracteres dominados, puntos débiles y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria."
 >
   <Main>
+    <Section>
+      <Fragment slot="title"></Fragment>
+      <Fragment slot="description"></Fragment>
+    </Section>
     <section
       class="container px-4 pb-8 mx-auto"
       aria-labelledby="progress-heading"

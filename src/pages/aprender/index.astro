@@ -1,6 +1,7 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import LearnCard from '@/components/ui/LearnCard.astro'
+import KanaCard from '@/components/ui/KanaCard.astro'
+import Section from '@/components/ui/Section.astro'
 import Layout from '@/layouts/Layout.astro'
 
 const learnCards = [
@@ -51,33 +52,25 @@ const schema = {}
   schema={schema}
 >
   <Main>
-    <section
-      class="container px-4 pb-8 mx-auto"
-      aria-labelledby="learn-heading"
-    >
-      <header class="max-w-2xl mb-4 space-y-2 leading-relaxed">
-        <h1
-          id="learn-heading"
-          class="font-semibold leading-tight tracking-tight text-balance"
-        >
-          Aprende los silabarios <span class="text-ochre-200">japoneses</span>
-        </h1>
-        <p class="md:text-xl text-pretty text-copper-100">
-          Aprende <span class="font-semibold text-ochre-200">hiragana</span>
-          y <span class="font-semibold text-cyan-900">katakana</span> de forma visual
-          y progresiva. Elige el silabario japonés que quieres dominar y haz seguimiento
-          de tu avance con KiraKana.
-        </p>
-      </header>
+    <Section>
+      <Fragment slot="title">
+        Aprende los silabarios <span class="text-ochre-200">japoneses</span>
+      </Fragment>
+      <Fragment slot="description">
+        Aprende <span class="font-semibold text-ochre-200">hiragana</span>
+        y <span class="font-semibold text-cyan-900">katakana</span> de forma visual
+        y progresiva. Elige el silabario japonés que quieres dominar y haz seguimiento
+        de tu avance con KiraKana.
+      </Fragment>
       <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2">
         {
           learnCards.map((card) => (
             <li>
-              <LearnCard {...card} />
+              <KanaCard {...card} />
             </li>
           ))
         }
       </ul>
-    </section>
+    </Section>
   </Main>
 </Layout>

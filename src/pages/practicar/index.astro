@@ -1,6 +1,7 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import LearnCard from '@/components/ui/LearnCard.astro'
+import KanaCard from '@/components/ui/KanaCard.astro'
+import Section from '@/components/ui/Section.astro'
 import Layout from '@/layouts/Layout.astro'
 
 const practiceCards = [
@@ -48,35 +49,24 @@ const practiceCards = [
   description="Practica hiragana y katakana con ejercicios interactivos. Reconocimiento visual, feedback inmediato y sin límite de intentos. ¡Empieza gratis!"
 >
   <Main>
-    <section
-      class="container px-4 pb-8 mx-auto"
-      aria-labelledby="learn-heading"
-    >
-      <header class="max-w-2xl mb-4 space-y-2 leading-relaxed">
-        <h1
-          id="learn-heading"
-          class="font-semibold leading-tight tracking-tight text-balance"
-        >
-          Practica con ejercicios <span class="text-ochre-200"
-            >interactivos</span
-          >
-        </h1>
-        <p class="md:text-xl text-pretty text-copper-100">
-          Practica <span class="font-semibold text-ochre-200">hiragana</span>
-          y <span class="font-semibold text-cyan-900">katakana</span> poniendo a prueba
-          tu reconocimiento visual y auditivo de los kana japoneses. Sin límite de
-          intentos.
-        </p>
-      </header>
+    <Section>
+      <Fragment slot="title">
+        Practica con ejercicios <span class="text-ochre-200">interactivos</span>
+      </Fragment>
+      <Fragment slot="description">
+        Practica <span class="font-semibold text-ochre-200">hiragana</span>
+        y <span class="font-semibold text-cyan-900">katakana</span> poniendo a prueba
+        tu reconocimiento visual y auditivo de los kana japoneses con ejercicios interactivos. Sin límite de intentos.
+      </Fragment>
       <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2">
         {
           practiceCards.map((card) => (
             <li>
-              <LearnCard {...card} />
+              <KanaCard {...card} />
             </li>
           ))
         }
       </ul>
-    </section>
+    </Section>
   </Main>
 </Layout>

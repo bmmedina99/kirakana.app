@@ -1,0 +1,18 @@
+---
+const { heading } = Astro.props
+---
+
+<section class="container px-4 pb-8 mx-auto" aria-labelledby={heading}>
+  <header class="max-w-2xl mb-4 space-y-2 leading-relaxed">
+    <h1
+      id={heading}
+      class="font-semibold leading-tight tracking-tight text-balance"
+    >
+      <slot name="title" />
+    </h1>
+    <p class="md:text-xl text-pretty text-copper-100">
+      <slot name="description" />
+    </p>
+  </header>
+  <slot />
+</section>
