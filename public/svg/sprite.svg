@@ -18,6 +18,9 @@
       <path d="M7 12h13" />
       <path d="M7 18h10" />
     </symbol>
+    <symbol id="menu-expand">
+      <path d="M4 11l8 3l8 -3" />
+    </symbol>
     <symbol id="backpage">
       <path d="M5 12l14 0" />
       <path d="M5 12l6 6" />
