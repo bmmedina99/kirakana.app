@@ -6,26 +6,11 @@ import TargetAudience from '@/components/sections/TargetAudience.astro'
 import WhyKirakana from '@/components/sections/WhyKiraKana.astro'
 import Layout from '@/layouts/Layout.astro'
 import { configSite } from '@/site.config'
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: configSite.title,
-  applicationCategory: 'EducationalApplication',
-  operatingSystem: 'Web',
-  description: configSite.description,
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'EUR',
-  },
-}
 ---
 
 <Layout
   title="Aprende Hiragana y Katakana gratis desde cero"
   description={configSite.description}
-  schema={schema}
 >
   <Main>
     <Hero />
