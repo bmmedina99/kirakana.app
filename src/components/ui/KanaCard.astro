@@ -14,9 +14,11 @@ const {
 } = Astro.props
 ---
 
-<article class={`shadow-xl group bg-mauve-50/40 backdrop-blur-sm rounded-2xl`}>
-  <div class="p-10 lg:p-14">
-    <header class="flex items-start justify-between mb-12">
+<article
+  class={`shadow-xl group bg-mauve-50/40 backdrop-blur-sm rounded-2xl relative`}
+>
+  <div class="p-6 lg:p-12">
+    <header class="flex items-start justify-between gap-4 mb-12">
       <div>
         <span class={`text-${color} text-2xl`} lang="ja" aria-hidden="true">
           {japanese}
@@ -27,7 +29,7 @@ const {
         </p>
       </div>
       <div
-        class={`bg-${color} flex items-center justify-center rounded-full size-16 text-mauve-50`}
+        class={`bg-${color} flex items-center justify-center rounded-full size-16 text-mauve-50 shrink-0`}
         aria-hidden="true"
       >
         <Icon name={icon} class="size-8" />
@@ -41,7 +43,7 @@ const {
         characters.map((character: { char: string; romaji: string }) => (
           <div class="flex flex-col items-center">
             <dt
-              class={`text-${color} mb-2 text-4xl transition-transform duration-300 font-japanese group-hover:scale-110 group-hover:animate-wiggle`}
+              class={`text-${color} mb-2 text-xl md:text-4xl transition-transform duration-300 font-japanese group-hover:scale-110 group-hover:animate-wiggle`}
             >
               {character.char}
             </dt>
@@ -52,7 +54,7 @@ const {
     </dl>
     <a
       href={href}
-      class={`bg-${color} btn w-full tracking-widest uppercase hover:bg-primary transition-all duration-300 shadow-lg ${buttonShadow} active:shadow-transparent active:scale-95 text-mauve-50`}
+      class={`bg-${color} btn w-full tracking-widest text-xs md:text-base uppercase hover:bg-primary transition-all duration-300 shadow-lg ${buttonShadow} active:shadow-transparent active:scale-95 text-mauve-50`}
     >
       {buttonText}
     </a>
