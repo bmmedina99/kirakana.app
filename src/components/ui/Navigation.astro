@@ -10,7 +10,7 @@ const pathname = Astro.url.pathname
   aria-label="Navegación principal"
 >
   {
-    navLinks.map((link) => {
+    navLinks.slice(1).map((link) => {
       const isActive =
         link.href === "/"
           ? pathname === "/"
