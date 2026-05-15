@@ -10,49 +10,33 @@ import Layout from '@/layouts/Layout.astro'
   description="Visualiza tu progreso aprendiendo japonés: caracteres dominados, puntos débiles y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria."
 >
   <Main>
-    <Section>
-      <Fragment slot="title"></Fragment>
-      <Fragment slot="description"></Fragment>
-    </Section>
-    <section
-      class="container px-4 pb-8 mx-auto"
-      aria-labelledby="progress-heading"
-    >
-      <header class="max-w-2xl mb-4 space-y-2 leading-relaxed">
-        <h1
-          id="progress-heading"
-          class="font-semibold leading-tight tracking-tight text-balance"
-        >
-          Tu progreso aprendiendo <span class="text-ochre-200">japonés</span>
-        </h1>
-        <p class="md:text-xl text-pretty text-copper-100">
-          Aquí puedes ver tu avance aprendiendo
-          <span class="font-semibold text-ochre-200">hiragana</span>
-          y <span class="font-semibold text-cyan-900">katakana</span>. Tu
-          progreso se guarda localmente en tu navegador, sin necesidad de cuenta
-          ni registro.
-        </p>
-      </header>
-      <div
-        class="p-4 bg-yellow-100 border border-yellow-400 rounded-lg text-neutral-800"
-      >
+    <Section heading="progress-heading">
+      <Fragment slot="title">
+        Tu progreso aprendiendo <span class="text-ochre-200">japonés</span>
+      </Fragment>
+      <Fragment slot="description">
+        Aquí puedes ver tu avance aprendiendo
+        <span class="font-semibold text-ochre-200">hiragana</span>
+        y <span class="font-semibold text-cyan-900">katakana</span>. Tu progreso
+        se guarda localmente en tu navegador, sin necesidad de cuenta ni
+        registro.
+      </Fragment>
+      <div class="p-4 bg-sun-50 border border-sun-100 rounded-lg">
         <div class="mb-4">
-          <h3 class="text-lg font-semibold">Puntaje recientes</h3>
-          <p class="text-sm">
-            Los últimos 5 puntajes entre Hiragana y Katakana.
-          </p>
+          <h3 class="text-xl font-semibold">Puntaje recientes</h3>
+          <p>Los últimos 5 puntajes entre Hiragana y Katakana.</p>
         </div>
         <ScorePuzzle client:idle />
       </div>
-      <div class="flex justify-center">
+      <div class="flex items-center justify-center mt-4">
         <button
           type="button"
-          class="px-4 py-2 mt-4 transition-colors bg-red-700 rounded hover:bg-red-400 text-neutral-100"
+          class="shadow-lg cursor-default btn bg-ochre-200 text-mauve-50 hover:scale-95"
           onclick="localStorage.clear(); location.reload();"
         >
           Borrar historial
         </button>
       </div>
-    </section>
+    </Section>
   </Main>
 </Layout>
