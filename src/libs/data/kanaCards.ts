@@ -5,7 +5,8 @@ export const kanaCards = [
     description:
       'El silabario básico que representa los sonidos nativos del japonés.',
     icon: 'hiragana',
-    color: 'ochre-200',
+    color: 'text-ochre-200',
+    bgColor: 'bg-ochre-200',
     characters: [
       { char: 'あ', romaji: 'a' },
       { char: 'い', romaji: 'i' },
@@ -22,7 +23,8 @@ export const kanaCards = [
     description:
       'El silabario utilizado para palabras extranjeras y onomatopeyas.',
     icon: 'katakana',
-    color: 'cyan-900',
+    color: 'text-cyan-900',
+    bgColor: 'bg-cyan-900',
     characters: [
       { char: 'ア', romaji: 'a' },
       { char: 'イ', romaji: 'i' },
