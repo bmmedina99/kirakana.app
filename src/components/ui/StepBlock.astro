@@ -22,10 +22,12 @@ const {
   >
     <Image
       src={image}
-      class="object-cover w-full rounded-md shadow-sm bg-linen-150 md:rounded-2xl shadow-linen-150 aspect-video"
+      class="object-cover rounded-md shadow-sm bg-linen-150 md:rounded-2xl shadow-linen-150 aspect-video"
       alt={imageAlt}
       width={1280}
       height={720}
+      widths={[345, 725, 1280]}
+      sizes="(max-width: 768px) calc(100vw - 2rem), (max-width: 1280px) 585px, 50vw"
     />
   </div>
   <div class={imageFirst ? "order-1 md:order-2" : "order-1 md:order-1"}>
