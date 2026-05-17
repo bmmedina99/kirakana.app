@@ -7,12 +7,39 @@ import HowItWorks from '@/components/sections/HowItWorks.astro'
 import TargetAudience from '@/components/sections/TargetAudience.astro'
 import WhyKirakana from '@/components/sections/WhyKiraKana.astro'
 import Layout from '@/layouts/Layout.astro'
+import { baseSchema } from '@/lib/seo/baseSchema'
 import { configSite } from '@/site.config'
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    ...baseSchema,
+    {
+      '@type': 'WebPage',
+      '@id': 'https://kirakana.app/#webpage',
+      url: 'https://kirakana.app/',
+      name: 'KiraKana — Aprende Hiragana y Katakana gratis',
+      description:
+        'Aprende hiragana y katakana gratis con KiraKana: ejercicios visuales, audio y progreso sin registro. El método más fácil para empezar japonés desde cero.',
+      inLanguage: 'es',
+      isPartOf: {
+        '@id': 'https://kirakana.app/#website',
+      },
+      about: {
+        '@id': 'https://kirakana.app/#app',
+      },
+      mainEntity: {
+        '@id': 'https://kirakana.app/#app',
+      },
+    },
+  ],
+}
 ---
 
 <Layout
   title="Aprende Hiragana y Katakana gratis desde cero"
   description={configSite.description}
+  schema={homeSchema}
 >
   <Main>
     <Hero />
