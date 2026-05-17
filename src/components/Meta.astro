@@ -4,74 +4,12 @@ import { Schema } from 'astro-seo-schema'
 import { configSite } from '@/site.config'
 import globalCSS from '@/styles/global.css?inline'
 
-const schemaBase = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Organization',
-      '@id': 'https://kirakana.app/#organization',
-      name: configSite.title,
-      url: configSite.url,
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://kirakana.app/images/logo-kirakana.webp',
-      },
-    },
-    {
-      '@type': 'WebSite',
-      '@id': 'https://kirakana.app/#website',
-      name: configSite.title,
-      url: configSite.url,
-      description: configSite.description,
-      inLanguage: configSite.lang,
-      publisher: {
-        '@id': 'https://kirakana.app/#organization',
-      },
-      about: [
-        {
-          '@type': 'Thing',
-          name: 'Hiragana',
-        },
-        {
-          '@type': 'Thing',
-          name: 'Katakana',
-        },
-      ],
-    },
-    {
-      '@type': 'SoftwareApplication',
-      '@id': 'https://kirakana.app/#app',
-      name: configSite.title,
-      url: configSite.url,
-      applicationCategory: 'EducationalApplication',
-      operatingSystem: 'Web',
-      description: configSite.description,
-      inLanguage: configSite.lang,
-      isAccessibleForFree: true,
-      educationalUse: ['Learning', 'Practice'],
-      teaches: 'Hiragana y Katakana - escritura japoonesa',
-      learningResourceType: [
-        'Ejercicios interactivos',
-        'Aprendizaje autodidacta',
-      ],
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-      },
-      publisher: {
-        '@id': 'https://kirakana.app/#organization',
-      },
-    },
-  ],
-}
-
 const {
   title,
   description,
   robots = 'index, follow',
   errorPage,
-  schema = schemaBase,
+  schema,
 } = Astro.props
 
 const siteTitle = `${title} | ${configSite.title}`
