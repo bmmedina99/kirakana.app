@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Options } from '@/libs/utils/options'
-import { appendScore } from '@/libs/utils/score'
-import { shuffle } from '@/libs/utils/shuffle'
-import { dataset } from '@/libs/utils/syllabary'
+import { Options } from '@/lib/utils/options'
+import { appendScore } from '@/lib/utils/score'
+import { shuffle } from '@/lib/utils/shuffle'
+import { dataset } from '@/lib/utils/syllabary'
 import type { Feedback, KanaItem, ScoreEntry, Syllabarys } from '@/types'
 import OptionButton from './OptionButton'
 
