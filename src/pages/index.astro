@@ -10,6 +10,9 @@ import Layout from '@/layouts/Layout.astro'
 import { baseSchema } from '@/lib/seo/baseSchema'
 import { configSite } from '@/site.config'
 
+const homeTitle = 'Aprende Hiragana y Katakana gratis desde cero'
+const homeDescription = configSite.description
+
 const homeSchema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -18,10 +21,9 @@ const homeSchema = {
       '@type': 'WebPage',
       '@id': 'https://kirakana.app/#webpage',
       url: 'https://kirakana.app/',
-      name: 'KiraKana — Aprende Hiragana y Katakana gratis',
-      description:
-        'Aprende hiragana y katakana gratis con KiraKana: ejercicios visuales, audio y progreso sin registro. El método más fácil para empezar japonés desde cero.',
-      inLanguage: 'es',
+      name: homeTitle,
+      description: homeDescription,
+      inLanguage: configSite.lang,
       isPartOf: {
         '@id': 'https://kirakana.app/#website',
       },
@@ -36,11 +38,7 @@ const homeSchema = {
 }
 ---
 
-<Layout
-  title="Aprende Hiragana y Katakana gratis desde cero"
-  description={configSite.description}
-  schema={homeSchema}
->
+<Layout title={homeTitle} description={homeDescription} schema={homeSchema}>
   <Main>
     <Hero />
     <HowItWorks />
