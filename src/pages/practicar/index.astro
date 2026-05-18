@@ -6,7 +6,6 @@ import Layout from '@/layouts/Layout.astro'
 import { baseSchema } from '@/lib/seo/baseSchema'
 import { createKanaCards } from '@/lib/utils/kanacards'
 
-const practiceUrl = Astro.url.href
 const practiceTitle = 'Practica el silabario japonés: Hiragana y Katakana'
 const practiceDescription =
   'Practica hiragana y katakana con ejercicios interactivos. Reconocimiento visual, feedback inmediato y sin límite de intentos. ¡Empieza gratis!'
@@ -95,7 +94,7 @@ const practiceSchema = {
         Practica <span class="font-semibold text-ochre-200">hiragana</span>
         y <span class="font-semibold text-cyan-900">katakana</span> poniendo a prueba
         tu reconocimiento visual y auditivo de los kana japoneses con ejercicios interactivos.
-        Sin límite de intentos. {practiceUrl}
+        Sin límite de intentos.
       </Fragment>
       <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2">
         {
