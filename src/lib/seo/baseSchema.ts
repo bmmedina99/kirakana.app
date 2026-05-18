@@ -4,7 +4,7 @@ export const baseSchema = [
   {
     '@type': 'Organization',
     '@id': 'https://kirakana.app/#organization',
-    name: configSite.title,
+    name: configSite.name,
     url: configSite.url,
     logo: {
       '@type': 'ImageObject',
@@ -14,7 +14,7 @@ export const baseSchema = [
   {
     '@type': 'WebSite',
     '@id': 'https://kirakana.app/#website',
-    name: configSite.title,
+    name: configSite.name,
     url: configSite.url,
     description: configSite.description,
     inLanguage: configSite.lang,
@@ -25,7 +25,7 @@ export const baseSchema = [
   {
     '@type': 'SoftwareApplication',
     '@id': 'https://kirakana.app/#app',
-    name: configSite.title,
+    name: configSite.name,
     url: configSite.url,
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web',

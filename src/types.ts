@@ -1,7 +1,8 @@
 export interface Config {
-  title: string
+  name: string
   description: string
   lang: string
+  locale: string
   author: string
   url: string
 }
