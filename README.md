@@ -1,12 +1,12 @@
 # Kirakana 🍒
 
-**KiraKana** es una aplicación web interactiva para aprender los silabarios japoneses **Hiragana** y **Katakana**. Perfecciona tus habilidades a través de un juego de rompecabezas visual que te desafía a emparejar los silabarios con su representación en romaji.
+> できるまでやってみよう — *«Inténtalo hasta lograrlo»*
 
----
+**KiraKana** es una aplicación web interactiva y gratuita para aprender los silabarios japoneses **Hiragana** y **Katakana**. A través de ejercicios visuales y progresivos, los estudiantes pueden memorizar los caracteres, practicar su reconocimiento y hacer seguimiento de su avance sin necesidad de registro ni instalación.
 
-## Objetivo
+Proyecto de código abierto desarrollado como parte [portfolio](https://bmmedina.dev) de [@bmmedina99](https://github.com/bmmedina99).
 
-Este proyecto forma parte de mi [portafolio](https://bmmedina.dev) y tiene como propósito proporcionar una herramienta educativa accesible para el aprendizaje del hiragana y katakana. La aplicación está diseñada para ofrecer una experiencia intuitiva tanto para principiantes absolutos como para estudiantes que buscan reforzar sus conocimientos del sistema de escritura japonés.
+**Visita:** [kirakana.app](https://kirakana.app)
 
 ---
 
