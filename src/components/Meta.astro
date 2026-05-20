@@ -9,7 +9,10 @@ const { title, description, robots = false, schema } = Astro.props
 const siteTitle = `${title} | ${configSite.name}`
 const siteURL = Astro.site ?? Astro.url.origin
 const siteCanonical = new URL(Astro.url.pathname, siteURL).toString()
-const siteSocialImage = new URL('/images/kirakana-social-media.jpg', siteURL).toString()
+const siteSocialImage = new URL(
+  '/images/kirakana-social-media.jpg',
+  siteURL,
+).toString()
 const siteSocialAlt = 'Kirakana y los caracteres japoneses Hiragana y Katakana.'
 const siteAuthor = configSite.author
 ---
