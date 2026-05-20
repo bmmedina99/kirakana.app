@@ -1,7 +1,8 @@
 export interface Config {
-  title: string
+  name: string
   description: string
   lang: string
+  locale: string
   author: string
   url: string
 }
@@ -9,6 +10,11 @@ export interface Config {
 export interface KanaItem {
   kana: string
   romaji: string
+}
+
+export interface KanaCard {
+  basePath: string
+  buttonLabel: string
 }
 
 export interface ScoreEntry {

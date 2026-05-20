@@ -4,15 +4,16 @@ import { Schema } from 'astro-seo-schema'
 import { configSite } from '@/site.config'
 import globalCSS from '@/styles/global.css?inline'
 
-const {
-  title,
-  description,
-  robots = 'index, follow',
-  errorPage,
-  schema,
-} = Astro.props
-const siteTitle = `${title} | ${configSite.title}`
-const siteURL = new URL(Astro.request.url, Astro.site).toString()
+const { title, description, robots = false, schema } = Astro.props
+
+const siteTitle = `${title} | ${configSite.name}`
+const siteURL = Astro.site ?? Astro.url.origin
+const siteCanonical = new URL(Astro.url.pathname, siteURL).toString()
+const siteSocialImage = new URL(
+  '/images/kirakana-social-media.jpg',
+  siteURL,
+).toString()
+const siteSocialAlt = 'Kirakana y los caracteres japoneses Hiragana y Katakana.'
 const siteAuthor = configSite.author
 ---
 
@@ -26,35 +27,35 @@ const siteAuthor = configSite.author
 <title>{siteTitle}</title>
 <meta name="description" content={description} />
 <meta name="author" content={siteAuthor} />
-<meta name="robots" content={robots} />
+<link rel="canonical" href={siteURL} />
 
 {
-  !errorPage && (
+  !robots && (
+    <meta property="og:url" content={siteCanonical} />
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="bmmedina.dev" />
-    <meta property="og:image" content={`${siteURL}images/open-graph.webp`} />
+    <meta property="og:image" content={siteSocialImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content={siteURL} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image:alt" content={siteSocialAlt} />
+    <meta property="og:site_name" content={configSite.name} />
+    <meta property="og:locale" content={configSite.locale} />
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={siteTitle} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`${siteURL}images/twitter-card.webp`} />
-    <meta property="twitter:url" content={siteURL} />
-    <meta property="twitter:site" content="@twiter-site" />
-    <meta property="twitter:creator" content="@twitter-author" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@bmmedina99" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={siteSocialImage} />
+
+    <meta name="robots" content="index, follow" />
   )
 }
-
+{ robots && <meta name="robots" content="noindex, nofollow" /> }
 <meta name="theme-color" content="#faf0e6" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
-<link rel="canonical" href={siteURL} />
 
-{ schema && (<Schema item={schema} /> ) }
+{ schema && <Schema item={schema} />}

@@ -1,6 +1,6 @@
 {
   "name": "kirakana",
-  "description": "Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. Mejora tu lectura de japonés paso a paso.",
+  "description": "Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. El método más fácil para empezar japonés desde cero.",
   "type": "module",
   "version": "0.12.1",
   "private": true,
@@ -20,28 +20,28 @@
     "url": "https://github.com/bmmedina99/kirakana.app/issues"
   },
   "dependencies": {
-    "react": "19.2.5",
-    "react-dom": "19.2.5"
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/react": "5.0.4",
+    "@astrojs/react": "5.0.5",
     "@astrojs/sitemap": "3.7.2",
-    "@biomejs/biome": "2.4.11",
+    "@biomejs/biome": "2.4.15",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@tailwindcss/vite": "4.2.4",
-    "@types/node": "25.6.0",
+    "@tailwindcss/vite": "4.3.0",
+    "@types/node": "25.8.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "astro": "6.1.10",
+    "astro": "6.3.3",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "6.0.0",
-    "tailwindcss": "4.2.4",
+    "tailwindcss": "4.3.0",
     "typescript": "6.0.3"
   },
   "optionalDependencies": {
     "sharp": "0.34.5"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@11.1.2"
 }

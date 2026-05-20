@@ -22,8 +22,12 @@ const {
   >
     <Image
       src={image}
-      class="object-cover w-full shadow-sm bg-linen-150 rounded-3xl shadow-linen-150 aspect-square md:aspect-video"
+      class="object-cover rounded-md shadow-sm bg-linen-150 md:rounded-2xl shadow-linen-150 aspect-video"
       alt={imageAlt}
+      width={1280}
+      height={720}
+      widths={[345, 725, 1280]}
+      sizes="(max-width: 768px) calc(100vw - 2rem), (max-width: 1280px) 585px, 50vw"
     />
   </div>
   <div class={imageFirst ? "order-1 md:order-2" : "order-1 md:order-1"}>
@@ -40,11 +44,11 @@ const {
     <p class="mb-6 text-lg leading-relaxed text-copper-100 text-pretty">
       {description}
     </p>
-    <ul class="space-y-4 text-copper-100" role="list">
+    <ul class="space-y-4 text-copper-100">
       {
         bullets.map((bullet: string) => (
           <li class="flex items-center gap-3">
-            <Icon name="check" class="text-linen-150" aria-hidden="true" />
+            <Icon name="check" class="text-charcoal-100" aria-hidden="true" />
             {bullet}
           </li>
         ))

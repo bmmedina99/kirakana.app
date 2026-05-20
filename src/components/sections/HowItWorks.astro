@@ -1,4 +1,5 @@
 ---
+import aprender from '@/assets/aprender-kirakana.png'
 import appKirakana from '@/assets/logo-kirakana.png'
 import Icon from '../ui/Icon.astro'
 import StepBlock from '../ui/StepBlock.astro'
@@ -11,15 +12,15 @@ const steps = [
     badgeClass: 'bg-sun-100',
     title: 'Aprende Hiragana y Katakana con inmersión guiada',
     description:
-      'Explora los caracteres japoneses organizados por grupos fonéticos. Cada lección incluye audio, guías de trazo y asociaciones visuales para entender y recordar cada símbolo de forma natural.',
+      'Explora los caracteres japoneses organizados por grupos fonéticos. Cada lección incluye audio, guías de trazado y asociaciones visuales para entender y recordar cada símbolo de forma natural.',
     bullets: [
-      'Guías visuales para escribir hiragana y katakana',
       'Audio para aprender pronunciación japonesa',
+      'Tabla de hiragana y katakana completa',
       'Aprendizaje progresivo desde cero',
     ],
-    image: appKirakana,
+    image: aprender,
     imageAlt:
-      'Pantalla de lección de KiraKana mostrando caracteres con guía de trazo y audio',
+      'Pantalla de selección de KiraKana, para aprender hiragana y katakana',
     imageFirst: true,
   },
   {
@@ -29,10 +30,10 @@ const steps = [
     badgeClass: 'bg-copper-100 text-mauve-50',
     title: 'Practica Hiragana y Katakana con ejercicios interactivos',
     description:
-      'Refuerza lo aprendido con ejercicios de reconocimiento rápido. Entrena tu memoria para identificar caracteres japoneses al instante mediante retos visuales y auditivos.',
+      'Refuerza lo aprendido con ejercicios de reconocimiento rápido. Entrena tu memoria para identificar caracteres japoneses al instante mediante desafíos  visuales y auditivos.',
     bullets: [
+      'Ejercicios de reconocimiento japonés',
       'Feedback de errores en tiempo real',
-      'Ejercicios interactivos de japonés',
       'Reconocimiento rápido de kana',
     ],
     image: appKirakana,
@@ -49,7 +50,7 @@ const steps = [
     description:
       'Consolida tu aprendizaje con un sistema de progreso inteligente. Visualiza qué caracteres dominas y cuáles necesitas repasar para mejorar tu fluidez en hiragana y katakana.',
     bullets: [
-      'Seguimiento del progreso en japonés',
+      'Seguimiento del progreso guardado localmente, sin cuenta ni contraseña',
       'Identificación de puntos débiles',
       'Aprendizaje personalizado',
     ],
@@ -82,7 +83,7 @@ const steps = [
       </p>
     </header>
     <nav aria-label="Pasos del método Kirakana">
-      <ul class="flex flex-wrap items-center justify-center mb-20" role="list">
+      <ul class="flex flex-wrap items-center justify-center mb-20">
         <li>
           <a
             href="#aprende"

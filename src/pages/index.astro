@@ -1,39 +1,50 @@
 ---
 import Main from '@/components/layout/Main.astro'
+import CTA from '@/components/sections/CTA.astro'
+import FAQ from '@/components/sections/FAQ.astro'
 import Hero from '@/components/sections/Hero.astro'
 import HowItWorks from '@/components/sections/HowItWorks.astro'
 import TargetAudience from '@/components/sections/TargetAudience.astro'
 import WhyKirakana from '@/components/sections/WhyKiraKana.astro'
 import Layout from '@/layouts/Layout.astro'
+import { baseSchema } from '@/lib/seo/baseSchema'
 import { configSite } from '@/site.config'
 
-const schema = {
+const homeTitle = 'Aprende Hiragana y Katakana gratis desde cero'
+const homeDescription = configSite.description
+
+const homeSchema = {
   '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: configSite.title,
-  applicationCategory: 'EducationalApplication',
-  operatingSystem: 'Web',
-  description: configSite.description,
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'EUR',
-  },
+  '@graph': [
+    ...baseSchema,
+    {
+      '@type': 'WebPage',
+      '@id': 'https://kirakana.app/#webpage',
+      url: 'https://kirakana.app/',
+      name: homeTitle,
+      description: homeDescription,
+      inLanguage: configSite.lang,
+      isPartOf: {
+        '@id': 'https://kirakana.app/#website',
+      },
+      about: {
+        '@id': 'https://kirakana.app/#app',
+      },
+      mainEntity: {
+        '@id': 'https://kirakana.app/#app',
+      },
+    },
+  ],
 }
 ---
 
-<Layout
-  title="Aprende Hiragana y Katakana"
-  description={schema.description}
-  schema={schema}
->
-  <a href="#main-content" class="sr-only focus:not-sr-only">
-    Ir al contenido principal
-  </a>
+<Layout title={homeTitle} description={homeDescription} schema={homeSchema}>
   <Main>
     <Hero />
     <HowItWorks />
     <TargetAudience />
     <WhyKirakana />
+    <FAQ />
+    <CTA />
   </Main>
 </Layout>

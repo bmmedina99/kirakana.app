@@ -6,19 +6,25 @@ const pathname = Astro.url.pathname
 ---
 
 <nav
-  class="items-center hidden gap-6 md:flex"
+  class="z-10 items-center hidden gap-6 md:flex"
   aria-label="Navegación principal"
 >
   {
-    navLinks.map((link) => (
-      <a
-        href={link.href}
-        aria-current={pathname === link.href ? "page" : undefined}
-        class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} border-b-2 py-1.5 px-3 text-lg transition-colors`}
-      >
-        {link.title}
-      </a>
-    ))
+    navLinks.slice(1).map((link) => {
+      const isActive =
+        link.href === "/"
+          ? pathname === "/"
+          : pathname === link.href || pathname.startsWith(`${link.href}`);
+      return (
+        <a
+          href={link.href}
+          aria-current={isActive ? "page" : undefined}
+          class={`${isActive ? "border-cyan-900 text-cyan-900" : "hover:border-charcoal-100 border-transparent"} border-b-2 py-1.5 px-3 text-lg transition-colors`}
+        >
+          {link.title}
+        </a>
+      );
+    })
   }
 </nav>
 <div id="menu-container" class="relative md:hidden">
@@ -39,19 +45,23 @@ const pathname = Astro.url.pathname
   </label>
   <nav
     id="mobile-nav"
-    class="absolute right-0 w-48 p-2 mt-2 space-y-2 transition-opacity border-2 rounded-md opacity-0 border-sun-100 bg-mauve-50 peer-checked:opacity-100"
+    class="absolute right-0 z-10 w-48 mt-2 space-y-2 text-center transition-opacity border-2 rounded-md opacity-0 border-sun-100 bg-mauve-50/40 peer-checked:opacity-100 backdrop-blur-sm"
     aria-label="Navegación móvil"
   >
     {
-      navLinks.map((link) => (
-        <a
-          href={link.href}
-          aria-current={pathname === link.href ? "page" : undefined}
-          class={`${pathname === link.href ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-200 border-transparent"} block border-b-2 py-1.5 px-3 text-lg transition-colors`}
-        >
-          {link.title}
-        </a>
-      ))
+      navLinks.map((link) => {
+        const isActive =
+          pathname === link.href || pathname.startsWith(`${link.href}/`);
+        return (
+          <a
+            href={link.href}
+            aria-current={isActive ? "page" : undefined}
+            class={`${isActive ? "border-charcoal-100 text-charcoal-100" : "hover:border-charcoal-100 border-transparent"} block border-b-2 py-1.5 px-3 text-lg transition-colors max-w-24 mx-auto`}
+          >
+            {link.title}
+          </a>
+        );
+      })
     }
   </nav>
 </div>

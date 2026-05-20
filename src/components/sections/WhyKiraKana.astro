@@ -3,16 +3,16 @@ import Icon from '../ui/Icon.astro'
 
 const reasons = [
   {
-    icon: 'dont-disturb',
-    title: 'Aprende japonés sin anuncios ni distracciones',
-    description:
-      'Practica hiragana y katakana sin interrupciones. En KiraKana priorizamos tu concentración para que aprendas japonés de forma efectiva.',
-  },
-  {
     icon: 'free-content',
     title: 'Aprende hiragana y katakana gratis, sin suscripciones',
     description:
       'Accede a ejercicios interactivos de japonés sin pagar. KiraKana es una plataforma gratuita para aprender desde cero.',
+  },
+  {
+    icon: 'speaker',
+    title: 'Aprende la pronunciación correcta del hiragana y katakana',
+    description:
+      'Ejercicios de reconocimiento visual con audio para dominar la pronunciación de cada carácter.',
   },
   {
     icon: 'dont-stress',
@@ -23,30 +23,33 @@ const reasons = [
 ]
 ---
 
-<section class="relative px-4 py-32">
+<section class="relative px-4 py-32" aria-labelledby="why-kirakana-heading">
   <div
-    class="grid items-center gap-16 px-6 mx-auto container md:px-12 lg:grid-cols-2"
+    class="container grid items-center gap-16 px-6 mx-auto md:px-12 lg:grid-cols-2"
   >
     <div>
       <h2
+        id="why-kirakana-heading"
         class="mb-4 text-3xl font-semibold leading-tight tracking-tight lg:text-5xl text-balance"
       >
         ¿Por qué usar KiraKana para aprender japonés?
       </h2>
       <p class="mb-8 text-xl lg:text-2xl text-copper-200 text-pretty">
-        La mejor forma de aprender japonés:
-        <strong class="text-ochre-200">Hiragana</strong>
-        y <strong class="text-cyan-900">Katakana</strong> sin estrés.
+        Aprendes, practicas y progresas en tu dominio del
+        <span class="font-semibold text-ochre-200">hiragana</span> y
+        <span class="font-semibold text-cyan-900">katakana</span>. Sin
+        distracciones, sin anuncios y sin suscripciones, solo aprendizaje de
+        japonés.
       </p>
       <ul class="space-y-8">
         {
           reasons.map((reason) => (
             <li class="flex gap-6">
-              <div class="flex items-center justify-center rounded-full size-12 shrink-0 bg-slate-700">
+              <div class="flex items-center justify-center rounded-full size-12 shrink-0 bg-charcoal-100">
                 <Icon name={reason.icon} class="text-linen-150" />
               </div>
               <div>
-                <h3 class="text-slate-700 mb-1 text-lg font-bold md:text-xl">
+                <h3 class="mb-1 text-lg font-semibold text-charcoal-100 md:text-xl">
                   {reason.title}
                 </h3>
                 <p class="text-copper-100 md:text-lg text-pretty">
@@ -64,7 +67,7 @@ const reasons = [
     >
       <div class="text-center">
         <span
-          class="block mb-4 text-6xl font-japanese lg:text-9xl text-slate-700"
+          class="block mb-4 text-6xl font-japanese lg:text-9xl text-charcoal-100"
         >
           静
         </span>
@@ -72,8 +75,10 @@ const reasons = [
           "Shizuka" - «Aprender en calma»
         </p>
       </div>
-      <div class="absolute inset-0 m-4 border-2 border-copper-200 rounded-2xl">
-        <div class="absolute inset-0 m-2 border rounded-lg border-copper-100">
+      <div
+        class="absolute inset-0 m-4 border-2 border-charcoal-100 rounded-2xl"
+      >
+        <div class="absolute inset-0 m-2 border rounded-lg border-copper-200">
         </div>
       </div>
     </figure>

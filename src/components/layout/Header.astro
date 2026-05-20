@@ -9,12 +9,12 @@ import Navigation from '../ui/Navigation.astro'
   <div class="container flex items-center justify-between mx-auto">
     <a
       href="/"
-      aria-label={configSite.title}
+      aria-label={configSite.name}
       class="flex items-center text-3xl font-semibold md:text-5xl"
     >
       <Image
         src={LogoKirakana}
-        alt=""
+        alt="Logo de KiraKana"
         class="aspect-square"
         loading="eager"
         fetchpriority="high"
@@ -23,7 +23,9 @@ import Navigation from '../ui/Navigation.astro'
         width={96}
         height={96}
       />
-      <span class="-translate-x-6" aria-hidden="true">iraKana</span>
+      <span class="-translate-x-6" aria-hidden="true">
+        <small class="sr-only">K</small>iraKana
+      </span>
     </a>
     <Navigation />
   </div>

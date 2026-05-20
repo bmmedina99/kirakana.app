@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { readScores } from '@/libs/utils/score'
+import { readScores } from '@/lib/utils/score'
 import type { ScoreEntry } from '@/types'
 
 export default function ScorePuzzle() {

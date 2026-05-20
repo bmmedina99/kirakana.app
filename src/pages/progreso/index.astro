@@ -1,0 +1,84 @@
+---
+import Main from '@/components/layout/Main.astro'
+import ScorePuzzle from '@/components/puzzle/Score'
+import Section from '@/components/ui/Section.astro'
+import Layout from '@/layouts/Layout.astro'
+import { baseSchema } from '@/lib/seo/baseSchema'
+import { configSite } from '@/site.config'
+
+const siteTitle = 'Tu progreso aprendiendo japonés'
+const siteDescription =
+  'Visualiza tu progreso aprendiendo japonés: caracteres dominados, puntos débiles y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria.'
+
+const progressSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    ...baseSchema,
+    {
+      '@type': 'WebPage',
+      '@id': 'https://kirakana.app/progreso/#webpage',
+      url: 'https://kirakana.app/progreso/',
+      name: siteTitle,
+      description: siteDescription,
+      inLanguage: configSite.lang,
+      isPartOf: {
+        '@id': 'https://kirakana.app/#website',
+      },
+      about: {
+        '@id': 'https://kirakana.app/#app',
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://kirakana.app/progreso/#breadcrumb',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Inicio',
+          item: 'https://kirakana.app/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Progreso',
+          item: 'https://kirakana.app/progreso/',
+        },
+      ],
+    },
+  ],
+}
+---
+
+<Layout title={siteTitle} description={siteDescription} shema={progressSchema}>
+  <Main class="container mx-auto">
+    <Section heading="progress-heading">
+      <Fragment slot="title">
+        Tu progreso aprendiendo <span class="text-ochre-200">japonés</span>
+      </Fragment>
+      <Fragment slot="description">
+        Aquí puedes ver tu avance aprendiendo
+        <span class="font-semibold text-ochre-200">hiragana</span>
+        y <span class="font-semibold text-cyan-900">katakana</span>. Tu progreso
+        se guarda localmente en tu navegador, sin necesidad de cuenta ni
+        registro.
+      </Fragment>
+      <div class="p-4 bg-sun-50 border border-sun-100 rounded-lg">
+        <div class="mb-4">
+          <h3 class="text-xl font-semibold">Puntaje recientes</h3>
+          <p>Los últimos 5 puntajes entre Hiragana y Katakana.</p>
+        </div>
+        <ScorePuzzle client:idle />
+      </div>
+      <div class="flex items-center justify-center mt-4">
+        <button
+          type="button"
+          class="shadow-lg cursor-default btn bg-ochre-200 text-mauve-50 hover:scale-95"
+          onclick="localStorage.clear(); location.reload();"
+        >
+          Borrar historial
+        </button>
+      </div>
+    </Section>
+  </Main>
+</Layout>

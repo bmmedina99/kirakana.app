@@ -6,7 +6,7 @@ const audiences = [
     title: 'Aprende japonés desde cero',
     icon: '初',
     description:
-      'Si nunca has estudiado japonés, empieza con lo esencial. Aprende hiragana y katakana paso a paso con ejercicios simples y sin estrés.',
+      'Sin conocimientos previos de japonés, comienza con lo esencial. Aprende paso a paso con ejercicios simples y sin estrés.',
   },
   {
     id: 1,
@@ -14,43 +14,42 @@ const audiences = [
     title: 'Aprende japonés para viajar',
     icon: '旅',
     description:
-      'Aprende a leer menús, carteles y estaciones en Japón. Domina hiragana y katakana para moverte con confianza en tu viaje.',
+      'Aprende a leer menús, carteles y señales en Japón. Domina hiragana y katakana para moverte con confianza durante tu viaje y disfrutar.',
   },
   {
     id: 2,
-    accent: 'Para una experiencia zen',
-    title: 'Aprende japonés a tu ritmo',
+    accent: 'Para fans del anime',
+    title: 'Aprende japonés por diversión',
     icon: '静',
     description:
-      'Para quienes buscan una experiencia de aprendizaje relajada. Estudia hiragana y katakana a tu ritmo, sin estrés ni distracciones.',
+      'Si te encanta el anime, manga o la cultura japonesa, aprende para disfrutar de tus series favoritas sin subtítulos y entender mejor el idioma.',
   },
 ]
 ---
 
 <section
-  class="relative px-4 py-32 bg-linen-150"
+  class="relative px-4 py-32 bg-charcoal-100 text-mauve-50"
   aria-labelledby="audiences-heading"
 >
   <div class="container mx-auto">
     <header>
       <p
-        class="text-sm font-semibold tracking-widest uppercase"
+        class="text-sm font-semibold tracking-widest uppercase text-sun-50"
         aria-hidden="true"
       >
         Aprende japonés según tu objetivo
       </p>
       <h2
         id="audiences-heading"
-        class="mt-3 text-3xl font-semibold lg:text-5xl"
+        class="mt-3 text-3xl font-semibold lg:text-5xl text-lavender-100"
       >
         ¿Para quién es KiraKana?
       </h2>
       <p class="max-w-lg mt-4 text-lg md:text-xl text-pretty">
-        <strong>KiraKana</strong> está diseñada para cualquier persona que quiera
-        aprender <strong class="text-ochre-200">hiragana</strong> y
-        <strong class="text-cyan-900">katakana</strong> de forma visual, tranquila
+        <strong class="text-lavender-100">KiraKana</strong> está diseñada para cualquier
+        persona que quiera aprender hiragana y katakana de forma visual, práctica
         y gratuita, tanto si empiezas desde cero, como si preparas un viaje a Japón,
-        estudias el idioma por cuenta propia o simplemente quieres explorar la escritura
+        estudias japonés por cuenta propia o simplemente quieres explorar la escritura
         japonesa sin presión ni suscripciones.
       </p>
     </header>
@@ -59,13 +58,13 @@ const audiences = [
         audiences.map((audience) => (
           <li>
             <article
-              class="relative flex flex-col h-full p-6 transition duration-300 border shadow-lg rounded-3xl border-slate-700 hover:-translate-y-1"
+              class="relative flex flex-col h-full p-6 transition duration-300 border rounded-3xl border-lavender-100 hover:-translate-y-1"
               aria-labelledby={`audience-title-${audience.id}`}
             >
               <div class="flex items-start justify-between gap-4">
                 <div>
                   <p
-                    class="absolute px-4 py-2 text-sm rounded-full -top-5 bg-slate-700 text-linen-150"
+                    class="absolute px-4 py-2 text-sm rounded-full -top-5 bg-lavender-100 text-charcoal-100"
                     aria-hidden="true"
                   >
                     {audience.accent}
@@ -78,13 +77,15 @@ const audiences = [
                   </h3>
                 </div>
                 <span
-                  class="p-4 text-3xl leading-none select-none shrink-0 rounded-2xl text-linen-150 bg-slate-700 md:absolute md:-bottom-5 md:-right-5 font-japanese"
+                  class="p-4 text-3xl leading-none select-noneshrink-0 rounded-2xl bg-sun-50 md:absolute md:-bottom-5 md:-right-5 font-japanese text-charcoal-100 "
                   aria-hidden="true"
                 >
                   {audience.icon}
                 </span>
               </div>
-              <p class="mt-5 text-pretty">{audience.description}</p>
+              <p class="mt-5 text-pretty text-linen-100">
+                {audience.description}
+              </p>
             </article>
           </li>
         ))
