@@ -1,3 +1,74 @@
+# [0.13.0](https://github.com/bmmedina99/kirakana.app/compare/v0.12.1...v0.13.0) (2026-05-20)
+
+
+### Bug Fixes
+
+* **404:** correct padding class for Main component ([4457562](https://github.com/bmmedina99/kirakana.app/commit/445756239b1d11ab607fc9c7e50b3f2771433d2c))
+* **accessibility:** move main content link to layout for better visibility ([63c3e1b](https://github.com/bmmedina99/kirakana.app/commit/63c3e1ba3e3be22edde1d6f7c78f5982713f0845))
+* **aprender:** update page title and description ([695a0c8](https://github.com/bmmedina99/kirakana.app/commit/695a0c80e96c5431d30354335d410bd6c5125d9e))
+* **config:** add trailing slashes to nav link URLs ([1c9d3d4](https://github.com/bmmedina99/kirakana.app/commit/1c9d3d4beb287d2e267f8ed74aeaabace08b8697))
+* correct capitalization in title for consistency ([bedb9df](https://github.com/bmmedina99/kirakana.app/commit/bedb9dfc12060ba3c294ed0109f5dc1b4eae7c50))
+* correct description reference in Layout component ([f8a4b1c](https://github.com/bmmedina99/kirakana.app/commit/f8a4b1c8e3f9657344b3d1c46d254870ebb87738))
+* **footer:** adjust figcaption formatting ([38164f0](https://github.com/bmmedina99/kirakana.app/commit/38164f0554a7851be3d633df5f329dd503c918a4))
+* **footer:** improve structure of footer elements ([3305ff0](https://github.com/bmmedina99/kirakana.app/commit/3305ff09b353d683fc19b76ced88e6ed61a42ba3))
+* **header:** update alt text for logo ([644125c](https://github.com/bmmedina99/kirakana.app/commit/644125c8660b8ccfff4b76fc41d233defe06097d))
+* **hero:** update description text and button label ([c622134](https://github.com/bmmedina99/kirakana.app/commit/c622134f8ade6c63ad064eb1f15ef9a7d465db05))
+* **how-it-works:** update image source for aprender step ([94321b8](https://github.com/bmmedina99/kirakana.app/commit/94321b8cae0f71411682bb943ef00f8cfb4e2396))
+* **images:** enhance `aprender` image attributes ([b1aa4aa](https://github.com/bmmedina99/kirakana.app/commit/b1aa4aa8181678c518515c09cf88626961b74408))
+* **images:** remove unused twitter card image ([451ccbf](https://github.com/bmmedina99/kirakana.app/commit/451ccbfbd222155a26b1192b203dcdd2f4251acc))
+* **kanacard:** update color and background color properties ([eb42964](https://github.com/bmmedina99/kirakana.app/commit/eb42964b220efef8a8acabd89d5bda66352e9a48))
+* **landing:** update description page ([ab69a22](https://github.com/bmmedina99/kirakana.app/commit/ab69a22655b8e68983145d26b48e77289406e835))
+* **meta:** update Open Graph and Twitter meta tags ([34e3c6b](https://github.com/bmmedina99/kirakana.app/commit/34e3c6b7d87b5d5e15168c83f38c9aed25cc31f8))
+* **navigation:** improve active link detection for navigation items ([35485ef](https://github.com/bmmedina99/kirakana.app/commit/35485efef27e532e78f6eb441d5b4729c5897446))
+* **navigation:** skip first nav link in mobile navigation ([dcbfc7f](https://github.com/bmmedina99/kirakana.app/commit/dcbfc7f9ed44b91715a8bd6035df09361513675e))
+* **navigation:** update styles for navigation links ([defa431](https://github.com/bmmedina99/kirakana.app/commit/defa431befcc79019979fa4f3fd701a493fc1d92))
+* **page:** improve layout and styling for error pages ([1c010b4](https://github.com/bmmedina99/kirakana.app/commit/1c010b4dd0f9b83c02c8e1831ae77760e6c1c7e6))
+* **practicar:** remove unused practiceUrl variable from practice page ([98fad24](https://github.com/bmmedina99/kirakana.app/commit/98fad2473cbbf1966a4a4d037e8b4f8c22727fa9))
+* **progreso:** update title and description for clarity ([fe29535](https://github.com/bmmedina99/kirakana.app/commit/fe29535c6eea04c0aed526636f9ee3b5041a49cc))
+* **readme:** update project description ([c1c9f15](https://github.com/bmmedina99/kirakana.app/commit/c1c9f15c256e91bc9ab18e407a85dcb547e53f0f))
+* **seo:** update organization name to use configSite.name ([3417795](https://github.com/bmmedina99/kirakana.app/commit/34177954af68d33da49e12d17a373500612710f3))
+* **step-block:** update image class and attributes ([af78ec0](https://github.com/bmmedina99/kirakana.app/commit/af78ec02c7a8bd0b014249b45365f64fabcefaee))
+* **steps:** update bullet points for clarity and detail ([85cdd0a](https://github.com/bmmedina99/kirakana.app/commit/85cdd0a5125f04976fcd7287bf8407d88439dd71))
+* **target-audience:** improve descriptions for clarity and consistency ([af350fc](https://github.com/bmmedina99/kirakana.app/commit/af350fcb75072f5d051c218b440a6af18166ed2d))
+* **tsconfig:** add coverage directory to exclude list ([3701bb4](https://github.com/bmmedina99/kirakana.app/commit/3701bb42884baa654a8ebca034c6086eae514b24))
+* **why-kirakana:** update content and icons for target audience section ([e9b3efd](https://github.com/bmmedina99/kirakana.app/commit/e9b3efd8aa466d18c28562bfc9bca9bc4f609066))
+
+
+### Features
+
+* **animation:** add details content show animation ([279ab15](https://github.com/bmmedina99/kirakana.app/commit/279ab15d850c42c389bcb918bd380af2866a409b))
+* **animation:** add wiggle animation ([942d1b3](https://github.com/bmmedina99/kirakana.app/commit/942d1b3d2208b96fcf7fe2ed1da9bad0c6b7c161))
+* **aprender:** add hiragana and katakana pages with layout ([090bd70](https://github.com/bmmedina99/kirakana.app/commit/090bd701089f877a926e2b4edd12c81315f6c530))
+* **aprender:** add new page for learning hiragana and katakana ([7745c89](https://github.com/bmmedina99/kirakana.app/commit/7745c89d5bf260cebf0b4caff682941ce3e78009))
+* **aprender:** add schema prop to Layout component ([829e392](https://github.com/bmmedina99/kirakana.app/commit/829e392dac6f54e71b781aabe320020856ce9171))
+* **aprender:** enhance content layout ([0d8141e](https://github.com/bmmedina99/kirakana.app/commit/0d8141e90991e77a981db26165f649f1acc4bb37))
+* **aprender:** enhance learning experience with structured cards ([742afb9](https://github.com/bmmedina99/kirakana.app/commit/742afb9c8c97caa6c83601dfebed8cd4ebaad759))
+* **aprender:** enhance structured data for learning page ([b59241f](https://github.com/bmmedina99/kirakana.app/commit/b59241fff5e35116b4f21bb91e88c35a56fa8c7f))
+* **asset:** add pincel-kirakana image ([b4a3f42](https://github.com/bmmedina99/kirakana.app/commit/b4a3f42eaa2439eedbe1774221cc62193f6d9320))
+* **assets:** add aprender image ([840eb08](https://github.com/bmmedina99/kirakana.app/commit/840eb0837eb6c67cbf4558b637b78bfb86361f77))
+* **cta:** enhance CTA section with updated content and styling ([22ccc9e](https://github.com/bmmedina99/kirakana.app/commit/22ccc9e31f01bc9d1bbafe96957de54198cfcac5))
+* **cta:** update CTA section with new content and styling ([73d898e](https://github.com/bmmedina99/kirakana.app/commit/73d898e265ef76456e83229be154f92a81e9295c))
+* **data:** add kanaCards data structure and createKanaCards ([14e4b4b](https://github.com/bmmedina99/kirakana.app/commit/14e4b4beaf95e8f5f87c18c75b183ab5e281bbc9))
+* **faq:** implement FAQ section with collapsible answers ([a898004](https://github.com/bmmedina99/kirakana.app/commit/a898004001ed1674e04a22f34a89cd72937830ae))
+* **images:** renew social media image ([62a7e04](https://github.com/bmmedina99/kirakana.app/commit/62a7e04a1aa01990b17f29ab1de37a500638a9a1))
+* **landing:** include FAQ section in the main layout ([c50cad0](https://github.com/bmmedina99/kirakana.app/commit/c50cad0cda666f0f12bf272c2fee9a2e5233e8db))
+* **learn-card:** add LearnCard component ([15df1ca](https://github.com/bmmedina99/kirakana.app/commit/15df1cacef029cb75fc3b2b1f56d3b45f2dd57bb))
+* **practicar:** enhance structured data and improve SEO for practice page ([36c7e83](https://github.com/bmmedina99/kirakana.app/commit/36c7e8376b4d9d33877c9c04ac301a248515e1b9))
+* **schema:** add structured data for homepage ([60ba863](https://github.com/bmmedina99/kirakana.app/commit/60ba863751321f860f4d19e0dad8bef7ebd2a3f0))
+* **schema:** enhance structured data application details ([8000483](https://github.com/bmmedina99/kirakana.app/commit/80004836537f2ac4fba2a965e299e67214f29686))
+* **seo:** enhance progress page with structured data ([70af22c](https://github.com/bmmedina99/kirakana.app/commit/70af22c5822674086abfccdb66c23f349d6791e1))
+* **seo:** update home page title and description ([aa6b7fa](https://github.com/bmmedina99/kirakana.app/commit/aa6b7faf7ccfc6f5048612082b642f5ec812fd90))
+* **svg:** add hiragana and katakana symbols to sprite ([c1a433d](https://github.com/bmmedina99/kirakana.app/commit/c1a433deb56b6fe3587499e12651f1c2ff492c75))
+* **svg:** add new menu-expand symbol ([e3a487e](https://github.com/bmmedina99/kirakana.app/commit/e3a487e5d1fdd30ef5a4c7a7c90299ad1d287188))
+* **svg:** add new symbols for why-kirakana section ([f13891d](https://github.com/bmmedina99/kirakana.app/commit/f13891d83e6a5f253f9524c0a468cf6045ccf207))
+* **svg:** add speaker and recognize symbols ([7e9286b](https://github.com/bmmedina99/kirakana.app/commit/7e9286bbb4321084ba64b1f8f9407868f568a956))
+* **ui:** add reusable Section component ([d100ea0](https://github.com/bmmedina99/kirakana.app/commit/d100ea0e025edcfcf773cf561a90de7fbaf8edba))
+
+
+### Performance Improvements
+
+* **image:** optimize image `aprender` ([0006dfb](https://github.com/bmmedina99/kirakana.app/commit/0006dfba8442749259c1e42c81fecea605bb1d17))
+
 ## [0.12.1](https://github.com/bmmedina99/kirakana.app/compare/v0.12.0...v0.12.1) (2026-05-01)
 
 
