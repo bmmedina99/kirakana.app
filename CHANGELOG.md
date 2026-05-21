@@ -1,3 +1,15 @@
+## [0.13.1](https://github.com/bmmedina99/kirakana.app/compare/v0.13.0...v0.13.1) (2026-05-21)
+
+
+### Bug Fixes
+
+* **aprender:** add temporary syllabary preview display ([479d41d](https://github.com/bmmedina99/kirakana.app/commit/479d41d07948c81c90c33ffa12dfed3e569dfba1))
+* **deps:** update enhanced-resolve, normalize-url, and npm versions ([b43ae52](https://github.com/bmmedina99/kirakana.app/commit/b43ae52091628822260299eee58b5f7f61f773dd))
+* **footer:** correct potential heading hierarchy issue ([f2535f8](https://github.com/bmmedina99/kirakana.app/commit/f2535f89059163a41da3bc90f5ab95082dabe218))
+* **hero:** resolve redundant title text issue on button ([7298d65](https://github.com/bmmedina99/kirakana.app/commit/7298d65804fcdc8b3f5cd032a04848cd85fd6253))
+* **navigation:** remove redundant role attribute ([3507bcc](https://github.com/bmmedina99/kirakana.app/commit/3507bcc2033a3574a713e86b10107841a029a44b))
+* **why-kirakana:** correct potential heading hierarchy issue ([a0e7146](https://github.com/bmmedina99/kirakana.app/commit/a0e7146613271cb92ea58cb4118563d93a7c973d))
+
 # [0.13.0](https://github.com/bmmedina99/kirakana.app/compare/v0.12.1...v0.13.0) (2026-05-20)
 
 
