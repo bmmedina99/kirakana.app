@@ -1,13 +1,25 @@
 ---
 import Main from '@/components/layout/Main.astro'
 import Layout from '@/layouts/Layout.astro'
+import { KATAKANA } from '@/lib/data/katakana'
 ---
 
 <Layout
-  title="Tabla de Katakana — Aprende los 46 caracteres | KiraKana"
+  title="Tabla de Katakana — Aprende los 46 caracteres"
   description="Aprende katakana con lecciones visuales y ejemplos de palabras del día a día. 46 caracteres explicados con audio, guías de trazo y práctica integrada."
 >
   <Main>
-    <p>Katakana</p>
+    <section
+      class="container grid grid-cols-3 px-4 py-8 mx-auto gap-y-4 lg:grid-cols-5 place-items-center"
+    >
+      {
+        KATAKANA.map((caracter) => (
+          <div class="flex flex-col items-center justify-center text-center rounded-lg bg-sun-100 size-16">
+            <p class="text-2xl font-semibold font-japanese">{caracter.kana}</p>
+            <p class="text-sm">{caracter.romaji}</p>
+          </div>
+        ))
+      }
+    </section>
   </Main>
 </Layout>
