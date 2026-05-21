@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import japaneseBrush from '@/assets/pincel-kirakana.png'
+import japaneseBrush from '@/assets/pincel-kirakana.avif'
 import Main from '@/components/layout/Main.astro'
 import KanaCard from '@/components/ui/KanaCard.astro'
 import Section from '@/components/ui/Section.astro'
@@ -104,8 +104,7 @@ const learnSchema = {
           alt="Pincel de caligrafía japonesa sobre papel de arroz"
           width={512}
           height={512}
-          loading="lazy"
-          decoding="async"
+          format="avif"
         />
       </div>
       <div class="order-1 md:order-2 md:col-span-3">
