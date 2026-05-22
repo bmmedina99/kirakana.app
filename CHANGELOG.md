@@ -1,3 +1,16 @@
+## [0.13.2](https://github.com/bmmedina99/kirakana.app/compare/v0.13.1...v0.13.2) (2026-05-22)
+
+
+### Bug Fixes
+
+* **issue-template:** correct spelling errors in contact links ([ebea465](https://github.com/bmmedina99/kirakana.app/commit/ebea465cff593d2ba2afe86d5831b7acbf38428c))
+* **navigation:** add autocomplete="off" to mobile menu ([320363d](https://github.com/bmmedina99/kirakana.app/commit/320363da94ed283bf2f5c5097d009ce50068ef2d))
+
+
+### Performance Improvements
+
+* **images:** optimize assets by converting to AVIF ([12badfd](https://github.com/bmmedina99/kirakana.app/commit/12badfd041e1dbaaa6709d218583fac475d3a4f9))
+
 ## [0.13.1](https://github.com/bmmedina99/kirakana.app/compare/v0.13.0...v0.13.1) (2026-05-21)
 
 
