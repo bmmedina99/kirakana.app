@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import LogoKirakana from '@/assets/logo-kirakana.png'
+import LogoKirakana from '@/assets/logo-kirakana.avif'
 import { configSite } from '@/site.config'
 import Navigation from '../ui/Navigation.astro'
 ---
@@ -22,6 +22,7 @@ import Navigation from '../ui/Navigation.astro'
         densities={[1, 2]}
         width={96}
         height={96}
+        format='avif'
       />
       <span class="-translate-x-6" aria-hidden="true">
         <small class="sr-only">K</small>iraKana

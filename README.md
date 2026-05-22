@@ -2,73 +2,89 @@
 
 > できるまでやってみよう — *«Inténtalo hasta lograrlo»*
 
-**KiraKana** es una aplicación web interactiva y gratuita para aprender los silabarios japoneses **Hiragana** y **Katakana**. A través de ejercicios visuales y progresivos, los estudiantes pueden memorizar los caracteres, practicar su reconocimiento y hacer seguimiento de su avance sin necesidad de registro ni instalación.
-
-Proyecto de código abierto desarrollado como parte [portfolio](https://bmmedina.dev) de [@bmmedina99](https://github.com/bmmedina99).
+**KiraKana** es una aplicación web interactiva y gratuita para aprender los silabarios japoneses **hiragana** y **katakana**. A través de ejercicios visuales y progresivos, los estudiantes pueden memorizar los caracteres, practicar su reconocimiento y hacer seguimiento de su avance sin necesidad de registro ni instalación.
 
 **Visita:** [kirakana.app](https://kirakana.app)
 
 ---
 
+## Índice
+
+- [Características](#características)
+- [Tecnologías](#tecnologías)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Colaboración](/CONTRIBUTING.md)
+- [Licencia](#licencia)
+- [Autor](#autor)
+
+---
+
 ## Características
 
-- Modo de práctica: reconocimiento de caracteres del **Kana → Romaji**.
-- Interfaz simple y adaptada para escritorio y móvil.
-- Estilo minimalista con diseño inspirado en Japón.
-- Feedback inmediato tras cada intento.
-- Sin inicio de sesión.
+### Disponibles
+- **Aprende** — fichas de referencia visual para identificar y memorizar los 46 caracteres de hiragana y katakana, con pronunciación en romaji.
+- **Practica** — ejercicios de reconocimiento de caracteres (Kana → Romaji) con feedback inmediato tras cada intento.
+- **Progreso** — seguimiento del avance del usuario guardado localmente en el navegador, sin necesidad de cuenta.
+- **Sin registro** — acceso completo sin inicio de sesión ni datos personales.
+- **Responsive** — interfaz adaptada para escritorio y móvil.
+
+### En desarrollo
+- **Escucha y responde** — escuchar el sonido de un kana y seleccionar el símbolo correspondiente.
+- **Niveles de dificultad** — modos diferenciados para principiantes y estudiantes avanzados.
+- **Estadísticas mejoradas** — métricas detalladas de aciertos, errores y racha de práctica.
 
 ---
 
-## Próximas funcionalidades
+## Tecnologías
 
-- **Escucha y responde**: escuchar un sonido de Kana y seleccionar el símbolo correspondiente.
-- **Aprendizaje visual**: apartado con fichas de referencia para identificar y memorizar caracteres.
-- **Niveles de dificultad**: distintos modos para principiantes y avanzados.
-- **Estadísticas mejoradas**: progreso del usuario con métricas de aciertos y errores.
-
----
-
-## Tecnologías utilizadas
-
-- **[Astro](https://astro.build/)** framework moderno que permite crear sitios de contenido estático.
-- **[React](https://react.dev)** librería para construir interfaces de usuario interactivas.
-- **[TypeScript](https://tailwindcss.com)** aporta tipado estático al código, mejorando la detección de errores durante el desarrollo.
-- **[TailwindCSS](https://tailwindcss.com/)** framework de utilidades CSS para crear diseños de forma rápida.
+| Tecnología | Rol en el proyecto |
+|---|---|
+| [Astro](https://astro.build/) | Framework principal, genera contenido estático con islands interactivas |
+| [React](https://react.dev) | Componentes interactivos (islands) para los modos de práctica |
+| [TypeScript](https://www.typescriptlang.org/) | Aporta tipado estático al código |
+| [Tailwind CSS](https://tailwindcss.com/) | Framework de estilos CSS y diseño responsive |
 
 ---
 
-## Instalación local
+## Estructura del proyecto
 
-Sigue estos pasos para clonar y ejecutar el proyecto en tu máquina local:
-
-1. Clona el repositorio
-```bash
-git clone git@github.com:bmmedina99/kirakana.app.git
 ```
-2. Entra al proyecto
-```bash
-cd kirakana.app
+kirakana.app/
+├── public/                  # Assets estáticos
+├── src/
+│   ├── pages/
+│   │   ├── index.astro          # Landing page
+│   │   ├── aprender/
+│   │   │   ├── index.astro      # Selección de silabario
+│   │   │   ├── [silabario].astro   # Tabla de hiragana o katakana
+│   │   ├── practicar/
+│   │   │   ├── index.astro      # Selección de modo
+│   │   │   └── [modo]/
+│   │   │       ├── index.astro     # Modo de práctica (Kana → Romaji)
+│   │   │       └── [silabario].astro # Variantes para hiragana o katakana
+│   │   └── progreso/
+│   │       └── index.astro      # Panel de progreso
+│   │
+│   ├── features/         # Lógica de negocio y hooks personalizados
+│   ├── components/          # Componentes reutilizables (.astro)
+│   ├── layouts/             # Layouts base de las páginas
+│   ├── lib/                # Datos de caracteres hiragana y katakana
+│   └── site.config.ts     # Configuración de rutas y metadatos
+│
+├── astro.config.ts           # Configuración de Astro
+├── astro.config.ts           # Configuración de Astro
+├── biome.json               # Configuración de Biome (linting y formateo)
+└── package.json
 ```
-3. Instala las dependencias
-```bash
-pnpm install
-```
-4. Ejecuta en entorno de desarrollo
-```bash
-pnpm run dev
-```
-5. Entra al navegador y ve a http://localhost:4000
 
 ---
 
 ## Licencia
 
-Este proyecto está bajo la [Licencia MIT](./LICENSE).
+Este proyecto está bajo la [Licencia MIT](./LICENSE). Puedes usarlo, modificarlo y distribuirlo libremente.
 
 ---
 
 ## Autor
 
-Desarrollado por [bmmedina99](https://github.com/bmmedina99)<br>
-Diseñado como proyecto de [porfolio](https://bmmedina.dev).
+Diseñado y desarrollado por [bmmedina99](https://github.com/bmmedina99) - [bmmedina.dev](https://bmmedina.dev)
