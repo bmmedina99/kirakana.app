@@ -1,34 +1,9 @@
 ---
-const audiences = [
-  {
-    id: 0,
-    accent: 'Para principiantes',
-    title: 'Aprende japonés desde cero',
-    icon: '初',
-    description:
-      'Sin conocimientos previos de japonés, comienza con lo esencial. Aprende paso a paso con ejercicios simples y sin estrés.',
-  },
-  {
-    id: 1,
-    accent: 'Para viajeros',
-    title: 'Aprende japonés para viajar',
-    icon: '旅',
-    description:
-      'Aprende a leer menús, carteles y señales en Japón. Domina hiragana y katakana para moverte con confianza durante tu viaje y disfrutar.',
-  },
-  {
-    id: 2,
-    accent: 'Para fans del anime',
-    title: 'Aprende japonés por diversión',
-    icon: '静',
-    description:
-      'Si te encanta el anime, manga o la cultura japonesa, aprende para disfrutar de tus series favoritas sin subtítulos y entender mejor el idioma.',
-  },
-]
+import { audiences } from '@/lib/data/landing'
 ---
 
 <section
-  class="relative px-4 py-32 bg-charcoal-100 text-mauve-50"
+  class="bg-charcoal-100 text-mauve-50"
   aria-labelledby="audiences-heading"
 >
   <div class="container mx-auto">
@@ -77,7 +52,7 @@ const audiences = [
                   </h3>
                 </div>
                 <span
-                  class="p-4 text-3xl leading-none select-noneshrink-0 rounded-2xl bg-sun-50 md:absolute md:-bottom-5 md:-right-5 font-japanese text-charcoal-100 "
+                  class="p-4 text-3xl leading-none select-noneshrink-0 rounded-2xl bg-sun-50 md:absolute md:-bottom-4 md:-right-2 font-japanese text-charcoal-100 "
                   aria-hidden="true"
                 >
                   {audience.icon}

@@ -1,69 +1,12 @@
 ---
-import aprender from '@/assets/images/aprender-kirakana.avif'
+import { howItWorkSteps } from '@/lib/data/landing'
 import Icon from '../ui/Icon.astro'
 import StepBlock from '../ui/StepBlock.astro'
-
-const steps = [
-  {
-    id: 'aprende',
-    stepNumber: '01',
-    stepLabel: 'Paso 01',
-    badgeClass: 'bg-sun-100',
-    title: 'Aprende Hiragana y Katakana con inmersión guiada',
-    description:
-      'Explora los caracteres japoneses organizados por grupos fonéticos. Cada lección incluye audio, guías de trazado y asociaciones visuales para entender y recordar cada símbolo de forma natural.',
-    bullets: [
-      'Audio para aprender pronunciación japonesa',
-      'Tabla de hiragana y katakana completa',
-      'Aprendizaje progresivo desde cero',
-    ],
-    image: aprender,
-    imageAlt:
-      'Pantalla de selección de KiraKana, para aprender hiragana y katakana',
-    imageFirst: true,
-  },
-  {
-    id: 'practica',
-    stepNumber: '02',
-    stepLabel: 'Paso 02',
-    badgeClass: 'bg-copper-100 text-mauve-50',
-    title: 'Practica Hiragana y Katakana con ejercicios interactivos',
-    description:
-      'Refuerza lo aprendido con ejercicios de reconocimiento rápido. Entrena tu memoria para identificar caracteres japoneses al instante mediante desafíos  visuales y auditivos.',
-    bullets: [
-      'Ejercicios de reconocimiento japonés',
-      'Feedback de errores en tiempo real',
-      'Reconocimiento rápido de kana',
-    ],
-    image: aprender,
-    imageAlt:
-      'Ejercicio interactivo de KiraKana para practicar el reconocimiento de los kanas',
-    imageFirst: false,
-  },
-  {
-    id: 'progresa',
-    stepNumber: '03',
-    stepLabel: 'Paso 03',
-    badgeClass: 'bg-ochre-200 text-mauve-50',
-    title: 'Domina el japonés básico con seguimiento de progreso',
-    description:
-      'Consolida tu aprendizaje con un sistema de progreso inteligente. Visualiza qué caracteres dominas y cuáles necesitas repasar para mejorar tu fluidez en hiragana y katakana.',
-    bullets: [
-      'Seguimiento del progreso guardado localmente, sin cuenta ni contraseña',
-      'Identificación de puntos débiles',
-      'Aprendizaje personalizado',
-    ],
-    image: aprender,
-    imageAlt:
-      'Panel de progreso de KiraKana mostrando caracteres dominados y pendientes de repaso',
-    imageFirst: true,
-  },
-]
 ---
 
 <section
   id="como-funciona"
-  class="relative px-4 py-12 bg-linen-50"
+  class="bg-linen-50"
   aria-labelledby="how-it-works-heading"
 >
   <div class="container mx-auto">
@@ -131,6 +74,6 @@ const steps = [
         </li>
       </ul>
     </nav>
-    {steps.map((step) => <StepBlock {...step} />)}
+    {howItWorkSteps.map((step) => <StepBlock {...step} />)}
   </div>
 </section>

@@ -1,7 +1,7 @@
 ---
 import Icon from '../ui/Icon.astro'
 
-const faqs = [
+const questions = [
   {
     question: '¿Necesito saber japonés para usar KiraKana?',
     answer:
@@ -35,11 +35,7 @@ const faqs = [
 ]
 ---
 
-<section
-  id="faq"
-  class="relative px-4 py-32 bg-linen-50"
-  aria-labelledby="faq-heading"
->
+<section class="bg-linen-50" aria-labelledby="faq-heading">
   <div class="container mx-auto">
     <header class="mb-20 text-center">
       <h2 id="faq-heading" class="mb-6 text-3xl font-semibold lg:text-5xl">
@@ -52,7 +48,7 @@ const faqs = [
     </header>
     <div class="max-w-2xl mx-auto space-y-6">
       {
-        faqs.map((faq) => (
+        questions.map((faq) => (
           <details name="questions" class="group">
             <summary class="flex items-center justify-between p-6 border rounded-2xl border-sun-100 bg-charcoal-100 text-mauve-50">
               <h3 class="text-lg font-semibold">{faq.question}</h3>
