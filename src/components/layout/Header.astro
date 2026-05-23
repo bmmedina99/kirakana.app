@@ -1,15 +1,14 @@
 ---
 import { Image } from 'astro:assets'
 import LogoKirakana from '@/assets/logo-kirakana.avif'
-import { configSite } from '@/site.config'
 import Navigation from '../ui/Navigation.astro'
 ---
 
-<header class="flex items-center justify-center h-24 px-4 my-4 bg-linen-100">
-  <div class="container flex items-center justify-between mx-auto">
+<header class="flex items-center justify-center h-24 px-4 my-6">
+  <section class="container flex items-center justify-between mx-auto">
     <a
       href="/"
-      aria-label={configSite.name}
+      aria-label="Página principal de KiraKana"
       class="flex items-center text-3xl font-semibold md:text-5xl"
     >
       <Image
@@ -22,12 +21,12 @@ import Navigation from '../ui/Navigation.astro'
         densities={[1, 2]}
         width={96}
         height={96}
-        format='avif'
+        format="avif"
       />
-      <span class="-translate-x-6" aria-hidden="true">
-        <small class="sr-only">K</small>iraKana
-      </span>
+      <p class="-translate-x-6" aria-hidden="true">
+        <span class="sr-only">K</span>iraKana
+      </p>
     </a>
     <Navigation />
-  </div>
+  </section>
 </header>
