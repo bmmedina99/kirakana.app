@@ -14,7 +14,6 @@ const siteSocialImage = new URL(
   siteURL,
 ).toString()
 const siteSocialAlt = 'Kirakana y los caracteres japoneses Hiragana y Katakana.'
-const siteAuthor = configSite.author
 ---
 
 <meta charset="utf-8" />
@@ -26,7 +25,7 @@ const siteAuthor = configSite.author
 
 <title>{siteTitle}</title>
 <meta name="description" content={description} />
-<meta name="author" content={siteAuthor} />
+<meta name="author" content={configSite.author} />
 <link rel="canonical" href={siteCanonical} />
 
 {
