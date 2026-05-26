@@ -24,6 +24,4 @@ export interface ScoreEntry {
   total: number
 }
 
-export type Syllabarys = 'hiragana' | 'katakana' | null
-
 export type Feedback = 'correct' | 'incorrect' | null
