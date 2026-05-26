@@ -1,4 +1,4 @@
-import type { Config } from './types'
+import type { Config } from '@/core'
 
 export const configSite: Config = {
   name: 'KiraKana',
