@@ -1,18 +1,19 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import type { Feedback, KanaItem, ScoreEntry } from '@/core'
+import type { SyllabarySlug } from '@/lib/routes'
 import { Options } from '@/lib/utils/options'
 import { appendScore } from '@/lib/utils/score'
 import { shuffle } from '@/lib/utils/shuffle'
 import { dataset } from '@/lib/utils/syllabary'
-import type { Feedback, KanaItem, ScoreEntry, Syllabarys } from '@/types'
 import OptionButton from './OptionButton'
 
 interface GameProps {
-  syllabary: Syllabarys
+  syllabary: SyllabarySlug
 }
 
 export default function Game({ syllabary }: GameProps) {
   const [selectedSyllabary, setSelectedSyllabary] =
-    useState<Syllabarys | null>()
+    useState<SyllabarySlug | null>()
   const [kanaSet, setKanaSet] = useState<KanaItem[]>([])
   const [lives, setLives] = useState<number>(3)
   const [correctAnswers, setCorrectAnswers] = useState<number>(0)

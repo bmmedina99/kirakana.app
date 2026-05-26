@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
+import type { ScoreEntry } from '@/core'
 import { readScores } from '@/lib/utils/score'
-import type { ScoreEntry } from '@/types'
 
 export default function ScorePuzzle() {
   const [scores, setScores] = useState<ScoreEntry[]>([])

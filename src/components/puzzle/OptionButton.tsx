@@ -1,4 +1,4 @@
-import type { Feedback } from '@/types'
+import type { Feedback } from '@/core'
 
 interface Props {
   option: string
