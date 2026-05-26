@@ -1,18 +1,20 @@
+import { routeLabels, routes } from './routes'
+
 export const navLinks = [
   {
-    title: 'Inicio',
-    href: '/',
+    title: routeLabels[routes.home()],
+    href: routes.home(),
   },
   {
-    title: 'Aprender',
-    href: '/aprender/',
+    title: routeLabels[routes.learn.index()],
+    href: routes.learn.index(),
   },
   {
-    title: 'Practicar',
-    href: '/practicar/',
+    title: routeLabels[routes.practice.index()],
+    href: routes.practice.index(),
   },
   {
-    title: 'Progreso',
-    href: '/progreso/',
+    title: routeLabels[routes.progress()],
+    href: routes.progress(),
   },
 ]
