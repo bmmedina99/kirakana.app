@@ -1,4 +1,4 @@
-import type { ScoreEntry } from '@/types'
+import type { ScoreEntry } from '@/core'
 
 function writeScores(scores: ScoreEntry[]) {
   if (typeof window === 'undefined') return

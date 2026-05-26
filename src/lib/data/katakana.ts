@@ -1,4 +1,4 @@
-import type { KanaItem } from '@/types'
+import type { KanaItem } from '@/core'
 
 export const KATAKANA: KanaItem[] = [
   { kana: 'ア', romaji: 'a' },

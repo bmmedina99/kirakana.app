@@ -1,4 +1,4 @@
-import { configSite } from '@/site.config'
+import { configSite } from '@/lib/site.config'
 
 export const baseSchema = [
   {

@@ -1,4 +1,4 @@
-import type { KanaCard } from '@/types'
+import type { KanaCard } from '@/core'
 import { kanaCards } from '../data/kanaCards'
 
 export function createKanaCards({ basePath, buttonLabel }: KanaCard) {
