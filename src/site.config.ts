@@ -9,22 +9,3 @@ export const configSite: Config = {
   author: 'bmmedina99',
   url: 'https://kirakana.app',
 }
-
-export const navLinks = [
-  {
-    title: 'Inicio',
-    href: '/',
-  },
-  {
-    title: 'Aprender',
-    href: '/aprender/',
-  },
-  {
-    title: 'Practicar',
-    href: '/practicar/',
-  },
-  {
-    title: 'Progreso',
-    href: '/progreso/',
-  },
-]
