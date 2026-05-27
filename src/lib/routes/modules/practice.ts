@@ -24,14 +24,17 @@ export function createPracticeGroupUrl({
   level,
 }: PracticeGroupUrlParams): string {
   return buildUrl(practiceRoutes.modeSyllabary(mode, syllabary), {
-    grupo: group ?? '',
-    nivel: level ?? '',
+    grupo: group,
+    nivel: level,
   })
 }
 
 export const practiceRoutesLabels: Record<string, string> = {
   '/practicar/': 'Practicar',
   '/practicar/reconocimiento/': 'Reconocimiento',
+  '/practicar/escritura/': 'Escritura',
   '/practicar/reconocimiento/hiragana/': 'Hiragana',
   '/practicar/reconocimiento/katakana/': 'Katakana',
+  '/practicar/escritura/hiragana/': 'Hiragana',
+  '/practicar/escritura/katakana/': 'Katakana',
 }
