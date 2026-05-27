@@ -6,13 +6,14 @@ import KanaCard from '@/components/ui/KanaCard.astro'
 import Section from '@/components/ui/Section.astro'
 import Layout from '@/layouts/Layout.astro'
 import { baseSchema } from '@/lib/seo/baseSchema'
-import { createKanaCards } from '@/lib/utils/kanacards'
+import { createCards } from '@/lib/utils/createcards'
 
 const learnTitle = 'Aprende el silabario japonés: Hiragana y Katakana'
 const learnDescription =
   'Domina los silabarios japoneses con lecciones visuales y audio. Elige hiragana o katakana y aprende los 92 caracteres paso a paso, sin registro.'
 
-const learnCards = createKanaCards({
+const learnCards = createCards({
+  cardType: 'kana',
   basePath: 'aprender',
   buttonLabel: 'Aprender',
 })
