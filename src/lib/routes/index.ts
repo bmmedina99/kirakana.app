@@ -15,3 +15,4 @@ export const routeLabels: Record<string, string> = {
 }
 
 export type { PracticeModeSlug, SyllabarySlug } from './core'
+export { createPracticeGroupUrl } from './modules/practice'

@@ -8,8 +8,15 @@ export type SyllabarySlug = 'hiragana' | 'katakana'
 
 export type PracticeModeSlug = 'reconocimiento'
 
-// TODO: implement practice levels in the future
-// export type PracticeLevelSlug = 'basico' | 'intermedio' | 'completo'
+// TODO: implement more practice levels in the future
+export type PracticeLevelSlug = 'completo'
+
+export interface PracticeGroupUrlParams {
+  mode: PracticeModeSlug | string
+  syllabary: SyllabarySlug | string
+  group?: string
+  level?: PracticeLevelSlug
+}
 
 export function buildUrl(
   pathname: AppRoute,
