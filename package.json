@@ -10,7 +10,8 @@
     "release": "pnpm dlx semantic-release",
     "preview": "astro preview --port=5000",
     "fmt": "pnpm biome format --write .",
-    "lint": "pnpm biome lint --write ."
+    "lint": "pnpm biome lint --write .",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   },
   "dependencies": {
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "vitest": "4.1.7"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
