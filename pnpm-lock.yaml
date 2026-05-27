@@ -25,8 +25,8 @@ importers:
         specifier: 5.0.5
         version: 5.0.5(@types/node@25.9.1)(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(jiti@2.7.0)(lightningcss@1.32.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(yaml@2.9.0)
       '@astrojs/sitemap':
-        specifier: 3.7.2
-        version: 3.7.2
+        specifier: 3.7.3
+        version: 3.7.3
       '@biomejs/biome':
         specifier: 2.4.15
         version: 2.4.15
@@ -49,14 +49,14 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.15)
       astro:
-        specifier: 6.3.7
-        version: 6.3.7(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
+        specifier: 6.3.8
+        version: 6.3.8(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
       astro-robots-txt:
         specifier: 1.0.0
         version: 1.0.0
       astro-seo-schema:
         specifier: 6.0.0
-        version: 6.0.0(astro@6.3.7(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))(schema-dts@1.1.5)
+        version: 6.0.0(astro@6.3.8(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))(schema-dts@1.1.5)
       tailwindcss:
         specifier: 4.3.0
         version: 4.3.0
@@ -125,8 +125,8 @@ packages:
       react: ^17.0.2 || ^18.0.0 || ^19.0.0
       react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0
 
-  '@astrojs/sitemap@3.7.2':
-    resolution: {integrity: sha512-PqkzkcZTb5ICiyIR8VoKbIAP/laNRXi5tw616N1Ckk+40oNB8Can1AzVV56lrbC5GKSZFCyJYUVYqVivMisvpA==}
+  '@astrojs/sitemap@3.7.3':
+    resolution: {integrity: sha512-f8euLVsyeAmAkSm/1M2Kb8sL8byQmfgbvBNaHFItCheTj/IpiJYSEWVcqDHZ/yEHxiS7+w87mQkzwZaPHmk5GA==}
 
   '@astrojs/telemetry@3.3.2':
     resolution: {integrity: sha512-j8DNruA8ors99Al39RYZPJK4DC1bKkoNm93mAMuBhY9TCNC4R8n1q7ovFnJ5qhGh5Lsh7pa1gpQVpYpsJPeTHQ==}
@@ -1252,8 +1252,8 @@ packages:
       astro: ^6.0.0
       schema-dts: ^1.1.0
 
-  astro@6.3.7:
-    resolution: {integrity: sha512-zIeDRrI0qNgN1lcCjNqt6/IVCVej7VwSa326cO8uP9BOk1cg4QuffhLnOn2gCgWQr32/wxpSRFfXiLKHglu1Tw==}
+  astro@6.3.8:
+    resolution: {integrity: sha512-xH2UA8Z17IS+JaqSlSkBor7jO6gd7zXTLdmu06nKpfpDDJFbi/7KZEy3NDmWxmier+6XrCZ9Z4aitO8jhC9oiA==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3618,7 +3618,7 @@ snapshots:
       - tsx
       - yaml
 
-  '@astrojs/sitemap@3.7.2':
+  '@astrojs/sitemap@3.7.3':
     dependencies:
       sitemap: 9.0.1
       stream-replace-string: 2.0.0
@@ -4644,12 +4644,12 @@ snapshots:
       valid-filename: 4.0.0
       zod: 3.25.76
 
-  astro-seo-schema@6.0.0(astro@6.3.7(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))(schema-dts@1.1.5):
+  astro-seo-schema@6.0.0(astro@6.3.8(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))(schema-dts@1.1.5):
     dependencies:
-      astro: 6.3.7(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
+      astro: 6.3.8(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
       schema-dts: 1.1.5
 
-  astro@6.3.7(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0):
+  astro@6.3.8(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.9.1
