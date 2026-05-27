@@ -4,7 +4,8 @@ const BASE = '/aprender'
 
 export const learnRoutes = {
   index: (): AppRoute => `${BASE}/`,
-  syllabary: (syllabary: SyllabarySlug | string): AppRoute => `${BASE}/${syllabary}/`,
+  syllabary: (syllabary: SyllabarySlug | string): AppRoute =>
+    `${BASE}/${syllabary}/`,
 } as const
 
 export const learnRoutesLabels: Record<string, string> = {
