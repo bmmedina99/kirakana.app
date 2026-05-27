@@ -2,6 +2,7 @@ export const kanaCards = [
   {
     japanese: 'ひらがな',
     title: 'Hiragana',
+    slug: 'hiragana',
     description:
       'El silabario básico que representa los sonidos nativos del japonés.',
     icon: 'hiragana',
@@ -15,11 +16,11 @@ export const kanaCards = [
       { char: 'お', romaji: 'o' },
     ],
     buttonShadow: 'shadow-ochre-200',
-    slug: 'hiragana',
   },
   {
     japanese: 'カタカナ',
     title: 'Katakana',
+    slug: 'katakana',
     description:
       'El silabario utilizado para palabras extranjeras y onomatopeyas.',
     icon: 'katakana',
@@ -33,6 +34,5 @@ export const kanaCards = [
       { char: 'オ', romaji: 'o' },
     ],
     buttonShadow: 'shadow-cyan-900',
-    slug: 'katakana',
   },
 ] as const
