@@ -1,0 +1,50 @@
+---
+import Main from '@/components/layout/Main.astro'
+import KanaCard from '@/components/ui/KanaCard.astro'
+import Section from '@/components/ui/Section.astro'
+import Layout from '@/layouts/Layout.astro'
+import type { PracticeModeSlug } from '@/lib/routes'
+import { createCards } from '@/lib/utils/createcards'
+
+export async function getStaticPaths() {
+  const modes: PracticeModeSlug[] = ['reconocimiento']
+  return modes.map((mode) => ({ params: { mode } }))
+}
+
+const { mode } = Astro.params
+
+const practiceCards = createCards({
+  cardType: 'kana',
+  basePath: `practicar/${mode}`,
+  buttonLabel: 'practicar',
+})
+
+const modeTitle = `Practica el ${mode} de los silabarios japoneses`
+const modeDescription = `${mode} de los silabarios japoneses`
+---
+
+<Layout title={modeTitle} description={modeDescription}>
+  <Main class="container mx-auto">
+    <Section heading="practice-heading">
+      <Fragment slot="title">
+        <span class="capitalize">{mode}</span> con ejercicios
+        <span class="text-ochre-200">interactivos</span>
+      </Fragment>
+      <Fragment slot="description">
+        Practica <span class="font-semibold text-ochre-200">hiragana</span>
+        y <span class="font-semibold text-cyan-900">katakana</span> poniendo a prueba
+        tu reconocimiento visual y auditivo de los kana japoneses con ejercicios interactivos.
+        Sin límite de intentos.
+      </Fragment>
+      <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2 mb-8">
+        {
+          practiceCards.map((card) => (
+            <li>
+              <KanaCard {...card} />
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+  </Main>
+</Layout>

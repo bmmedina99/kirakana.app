@@ -1,18 +1,19 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import KanaCard from '@/components/ui/KanaCard.astro'
+import ModeCard from '@/components/ui/ModeCard.astro'
 import Section from '@/components/ui/Section.astro'
 import Layout from '@/layouts/Layout.astro'
 import { baseSchema } from '@/lib/seo/baseSchema'
-import { createKanaCards } from '@/lib/utils/kanacards'
+import { createCards } from '@/lib/utils/createcards'
 
 const practiceTitle = 'Practica el silabario japonés: Hiragana y Katakana'
 const practiceDescription =
   'Practica hiragana y katakana con ejercicios interactivos. Reconocimiento visual, feedback inmediato y sin límite de intentos. ¡Empieza gratis!'
 
-const practiceCards = createKanaCards({
+const practiceCards = createCards({
+  cardType: 'mode',
   basePath: 'practicar',
-  buttonLabel: 'practicar',
+  buttonLabel: 'Ir a',
 })
 
 const practiceSchema = {
@@ -96,11 +97,11 @@ const practiceSchema = {
         tu reconocimiento visual y auditivo de los kana japoneses con ejercicios interactivos.
         Sin límite de intentos.
       </Fragment>
-      <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2">
+      <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2 mb-8">
         {
           practiceCards.map((card) => (
             <li>
-              <KanaCard {...card} />
+              <ModeCard {...card} />
             </li>
           ))
         }
