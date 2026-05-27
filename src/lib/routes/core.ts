@@ -20,7 +20,7 @@ export interface PracticeGroupUrlParams {
 
 export function buildUrl(
   pathname: AppRoute,
-  params: Record<string, string>,
+  params: Record<string, string | undefined | null>,
 ): string {
   const url = new URL(pathname, configSite.url)
 
