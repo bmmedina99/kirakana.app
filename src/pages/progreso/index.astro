@@ -6,8 +6,8 @@ import Layout from '@/layouts/Layout.astro'
 import { baseSchema } from '@/lib/seo/baseSchema'
 import { configSite } from '@/lib/site.config'
 
-const siteTitle = 'Tu progreso aprendiendo japonés'
-const siteDescription =
+const progressTitle = 'Tu progreso aprendiendo japonés'
+const progressDescription =
   'Visualiza tu progreso aprendiendo japonés: caracteres dominados, puntos débiles y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria.'
 
 const progressSchema = {
@@ -18,8 +18,8 @@ const progressSchema = {
       '@type': 'WebPage',
       '@id': 'https://kirakana.app/progreso/#webpage',
       url: 'https://kirakana.app/progreso/',
-      name: siteTitle,
-      description: siteDescription,
+      name: progressTitle,
+      description: progressDescription,
       inLanguage: configSite.lang,
       isPartOf: {
         '@id': 'https://kirakana.app/#website',
@@ -50,7 +50,11 @@ const progressSchema = {
 }
 ---
 
-<Layout title={siteTitle} description={siteDescription} shema={progressSchema}>
+<Layout
+  title={progressTitle}
+  description={progressDescription}
+  shema={progressSchema}
+>
   <Main class="container mx-auto">
     <Section heading="progress-heading">
       <Fragment slot="title">
