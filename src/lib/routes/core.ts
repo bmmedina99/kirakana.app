@@ -8,8 +8,21 @@ export type SyllabarySlug = 'hiragana' | 'katakana'
 
 export type PracticeModeSlug = 'reconocimiento'
 
+export type PracticeIslandType = 'recognition'
+
 // TODO: implement more practice levels in the future
 export type PracticeLevelSlug = 'completo'
+
+export interface PracticeMode {
+  slug: PracticeModeSlug
+  name: string
+  shortName: string
+  description: string
+  longDescription: string
+  supportedSyllabaries: SyllabarySlug[]
+  island: PracticeIslandType
+  teaches: string[]
+}
 
 export interface PracticeGroupUrlParams {
   mode: PracticeModeSlug | string

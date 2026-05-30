@@ -14,5 +14,5 @@ export const routeLabels: Record<string, string> = {
   ...practiceRoutesLabels,
 }
 
-export type { PracticeModeSlug, SyllabarySlug } from './core'
+export type { PracticeMode, PracticeModeSlug, SyllabarySlug } from './core'
 export { createPracticeGroupUrl } from './modules/practice'
