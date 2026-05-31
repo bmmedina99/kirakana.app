@@ -104,3 +104,36 @@ export const reasons = [
       'Estudia hiragana y katakana sin estrés. Sin temporizadores ni presión, solo aprendizaje progresivo y efectivo.',
   },
 ]
+
+export const questions = [
+  {
+    question: '¿Necesito saber japonés para usar KiraKana?',
+    answer:
+      'No. KiraKana está diseñado para empezar desde cero absoluto. Las primeras lecciones parten de los sonidos vocálicos básicos, igual que cuando aprendiste a leer tu propio idioma.',
+  },
+  {
+    question: '¿Cuánto tiempo se tarda en aprender hiragana y katakana?',
+    answer:
+      'Con 10-15 minutos de práctica diaria, la mayoría de estudiantes puede memorizar hiragana y katakana en 2 a 3 semanas. La clave no es estudiar muchas horas de golpe, sino practicar con constancia cada día.',
+  },
+  {
+    question: '¿KiraKana es completamente gratis?',
+    answer:
+      'Sí, totalmente. KiraKana es un proyecto gratuito y de código abierto, sin costos ocultos ni funciones bloqueadas. El enlace que verás de [Apoyar a KiraKana] al final de esta página es completamente voluntario.',
+  },
+  {
+    question: '¿Puedo usar KiraKana en el móvil?',
+    answer:
+      'Sí. KiraKana es una aplicación web adaptada a móvil, tablet y ordenador. Puedes practicar hiragana y katakana desde donde quieras.',
+  },
+  {
+    question: '¿KiraKana guarda mi progreso?',
+    answer:
+      'Sí. Tu progreso se guarda localmente en el navegador usando almacenamiento local. Mientras no borres los datos del sitio o la caché del navegador, tu progreso seguirá disponible en el mismo dispositivo.',
+  },
+  {
+    question: '¿Se puede aprender japonés solo con hiragana y katakana?',
+    answer:
+      'No completamente. Hiragana y katakana son la base del japonés escrito y te ayudan a entender la fonética del idioma. Para leer textos completos también necesitarás kanji, vocabulario y gramática, pero dominar los dos silabarios es el primer paso imprescindible.',
+  },
+]
