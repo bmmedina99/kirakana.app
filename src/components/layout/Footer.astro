@@ -1,8 +1,10 @@
 ---
 import { navLinks } from '@/lib/navigation'
+import packageJson from '../../../package.json'
 import Icon from '../ui/Icon.astro'
 
 const pathname = Astro.url.pathname
+const version = packageJson.version
 ---
 
 <footer id="footer-content" class="w-full pt-8 pb-10 bg-linen-50">
@@ -47,19 +49,37 @@ const pathname = Astro.url.pathname
       }
     </nav>
     <address
-      class="flex flex-wrap items-center justify-center gap-1 text-xs not-italic"
+      class="flex flex-col flex-wrap items-center justify-center gap-1 text-xs not-italic"
     >
-      <span>© {new Date().getFullYear()} KiraKana.</span>
-      <span>Diseñado y desarrollado por</span>
       <a
-        href="https://bmmedina.dev"
+        href="https://github.com/bmmedina99/kirakana.app"
         target="_blank"
-        rel="noopener noreferrer author"
-        class="font-semibold transition-colors text-cyan-900 hover:text-ochre-200"
-        aria-label="Portfolio de bmmedina, desarrollador de KiraKana"
+        rel="noopener noreferrer"
+        class="font-semibold hover:underline"
       >
-        @bmmedina99
+        [ v{version} ]
       </a>
+      <a
+        href="https://ko-fi.com/bmmedina99"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-semibold transition-colors text-cyan-900 hover:text-ochre-200"
+      >
+        Apoyar a KiraKana
+      </a>
+      <div>
+        <span>{new Date().getFullYear()} KiraKana.</span>
+        <span>Diseñado y desarrollado por</span>
+        <a
+          href="https://bmmedina.dev"
+          target="_blank"
+          rel="noopener noreferrer author"
+          class="font-semibold transition-colors text-cyan-900 hover:text-ochre-200"
+          aria-label="Portfolio de bmmedina, desarrollador de KiraKana"
+        >
+          @bmmedina99
+        </a>
+      </div>
     </address>
   </section>
 </footer>
