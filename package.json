@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/react": "5.0.5",
+    "@astrojs/react": "5.0.6",
     "@astrojs/sitemap": "3.7.3",
     "@biomejs/biome": "2.4.15",
     "@semantic-release/changelog": "6.0.3",
@@ -36,7 +36,7 @@
     "@types/node": "25.9.1",
     "@types/react": "19.2.15",
     "@types/react-dom": "19.2.3",
-    "astro": "6.3.8",
+    "astro": "6.4.2",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "6.0.0",
     "tailwindcss": "4.3.0",
