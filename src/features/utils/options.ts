@@ -1,4 +1,4 @@
-import type { KanaItem } from '@/core'
+import type { KanaItem } from '@/features/core'
 import { shuffle } from './shuffle'
 
 export function Options(correctRomanji: string, pool: KanaItem[]): string[] {
