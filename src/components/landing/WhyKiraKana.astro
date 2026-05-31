@@ -1,5 +1,5 @@
 ---
-import { reasons } from '@/lib/data/landing'
+import { reasons } from '@/lib/landing'
 import Icon from '../ui/Icon.astro'
 ---
 
@@ -41,25 +41,26 @@ import Icon from '../ui/Icon.astro'
       </div>
     </figure>
     <ul class="space-y-8 self-start" role="list">
-      {reasons.map((reason) => (
-        <li class="flex gap-6">
-          <!-- Icono decorativo excluido del árbol de accesibilidad -->
-          <div
-            class="flex items-center justify-center rounded-full size-12 shrink-0 bg-charcoal-100"
-            aria-hidden="true"
-          >
-            <Icon name={reason.icon} class="text-linen-150" />
-          </div>
-          <div>
-            <h3 class="mb-1 text-lg font-semibold text-charcoal-100 md:text-xl">
-              {reason.title}
-            </h3>
-            <p class="text-copper-100 md:text-lg text-pretty">
-              {reason.description}
-            </p>
-          </div>
-        </li>
-      ))}
+      {
+        reasons.map((reason) => (
+          <li class="flex gap-6">
+            <div
+              class="flex items-center justify-center rounded-full size-12 shrink-0 bg-charcoal-100"
+              aria-hidden="true"
+            >
+              <Icon name={reason.icon} class="text-linen-150" />
+            </div>
+            <div>
+              <h3 class="mb-1 text-lg font-semibold text-charcoal-100 md:text-xl">
+                {reason.title}
+              </h3>
+              <p class="text-copper-100 md:text-lg text-pretty">
+                {reason.description}
+              </p>
+            </div>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>
