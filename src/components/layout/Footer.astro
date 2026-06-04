@@ -40,7 +40,12 @@ const version = packageJson.version
             <a
               href={link.href}
               aria-current={isActive ? "page" : undefined}
-              class={`${isActive ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-100 border-transparent"} border-b-2 transition-colors`}
+              class:list={[
+                "border-b-2 transition-colors",
+                isActive
+                  ? "border-ochre-200 text-ochre-200"
+                  : "hover:border-ochre-100 border-transparent",
+              ]}
             >
               {link.title}
             </a>
