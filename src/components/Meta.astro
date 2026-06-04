@@ -19,42 +19,38 @@ const siteSocialAlt = 'Kirakana y los caracteres japoneses Hiragana y Katakana.'
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<title>{siteTitle}</title>
+<meta name="description" content={description} />
+<meta name="author" content={configSite.author} />
+{robots && <meta name="robots" content="noindex, nofollow" />}
+
+<link rel="canonical" href={siteCanonical} />
+
+<meta name="theme-color" content="#faf0e6" />
+
 <Font cssVariable="--font-outfit" />
 <Font cssVariable="--font-noto-serif-jp" />
 <style set:html={globalCSS}></style>
 
-<title>{siteTitle}</title>
-<meta name="description" content={description} />
-<meta name="author" content={configSite.author} />
-<link rel="canonical" href={siteCanonical} />
+<meta property="og:url" content={siteCanonical} />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={siteSocialImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={siteSocialAlt} />
+<meta property="og:site_name" content={configSite.name} />
+<meta property="og:locale" content={configSite.locale} />
 
-{
-  !robots && (
-    <meta property="og:url" content={siteCanonical} />
-    <meta property="og:title" content={siteTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={siteSocialImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={siteSocialAlt} />
-    <meta property="og:site_name" content={configSite.name} />
-    <meta property="og:locale" content={configSite.locale} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@bmmedina99" />
+<meta name="twitter:title" content={siteTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={siteSocialImage} />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@bmmedina99" />
-    <meta name="twitter:title" content={siteTitle} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={siteSocialImage} />
-
-    <meta name="robots" content="index, follow" />
-  )
-}
-{ robots && <meta name="robots" content="noindex, nofollow" /> }
-<meta name="theme-color" content="#faf0e6" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
-{ schema && <Schema item={schema} />}
+{schema && <Schema item={schema} />}
