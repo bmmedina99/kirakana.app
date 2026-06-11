@@ -4,7 +4,6 @@ import Section from '@/components/layout/Section.astro'
 import Layout from '@/layouts/Layout.astro'
 import { baseSchema } from '@/lib/seo/baseSchema'
 import { configSite } from '@/lib/site.config'
-import ScorePuzzle from '../../../coverage/puzzle/Score'
 
 const progressTitle = 'Tu progreso aprendiendo japonés'
 const progressDescription =
@@ -72,7 +71,7 @@ const progressSchema = {
           <h3 class="text-xl font-semibold">Puntaje recientes</h3>
           <p>Los últimos 5 puntajes entre Hiragana y Katakana.</p>
         </div>
-        <ScorePuzzle client:idle />
+        <!-- <ScorePuzzle client:idle /> -->
       </div>
       <div class="flex items-center justify-center mt-4">
         <button
