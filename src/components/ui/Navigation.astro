@@ -50,7 +50,7 @@ const pathname = Astro.url.pathname
   </label>
   <nav
     id="mobile-nav"
-    class="absolute right-0 z-10 w-48 mt-2 space-y-2 text-center transition-opacity border-2 rounded-md opacity-0 border-sun-100 bg-mauve-50/40 peer-checked:opacity-100 backdrop-blur-sm"
+    class="absolute right-0 z-10 w-48 mt-2 space-y-2 text-center transition-opacity border-2 rounded-md opacity-0 border-sun-100 bg-mauve-50 peer-checked:opacity-100"
     aria-label="Navegación móvil"
   >
     {
@@ -62,10 +62,10 @@ const pathname = Astro.url.pathname
             href={link.href}
             aria-current={isActive ? "page" : undefined}
             class:list={[
-              "block border-b-2 py-1.5 px-3 text-lg transition-colors max-w-24 mx-auto",
+              "block border-b-2 rounded-b py-1.5 px-3 text-lg transition-colors max-w-24 mx-auto",
               isActive
-                ? "border-charcoal-100 text-charcoal-100"
-                : "hover:border-charcoal-100 border-transparent",
+                ? "border-sun-100 text-charcoal-100"
+                : "border-transparent",
             ]}
           >
             {link.title}
