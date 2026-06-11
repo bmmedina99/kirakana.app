@@ -10,8 +10,9 @@ export type PracticeModeSlug = 'reconocimiento'
 
 export type PracticeIslandType = 'recognition'
 
-// TODO: implement more practice levels in the future
-export type PracticeLevelSlug = 'completo'
+export type PracticeLevel = 'basico' | 'intermedio' | 'completo' | string
+
+export type PracticeModeStatus = 'disponible' | 'proximamente'
 
 export interface PracticeMode {
   slug: PracticeModeSlug
@@ -21,6 +22,13 @@ export interface PracticeMode {
   longDescription: string
   supportedSyllabaries: SyllabarySlug[]
   island: PracticeIslandType
+  status: PracticeModeStatus
+  disabledReason?: string
+  decoration: {
+    icon: string
+    kana: string
+    background: string
+  }
   teaches: string[]
 }
 
@@ -28,7 +36,7 @@ export interface PracticeGroupUrlParams {
   mode: PracticeModeSlug | string
   syllabary: SyllabarySlug | string
   group?: string
-  level?: PracticeLevelSlug
+  level?: PracticeLevel
 }
 
 export function buildUrl(
