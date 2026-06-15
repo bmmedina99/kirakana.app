@@ -1,0 +1,60 @@
+---
+import type { Syllabary } from '@/features/data/syllabaries'
+import RecognitionGame from '@/features/practice/islands/RecognitionGame'
+import type { PracticeMode } from '@/features/practice/modes'
+
+type Props = {
+  mode: PracticeMode
+  syllabary: Syllabary
+}
+
+const { mode, syllabary } = Astro.props
+
+const group = Astro.url.searchParams.get('grupo')
+const level = Astro.url.searchParams.get('nivel') ?? 'basico'
+
+const practiceTitle = `${mode.name} de ${syllabary.name}`
+
+const islandProps = {
+  syllabary: syllabary.slug,
+  group,
+  level,
+}
+
+const shouldRenderRecognition = mode.island === 'recognition'
+---
+
+<section class="mx-auto max-w-5xl px-4 py-12 sm:py-16">
+  <header class="mb-8 text-center">
+    <p class="mb-3 text-sm font-medium uppercase tracking-wide text-ochre-300">
+      Práctica interactiva
+    </p>
+
+    <h1 class="text-4xl font-semibold text-neutral-900 text-balance">
+      {practiceTitle}
+    </h1>
+
+    <p class="mx-auto mt-4 max-w-2xl text-lg text-neutral-700 text-pretty">
+      {mode.description}
+    </p>
+
+    {
+      group && (
+        <p class="mt-4 inline-flex rounded-full bg-linen-150 px-4 py-2 text-sm text-neutral-700">
+          Practicando grupo: {group}
+        </p>
+      )
+    }
+  </header>
+
+  {
+    shouldRenderRecognition && (
+      <RecognitionGame
+        client:load
+        syllabary={islandProps.syllabary}
+        group={islandProps.group}
+        level={islandProps.level}
+      />
+    )
+  }
+</section>
