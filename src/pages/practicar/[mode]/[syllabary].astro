@@ -1,22 +1,41 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import Game from '@/components/puzzle/Game'
+import { syllabaries } from '@/features/data/syllabaries'
+import PracticePage from '@/features/practice/components/PracticePage.astro'
+import { practiceModes } from '@/features/practice/modes'
 import Layout from '@/layouts/Layout.astro'
-import type { SyllabarySlug } from '@/lib/routes'
 
-export async function getStaticPaths() {
-  const syllabaries: SyllabarySlug[] = ['hiragana', 'katakana']
-  return syllabaries.map((syllabary) => ({ params: { syllabary } }))
+export function getStaticPaths() {
+  return practiceModes.flatMap((mode) =>
+    syllabaries
+      .filter((syllabary) => mode.supportedSyllabaries.includes(syllabary.slug))
+      .map((syllabary) => ({
+        params: {
+          mode: mode.slug,
+          syllabary: syllabary.slug,
+        },
+        props: {
+          mode,
+          syllabary,
+        },
+      })),
+  )
 }
 
-const { syllabary } = Astro.params
+const { mode, syllabary } = Astro.props
+
+// const pagePath = routes.practice.modeSyllabary(mode.slug, syllabary.slug)
+// const pageUrl = `${SITE_URL}${pagePath}`
+
+const PracticeModeSyllabaryTitle = `${mode.name} de ${syllabary.name}`
+const PracticeModeSyllabaryDescription = `${mode.description} Practica ${syllabary.name} de forma interactiva en KiraKana.`
 ---
 
 <Layout
-  title={`Practicar ${syllabary}`}
-  description={`Modo de práctica para reforzar tus conocimientos sobre los caracteres japoneses del silabario ${syllabary}`}
+  title={PracticeModeSyllabaryTitle}
+  description={PracticeModeSyllabaryDescription}
 >
   <Main>
-    <Game syllabary={syllabary as SyllabarySlug} client:idle />
+    <PracticePage mode={mode} syllabary={syllabary} />
   </Main>
 </Layout>
