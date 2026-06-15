@@ -30,7 +30,7 @@
     "@astrojs/netlify": "7.0.13",
     "@astrojs/react": "5.0.7",
     "@astrojs/sitemap": "3.7.3",
-    "@biomejs/biome": "2.4.16",
+    "@biomejs/biome": "2.5.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@tailwindcss/vite": "4.3.0",
