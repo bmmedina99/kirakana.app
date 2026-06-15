@@ -1,4 +1,3 @@
-import netlify from '@astrojs/netlify'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
@@ -30,7 +29,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  adapter: netlify(),
   redirects: {
     '/practicar/hiragana': '/practicar/reconocimiento/hiragana',
     '/practicar/katakana': '/practicar/reconocimiento/katakana',
