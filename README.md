@@ -61,17 +61,15 @@ kirakana.app/
 │   │   │   ├── index.astro      # Selección de modo
 │   │   │   └── [modo]/
 │   │   │       ├── index.astro     # Modo de práctica (Kana → Romaji)
-│   │   │       └── [silabario].astro # Variantes para hiragana o katakana
+│   │   │       └── [silabario].astro # hiragana o katakana
 │   │   └── progreso/
 │   │       └── index.astro      # Panel de progreso
 │   │
 │   ├── features/         # Lógica de negocio y hooks personalizados
 │   ├── components/          # Componentes reutilizables (.astro)
 │   ├── layouts/             # Layouts base de las páginas
-│   ├── lib/                # Datos de caracteres hiragana y katakana
-│   └── site.config.ts     # Configuración de rutas y metadatos
+│   └── lib/                # Datos de caracteres hiragana y katakana
 │
-├── astro.config.ts           # Configuración de Astro
 ├── astro.config.ts           # Configuración de Astro
 ├── biome.json               # Configuración de Biome (linting y formateo)
 └── package.json
