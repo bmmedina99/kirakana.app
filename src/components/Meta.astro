@@ -1,8 +1,8 @@
 ---
 import { Font } from 'astro:assets'
 import { Schema } from 'astro-seo-schema'
+import globalCSS from '@/assets/styles/global.css?inline'
 import { configSite } from '@/lib/site.config'
-import globalCSS from '@/styles/global.css?inline'
 
 const { title, description, robots = false, schema } = Astro.props
 
