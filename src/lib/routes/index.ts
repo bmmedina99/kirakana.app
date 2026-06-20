@@ -16,7 +16,6 @@ export const routeLabels: Record<string, string> = {
 
 export type {
   PracticeLevel,
-  PracticeMode,
   PracticeModeSlug,
   SyllabarySlug,
 } from './core'
