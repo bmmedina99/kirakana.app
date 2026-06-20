@@ -7,8 +7,7 @@ type Props = {
   getButtonLabel?: (name: string) => string
 }
 
-const { getHref, getButtonLabel = (name: string) => `Aprender ${name}` } =
-  Astro.props
+const { getHref, getButtonLabel = (name: string) => `${name}` } = Astro.props
 ---
 
 <div class="grid gap-8 lg:grid-cols-2">
