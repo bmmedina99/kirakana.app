@@ -6,31 +6,9 @@ export type RouteResolver = (...args: unknown[]) => AppRoute
 
 export type SyllabarySlug = 'hiragana' | 'katakana'
 
-export type PracticeModeSlug = 'reconocimiento'
-
-export type PracticeIslandType = 'recognition'
+export type PracticeModeSlug = 'reconocimiento' | 'escucha' | 'escritura'
 
 export type PracticeLevel = 'basico' | 'intermedio' | 'completo' | string
-
-export type PracticeModeStatus = 'disponible' | 'proximamente'
-
-export interface PracticeMode {
-  slug: PracticeModeSlug
-  name: string
-  shortName: string
-  description: string
-  longDescription: string
-  supportedSyllabaries: SyllabarySlug[]
-  island: PracticeIslandType
-  status: PracticeModeStatus
-  disabledReason?: string
-  decoration: {
-    icon: string
-    kana: string
-    background: string
-  }
-  teaches: string[]
-}
 
 export interface PracticeGroupUrlParams {
   mode: PracticeModeSlug | string
