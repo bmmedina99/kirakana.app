@@ -1,5 +1,7 @@
 ---
 import Section from '@/components/layout/Section.astro'
+import { practiceModes } from '../modes'
+import PracticeModeCard from './PracticeModeCard.astro'
 ---
 
 <Section labelledby="practice-heading">
@@ -12,7 +14,7 @@ import Section from '@/components/layout/Section.astro'
     tu reconocimiento visual y auditivo de los kana japoneses con ejercicios interactivos.
     Sin límite de intentos.
   </Fragment>
-  <!-- <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="grid gap-6 lg:grid-cols-3 [&>article]:col-start-2">
     {practiceModes.map((mode) => <PracticeModeCard mode={mode} />)}
-  </div> -->
+  </div>
 </Section>
