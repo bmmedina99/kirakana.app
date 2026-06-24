@@ -16,13 +16,12 @@ export type PracticeModeDecoration = {
 export interface PracticeMode {
   slug: PracticeModeSlug
   name: string
-  shortName: string
   description: string
   longDescription: string
   supportedSyllabaries: SyllabarySlug[]
   island: PracticeIslandType
   status: PracticeModeStatus
-  disabledReason?: string
+  disabledReason: string
   icon: string
   decoration: PracticeModeDecoration
   theme: { buttonClass: string }
