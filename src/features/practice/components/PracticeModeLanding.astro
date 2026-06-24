@@ -13,7 +13,7 @@ const { mode } = Astro.props
 
 <Section labelledby="practice-mode-heading">
   <Fragment slot="title">
-    Practicar {mode.name.toLowerCase()}
+    Practicar <span class="text-ochre-200">{mode.name.toLowerCase()}</span>
   </Fragment>
   <Fragment slot="description">
     {mode.longDescription}
@@ -23,25 +23,3 @@ const { mode } = Astro.props
     getButtonLabel={(name) => `Practicar ${name}`}
   />
 </Section>
-
-<!-- <section class="max-w-6xl px-4 py-16 mx-auto sm:py-24">
-  <header class="max-w-3xl mx-auto mb-12 text-center">
-    <p class="mb-3 text-sm font-medium tracking-wide uppercase text-ochre-300">
-      {mode.shortName}
-    </p>
-
-    <h1
-      class="text-4xl font-semibold text-neutral-900 text-balance sm:text-5xl"
-    >
-      Practicar {mode.name.toLowerCase()}
-    </h1>
-
-    <p class="mt-5 text-lg text-neutral-700 text-pretty">
-      {mode.longDescription}
-    </p>
-  </header>
-  <SyllabarySelectionGrid
-    getHref={(slug) => routes.learn.syllabary(slug)}
-    getButtonLabel={(name) => `Aprender ${name}`}
-  />
-</section> -->
