@@ -1,7 +1,6 @@
-import { listeningMode } from './listening'
 import { recognitionMode } from './recognition'
 
-export const practiceModes = [recognitionMode, listeningMode] as const
+export const practiceModes = [recognitionMode] as const
 
 export type PracticeMode = (typeof practiceModes)[number]
 
