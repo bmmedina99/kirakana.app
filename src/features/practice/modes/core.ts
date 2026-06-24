@@ -1,3 +1,4 @@
+import type { KanaItem } from '@/features/data/groups'
 import type { PracticeModeSlug, SyllabarySlug } from '@/lib/routes'
 
 export type PracticeIslandType = 'recognition' | 'listening' | 'writing'
@@ -37,4 +38,13 @@ export function shuffle<T>(array: readonly T[]): T[] {
     shuffled[j] = temp as T
   }
   return shuffled
+}
+
+export function Options(correctRomanji: string, pool: KanaItem[]): string[] {
+  const opts = new Set<string>([correctRomanji])
+  while (opts.size < 4 && pool.length > 0) {
+    const pick = pool[(Math.random() * pool.length) | 0]?.romaji
+    if (pick) opts.add(pick)
+  }
+  return shuffle([...opts])
 }
