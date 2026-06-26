@@ -3,12 +3,12 @@ import Main from '@/components/layout/Main.astro'
 import LearnLanding from '@/features/learn/components/LearnLanding.astro'
 import Layout from '@/layouts/Layout.astro'
 
-const learnTitle = 'Aprende el silabario japonés: Hiragana y Katakana'
-const learnDescription =
+const title = 'Aprende el silabario japonés: Hiragana y Katakana'
+const description =
   'Domina los silabarios japoneses con lecciones visuales y audio. Elige hiragana o katakana y aprende los 92 caracteres paso a paso, sin registro.'
 ---
 
-<Layout title={learnTitle} description={learnDescription}>
+<Layout {title} {description}>
   <Main>
     <LearnLanding />
   </Main>
