@@ -2,18 +2,8 @@
 import { Font } from 'astro:assets'
 import { Schema } from 'astro-seo-schema'
 import globalCSS from '@/assets/styles/global.css?inline'
-import { type BreadcrumbItem, buildJsonLd, type SchemaBase } from '@/lib/schema'
+import { buildJsonLd } from '@/lib/schema'
 import { configSite } from '@/lib/site.config'
-
-interface Props {
-  title: string
-  description: string
-  canonical?: string
-  schemas: SchemaBase[]
-  breadcrumbs: BreadcrumbItem[] | false
-  ogImage?: string
-  noindex?: boolean
-}
 
 const {
   title,
