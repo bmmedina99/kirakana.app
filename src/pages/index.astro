@@ -7,38 +7,16 @@ import TargetAudience from '@/components/landing/TargetAudience.astro'
 import WhyKirakana from '@/components/landing/WhyKiraKana.astro'
 import Main from '@/components/layout/Main.astro'
 import Layout from '@/layouts/Layout.astro'
-import { baseSchema } from '@/lib/seo/baseSchema'
+import { homepageSchema } from '@/lib/schema'
 import { configSite } from '@/lib/site.config'
 
-const homeTitle = 'Aprende Hiragana y Katakana gratis desde cero'
-const homeDescription = configSite.description
-
-const homeSchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    ...baseSchema,
-    {
-      '@type': 'WebPage',
-      '@id': 'https://kirakana.app/#webpage',
-      url: 'https://kirakana.app/',
-      name: homeTitle,
-      description: homeDescription,
-      inLanguage: configSite.lang,
-      isPartOf: {
-        '@id': 'https://kirakana.app/#website',
-      },
-      about: {
-        '@id': 'https://kirakana.app/#app',
-      },
-      mainEntity: {
-        '@id': 'https://kirakana.app/#app',
-      },
-    },
-  ],
-}
+const title = 'Aprende Hiragana y Katakana gratis desde cero'
+const description = configSite.description
+const canonical = configSite.url
+const schemas = homepageSchema({ url: canonical, title, description })
 ---
 
-<Layout title={homeTitle} description={homeDescription} schema={homeSchema}>
+<Layout {title} {description} {canonical} {schemas} breadcrumbs="false">
   <Main>
     <Hero />
     <HowItWorks />
