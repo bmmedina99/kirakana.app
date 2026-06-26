@@ -2,18 +2,40 @@
 import { Font } from 'astro:assets'
 import { Schema } from 'astro-seo-schema'
 import globalCSS from '@/assets/styles/global.css?inline'
+import { type BreadcrumbItem, buildJsonLd, type SchemaBase } from '@/lib/schema'
 import { configSite } from '@/lib/site.config'
 
-const { title, description, robots = false, schema } = Astro.props
+interface Props {
+  title: string
+  description: string
+  canonical?: string
+  schemas: SchemaBase[]
+  breadcrumbs: BreadcrumbItem[] | false
+  ogImage?: string
+  noindex?: boolean
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  schemas = [],
+  breadcrumbs,
+  ogImage = '/images/kirakana-social.jpg',
+  noindex = false,
+} = Astro.props
+
+const schemaJsonLd = buildJsonLd({
+  url: canonical,
+  title,
+  description,
+  schemas,
+  breadcrumbs,
+})
 
 const siteTitle = `${title} | ${configSite.name}`
-const siteURL = Astro.site ?? Astro.url.origin
-const siteCanonical = new URL(Astro.url.pathname, siteURL).toString()
-const siteSocialImage = new URL(
-  '/images/kirakana-social-media.jpg',
-  siteURL,
-).toString()
-const siteSocialAlt = 'Kirakana y los caracteres japoneses Hiragana y Katakana.'
+const ogImageUrl = new URL(ogImage, configSite.url).toString()
+const ogImageAlt = 'Kirakana y los kanas japoneses Hiragana y Katakana.'
 ---
 
 <meta charset="utf-8" />
@@ -21,24 +43,23 @@ const siteSocialAlt = 'Kirakana y los caracteres japoneses Hiragana y Katakana.'
 
 <title>{siteTitle}</title>
 <meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
 <meta name="author" content={configSite.author} />
-{robots && <meta name="robots" content="noindex, nofollow" />}
-
-<link rel="canonical" href={siteCanonical} />
-
 <meta name="theme-color" content="#faf0e6" />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <Font cssVariable="--font-outfit" />
 <Font cssVariable="--font-noto-serif-jp" />
 <style set:html={globalCSS}></style>
 
-<meta property="og:url" content={siteCanonical} />
+<meta property="og:url" content={canonical} />
 <meta property="og:title" content={siteTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={siteSocialImage} />
+<meta property="og:image" content={ogImageUrl} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content={siteSocialAlt} />
+<meta property="og:image:alt" content={ogImageAlt} />
 <meta property="og:site_name" content={configSite.name} />
 <meta property="og:locale" content={configSite.locale} />
 
@@ -46,11 +67,11 @@ const siteSocialAlt = 'Kirakana y los caracteres japoneses Hiragana y Katakana.'
 <meta name="twitter:site" content="@bmmedina99" />
 <meta name="twitter:title" content={siteTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={siteSocialImage} />
+<meta name="twitter:image" content={ogImageUrl} />
 
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-{schema && <Schema item={schema} />}
+<Schema item={schemaJsonLd as any} />
