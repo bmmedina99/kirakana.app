@@ -16,7 +16,7 @@ const canonical = configSite.url
 const schemas = homepageSchema({ url: canonical, title, description })
 ---
 
-<Layout {title} {description} {canonical} {schemas} breadcrumbs="false">
+<Layout {title} {description} {canonical} {schemas} breadcrumbs={false}>
   <Main>
     <Hero />
     <HowItWorks />
