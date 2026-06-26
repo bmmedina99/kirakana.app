@@ -2,58 +2,13 @@
 import Main from '@/components/layout/Main.astro'
 import Section from '@/components/layout/Section.astro'
 import Layout from '@/layouts/Layout.astro'
-import { baseSchema } from '@/lib/schema/modules/baseSchema'
-import { configSite } from '@/lib/site.config'
 
-const progressTitle = 'Tu progreso aprendiendo japonés'
-const progressDescription =
+const title = 'Tu progreso aprendiendo japonés'
+const description =
   'Visualiza tu progreso aprendiendo japonés: caracteres dominados, puntos débiles y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria.'
-
-const progressSchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    ...baseSchema,
-    {
-      '@type': 'WebPage',
-      '@id': 'https://kirakana.app/progreso/#webpage',
-      url: 'https://kirakana.app/progreso/',
-      name: progressTitle,
-      description: progressDescription,
-      inLanguage: configSite.lang,
-      isPartOf: {
-        '@id': 'https://kirakana.app/#website',
-      },
-      about: {
-        '@id': 'https://kirakana.app/#app',
-      },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      '@id': 'https://kirakana.app/progreso/#breadcrumb',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Inicio',
-          item: 'https://kirakana.app/',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Progreso',
-          item: 'https://kirakana.app/progreso/',
-        },
-      ],
-    },
-  ],
-}
 ---
 
-<Layout
-  title={progressTitle}
-  description={progressDescription}
-  shema={progressSchema}
->
+<Layout {title} {description}>
   <Main class="container mx-auto">
     <Section labelledby="progress-heading">
       <Fragment slot="title">
