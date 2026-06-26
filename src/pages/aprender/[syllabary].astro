@@ -3,25 +3,32 @@ import Main from '@/components/layout/Main.astro'
 import { syllabaries } from '@/features/data/syllabaries'
 import LearnSyllabaryPage from '@/features/learn/components/LearnSyllabaryPage.astro'
 import Layout from '@/layouts/Layout.astro'
+import { routes } from '@/lib/routes'
+import { learningPageSchemas } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 
 export function getStaticPaths() {
   return syllabaries.map((syllabary) => ({
     params: {
       syllabary: syllabary.slug,
     },
-    props: {
-      syllabary,
-    },
   }))
 }
 
-const { syllabary } = Astro.props
+const { syllabary } = Astro.params
 
-const learnSyllabaryTitle = `Tabla de ${syllabary} - Aprende los 46 caracteres`
-const learnSyllabaryDescription = `Aprende los 46 caracteres ${syllabary} con guías visuales, audio y orden de trazos. La forma más clara de empezar a leer japonés desde cero.`
+const title = `Tabla de ${syllabary} - Aprende los 46 caracteres`
+const description = `Aprende los 46 caracteres ${syllabary} con guías visuales, audio y orden de trazos. La forma más clara de empezar a leer japonés desde cero.`
+const canonical = configSite.url + routes.learn.syllabary(syllabary)
+const schemas = learningPageSchemas({
+  syllabary,
+  url: canonical,
+  title,
+  description,
+})
 ---
 
-<Layout title={learnSyllabaryTitle} description={learnSyllabaryDescription}>
+<Layout {title} {description} {canonical} {schemas}>
   <Main>
     <LearnSyllabaryPage syllabary={syllabary} />
   </Main>
