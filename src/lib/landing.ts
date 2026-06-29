@@ -1,4 +1,5 @@
 import aprender from '@/assets/images/aprender-kirakana.avif'
+import practicar from '@/assets/images/practicar-kirakana.avif'
 
 export const howItWorkSteps = [
   {
@@ -32,7 +33,7 @@ export const howItWorkSteps = [
       'Feedback de errores en tiempo real',
       'Reconocimiento rápido de kana',
     ],
-    image: aprender,
+    image: practicar,
     imageAlt:
       'Ejercicio interactivo de KiraKana para practicar el reconocimiento de los kanas',
     imageFirst: false,
