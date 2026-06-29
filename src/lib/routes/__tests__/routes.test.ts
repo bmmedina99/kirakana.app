@@ -9,6 +9,16 @@ describe('public routes validation', () => {
   it('returns "/progreso/" for progress', () => {
     expect(routes.progress()).toBe('/progreso/')
   })
+
+  it('returns public routes with trailing slash except home', () => {
+    const publicRoutes = [
+      routes.learn.index(),
+      routes.practice.index(),
+      routes.progress(),
+    ]
+
+    expect(publicRoutes.every((route) => route.endsWith('/'))).toBe(true)
+  })
 })
 
 describe('learn route validation', () => {
@@ -80,8 +90,6 @@ describe('createPracticeGroupUrl practice path generation', () => {
     ).toBe('/practicar/escritura/katakana/?grupo=a&nivel=completo')
   })
 })
-
-// ─── routeLabels ─────────────────────────────────────────────────────────────
 
 describe('route labels validation', () => {
   it('returns the correct label for each route', () => {
