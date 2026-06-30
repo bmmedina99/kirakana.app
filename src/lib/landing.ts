@@ -11,9 +11,9 @@ export const howItWorkSteps = [
     description:
       'Explora los caracteres japoneses organizados por grupos fonéticos. Cada lección incluye audio, guías de trazado y asociaciones visuales para entender y recordar cada símbolo de forma natural.',
     bullets: [
-      'Audio para aprender pronunciación japonesa',
-      'Tabla de hiragana y katakana completa',
       'Aprendizaje progresivo desde cero',
+      'Tabla de hiragana y katakana completa',
+      'Audio para aprender pronunciación japonesa',
     ],
     image: aprender,
     imageAlt:
@@ -29,9 +29,9 @@ export const howItWorkSteps = [
     description:
       'Refuerza lo aprendido con ejercicios de reconocimiento rápido. Entrena tu memoria para identificar caracteres japoneses al instante mediante desafíos  visuales y auditivos.',
     bullets: [
-      'Ejercicios de reconocimiento japonés',
-      'Feedback de errores en tiempo real',
       'Reconocimiento rápido de kana',
+      'Feedback de errores en tiempo real',
+      'Ejercicios de reconocimiento japonés',
     ],
     image: practicar,
     imageAlt:
