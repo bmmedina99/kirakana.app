@@ -1,5 +1,3 @@
-// src/features/kana/data/hiragana.ts
-
 import {
   createKanaGroup,
   getKanaItemsFromGroups,

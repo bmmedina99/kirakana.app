@@ -1,5 +1,3 @@
-// src/features/kana/data/katakana.ts
-
 import {
   createKanaGroup,
   getKanaItemsFromGroups,
