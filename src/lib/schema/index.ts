@@ -14,7 +14,10 @@ export {
 export { buildJsonLd, composeSchemas } from './modules/composer'
 export {
   homepageSchema,
-  learningPageSchemas,
-  practicePageSchemas,
-  webPageSchema,
-} from './modules/pageShemas'
+  learnPageSchema,
+  learnSyllabarySchema,
+  practicePageSchema,
+  practiceModeSchema,
+  practiceSessionSchema,
+  progressSchema,
+} from './modules/pageSchemas'
