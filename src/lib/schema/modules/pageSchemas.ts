@@ -37,7 +37,7 @@ export function homepageSchema(params: {
   return [webPageSchema(params)]
 }
 
-export function learningPageSchemas(params: {
+export function learnPageSchema(params: {
   syllabary: SyllabarySlug
   url: string
   title: string
@@ -84,7 +84,9 @@ export function learningPageSchemas(params: {
   ]
 }
 
-export function practicePageSchemas(params: {
+export function learnSyllabarySchema() {}
+
+export function practicePageSchema(params: {
   mode: PracticeModeSlug
   syllabary: SyllabarySlug
   url: string
@@ -114,3 +116,9 @@ export function practicePageSchemas(params: {
     },
   ]
 }
+
+export function practiceModeSchema() {}
+
+export function practiceSessionSchema() {}
+
+export function progressSchema() {}
