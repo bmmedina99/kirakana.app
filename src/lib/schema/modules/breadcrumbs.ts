@@ -10,6 +10,8 @@ const SEGMENT_LABELS: Record<string, string> = {
   hiragana: 'Hiragana',
   katakana: 'Katakana',
   reconocimiento: 'Reconocimiento',
+  escucha: 'Escucha',
+  escritura: 'Escritura',
 }
 
 function formatSegment(segment: string): string {
@@ -57,7 +59,5 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]): SchemaBase {
 export function getBreadcrumbSchema(canonicalUrl: string): SchemaBase | null {
   const { pathname } = new URL(canonicalUrl)
   if (!shouldHaveBreadcrumbs(pathname)) return null
-
-  const items = buildBreadcrumbItems(canonicalUrl)
-  return buildBreadcrumbSchema(items)
+  return buildBreadcrumbSchema(buildBreadcrumbItems(canonicalUrl))
 }
