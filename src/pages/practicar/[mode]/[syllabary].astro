@@ -4,6 +4,8 @@ import { syllabaries } from '@/features/data/syllabaries'
 import PracticePage from '@/features/practice/components/PracticePage.astro'
 import { practiceModes } from '@/features/practice/modes'
 import Layout from '@/layouts/Layout.astro'
+import { practiceSessionSchema } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 
 export function getStaticPaths() {
   return practiceModes.flatMap((mode) =>
@@ -23,18 +25,19 @@ export function getStaticPaths() {
 }
 
 const { mode, syllabary } = Astro.props
-
-// const pagePath = routes.practice.modeSyllabary(mode.slug, syllabary.slug)
-// const pageUrl = `${SITE_URL}${pagePath}`
-
-const PracticeModeSyllabaryTitle = `${mode.name} de ${syllabary.name}`
-const PracticeModeSyllabaryDescription = `${mode.description} Practica ${syllabary.name} de forma interactiva en KiraKana.`
+const title = `${mode.name} de ${syllabary.name}`
+const description = `${mode.description} Practica ${syllabary.name} de forma interactiva en KiraKana.`
+const canonical = `${configSite.url}/practicar/${mode.slug}/${syllabary.slug}`
+const schemas = practiceSessionSchema({
+  mode: mode.slug,
+  syllabary: syllabary.slug,
+  url: canonical,
+  title,
+  description,
+})
 ---
 
-<Layout
-  title={PracticeModeSyllabaryTitle}
-  description={PracticeModeSyllabaryDescription}
->
+<Layout {title} {description} {canonical} {schemas}>
   <Main>
     <PracticePage mode={mode} syllabary={syllabary} />
   </Main>
