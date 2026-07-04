@@ -56,8 +56,16 @@ const version = packageJson.version
     <address
       class="flex flex-col flex-wrap items-center justify-center gap-1 text-xs not-italic"
     >
+      <a
+        href={`https://github.com/bmmedina99/kirakana.app/releases/tag/v${version}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-semibold hover:underline"
+      >
+        KiraKana v{version}
+      </a>
       <span>
-        Diseñado y desarrollado por
+        Diseñado y desarrollado por{" "}
         <a
           href="https://bmmedina.dev"
           target="_blank"
@@ -69,24 +77,16 @@ const version = packageJson.version
         </a>
       </span>
       <span>
-        ¿Te gusta KiraKana?
+        ¿KiraKana te ha sido útil?{" "}
         <a
           href="https://ko-fi.com/bmmedina99"
           target="_blank"
           rel="noopener noreferrer"
           class="font-semibold transition-colors text-cyan-900 hover:text-ochre-200"
         >
-          Apoya al desarrollador
+          Apóyanos voluntariamente
         </a>
       </span>
-      <a
-        href="https://github.com/bmmedina99/kirakana.app"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-semibold hover:underline"
-      >
-        KiraKana v{version}
-      </a>
     </address>
   </section>
 </footer>
