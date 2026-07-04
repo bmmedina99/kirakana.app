@@ -2,13 +2,17 @@
 import Main from '@/components/layout/Main.astro'
 import PracticeLanding from '@/features/practice/components/PracticeLanding.astro'
 import Layout from '@/layouts/Layout.astro'
+import { practiceIndexSchema } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 
-const practiceTitle = 'Practica el silabario japonés: Hiragana y Katakana'
-const practiceDescription =
-  'Practica hiragana y katakana con ejercicios interactivos. Reconocimiento visual, feedback inmediato y sin límite de intentos. ¡Empieza gratis!'
+const title = 'Practica el silabario japonés: Hiragana y Katakana'
+const description =
+  'Elige tu modo de práctica: reconocimiento visual, comprensión auditiva o práctica de escritura de Hiragana y Katakana sin límite de intentos. ¡Empieza gratis!'
+const canonical = `${configSite.url}/practicar`
+const schemas = practiceIndexSchema({ url: canonical, title, description })
 ---
 
-<Layout title={practiceTitle} description={practiceDescription}>
+<Layout {title} {description} {canonical} {schemas}>
   <Main>
     <PracticeLanding />
   </Main>

@@ -3,6 +3,8 @@ import Main from '@/components/layout/Main.astro'
 import PracticeModeLanding from '@/features/practice/components/PracticeModeLanding.astro'
 import { practiceModes } from '@/features/practice/modes'
 import Layout from '@/layouts/Layout.astro'
+import { practiceModeSchema } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 
 export function getStaticPaths() {
   return practiceModes.map((mode) => ({
@@ -16,15 +18,18 @@ export function getStaticPaths() {
 }
 
 const { mode } = Astro.props
-
-// const pagePath = routes.practice.mode(mode.slug)
-// const pageUrl = `${SITE_URL}${pagePath}`
-
-const practiceModeTitle = `Practicar ${mode.name.toLowerCase()} de los silabarios japoneses`
-const practiceModeDescription = mode.longDescription
+const title = `Practicar ${mode.name.toLowerCase()} de los silabarios japoneses`
+const description = mode.longDescription
+const canonical = `${configSite.url}/practicar/${mode.slug}`
+const schemas = practiceModeSchema({
+  mode: mode.slug,
+  url: canonical,
+  title,
+  description,
+})
 ---
 
-<Layout title={practiceModeTitle} description={practiceModeDescription}>
+<Layout {title} {description} {canonical} {schemas}>
   <Main>
     <PracticeModeLanding mode={mode} />
   </Main>

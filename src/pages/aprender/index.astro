@@ -2,13 +2,17 @@
 import Main from '@/components/layout/Main.astro'
 import LearnLanding from '@/features/learn/components/LearnLanding.astro'
 import Layout from '@/layouts/Layout.astro'
+import { learnIndexSchema } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 
 const title = 'Aprende el silabario japonés: Hiragana y Katakana'
 const description =
   'Domina los silabarios japoneses con lecciones visuales y audio. Elige hiragana o katakana y aprende los 92 caracteres paso a paso, sin registro.'
+const canonical = `${configSite.url}/aprender`
+const schemas = learnIndexSchema({ url: canonical, title, description })
 ---
 
-<Layout {title} {description}>
+<Layout {title} {description} {canonical} {schemas}>
   <Main>
     <LearnLanding />
   </Main>

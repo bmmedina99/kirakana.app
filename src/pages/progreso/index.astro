@@ -1,42 +1,19 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import Section from '@/components/layout/Section.astro'
+import ProgressLanding from '@/features/progress/components/ProgressLanding.astro'
 import Layout from '@/layouts/Layout.astro'
+import { progressSchema } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 
 const title = 'Tu progreso aprendiendo japonés'
 const description =
   'Visualiza tu progreso aprendiendo japonés: caracteres dominados, puntos débiles y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria.'
+const canonical = `${configSite.url}/progreso`
+const schemas = progressSchema({ url: canonical, title, description })
 ---
 
-<Layout {title} {description}>
-  <Main class="container mx-auto">
-    <Section labelledby="progress-heading">
-      <Fragment slot="title">
-        Tu progreso aprendiendo <span class="text-ochre-200">japonés</span>
-      </Fragment>
-      <Fragment slot="description">
-        Aquí puedes ver tu avance aprendiendo
-        <span class="font-semibold text-ochre-200">hiragana</span>
-        y <span class="font-semibold text-cyan-900">katakana</span>. Tu progreso
-        se guarda localmente en tu navegador, sin necesidad de cuenta ni
-        registro.
-      </Fragment>
-      <div class="p-4 bg-sun-50 border border-sun-100 rounded-lg">
-        <div class="mb-4">
-          <h3 class="text-xl font-semibold">Puntaje recientes</h3>
-          <p>Los últimos 5 puntajes entre Hiragana y Katakana.</p>
-        </div>
-        <!-- <ScorePuzzle client:idle /> -->
-      </div>
-      <div class="flex items-center justify-center mt-4">
-        <button
-          type="button"
-          class="shadow-lg cursor-default btn bg-ochre-200 text-mauve-50 hover:scale-95"
-          onclick="localStorage.clear(); location.reload();"
-        >
-          Borrar historial
-        </button>
-      </div>
-    </Section>
+<Layout {title} {description} {canonical} {schemas}>
+  <Main>
+    <ProgressLanding />
   </Main>
 </Layout>
