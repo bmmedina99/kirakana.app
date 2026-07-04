@@ -2,8 +2,6 @@ import { configSite } from '../site.config'
 
 export type AppRoute = `/${string}`
 
-export type RouteResolver = (...args: unknown[]) => AppRoute
-
 export type SyllabarySlug = 'hiragana' | 'katakana'
 
 export type PracticeModeSlug = 'reconocimiento' | 'escucha' | 'escritura'
