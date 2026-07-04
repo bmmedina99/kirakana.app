@@ -3,14 +3,12 @@ export type SchemaPageType =
   | 'WebSite'
   | 'SoftwareApplication'
   | 'WebPage'
+  | 'CollectionPage'
   | 'BreadcrumbList'
   | 'ListItem'
-  | 'EducationalOccupationalProgram'
   | 'Course'
   | 'LearningResource'
-  | 'FAQPage'
-  | 'Question'
-  | 'Answer'
+  | 'ImageObject'
 
 export interface SchemaBase {
   '@type': SchemaPageType | SchemaPageType[]
