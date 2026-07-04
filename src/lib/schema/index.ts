@@ -4,7 +4,7 @@ export {
   organizationSchema,
   softwareAppSchema,
   websiteSchema,
-} from './modules/baseSchema'
+} from './modules/base.schema'
 export {
   buildBreadcrumbItems,
   buildBreadcrumbSchema,
@@ -12,12 +12,10 @@ export {
   shouldHaveBreadcrumbs,
 } from './modules/breadcrumbs'
 export { buildJsonLd, composeSchemas } from './modules/composer'
-export {
-  homepageSchema,
-  learnPageSchema,
-  learnSyllabarySchema,
-  practicePageSchema,
-  practiceModeSchema,
-  practiceSessionSchema,
-  progressSchema,
-} from './modules/pageSchemas'
+export { homepageSchema } from './modules/home.schema'
+export { learnIndexSchema } from './modules/learn-index.schema'
+export { learnSyllabarySchema } from './modules/learn-syllabary.schema'
+export { practiceIndexSchema } from './modules/practice-index.schema'
+export { practiceModeSchema } from './modules/practice-mode.schema'
+export { practiceSessionSchema } from './modules/practice-session.schema'
+export { progressSchema } from './modules/progress.schema'
