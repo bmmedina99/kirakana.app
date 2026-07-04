@@ -1,5 +1,5 @@
 import type { PageSchemaContext, SchemaBase } from '../core'
-import { baseSchemas } from './baseSchema'
+import { baseSchemas } from './base.schema'
 import { buildBreadcrumbSchema, getBreadcrumbSchema } from './breadcrumbs'
 
 export function composeSchemas(context: PageSchemaContext): SchemaBase[] {
