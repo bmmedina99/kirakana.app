@@ -1,5 +1,5 @@
-import aprender from '@/assets/images/aprender-kirakana.avif'
-import practicar from '@/assets/images/practicar-kirakana.avif'
+import aprender from '@/assets/images/aprender-kirakana.webp'
+import practicar from '@/assets/images/practicar-kirakana.webp'
 
 export const howItWorkSteps = [
   {
