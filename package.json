@@ -3,7 +3,7 @@
   "description": "Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. El método más fácil para empezar japonés desde cero.",
   "type": "module",
   "version": "0.13.2",
-  "private": true,
+    "private": true,
   "scripts": {
     "dev": "astro dev --port=4000",
     "build": "astro check && astro build",
@@ -22,26 +22,26 @@
   },
   "dependencies": {
     "astro": "7.1.1",
+    "@astrojs/sitemap": "3.7.3",
+    "astro-robots-txt": "1.0.0",
+    "astro-seo-schema": "7.0.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",
-    "sharp": "0.35.3",
-    "vitest": "4.1.10"
+    "@astrojs/react": "6.0.1",
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/vite": "4.3.3",
+    "sharp": "0.35.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/react": "6.0.1",
-    "@astrojs/sitemap": "3.7.3",
     "@biomejs/biome": "2.5.4",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@tailwindcss/vite": "4.3.3",
     "@types/node": "26.1.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
-    "astro-robots-txt": "1.0.0",
-    "astro-seo-schema": "7.0.0",
-    "tailwindcss": "4.3.3",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
   },
   "packageManager": "pnpm@11.15.0"
 }

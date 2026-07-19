@@ -8,9 +8,24 @@ importers:
 
   .:
     dependencies:
+      '@astrojs/react':
+        specifier: 6.0.1
+        version: 6.0.1(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(supports-color@7.2.0)(yaml@2.9.0)
+      '@astrojs/sitemap':
+        specifier: 3.7.3
+        version: 3.7.3
+      '@tailwindcss/vite':
+        specifier: 4.3.3
+        version: 4.3.3(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))
       astro:
         specifier: 7.1.1
         version: 7.1.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0)
+      astro-robots-txt:
+        specifier: 1.0.0
+        version: 1.0.0
+      astro-seo-schema:
+        specifier: 7.0.0
+        version: 7.0.0(astro@7.1.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))(schema-dts@1.1.5)
       react:
         specifier: 19.2.7
         version: 19.2.7
@@ -20,19 +35,13 @@ importers:
       sharp:
         specifier: 0.35.3
         version: 0.35.3(@types/node@26.1.1)
-      vitest:
-        specifier: 4.1.10
-        version: 4.1.10(@types/node@26.1.1)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))
+      tailwindcss:
+        specifier: 4.3.3
+        version: 4.3.3
     devDependencies:
       '@astrojs/check':
         specifier: 0.9.9
         version: 0.9.9(prettier@3.9.5)(typescript@6.0.3)
-      '@astrojs/react':
-        specifier: 6.0.1
-        version: 6.0.1(@types/node@26.1.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(esbuild@0.28.1)(jiti@2.7.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(supports-color@7.2.0)(yaml@2.9.0)
-      '@astrojs/sitemap':
-        specifier: 3.7.3
-        version: 3.7.3
       '@biomejs/biome':
         specifier: 2.5.4
         version: 2.5.4
@@ -42,9 +51,6 @@ importers:
       '@semantic-release/git':
         specifier: 10.0.1
         version: 10.0.1(semantic-release@25.0.8(supports-color@7.2.0)(typescript@6.0.3))(supports-color@7.2.0)
-      '@tailwindcss/vite':
-        specifier: 4.3.3
-        version: 4.3.3(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))
       '@types/node':
         specifier: 26.1.1
         version: 26.1.1
@@ -54,18 +60,12 @@ importers:
       '@types/react-dom':
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.17)
-      astro-robots-txt:
-        specifier: 1.0.0
-        version: 1.0.0
-      astro-seo-schema:
-        specifier: 7.0.0
-        version: 7.0.0(astro@7.1.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))(schema-dts@1.1.5)
-      tailwindcss:
-        specifier: 4.3.3
-        version: 4.3.3
       typescript:
         specifier: 6.0.3
         version: 6.0.3
+      vitest:
+        specifier: 4.1.10
+        version: 4.1.10(@types/node@26.1.1)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))
 
 packages:
 
