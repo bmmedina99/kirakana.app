@@ -10,8 +10,8 @@ import Layout from '@/layouts/Layout.astro'
   description="Parece que este camino no existe… pero puedes seguir practicando Hiragana y Katakana sin perder el ritmo."
   noindex
 >
-  <Main class="py-16">
-    <section class="flex flex-col px-8">
+  <Main>
+    <section class="px-8">
       <div
         class="container grid items-center w-full grid-cols-1 gap-16 mx-auto lg:grid-cols-2"
       >
@@ -31,37 +31,37 @@ import Layout from '@/layouts/Layout.astro'
               ページが見つかりません
             </span>
           </h1>
-          <div class="max-w-xl md:text-xl text-pretty text-copper-100">
+          <div class="max-w-lg md:text-xl text-pretty text-copper-100">
             <p>
-              Parece que este camino no existe… pero puedes seguir practicando
-              <span class="font-semibold text-ochre-200">Hiragana</span>
+              Parece que este camino no existe… pero puedes volver y seguir
+              practicando
+              <span class="text-ochre-200"> hiragana </span>
               <span
                 class="text-sm font-japanese text-ochre-200"
                 aria-label="hiragana en japonés"
               >
                 (ひらがな)
               </span>
-              y
-              <span class="font-semibold text-cyan-900">Katakana</span>
+              {" "}y
+              <span class="text-cyan-900"> katakana </span>
               <span
                 class="text-sm font-japanese text-cyan-900"
                 aria-label="katakana en japonés"
               >
                 (カタカナ)
               </span>
-              sin perder el ritmo.
+              {" "}sin perder el ritmo.
             </p>
           </div>
           <nav class="flex flex-wrap" aria-label="Acciones">
             <button
               type="button"
               onclick="window.history.back()"
-              title="Volver a practicar"
               class="shadow-lg cursor-default btn bg-charcoal-100 text-mauve-50 hover:scale-95"
-              aria-label="Volver a practicar"
+              aria-label="Volver a donde estabas"
             >
               <Icon name="backpage" />
-              <span>Volver a practicar</span>
+              <span>Volver a donde estabas</span>
             </button>
           </nav>
         </div>
