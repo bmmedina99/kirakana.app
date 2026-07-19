@@ -12,8 +12,8 @@ const { error } = Astro.props
   description="Estamos trabajando para solucionarlo lo más pronto posible. Mientras tanto, puedes volver a intentarlo."
   noindex
 >
-  <Main class="py-16">
-    <section class="flex flex-col px-8">
+  <Main>
+    <section class="px-8">
       <div
         class="container grid items-center w-full grid-cols-1 gap-16 mx-auto lg:grid-cols-2"
       >
@@ -36,7 +36,8 @@ const { error } = Astro.props
           <div class="max-w-xl md:text-xl text-pretty text-copper-100">
             <p>
               Estamos trabajando para solucionarlo lo más pronto posible.
-              Mientras tanto, puedes volver a intentarlo.
+              Mientras tanto, puedes volver a donde estabas o volver a recargar
+              la página.
             </p>
             {
               process.env.NODE_ENV === "development" && (
@@ -55,21 +56,19 @@ const { error } = Astro.props
             <button
               type="button"
               onclick="window.history.back()"
-              title="Volver a practicar"
               class="shadow-lg cursor-default btn bg-charcoal-100 text-mauve-50 hover:scale-95"
-              aria-label="Volver a practicar"
+              aria-label="Volver a donde estabas"
             >
               <Icon name="backpage" />
-              <span>Volver a practicar</span>
+              <span>Volver a donde estabas</span>
             </button>
             <button
               type="button"
               onclick="window.location.reload()"
-              title="Recargar página"
-              class="border-2 shadow-lg cursor-default btn bg-linen-150 border-cyan-900 text-copper-200 active:scale-95"
+              class="border-2 shadow-lg cursor-default btn bg-linen-150 border-cyan-900 text-copper-200 active:scale-95 hover:scale-105 duration-300"
               aria-label="Recargar página"
             >
-              <span>Recargar página</span>
+              Recargar página
             </button>
           </nav>
         </div>
