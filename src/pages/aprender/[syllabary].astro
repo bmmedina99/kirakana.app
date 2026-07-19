@@ -1,26 +1,33 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import { syllabaries } from '@/features/data/syllabaries'
+import { type Syllabary, syllabaries } from '@/features/data/syllabaries'
 import LearnSyllabaryPage from '@/features/learn/components/LearnSyllabaryPage.astro'
 import Layout from '@/layouts/Layout.astro'
 import { learnSyllabarySchema } from '@/lib/schema'
 import { configSite } from '@/lib/site.config'
+
+type Props = {
+  syllabary: Syllabary
+}
 
 export function getStaticPaths() {
   return syllabaries.map((syllabary) => ({
     params: {
       syllabary: syllabary.slug,
     },
+    props: {
+      syllabary,
+    },
   }))
 }
 
-const { syllabary } = Astro.params
+const { syllabary } = Astro.props
 
-const title = `Tabla de ${syllabary} - Aprende los 46 caracteres`
-const description = `Aprende los 46 caracteres ${syllabary} con guías visuales, audio y orden de trazos. La forma más clara de empezar a leer japonés desde cero.`
-const canonical = `${configSite.url}/aprender/${syllabary}`
+const title = `Aprende ${syllabary.name}: caracteres y pronunciación`
+const description = `Aprende ${syllabary.name} por grupos con referencias visuales y pronunciación. Estudia los caracteres japoneses paso a paso y a tu ritmo.`
+const canonical = `${configSite.url}/aprender/${syllabary.slug}`
 const schemas = learnSyllabarySchema({
-  syllabary,
+  syllabary: syllabary.slug,
   url: canonical,
   title,
   description,
@@ -29,6 +36,6 @@ const schemas = learnSyllabarySchema({
 
 <Layout {title} {description} {canonical} {schemas}>
   <Main>
-    <LearnSyllabaryPage syllabary={syllabary} />
+    <LearnSyllabaryPage {syllabary} />
   </Main>
 </Layout>
