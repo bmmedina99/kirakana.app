@@ -4,19 +4,19 @@ import type {
   KanaGroupCategory,
   KanaGroupSlug,
 } from '@/features/data/groups'
-import type { LearnAccent } from '../types'
+import type { SyllabaryTheme } from '@/features/data/syllabaries'
 
 type Props = {
   groups: KanaGroup[]
   activeGroupSlug: KanaGroupSlug
-  accent: LearnAccent
+  theme: SyllabaryTheme
   onSelectGroup: (slug: KanaGroupSlug) => void
 }
 
 const categoryLabels: Record<KanaGroupCategory, string> = {
   basico: 'Básico',
   modificado: 'Modificado',
-  combinaciones: 'Combinaciones y\u014don',
+  combinaciones: 'Combinaciones yōon',
 }
 
 const categories: KanaGroupCategory[] = [
@@ -28,7 +28,7 @@ const categories: KanaGroupCategory[] = [
 function KanaGroupSidebarComponent({
   groups,
   activeGroupSlug,
-  accent,
+  theme,
   onSelectGroup,
 }: Props) {
   return (
@@ -50,7 +50,7 @@ function KanaGroupSidebarComponent({
           >
             <h2
               id={`category-${category}`}
-              className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500'
+              className='mb-2 text-xs font-semibold tracking-widest uppercase text-neutral-500'
             >
               {categoryLabels[category]}
             </h2>
@@ -64,9 +64,9 @@ function KanaGroupSidebarComponent({
                       type='button'
                       onClick={() => onSelectGroup(group.slug)}
                       aria-current={isActive ? 'true' : undefined}
-                      className={`flex w-full items-center justify-between rounded-xl border px-3 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${accent.focusRing} ${
+                      className={`flex w-full items-center justify-between rounded-xl border px-3 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${theme.focusRing} ${
                         isActive
-                          ? `${accent.border} ${accent.softBackground} ${accent.text}`
+                          ? `${theme.border} ${theme.softBackground} ${theme.text}`
                           : 'border-transparent text-neutral-700 hover:border-linen-150 hover:bg-white'
                       }`}
                     >

@@ -1,26 +1,22 @@
 import { memo } from 'react'
 import type { KanaItem } from '@/features/data/groups'
-import type { LearnAccent } from '../types'
+import type { SyllabaryTheme } from '@/features/data/syllabaries'
 import { KanaCard } from './KanaCard'
 
 type Props = {
   items: KanaItem[]
   activeKana: string
   speakingKana: string | null
-  audioAvailable: boolean
-  accent: LearnAccent
+  theme: SyllabaryTheme
   onSelectKana: (kana: string) => void
-  onSpeak: (kana: string) => void
 }
 
 function KanaGroupGridComponent({
   items,
   activeKana,
   speakingKana,
-  audioAvailable,
-  accent,
+  theme,
   onSelectKana,
-  onSpeak,
 }: Props) {
   return (
     <div className='grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-5'>
@@ -30,10 +26,8 @@ function KanaGroupGridComponent({
           item={item}
           isActive={item.kana === activeKana}
           isSpeaking={item.kana === speakingKana}
-          audioAvailable={audioAvailable}
-          accent={accent}
+          theme={theme}
           onSelect={onSelectKana}
-          onSpeak={onSpeak}
         />
       ))}
     </div>
