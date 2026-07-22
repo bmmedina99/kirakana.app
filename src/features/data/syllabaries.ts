@@ -3,7 +3,7 @@ import type { KanaGroup, KanaItem } from './groups'
 import { hiraganaGroups, hiraganaKana } from './hiragana'
 import { katakanaGroups, katakanaKana } from './katakana'
 
-type SyllabaryTheme = {
+export type SyllabaryTheme = {
   text: string
   background: string
   softBackground: string
