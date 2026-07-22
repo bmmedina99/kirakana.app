@@ -1,0 +1,331 @@
+import { useCallback, useMemo, useState } from 'react'
+import type { KanaGroupSlug } from '@/features/data/groups'
+import type { Syllabary } from '@/features/data/syllabaries'
+import { KanaGroupGrid } from '../components/KanaGroupGrid'
+import { KanaGroupSidebar } from '../components/KanaGroupSidebar'
+import { getKanaNote } from '../utils/getKanaNote'
+
+type Props = {
+  syllabary: Syllabary
+  practiceHref: string
+}
+
+function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
+  return (
+    <svg
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+      stroke-width='2'
+      aria-hidden='true'
+      className={`${direction === 'left' ? 'rotate-90' : '-rotate-90'} size-5`}
+    >
+      <use href={`/svg/sprite.svg#arrow`}></use>
+    </svg>
+  )
+}
+
+export default function LearnSyllabaryExperience({
+  syllabary,
+  practiceHref,
+}: Props) {
+  const [activeGroupSlug, setActiveGroupSlug] = useState<KanaGroupSlug>(
+    syllabary.groups[0]?.slug ?? 'vocales',
+  )
+  const [activeKanaIndex, setActiveKanaIndex] = useState(0)
+  const [speakingKana, setSpeakingKana] = useState<string | null>(null)
+
+  const activeGroup = useMemo(
+    () =>
+      syllabary.groups.find((group) => group.slug === activeGroupSlug) ??
+      syllabary.groups[0],
+    [activeGroupSlug, syllabary.groups],
+  )
+
+  const activeGroupIndex = useMemo(
+    () =>
+      syllabary.groups.findIndex((group) => group.slug === activeGroup?.slug),
+    [activeGroup?.slug, syllabary.groups],
+  )
+
+  const activeKana =
+    activeGroup?.items[activeKanaIndex] ?? activeGroup?.items[0]
+  const nextKana =
+    activeGroup?.items[(activeKanaIndex + 1) % activeGroup.items.length]
+
+  const selectGroup = useCallback((slug: KanaGroupSlug) => {
+    setActiveGroupSlug(slug)
+    setActiveKanaIndex(0)
+    setSpeakingKana(null)
+
+    if (window.innerWidth < 1024) {
+      window.requestAnimationFrame(() => {
+        document
+          .querySelector('#learn-content')
+          ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    }
+  }, [])
+
+  const selectKana = useCallback(
+    (kana: string) => {
+      const index = activeGroup?.items.findIndex((item) => item.kana === kana)
+      if (index !== undefined && index >= 0) setActiveKanaIndex(index)
+    },
+    [activeGroup?.items],
+  )
+
+  const moveToGroup = useCallback(
+    (direction: -1 | 1) => {
+      if (activeGroupIndex < 0) return
+
+      const group = syllabary.groups[activeGroupIndex + direction]
+      if (group) selectGroup(group.slug)
+    },
+    [activeGroupIndex, selectGroup, syllabary.groups],
+  )
+
+  if (!activeGroup || !activeKana) return null
+
+  return (
+    <section className='container px-8 mx-auto'>
+      <a
+        href='/aprender/'
+        className={`mb-6 inline-flex items-center gap-2 rounded-md text-sm font-semibold text-neutral-600 outline-none transition hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-4 ${syllabary.theme.focusRing}`}
+      >
+        <ArrowIcon direction='left' />
+        Volver a aprender
+      </a>
+
+      <header className='mb-8 grid gap-5 border-b border-linen-150 pb-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end'>
+        <div>
+          <p
+            className={`mb-2 text-sm font-semibold uppercase tracking-widest ${syllabary.theme.text}`}
+          >
+            {syllabary.japaneseName} - {activeGroup.title}
+          </p>
+          <h1 className='text-4xl font-semibold text-neutral-900 sm:text-5xl'>
+            Aprende {syllabary.name}
+          </h1>
+          <p className='max-w-3xl mt-4 text-base leading-relaxed text-neutral-600 sm:text-lg'>
+            {syllabary.longDescription}
+          </p>
+        </div>
+        <dl className='flex gap-6 px-5 py-4 text-sm shadow-sm rounded-2xl bg-linen-50'>
+          <div>
+            <dt className='text-neutral-500'>Grupos</dt>
+            <dd className='mt-1 font-semibold text-neutral-900'>
+              {syllabary.groups.length}
+            </dd>
+          </div>
+          <div className='pl-6 border-l border-linen-150'>
+            <dt className='text-neutral-500'>Caracteres</dt>
+            <dd className={`mt-1 font-semibold ${syllabary.theme.text}`}>
+              {syllabary.kana.length}
+            </dd>
+          </div>
+        </dl>
+      </header>
+
+      <div className='mb-6 lg:hidden'>
+        <details className='p-4 border group rounded-2xl border-linen-150 bg-linen-50'>
+          <summary className='flex items-center justify-between font-semibold list-none cursor-pointer text-neutral-900'>
+            Elegir grupo
+            <span
+              aria-hidden='true'
+              className='transition group-open:rotate-90'
+            >
+              <ArrowIcon direction='right' />
+            </span>
+          </summary>
+          <div className='pt-5 mt-5 border-t border-linen-150'>
+            <KanaGroupSidebar
+              groups={syllabary.groups}
+              activeGroupSlug={activeGroup.slug}
+              theme={syllabary.theme}
+              onSelectGroup={selectGroup}
+            />
+          </div>
+        </details>
+      </div>
+      <div className='grid gap-8 lg:grid-cols-[17rem_minmax(0,1fr)] xl:gap-12'>
+        <aside className='hidden lg:block'>
+          <div className='sticky p-5 border shadow-sm top-6 rounded-3xl border-linen-150 bg-linen-50'>
+            <p className='mb-5 text-sm leading-relaxed text-neutral-600'>
+              Avanza por familias de sonidos y selecciona cada carácter para
+              estudiarlo con calma.
+            </p>
+            <KanaGroupSidebar
+              groups={syllabary.groups}
+              activeGroupSlug={activeGroup.slug}
+              theme={syllabary.theme}
+              onSelectGroup={selectGroup}
+            />
+          </div>
+        </aside>
+        <section
+          id='learn-content'
+          aria-labelledby='group-title'
+          className='min-w-0 scroll-mt-6'
+        >
+          <header className='flex flex-col gap-4 mb-6 sm:flex-row sm:items-start sm:justify-between'>
+            <div>
+              <p className='text-sm font-medium text-neutral-500'>
+                Grupo {activeGroupIndex + 1} de {syllabary.groups.length}
+              </p>
+              <h2
+                id='group-title'
+                className='mt-1 text-3xl font-semibold text-neutral-900'
+              >
+                {activeGroup.title}
+              </h2>
+              <p className='max-w-2xl mt-2 leading-relaxed text-neutral-600'>
+                {activeGroup.description}
+              </p>
+            </div>
+            <span
+              className={`w-fit rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-widest ${syllabary.theme.softBackground} ${syllabary.theme.text}`}
+            >
+              {activeKanaIndex + 1} / {activeGroup.items.length} kana
+            </span>
+          </header>
+
+          <div className='grid gap-5 xl:grid-cols-[minmax(0,1.5fr)_minmax(15rem,0.7fr)]'>
+            <div className='relative flex items-center justify-center p-8 overflow-hidden bg-white border shadow-sm isolate min-h-80 rounded-3xl border-linen-150 sm:min-h-96'>
+              {nextKana && nextKana.kana !== activeKana.kana && (
+                <span
+                  lang='ja'
+                  aria-hidden='true'
+                  className='absolute left-[56%] top-1/2 -z-10 -translate-y-1/2 select-none font-japanese text-[10rem] text-linen-150 sm:text-[14rem]'
+                >
+                  {nextKana.kana}
+                </span>
+              )}
+              <button
+                type='button'
+                className={`group relative rounded-3xl p-4 outline-none focus-visible:ring-2 focus-visible:ring-offset-4 disabled:cursor-default ${syllabary.theme.focusRing}`}
+                aria-label={`Escuchar ${activeKana.kana}, ${activeKana.romaji}`}
+              >
+                <span
+                  lang='ja'
+                  className={`block font-japanese text-[8rem] leading-none sm:text-[11rem] ${syllabary.theme.text}`}
+                >
+                  {activeKana.kana}
+                </span>
+                <span
+                  className={`mx-auto mt-5 inline-flex min-w-12 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold ${syllabary.theme.softBackground} ${syllabary.theme.text}`}
+                >
+                  {activeKana.romaji}
+                </span>
+                <span
+                  className={`absolute right-0 top-0 grid size-11 place-items-center rounded-full bg-linen-50 text-copper-100 shadow-sm transition group-hover:scale-105`}
+                >
+                  <svg
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    aria-hidden='true'
+                    className='size-5'
+                  >
+                    <use href={`/svg/sprite.svg#speaker`}></use>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <aside className='flex flex-col justify-between p-6 border rounded-3xl border-linen-150 bg-linen-50'>
+              <div>
+                <p className='text-xs font-semibold tracking-widest uppercase text-neutral-500'>
+                  {'Carácter actual'}
+                </p>
+                <div className='flex flex-wrap gap-2 mt-4'>
+                  {activeGroup.items.map((item, index) => (
+                    <button
+                      key={item.kana}
+                      type='button'
+                      onClick={() => setActiveKanaIndex(index)}
+                      aria-label={`Ver ${item.kana}, ${item.romaji}`}
+                      aria-pressed={index === activeKanaIndex}
+                      className={`grid size-10 place-items-center rounded-xl border font-japanese text-lg outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${
+                        index === activeKanaIndex
+                          ? `${syllabary.theme.background} ${syllabary.theme.border} text-white`
+                          : 'border-linen-150 bg-white text-neutral-600 hover:border-neutral-300'
+                      }`}
+                    >
+                      {item.kana}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={`mt-8 rounded-2xl p-5 ${syllabary.theme.background} text-white`}
+              >
+                <p className='text-xs font-semibold tracking-widest uppercase text-white/75'>
+                  Pista visual
+                </p>
+                <p className='mt-3 text-sm leading-relaxed'>
+                  {getKanaNote(activeKana)}
+                </p>
+              </div>
+            </aside>
+          </div>
+
+          <div className='mt-8'>
+            <div className='flex items-center justify-between gap-4 mb-4'>
+              <h3 className='text-xl font-semibold text-neutral-900'>
+                Caracteres del grupo
+              </h3>
+              <p
+                aria-live='polite'
+                className='hidden text-sm text-neutral-500 sm:block'
+              >
+                Seleccionado: {activeKana.kana} ({activeKana.romaji})
+              </p>
+            </div>
+            <KanaGroupGrid
+              items={activeGroup.items}
+              activeKana={activeKana.kana}
+              speakingKana={speakingKana}
+              theme={syllabary.theme}
+              onSelectKana={selectKana}
+            />
+          </div>
+
+          <footer className='flex flex-col gap-4 pt-6 mt-10 border-t border-linen-150 sm:flex-row sm:items-center sm:justify-between'>
+            <button
+              type='button'
+              onClick={() => moveToGroup(-1)}
+              disabled={activeGroupIndex === 0}
+              className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-neutral-600 outline-none transition hover:bg-linen-50 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+            >
+              <ArrowIcon direction='left' />
+              Grupo anterior
+            </button>
+
+            <a
+              href={practiceHref}
+              className={`inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.background} ${syllabary.theme.focusRing}`}
+            >
+              Practicar {syllabary.name}
+            </a>
+
+            <button
+              type='button'
+              onClick={() => moveToGroup(1)}
+              disabled={activeGroupIndex === syllabary.groups.length - 1}
+              className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-neutral-600 outline-none transition hover:bg-linen-50 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+            >
+              Grupo siguiente
+              <ArrowIcon direction='right' />
+            </button>
+          </footer>
+        </section>
+      </div>
+    </section>
+  )
+}
