@@ -4,9 +4,13 @@ import { hiraganaGroups, hiraganaKana } from './hiragana'
 import { katakanaGroups, katakanaKana } from './katakana'
 
 type SyllabaryTheme = {
-  accentClass: string
-  buttonClass: string
-  badgeClass: string
+  text: string
+  background: string
+  softBackground: string
+  focusRing: string
+  border: string
+  button: string
+  badge: string
 }
 
 export type Syllabary = {
@@ -43,9 +47,13 @@ export const syllabaries: Syllabary[] = [
     ],
     iconKana: 'hiragana',
     theme: {
-      accentClass: 'text-ochre-200',
-      buttonClass: 'bg-ochre-200 btn w-full shadow-ochre-200 text-mauve-50',
-      badgeClass: 'bg-ochre-200 text-mauve-50',
+      text: 'text-ochre-200',
+      background: 'bg-ochre-200',
+      softBackground: 'bg-ochre-200/10',
+      focusRing: 'focus-visible:ring-ochre-200',
+      border: 'border-ochre-200',
+      button: 'bg-ochre-200 btn w-full shadow-ochre-200 text-mauve-50',
+      badge: 'bg-ochre-200 text-mauve-50',
     },
     groups: hiraganaGroups,
     kana: hiraganaKana,
@@ -66,9 +74,13 @@ export const syllabaries: Syllabary[] = [
     ],
     iconKana: 'katakana',
     theme: {
-      accentClass: 'text-cyan-900',
-      buttonClass: 'bg-cyan-900 btn w-full shadow-cyan-900 text-mauve-50',
-      badgeClass: 'bg-cyan-900 text-mauve-50',
+      text: 'text-cyan-900',
+      background: 'bg-cyan-900',
+      softBackground: 'bg-cyan-900/10',
+      focusRing: 'focus-visible:ring-cyan-900',
+      border: 'border-cyan-900',
+      button: 'bg-cyan-900 btn w-full shadow-cyan-900 text-mauve-50',
+      badge: 'bg-cyan-900 text-mauve-50',
     },
     groups: katakanaGroups,
     kana: katakanaKana,
