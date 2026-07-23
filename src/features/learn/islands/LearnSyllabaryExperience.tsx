@@ -161,7 +161,7 @@ export default function LearnSyllabaryExperience({
         >
           <header className='flex flex-col gap-4 mb-6 sm:flex-row sm:items-start sm:justify-between'>
             <div>
-              <p className='text-sm font-medium text-copper-200'>
+              <p className='text-sm text-copper-200'>
                 Grupo {activeGroupIndex + 1} de {syllabary.groups.length}
               </p>
               <h2
