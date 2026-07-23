@@ -52,8 +52,6 @@ export default function LearnSyllabaryExperience({
 
   const activeKana =
     activeGroup?.items[activeKanaIndex] ?? activeGroup?.items[0]
-  const nextKana =
-    activeGroup?.items[(activeKanaIndex + 1) % activeGroup.items.length]
 
   const selectGroup = useCallback((slug: KanaGroupSlug) => {
     setActiveGroupSlug(slug)
@@ -90,24 +88,18 @@ export default function LearnSyllabaryExperience({
   if (!activeGroup || !activeKana) return null
 
   return (
-    <section className='container px-8 mx-auto'>
-      <a
-        href='/aprender/'
-        className={`mb-6 inline-flex items-center gap-2 rounded-md text-sm font-semibold outline-none transition hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-4 ${syllabary.theme.focusRing}`}
-      >
-        <ArrowIcon direction='left' />
-        Volver a aprender
-      </a>
-
+    <section className='container mx-auto'>
       <header className='mb-8 grid gap-5 border-b border-linen-150 pb-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end'>
         <div>
           <p
-            className={`mb-2 text-sm font-semibold uppercase tracking-widest ${syllabary.theme.text}`}
+            className={`mb-2 text-sm font-semibold font-japanese uppercase tracking-widest ${syllabary.theme.text}`}
           >
-            {syllabary.japaneseName} - {activeGroup.title}
+            {syllabary.japaneseName}{' '}
+            <span className='text-neutral-800'>を学ぶ</span>
           </p>
-          <h1 className='text-4xl font-semibold text-neutral-900 sm:text-5xl'>
-            Aprende {syllabary.name}
+          <h1 className='text-4xl font-semibold sm:text-5xl'>
+            Aprende{' '}
+            <span className={`${syllabary.theme.text}`}>{syllabary.name}</span>
           </h1>
           <p className='max-w-3xl mt-4 text-base leading-relaxed sm:text-lg'>
             {syllabary.longDescription}
@@ -115,23 +107,20 @@ export default function LearnSyllabaryExperience({
         </div>
         <dl className='flex gap-6 px-5 py-4 text-sm shadow-sm rounded-2xl bg-linen-50'>
           <div>
-            <dt className='text-neutral-500'>Grupos</dt>
-            <dd className='mt-1 font-semibold text-neutral-900'>
-              {syllabary.groups.length}
-            </dd>
+            <dt className='text-copper-200'>Grupos</dt>
+            <dd className='mt-1 font-semibold'>{syllabary.groups.length}</dd>
           </div>
           <div className='pl-6 border-l border-linen-150'>
-            <dt className='text-neutral-500'>Caracteres</dt>
+            <dt className='text-copper-200'>Caracteres totales</dt>
             <dd className={`mt-1 font-semibold ${syllabary.theme.text}`}>
               {syllabary.kana.length}
             </dd>
           </div>
         </dl>
       </header>
-
       <div className='mb-6 lg:hidden'>
         <details className='p-4 border group rounded-2xl border-linen-150 bg-linen-50'>
-          <summary className='flex items-center justify-between font-semibold list-none cursor-pointer text-neutral-900'>
+          <summary className='flex items-center justify-between font-semibold list-none cursor-pointe'>
             Elegir grupo
             <span
               aria-hidden='true'
@@ -152,8 +141,8 @@ export default function LearnSyllabaryExperience({
       </div>
       <div className='grid gap-8 lg:grid-cols-[17rem_minmax(0,1fr)] xl:gap-12'>
         <aside className='hidden lg:block'>
-          <div className='sticky p-5 border shadow-sm top-6 rounded-3xl border-linen-150 bg-linen-50'>
-            <p className='mb-5 text-sm leading-relaxed '>
+          <div className='p-5 border shadow-sm rounded-3xl border-linen-150 bg-linen-50'>
+            <p className='mb-5 text-sm leading-relaxed'>
               Avanza por familias de sonidos y selecciona cada carácter para
               estudiarlo con calma.
             </p>
@@ -172,16 +161,16 @@ export default function LearnSyllabaryExperience({
         >
           <header className='flex flex-col gap-4 mb-6 sm:flex-row sm:items-start sm:justify-between'>
             <div>
-              <p className='text-sm font-medium text-neutral-500'>
+              <p className='text-sm font-medium text-copper-200'>
                 Grupo {activeGroupIndex + 1} de {syllabary.groups.length}
               </p>
               <h2
                 id='group-title'
-                className='mt-1 text-3xl font-semibold text-neutral-900'
+                className='mt-1 text-3xl font-semibold '
               >
                 {activeGroup.title}
               </h2>
-              <p className='max-w-2xl mt-2 leading-relaxed '>
+              <p className='max-w-2xl mt-2 leading-relaxed'>
                 {activeGroup.description}
               </p>
             </div>
@@ -191,18 +180,15 @@ export default function LearnSyllabaryExperience({
               {activeKanaIndex + 1} / {activeGroup.items.length} kana
             </span>
           </header>
-
           <div className='grid gap-5 xl:grid-cols-[minmax(0,1.5fr)_minmax(15rem,0.7fr)]'>
             <div className='relative flex items-center justify-center p-8 overflow-hidden border shadow-sm bg-mauve-50 isolate min-h-80 rounded-3xl border-linen-150 sm:min-h-96'>
-              {nextKana && nextKana.kana !== activeKana.kana && (
-                <span
-                  lang='ja'
-                  aria-hidden='true'
-                  className='absolute left-[56%] top-1/2 -z-10 -translate-y-1/2 select-none font-japanese text-[10rem] text-linen-150 sm:text-[14rem]'
-                >
-                  {nextKana.kana}
-                </span>
-              )}
+              <span
+                lang='ja'
+                aria-hidden='true'
+                className='absolute top-10 sm:top-5 translate-y-1/2 -z-10 flex items-center justify-center leading-none pointer-events-none text-8xl sm:text-[10rem] text-linen-150 font-japanese'
+              >
+                {activeKana.kana}
+              </span>
               <button
                 type='button'
                 className={`group relative rounded-3xl p-4 outline-none focus-visible:ring-2 focus-visible:ring-offset-4 disabled:cursor-default ${syllabary.theme.focusRing}`}
@@ -210,17 +196,17 @@ export default function LearnSyllabaryExperience({
               >
                 <span
                   lang='ja'
-                  className={`block font-japanese text-[8rem] leading-none sm:text-[11rem] ${syllabary.theme.text}`}
+                  className={`block font-japanese text-9xl leading-none sm:text-[12rem] ${syllabary.theme.text}`}
                 >
                   {activeKana.kana}
                 </span>
                 <span
-                  className={`mx-auto mt-5 inline-flex min-w-12 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold ${syllabary.theme.softBackground} ${syllabary.theme.text}`}
+                  className={`mx-auto mt-8 inline-flex min-w-12 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold ${syllabary.theme.softBackground} ${syllabary.theme.text}`}
                 >
                   {activeKana.romaji}
                 </span>
                 <span
-                  className={`absolute right-0 top-0 grid size-11 place-items-center rounded-full bg-linen-50 text-copper-100 shadow-sm transition group-hover:scale-105`}
+                  className={`mx-auto mt-4 grid size-12 place-items-center rounded-full bg-linen-50 text-copper-100 shadow-sm transition group-hover:scale-105`}
                 >
                   <svg
                     viewBox='0 0 24 24'
@@ -239,8 +225,8 @@ export default function LearnSyllabaryExperience({
             </div>
             <aside className='flex flex-col justify-between p-6 border rounded-3xl border-linen-150 bg-linen-50'>
               <div>
-                <p className='text-xs font-semibold tracking-widest uppercase text-neutral-500'>
-                  {'Carácter actual'}
+                <p className='text-xs font-semibold tracking-widest uppercase text-copper-200'>
+                  Carácter actual
                 </p>
                 <div className='flex flex-wrap gap-2 mt-4'>
                   {activeGroup.items.map((item, index) => (
@@ -261,7 +247,6 @@ export default function LearnSyllabaryExperience({
                   ))}
                 </div>
               </div>
-
               <div
                 className={`mt-8 rounded-2xl p-5 ${syllabary.theme.background} text-mauve-50`}
               >
@@ -274,15 +259,12 @@ export default function LearnSyllabaryExperience({
               </div>
             </aside>
           </div>
-
           <div className='mt-8'>
             <div className='flex items-center justify-between gap-4 mb-4'>
-              <h3 className='text-xl font-semibold text-neutral-900'>
-                Caracteres del grupo
-              </h3>
+              <h3 className='text-xl font-semibold'>Caracteres del grupo</h3>
               <p
                 aria-live='polite'
-                className='hidden text-sm text-neutral-500 sm:block'
+                className='hidden text-sm text-copper-200 sm:block'
               >
                 Seleccionado: {activeKana.kana} ({activeKana.romaji})
               </p>
@@ -295,30 +277,27 @@ export default function LearnSyllabaryExperience({
               onSelectKana={selectKana}
             />
           </div>
-
           <footer className='flex flex-col gap-4 pt-6 mt-10 border-t border-linen-150 sm:flex-row sm:items-center sm:justify-between'>
             <button
               type='button'
               onClick={() => moveToGroup(-1)}
               disabled={activeGroupIndex === 0}
-              className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold  outline-none transition hover:bg-linen-50 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+              className={`inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold outline-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
             >
               <ArrowIcon direction='left' />
               Grupo anterior
             </button>
-
             <a
               href={practiceHref}
-              className={`inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-mauve-50 shadow-sm transition motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.background} ${syllabary.theme.focusRing}`}
+              className={`btn text-sm text-mauve-50 shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.background} ${syllabary.theme.focusRing}`}
             >
               Practicar {syllabary.name}
             </a>
-
             <button
               type='button'
               onClick={() => moveToGroup(1)}
               disabled={activeGroupIndex === syllabary.groups.length - 1}
-              className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold  outline-none transition hover:bg-linen-50 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+              className={`inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold outline-nonec cursor-pointer disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
             >
               Grupo siguiente
               <ArrowIcon direction='right' />

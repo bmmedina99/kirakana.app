@@ -19,7 +19,7 @@ function KanaCardComponent({
 }: Props) {
   return (
     <article
-      className={`relative rounded-2xl border bg-mauve-50 p-4 shadow-sm transition duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md ${
+      className={`relative rounded-2xl border bg-mauve-50 p-4 shadow-sm transition duration-200 ${
         isActive
           ? `${theme.border} ${theme.softBackground}`
           : 'border-linen-150'
@@ -40,7 +40,7 @@ function KanaCardComponent({
         <span className='block mt-4 text-xs font-semibold tracking-widest uppercase text-neutral-500'>
           {item.romaji}
         </span>
-        <span className='block mt-1 text-sm '>
+        <span className='block mt-1 text-sm'>
           {item.type === 'base' ? 'Kana base' : 'Kana modificado'}
         </span>
       </button>

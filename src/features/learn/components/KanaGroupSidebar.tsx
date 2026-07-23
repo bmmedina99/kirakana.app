@@ -64,13 +64,9 @@ function KanaGroupSidebarComponent({
                       type='button'
                       onClick={() => onSelectGroup(group.slug)}
                       aria-current={isActive ? 'true' : undefined}
-                      className={`flex w-full items-center justify-between rounded-xl border px-3 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${theme.focusRing} ${
-                        isActive
-                          ? `${theme.border} ${theme.softBackground} ${theme.text}`
-                          : 'border-transparent hover:border-linen-150 hover:bg-mauve-50'
-                      }`}
+                      className={`flex w-full items-center justify-between rounded-xl border px-3 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${theme.focusRing} ${isActive ? `${theme.border} ${theme.softBackground} ${theme.text}` : 'border-transparent hover:border-linen-150 hover:bg-mauve-50'}`}
                     >
-                      <span className='font-medium'>{group.title}</span>
+                      <span>{group.title}</span>
                       <span className='text-xs text-neutral-500'>
                         {group.items.length}
                       </span>
