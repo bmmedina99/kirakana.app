@@ -16,14 +16,16 @@ export default defineConfig({
       weights: [400, 600],
       subsets: ['latin'],
       styles: ['normal'],
+      fallbacks: [],
     },
     {
       name: 'Noto Serif JP',
       cssVariable: '--font-noto-serif-jp',
       provider: fontProviders.fontsource(),
-      weights: [400, 500],
+      weights: [400],
       subsets: ['japanese'],
       styles: ['normal'],
+      fallbacks: [],
     },
   ],
   vite: {
