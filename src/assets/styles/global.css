@@ -61,7 +61,8 @@
       }
     }
 
-    & > section {
+    & > section,
+    & > astro-island > section {
       position: relative;
       padding: calc(var(--spacing) * 12) calc(var(--spacing) * 4);
 
