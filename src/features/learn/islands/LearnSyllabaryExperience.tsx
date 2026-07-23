@@ -151,6 +151,7 @@ export default function LearnSyllabaryExperience({
               activeGroupSlug={activeGroup.slug}
               theme={syllabary.theme}
               onSelectGroup={selectGroup}
+              collapsible
             />
           </div>
         </aside>
@@ -236,10 +237,11 @@ export default function LearnSyllabaryExperience({
                       onClick={() => setActiveKanaIndex(index)}
                       aria-label={`Ver ${item.kana}, ${item.romaji}`}
                       aria-pressed={index === activeKanaIndex}
-                      className={`grid size-10 place-items-center rounded-xl border font-japanese text-lg outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${index === activeKanaIndex
+                      className={`grid size-10 place-items-center rounded-xl border font-japanese text-lg outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${
+                        index === activeKanaIndex
                           ? `${syllabary.theme.background} ${syllabary.theme.border} text-mauve-50`
                           : 'border-linen-150 bg-mauve-50 hover:border-neutral-300'
-                        }`}
+                      }`}
                     >
                       {item.kana}
                     </button>
