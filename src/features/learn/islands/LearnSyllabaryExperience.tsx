@@ -94,7 +94,7 @@ export default function LearnSyllabaryExperience({
           <p
             className={`mb-2 text-sm font-semibold font-japanese uppercase tracking-widest ${syllabary.theme.text}`}
           >
-            {syllabary.japaneseName}{' '}
+            {syllabary.japaneseName}
             <span className='text-neutral-800'>を学ぶ</span>
           </p>
           <h1 className='text-4xl font-semibold sm:text-5xl'>
@@ -120,7 +120,7 @@ export default function LearnSyllabaryExperience({
       </header>
       <div className='mb-6 lg:hidden'>
         <details className='p-4 border group rounded-2xl border-linen-150 bg-linen-50'>
-          <summary className='flex items-center justify-between font-semibold list-none cursor-pointe'>
+          <summary className='flex items-center justify-between font-semibold list-none cursor-pointer'>
             Elegir grupo
             <span
               aria-hidden='true'
@@ -236,11 +236,10 @@ export default function LearnSyllabaryExperience({
                       onClick={() => setActiveKanaIndex(index)}
                       aria-label={`Ver ${item.kana}, ${item.romaji}`}
                       aria-pressed={index === activeKanaIndex}
-                      className={`grid size-10 place-items-center rounded-xl border font-japanese text-lg outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${
-                        index === activeKanaIndex
+                      className={`grid size-10 place-items-center rounded-xl border font-japanese text-lg outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${index === activeKanaIndex
                           ? `${syllabary.theme.background} ${syllabary.theme.border} text-mauve-50`
                           : 'border-linen-150 bg-mauve-50 hover:border-neutral-300'
-                      }`}
+                        }`}
                     >
                       {item.kana}
                     </button>
@@ -297,7 +296,7 @@ export default function LearnSyllabaryExperience({
               type='button'
               onClick={() => moveToGroup(1)}
               disabled={activeGroupIndex === syllabary.groups.length - 1}
-              className={`inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold outline-nonec cursor-pointer disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+              className={`inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold outline-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
             >
               Grupo siguiente
               <ArrowIcon direction='right' />
