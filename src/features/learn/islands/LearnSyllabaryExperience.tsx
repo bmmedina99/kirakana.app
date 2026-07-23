@@ -16,9 +16,9 @@ function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
       viewBox='0 0 24 24'
       fill='none'
       stroke='currentColor'
-      stroke-linecap='round'
-      stroke-linejoin='round'
-      stroke-width='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='2'
       aria-hidden='true'
       className={`${direction === 'left' ? 'rotate-90' : '-rotate-90'} size-5`}
     >
@@ -93,7 +93,7 @@ export default function LearnSyllabaryExperience({
     <section className='container px-8 mx-auto'>
       <a
         href='/aprender/'
-        className={`mb-6 inline-flex items-center gap-2 rounded-md text-sm font-semibold text-neutral-600 outline-none transition hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-4 ${syllabary.theme.focusRing}`}
+        className={`mb-6 inline-flex items-center gap-2 rounded-md text-sm font-semibold outline-none transition hover:text-neutral-900 focus-visible:ring-2 focus-visible:ring-offset-4 ${syllabary.theme.focusRing}`}
       >
         <ArrowIcon direction='left' />
         Volver a aprender
@@ -109,7 +109,7 @@ export default function LearnSyllabaryExperience({
           <h1 className='text-4xl font-semibold text-neutral-900 sm:text-5xl'>
             Aprende {syllabary.name}
           </h1>
-          <p className='max-w-3xl mt-4 text-base leading-relaxed text-neutral-600 sm:text-lg'>
+          <p className='max-w-3xl mt-4 text-base leading-relaxed sm:text-lg'>
             {syllabary.longDescription}
           </p>
         </div>
@@ -153,7 +153,7 @@ export default function LearnSyllabaryExperience({
       <div className='grid gap-8 lg:grid-cols-[17rem_minmax(0,1fr)] xl:gap-12'>
         <aside className='hidden lg:block'>
           <div className='sticky p-5 border shadow-sm top-6 rounded-3xl border-linen-150 bg-linen-50'>
-            <p className='mb-5 text-sm leading-relaxed text-neutral-600'>
+            <p className='mb-5 text-sm leading-relaxed '>
               Avanza por familias de sonidos y selecciona cada carácter para
               estudiarlo con calma.
             </p>
@@ -181,7 +181,7 @@ export default function LearnSyllabaryExperience({
               >
                 {activeGroup.title}
               </h2>
-              <p className='max-w-2xl mt-2 leading-relaxed text-neutral-600'>
+              <p className='max-w-2xl mt-2 leading-relaxed '>
                 {activeGroup.description}
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function LearnSyllabaryExperience({
           </header>
 
           <div className='grid gap-5 xl:grid-cols-[minmax(0,1.5fr)_minmax(15rem,0.7fr)]'>
-            <div className='relative flex items-center justify-center p-8 overflow-hidden bg-white border shadow-sm isolate min-h-80 rounded-3xl border-linen-150 sm:min-h-96'>
+            <div className='relative flex items-center justify-center p-8 overflow-hidden border shadow-sm bg-mauve-50 isolate min-h-80 rounded-3xl border-linen-150 sm:min-h-96'>
               {nextKana && nextKana.kana !== activeKana.kana && (
                 <span
                   lang='ja'
@@ -226,9 +226,9 @@ export default function LearnSyllabaryExperience({
                     viewBox='0 0 24 24'
                     fill='none'
                     stroke='currentColor'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    stroke-width='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
                     aria-hidden='true'
                     className='size-5'
                   >
@@ -252,8 +252,8 @@ export default function LearnSyllabaryExperience({
                       aria-pressed={index === activeKanaIndex}
                       className={`grid size-10 place-items-center rounded-xl border font-japanese text-lg outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${
                         index === activeKanaIndex
-                          ? `${syllabary.theme.background} ${syllabary.theme.border} text-white`
-                          : 'border-linen-150 bg-white text-neutral-600 hover:border-neutral-300'
+                          ? `${syllabary.theme.background} ${syllabary.theme.border} text-mauve-50`
+                          : 'border-linen-150 bg-mauve-50 hover:border-neutral-300'
                       }`}
                     >
                       {item.kana}
@@ -263,9 +263,9 @@ export default function LearnSyllabaryExperience({
               </div>
 
               <div
-                className={`mt-8 rounded-2xl p-5 ${syllabary.theme.background} text-white`}
+                className={`mt-8 rounded-2xl p-5 ${syllabary.theme.background} text-mauve-50`}
               >
-                <p className='text-xs font-semibold tracking-widest uppercase text-white/75'>
+                <p className='text-xs font-semibold tracking-widest uppercase text-mauve-50/75'>
                   Pista visual
                 </p>
                 <p className='mt-3 text-sm leading-relaxed'>
@@ -301,7 +301,7 @@ export default function LearnSyllabaryExperience({
               type='button'
               onClick={() => moveToGroup(-1)}
               disabled={activeGroupIndex === 0}
-              className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-neutral-600 outline-none transition hover:bg-linen-50 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+              className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold  outline-none transition hover:bg-linen-50 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
             >
               <ArrowIcon direction='left' />
               Grupo anterior
@@ -309,7 +309,7 @@ export default function LearnSyllabaryExperience({
 
             <a
               href={practiceHref}
-              className={`inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.background} ${syllabary.theme.focusRing}`}
+              className={`inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-mauve-50 shadow-sm transition motion-safe:hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.background} ${syllabary.theme.focusRing}`}
             >
               Practicar {syllabary.name}
             </a>
@@ -318,7 +318,7 @@ export default function LearnSyllabaryExperience({
               type='button'
               onClick={() => moveToGroup(1)}
               disabled={activeGroupIndex === syllabary.groups.length - 1}
-              className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-neutral-600 outline-none transition hover:bg-linen-50 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+              className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold  outline-none transition hover:bg-linen-50 disabled:cursor-not-allowed disabled:opacity-35 focus-visible:ring-2 ${syllabary.theme.focusRing}`}
             >
               Grupo siguiente
               <ArrowIcon direction='right' />
