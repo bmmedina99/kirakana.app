@@ -186,7 +186,7 @@ export default function LearnSyllabaryExperience({
               <span
                 lang='ja'
                 aria-hidden='true'
-                className='absolute top-10 sm:top-5 translate-y-1/2 -z-10 flex items-center justify-center leading-none pointer-events-none text-8xl sm:text-[10rem] text-linen-150 font-japanese'
+                className={`absolute top-20 translate-y-1/2 -z-10 flex items-center justify-center pointer-events-none text-8xl sm:text-[10rem] opacity-25 font-japanese`}
               >
                 {activeKana.kana}
               </span>
@@ -196,18 +196,7 @@ export default function LearnSyllabaryExperience({
                 aria-label={`Escuchar ${activeKana.kana}, ${activeKana.romaji}`}
               >
                 <span
-                  lang='ja'
-                  className={`block font-japanese text-9xl leading-none sm:text-[12rem] ${syllabary.theme.text}`}
-                >
-                  {activeKana.kana}
-                </span>
-                <span
-                  className={`mx-auto mt-8 inline-flex min-w-12 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold ${syllabary.theme.softBackground} ${syllabary.theme.text}`}
-                >
-                  {activeKana.romaji}
-                </span>
-                <span
-                  className={`mx-auto mt-4 grid size-12 place-items-center rounded-full bg-linen-50 text-copper-100 shadow-sm transition group-hover:scale-105`}
+                  className={`mx-auto mb-4 grid size-12 place-items-center rounded-full bg-linen-50 text-copper-100 shadow-sm group-hover:inset-shadow-sm transition group-hover:scale-105`}
                 >
                   <svg
                     viewBox='0 0 24 24'
@@ -222,6 +211,17 @@ export default function LearnSyllabaryExperience({
                     <use href={`/svg/sprite.svg#speaker`}></use>
                   </svg>
                 </span>
+                <span
+                  lang='ja'
+                  className={`block font-japanese text-9xl leading-none sm:text-[12rem] ${syllabary.theme.text}`}
+                >
+                  {activeKana.kana}
+                </span>
+                <span
+                  className={`mx-auto mt-8 inline-flex min-w-12 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold ${syllabary.theme.softBackground} ${syllabary.theme.text}`}
+                >
+                  {activeKana.romaji}
+                </span>
               </button>
             </div>
             <aside className='flex flex-col justify-between p-6 border rounded-3xl border-linen-150 bg-linen-50'>
@@ -231,20 +231,25 @@ export default function LearnSyllabaryExperience({
                 </p>
                 <div className='flex flex-wrap gap-2 mt-4'>
                   {activeGroup.items.map((item, index) => (
-                    <button
+                    <div
                       key={item.kana}
-                      type='button'
-                      onClick={() => setActiveKanaIndex(index)}
-                      aria-label={`Ver ${item.kana}, ${item.romaji}`}
-                      aria-pressed={index === activeKanaIndex}
-                      className={`grid size-10 place-items-center rounded-xl border font-japanese text-lg outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${
-                        index === activeKanaIndex
-                          ? `${syllabary.theme.background} ${syllabary.theme.border} text-mauve-50`
-                          : 'border-linen-150 bg-mauve-50 hover:border-neutral-300'
-                      }`}
+                      className='flex flex-col items-center'
                     >
-                      {item.kana}
-                    </button>
+                      <button
+                        type='button'
+                        onClick={() => setActiveKanaIndex(index)}
+                        aria-label={`Ver ${item.kana}, ${item.romaji}`}
+                        aria-pressed={index === activeKanaIndex}
+                        className={`grid size-10 place-items-center rounded-xl font-japanese text-lg outline-none transition bg-mauve-50 focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${index === activeKanaIndex ? `${syllabary.theme.text} ${syllabary.theme.border} border-2` : 'border-linen-150 border'}`}
+                      >
+                        {item.kana}
+                      </button>
+                      <p
+                        className={`${index === activeKanaIndex ? `${syllabary.theme.text} text-xl` : ''}`}
+                      >
+                        {item.romaji}
+                      </p>
+                    </div>
                   ))}
                 </div>
               </div>
