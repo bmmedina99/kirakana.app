@@ -1,13 +1,16 @@
 import { useCallback, useMemo, useState } from 'react'
-import type { KanaGroupSlug } from '@/features/data/groups'
+import { getKanaSoundPath, type KanaGroupSlug } from '@/features/data/groups'
 import type { Syllabary } from '@/features/data/syllabaries'
-import { KanaGroupGrid } from '../components/KanaGroupGrid'
+import type { WordGroups } from '@/features/data/wordGroups'
 import { KanaGroupSidebar } from '../components/KanaGroupSidebar'
+import { KanaWords } from '../components/KanaWords'
+import { useAudioPlayer } from '../hooks/useAudioPlayer'
 import { getKanaNote } from '../utils/getKanaNote'
 
 type Props = {
   syllabary: Syllabary
   practiceHref: string
+  wordGroups: WordGroups
 }
 
 function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
@@ -30,12 +33,13 @@ function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
 export default function LearnSyllabaryExperience({
   syllabary,
   practiceHref,
+  wordGroups,
 }: Props) {
   const [activeGroupSlug, setActiveGroupSlug] = useState<KanaGroupSlug>(
     syllabary.groups[0]?.slug ?? 'vocales',
   )
   const [activeKanaIndex, setActiveKanaIndex] = useState(0)
-  const [speakingKana, setSpeakingKana] = useState<string | null>(null)
+  const { error: audioError, playingId, play, stop } = useAudioPlayer()
 
   const activeGroup = useMemo(
     () =>
@@ -53,26 +57,32 @@ export default function LearnSyllabaryExperience({
   const activeKana =
     activeGroup?.items[activeKanaIndex] ?? activeGroup?.items[0]
 
-  const selectGroup = useCallback((slug: KanaGroupSlug) => {
-    setActiveGroupSlug(slug)
-    setActiveKanaIndex(0)
-    setSpeakingKana(null)
+  const selectGroup = useCallback(
+    (slug: KanaGroupSlug) => {
+      stop()
+      setActiveGroupSlug(slug)
+      setActiveKanaIndex(0)
 
-    if (window.innerWidth < 1024) {
-      window.requestAnimationFrame(() => {
-        document
-          .querySelector('#learn-content')
-          ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      })
-    }
-  }, [])
+      if (window.innerWidth < 1024) {
+        window.requestAnimationFrame(() => {
+          document
+            .querySelector('#learn-content')
+            ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        })
+      }
+    },
+    [stop],
+  )
 
   const selectKana = useCallback(
     (kana: string) => {
       const index = activeGroup?.items.findIndex((item) => item.kana === kana)
-      if (index !== undefined && index >= 0) setActiveKanaIndex(index)
+      if (index === undefined || index < 0) return
+
+      stop()
+      setActiveKanaIndex(index)
     },
-    [activeGroup?.items],
+    [activeGroup?.items, stop],
   )
 
   const moveToGroup = useCallback(
@@ -86,6 +96,11 @@ export default function LearnSyllabaryExperience({
   )
 
   if (!activeGroup || !activeKana) return null
+
+  const activeWordEntry = wordGroups[activeGroup.slug][activeKana.kana]
+  if (!activeWordEntry) return null
+
+  const activeKanaPlaybackId = `kana:${activeKana.romaji}`
 
   return (
     <section className='container mx-auto'>
@@ -192,8 +207,12 @@ export default function LearnSyllabaryExperience({
               </span>
               <button
                 type='button'
+                onClick={() =>
+                  play(getKanaSoundPath(activeKana), activeKanaPlaybackId)
+                }
                 className={`group relative rounded-3xl p-4 outline-none focus-visible:ring-2 focus-visible:ring-offset-4 disabled:cursor-default ${syllabary.theme.focusRing}`}
                 aria-label={`Escuchar ${activeKana.kana}, ${activeKana.romaji}`}
+                aria-pressed={playingId === activeKanaPlaybackId}
               >
                 <span
                   className={`mx-auto mb-4 grid size-12 place-items-center rounded-full bg-linen-50 text-copper-100 shadow-sm group-hover:inset-shadow-sm transition group-hover:scale-105`}
@@ -237,7 +256,7 @@ export default function LearnSyllabaryExperience({
                     >
                       <button
                         type='button'
-                        onClick={() => setActiveKanaIndex(index)}
+                        onClick={() => selectKana(item.kana)}
                         aria-label={`Ver ${item.kana}, ${item.romaji}`}
                         aria-pressed={index === activeKanaIndex}
                         className={`grid size-10 place-items-center rounded-xl font-japanese text-lg outline-none transition bg-mauve-50 focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${index === activeKanaIndex ? `${syllabary.theme.text} ${syllabary.theme.border} border-2` : 'border-linen-150 border'}`}
@@ -265,24 +284,42 @@ export default function LearnSyllabaryExperience({
               </div>
             </aside>
           </div>
-          <div className='mt-8'>
-            <div className='flex items-center justify-between gap-4 mb-4'>
-              <h3 className='text-xl font-semibold'>Caracteres del grupo</h3>
-              <p
-                aria-live='polite'
-                className='hidden text-sm text-copper-200 sm:block'
-              >
-                Seleccionado: {activeKana.kana} ({activeKana.romaji})
+          <section
+            className='mt-8'
+            aria-labelledby='kana-words-title'
+          >
+            <div className='mb-4 flex items-end justify-between gap-4 border-b border-linen-150 pb-3'>
+              <div>
+                <p className={`text-sm font-semibold ${syllabary.theme.text}`}>
+                  Palabras
+                </p>
+                <h3
+                  id='kana-words-title'
+                  className='mt-1 text-xl font-semibold'
+                >
+                  Ejemplos con {activeKana.kana}
+                </h3>
+              </div>
+              <p className='hidden text-sm text-copper-200 sm:block'>
+                {activeKana.romaji}
               </p>
             </div>
-            <KanaGroupGrid
-              items={activeGroup.items}
+            <KanaWords
               activeKana={activeKana.kana}
-              speakingKana={speakingKana}
+              entry={activeWordEntry}
+              playingId={playingId}
               theme={syllabary.theme}
-              onSelectKana={selectKana}
+              onPlayAudio={play}
             />
-          </div>
+            {audioError && (
+              <p
+                role='status'
+                className='mt-3 text-sm text-copper-200'
+              >
+                {audioError}
+              </p>
+            )}
+          </section>
           <footer className='flex flex-col gap-4 pt-6 mt-10 border-t border-linen-150 sm:flex-row sm:items-center sm:justify-between'>
             <button
               type='button'
