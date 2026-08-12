@@ -363,3 +363,7 @@ export function getKanaGroupsByCategory(
 ): KanaGroup[] {
   return groups.filter((group) => group.category === category)
 }
+
+export function getKanaSoundPath(item: Pick<KanaItem, 'romaji'>): string {
+  return `/assets/audio/sounds/${item.romaji}.mp3`
+}
