@@ -1,5 +1,7 @@
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
-import type { KanaGroup } from '../groups'
+import { getKanaSoundPath, type KanaGroup } from '../groups'
 import { hiraganaGroups } from '../hiragana'
 import { katakanaGroups } from '../katakana'
 import { getWordAudioPath, type WordGroups } from '../wordGroups'
@@ -50,12 +52,28 @@ describe.each(syllabaries)('$name word groups', ({ groups, wordGroups }) => {
           expect(word.word).toContain(kana)
           expect(word.romaji.trim()).not.toBe('')
           expect(word.meaning.trim()).not.toBe('')
+          expect(word.meaning).not.toContain('/')
         }
       }
     }
   })
 })
 
+describe('kana sound paths', () => {
+  it('links every kana to an existing shared sound file', () => {
+    for (const { groups } of syllabaries) {
+      for (const group of groups) {
+        for (const item of group.items) {
+          const source = getKanaSoundPath(item)
+          const filePath = join(process.cwd(), 'public', source.slice(1))
+
+          expect(source).toBe(`/assets/audio/sounds/${item.romaji}.mp3`)
+          expect(existsSync(filePath), filePath).toBe(true)
+        }
+      }
+    }
+  })
+})
 describe('getWordAudioPath', () => {
   it('uses romaji as the shared audio key by default', () => {
     expect(getWordAudioPath({ romaji: 'ame' })).toBe(
