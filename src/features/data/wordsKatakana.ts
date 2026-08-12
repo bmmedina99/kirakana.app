@@ -7,7 +7,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'アメリカ',
           romaji: 'amerika',
-          meaning: 'América / Estados Unidos',
+          meaning: 'América',
         },
         { word: 'アイス', romaji: 'aisu', meaning: 'helado' },
         { word: 'アニメ', romaji: 'anime', meaning: 'anime' },
@@ -17,7 +17,7 @@ export const wordsKatakana = defineWordGroups({
       words: [
         { word: 'イタリア', romaji: 'itaria', meaning: 'Italia' },
         { word: 'ナイフ', romaji: 'naifu', meaning: 'cuchillo' },
-        { word: 'タイ', romaji: 'tai', meaning: 'Tailandia / corbata' },
+        { word: 'タイ', romaji: 'tai', meaning: 'Tailandia' },
       ],
     },
     ウ: {
@@ -41,7 +41,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'オムレツ',
           romaji: 'omuretsu',
-          meaning: 'omelette / tortilla francesa',
+          meaning: 'omelette',
         },
       ],
     },
@@ -75,7 +75,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'バスケット',
           romaji: 'basuketto',
-          meaning: 'cesta / baloncesto',
+          meaning: 'cesta',
         },
       ],
     },
@@ -98,7 +98,7 @@ export const wordsKatakana = defineWordGroups({
     シ: {
       words: [
         { word: 'タクシー', romaji: 'takushii', meaning: 'taxi' },
-        { word: 'シチュー', romaji: 'shichuu', meaning: 'guiso / estofado' },
+        { word: 'シチュー', romaji: 'shichuu', meaning: 'guiso' },
         { word: 'シーツ', romaji: 'shiitsu', meaning: 'sábana' },
       ],
     },
@@ -144,7 +144,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'ツアー',
           romaji: 'tsuaa',
-          meaning: 'excursión / visita organizada',
+          meaning: 'excursión',
         },
         {
           word: 'ツイン',
@@ -226,7 +226,7 @@ export const wordsKatakana = defineWordGroups({
     },
     フ: {
       words: [
-        { word: 'スカーフ', romaji: 'sukaafu', meaning: 'bufanda / pañuelo' },
+        { word: 'スカーフ', romaji: 'sukaafu', meaning: 'bufanda' },
         { word: 'フルーツ', romaji: 'furuutsu', meaning: 'fruta' },
         { word: 'フライパン', romaji: 'furaipan', meaning: 'sartén' },
       ],
@@ -301,7 +301,7 @@ export const wordsKatakana = defineWordGroups({
       words: [
         { word: 'ヨーグルト', romaji: 'yooguruto', meaning: 'yogur' },
         { word: 'ヨガ', romaji: 'yoga', meaning: 'yoga' },
-        { word: 'ヨット', romaji: 'yotto', meaning: 'yate / velero' },
+        { word: 'ヨット', romaji: 'yotto', meaning: 'yate' },
       ],
     },
   },
@@ -317,7 +317,7 @@ export const wordsKatakana = defineWordGroups({
       words: [
         { word: 'アメリカ', romaji: 'amerika', meaning: 'América' },
         { word: 'イタリア', romaji: 'itaria', meaning: 'Italia' },
-        { word: 'リボン', romaji: 'ribon', meaning: 'lazo / cinta' },
+        { word: 'リボン', romaji: 'ribon', meaning: 'lazo' },
       ],
     },
     ル: {
@@ -384,7 +384,7 @@ export const wordsKatakana = defineWordGroups({
     },
     グ: {
       words: [
-        { word: 'グラス', romaji: 'gurasu', meaning: 'copa / vaso' },
+        { word: 'グラス', romaji: 'gurasu', meaning: 'copa' },
         { word: 'グループ', romaji: 'guruupu', meaning: 'grupo' },
         {
           word: 'ハンバーグ',
@@ -395,7 +395,7 @@ export const wordsKatakana = defineWordGroups({
     },
     ゲ: {
       words: [
-        { word: 'ゲーム', romaji: 'geemu', meaning: 'juego / videojuego' },
+        { word: 'ゲーム', romaji: 'geemu', meaning: 'juego' },
         { word: 'ゲスト', romaji: 'gesuto', meaning: 'invitado' },
         {
           word: 'ゲームセンター',
@@ -406,7 +406,7 @@ export const wordsKatakana = defineWordGroups({
     },
     ゴ: {
       words: [
-        { word: 'ゴール', romaji: 'gooru', meaning: 'meta / gol' },
+        { word: 'ゴール', romaji: 'gooru', meaning: 'meta' },
         { word: 'ゴム', romaji: 'gomu', meaning: 'goma' },
         { word: 'タンゴ', romaji: 'tango', meaning: 'tango (baile)' },
       ],
@@ -423,14 +423,14 @@ export const wordsKatakana = defineWordGroups({
     ジ: {
       words: [
         { word: 'レジ', romaji: 'reji', meaning: 'caja registradora' },
-        { word: 'ジーンズ', romaji: 'jiinzu', meaning: 'vaqueros / jeans' },
+        { word: 'ジーンズ', romaji: 'jiinzu', meaning: 'vaqueros' },
         { word: 'マッサージ', romaji: 'massaaji', meaning: 'masaje' },
       ],
     },
     ズ: {
       words: [
         { word: 'チーズ', romaji: 'chiizu', meaning: 'queso' },
-        { word: 'サイズ', romaji: 'saizu', meaning: 'talla / tamaño' },
+        { word: 'サイズ', romaji: 'saizu', meaning: 'talla' },
         { word: 'ズボン', romaji: 'zubon', meaning: 'pantalón' },
       ],
     },
@@ -516,7 +516,7 @@ export const wordsKatakana = defineWordGroups({
       words: [
         { word: 'ベッド', romaji: 'beddo', meaning: 'cama' },
         { word: 'ベルト', romaji: 'beruto', meaning: 'cinturón' },
-        { word: 'ベランダ', romaji: 'beranda', meaning: 'balcón / terraza' },
+        { word: 'ベランダ', romaji: 'beranda', meaning: 'balcón' },
       ],
     },
     ボ: {
@@ -561,7 +561,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'ポテト',
           romaji: 'poteto',
-          meaning: 'patata / patatas fritas',
+          meaning: 'patata',
         },
         { word: 'スポーツ', romaji: 'supootsu', meaning: 'deporte' },
         { word: 'ポケット', romaji: 'poketto', meaning: 'bolsillo' },
@@ -612,7 +612,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'ラッシュ',
           romaji: 'rasshu',
-          meaning: 'hora punta / avalancha',
+          meaning: 'hora punta',
         },
       ],
     },
@@ -629,7 +629,7 @@ export const wordsKatakana = defineWordGroups({
       words: [
         { word: 'チャンス', romaji: 'chansu', meaning: 'oportunidad' },
         { word: 'チャンピオン', romaji: 'chanpion', meaning: 'campeón' },
-        { word: 'チャイム', romaji: 'chaimu', meaning: 'timbre / campanilla' },
+        { word: 'チャイム', romaji: 'chaimu', meaning: 'timbre' },
       ],
     },
     チュ: {
@@ -712,7 +712,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'ミョウガ',
           romaji: 'myouga',
-          meaning: 'mioga / jengibre japonés.',
+          meaning: 'mioga',
         },
       ],
     },
@@ -732,7 +732,7 @@ export const wordsKatakana = defineWordGroups({
   gya: {
     ギャ: {
       words: [
-        { word: 'ギャグ', romaji: 'gyagu', meaning: 'chiste / gag' },
+        { word: 'ギャグ', romaji: 'gyagu', meaning: 'chiste' },
         { word: 'ギャラリー', romaji: 'gyararii', meaning: 'galería' },
       ],
     },
@@ -741,7 +741,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'レギュラー',
           romaji: 'regyuraa',
-          meaning: 'regular / titular',
+          meaning: 'regular',
         },
       ],
     },
@@ -750,7 +750,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'ギョウザ',
           romaji: 'gyouza',
-          meaning: 'gyoza / empanadilla japonesa.',
+          meaning: 'gyoza',
         },
       ],
     },
@@ -774,7 +774,7 @@ export const wordsKatakana = defineWordGroups({
         {
           word: 'ジョギング',
           romaji: 'jogingu',
-          meaning: 'carrera suave / salir a correr',
+          meaning: 'carrera suave',
         },
         { word: 'ジョーク', romaji: 'jooku', meaning: 'broma' },
       ],

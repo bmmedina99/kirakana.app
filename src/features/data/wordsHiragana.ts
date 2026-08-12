@@ -43,7 +43,7 @@ export const wordsHiragana = defineWordGroups({
       words: [
         { word: 'かさ', romaji: 'kasa', meaning: 'paraguas' },
         { word: 'かお', romaji: 'kao', meaning: 'cara' },
-        { word: 'かみ', romaji: 'kami', meaning: 'papel / cabello' },
+        { word: 'かみ', romaji: 'kami', meaning: 'papel' },
       ],
     },
     き: {
@@ -70,7 +70,7 @@ export const wordsHiragana = defineWordGroups({
     こ: {
       words: [
         { word: 'こえ', romaji: 'koe', meaning: 'voz' },
-        { word: 'こども', romaji: 'kodomo', meaning: 'niño / niña' },
+        { word: 'こども', romaji: 'kodomo', meaning: 'niño' },
         { word: 'こおり', romaji: 'koori', meaning: 'hielo' },
       ],
     },
@@ -78,7 +78,7 @@ export const wordsHiragana = defineWordGroups({
   s: {
     さ: {
       words: [
-        { word: 'さかな', romaji: 'sakana', meaning: 'pez / pescado' },
+        { word: 'さかな', romaji: 'sakana', meaning: 'pez' },
         { word: 'さくら', romaji: 'sakura', meaning: 'cerezo' },
         { word: 'さる', romaji: 'saru', meaning: 'mono' },
       ],
@@ -101,14 +101,14 @@ export const wordsHiragana = defineWordGroups({
       words: [
         { word: 'せかい', romaji: 'sekai', meaning: 'mundo' },
         { word: 'せなか', romaji: 'senaka', meaning: 'espalda' },
-        { word: 'せんせい', romaji: 'sensei', meaning: 'profesor / profesora' },
+        { word: 'せんせい', romaji: 'sensei', meaning: 'profesor' },
       ],
     },
     そ: {
       words: [
         { word: 'そら', romaji: 'sora', meaning: 'cielo' },
-        { word: 'そと', romaji: 'soto', meaning: 'fuera / exterior' },
-        { word: 'そば', romaji: 'soba', meaning: 'fideos soba / cerca' },
+        { word: 'そと', romaji: 'soto', meaning: 'fuera' },
+        { word: 'そば', romaji: 'soba', meaning: 'fideos soba' },
       ],
     },
   },
@@ -117,7 +117,7 @@ export const wordsHiragana = defineWordGroups({
       words: [
         { word: 'たまご', romaji: 'tamago', meaning: 'huevo' },
         { word: 'たいよう', romaji: 'taiyou', meaning: 'sol' },
-        { word: 'たこ', romaji: 'tako', meaning: 'pulpo / cometa' },
+        { word: 'たこ', romaji: 'tako', meaning: 'pulpo' },
       ],
     },
     ち: {
@@ -140,7 +140,7 @@ export const wordsHiragana = defineWordGroups({
         {
           word: 'てんき',
           romaji: 'tenki',
-          meaning: 'tiempo / tiempo atmosférico',
+          meaning: 'tiempo',
         },
         { word: 'てぶくろ', romaji: 'tebukuro', meaning: 'guante' },
       ],
@@ -148,7 +148,7 @@ export const wordsHiragana = defineWordGroups({
     と: {
       words: [
         { word: 'とり', romaji: 'tori', meaning: 'pájaro' },
-        { word: 'ともだち', romaji: 'tomodachi', meaning: 'amigo / amiga' },
+        { word: 'ともだち', romaji: 'tomodachi', meaning: 'amigo' },
         { word: 'とけい', romaji: 'tokei', meaning: 'reloj' },
       ],
     },
@@ -193,8 +193,8 @@ export const wordsHiragana = defineWordGroups({
   h: {
     は: {
       words: [
-        { word: 'はな', romaji: 'hana', meaning: 'flor / nariz' },
-        { word: 'はし', romaji: 'hashi', meaning: 'puente / palillos' },
+        { word: 'はな', romaji: 'hana', meaning: 'flor' },
+        { word: 'はし', romaji: 'hashi', meaning: 'puente' },
         { word: 'はる', romaji: 'haru', meaning: 'primavera' },
       ],
     },
@@ -231,8 +231,8 @@ export const wordsHiragana = defineWordGroups({
     ま: {
       words: [
         { word: 'まど', romaji: 'mado', meaning: 'ventana' },
-        { word: 'まち', romaji: 'machi', meaning: 'ciudad / pueblo' },
-        { word: 'まめ', romaji: 'mame', meaning: 'judía / alubia' },
+        { word: 'まち', romaji: 'machi', meaning: 'ciudad' },
+        { word: 'まめ', romaji: 'mame', meaning: 'judía' },
       ],
     },
     み: {
@@ -282,7 +282,7 @@ export const wordsHiragana = defineWordGroups({
     よ: {
       words: [
         { word: 'よる', romaji: 'yoru', meaning: 'noche' },
-        { word: 'よこ', romaji: 'yoko', meaning: 'lado / al lado' },
+        { word: 'よこ', romaji: 'yoko', meaning: 'lado' },
         { word: 'よん', romaji: 'yon', meaning: 'cuatro' },
       ],
     },
@@ -340,7 +340,7 @@ export const wordsHiragana = defineWordGroups({
     ん: {
       words: [
         { word: 'ほん', romaji: 'hon', meaning: 'libro' },
-        { word: 'さん', romaji: 'san', meaning: 'señor / señora (honorífico)' },
+        { word: 'さん', romaji: 'san', meaning: 'señor' },
         { word: 'てん', romaji: 'ten', meaning: 'punto' },
       ],
     },
@@ -364,7 +364,7 @@ export const wordsHiragana = defineWordGroups({
       words: [
         { word: 'どうぐ', romaji: 'dougu', meaning: 'herramienta' },
         { word: 'かぐ', romaji: 'kagu', meaning: 'mueble' },
-        { word: 'ぐあい', romaji: 'guai', meaning: 'condición / estado' },
+        { word: 'ぐあい', romaji: 'guai', meaning: 'condición' },
       ],
     },
     げ: {
@@ -372,15 +372,15 @@ export const wordsHiragana = defineWordGroups({
         {
           word: 'げんき',
           romaji: 'genki',
-          meaning: 'salud / ánimo / estar bien',
+          meaning: 'salud',
         },
         { word: 'かげ', romaji: 'kage', meaning: 'sombra' },
-        { word: 'ひげ', romaji: 'hige', meaning: 'barba / bigote' },
+        { word: 'ひげ', romaji: 'hige', meaning: 'barba' },
       ],
     },
     ご: {
       words: [
-        { word: 'ごはん', romaji: 'gohan', meaning: 'arroz / comida' },
+        { word: 'ごはん', romaji: 'gohan', meaning: 'arroz' },
         { word: 'ごご', romaji: 'gogo', meaning: 'tarde (PM)' },
         { word: 'りんご', romaji: 'ringo', meaning: 'manzana' },
       ],
@@ -398,19 +398,19 @@ export const wordsHiragana = defineWordGroups({
       words: [
         { word: 'じかん', romaji: 'jikan', meaning: 'tiempo' },
         { word: 'かじ', romaji: 'kaji', meaning: 'incendio' },
-        { word: 'もじ', romaji: 'moji', meaning: 'letra / carácter' },
+        { word: 'もじ', romaji: 'moji', meaning: 'letra' },
       ],
     },
     ず: {
       words: [
         { word: 'みず', romaji: 'mizu', meaning: 'agua' },
-        { word: 'かず', romaji: 'kazu', meaning: 'número / cantidad' },
+        { word: 'かず', romaji: 'kazu', meaning: 'número' },
         { word: 'ちず', romaji: 'chizu', meaning: 'mapa' },
       ],
     },
     ぜ: {
       words: [
-        { word: 'かぜ', romaji: 'kaze', meaning: 'viento / resfriado' },
+        { word: 'かぜ', romaji: 'kaze', meaning: 'viento' },
         { word: 'なぜ', romaji: 'naze', meaning: 'por qué' },
         { word: 'ぜんぶ', romaji: 'zenbu', meaning: 'todo' },
       ],
@@ -429,7 +429,7 @@ export const wordsHiragana = defineWordGroups({
         {
           word: 'だいすき',
           romaji: 'daisuki',
-          meaning: 'encantar / gustar mucho',
+          meaning: 'encantar',
         },
         { word: 'からだ', romaji: 'karada', meaning: 'cuerpo' },
         { word: 'だれ', romaji: 'dare', meaning: 'quién' },
@@ -467,7 +467,7 @@ export const wordsHiragana = defineWordGroups({
       words: [
         { word: 'ばしょ', romaji: 'basho', meaning: 'lugar' },
         { word: 'たばこ', romaji: 'tabako', meaning: 'cigarrillo' },
-        { word: 'そば', romaji: 'soba', meaning: 'fideos soba / cerca' },
+        { word: 'そば', romaji: 'soba', meaning: 'fideos soba' },
       ],
     },
     び: {
@@ -489,7 +489,7 @@ export const wordsHiragana = defineWordGroups({
         {
           word: 'べんきょう',
           romaji: 'benkyou',
-          meaning: 'estudio / aprendizaje',
+          meaning: 'estudio',
         },
         { word: 'たべる', romaji: 'taberu', meaning: 'comer' },
         { word: 'かべ', romaji: 'kabe', meaning: 'pared' },
@@ -507,7 +507,7 @@ export const wordsHiragana = defineWordGroups({
     ぱ: {
       words: [
         { word: 'ぱん', romaji: 'pan', meaning: 'pan' },
-        { word: 'いっぱい', romaji: 'ippai', meaning: 'lleno / mucho' },
+        { word: 'いっぱい', romaji: 'ippai', meaning: 'lleno' },
         { word: 'かんぱい', romaji: 'kanpai', meaning: '¡salud! (brindis)' },
       ],
     },
@@ -522,7 +522,7 @@ export const wordsHiragana = defineWordGroups({
         {
           word: 'はっぴょう',
           romaji: 'happyou',
-          meaning: 'presentación / anuncio',
+          meaning: 'presentación',
         },
       ],
     },
@@ -533,7 +533,7 @@ export const wordsHiragana = defineWordGroups({
         {
           word: 'ぷんぷん',
           romaji: 'punpun',
-          meaning: 'enfadado / de mal humor',
+          meaning: 'enfadado',
         },
       ],
     },
@@ -557,7 +557,7 @@ export const wordsHiragana = defineWordGroups({
   kya: {
     きゃ: {
       words: [
-        { word: 'きゃく', romaji: 'kyaku', meaning: 'cliente / invitado' },
+        { word: 'きゃく', romaji: 'kyaku', meaning: 'cliente' },
         {
           word: 'おきゃくさん',
           romaji: 'okyakusan',
@@ -589,7 +589,7 @@ export const wordsHiragana = defineWordGroups({
     しゅ: {
       words: [
         { word: 'しゅくだい', romaji: 'shukudai', meaning: 'tarea' },
-        { word: 'しゅみ', romaji: 'shumi', meaning: 'afición / hobby' },
+        { word: 'しゅみ', romaji: 'shumi', meaning: 'afición' },
       ],
     },
     しょ: {
@@ -617,7 +617,7 @@ export const wordsHiragana = defineWordGroups({
         {
           word: 'ちゅうしゃ',
           romaji: 'chuusha',
-          meaning: 'inyección / aparcamiento',
+          meaning: 'inyección',
         },
         { word: 'ちゅうごく', romaji: 'chuugoku', meaning: 'China' },
       ],
@@ -679,7 +679,7 @@ export const wordsHiragana = defineWordGroups({
     },
     ひょ: {
       words: [
-        { word: 'ひょう', romaji: 'hyou', meaning: 'leopardo / granizo' },
+        { word: 'ひょう', romaji: 'hyou', meaning: 'leopardo' },
         { word: 'ひょうか', romaji: 'hyouka', meaning: 'evaluación' },
       ],
     },
@@ -717,16 +717,14 @@ export const wordsHiragana = defineWordGroups({
     りょ: {
       words: [
         { word: 'りょこう', romaji: 'ryokou', meaning: 'viaje' },
-        { word: 'りょうり', romaji: 'ryouri', meaning: 'cocina / plato' },
+        { word: 'りょうり', romaji: 'ryouri', meaning: 'cocina' },
         { word: 'りょうしん', romaji: 'ryoushin', meaning: 'padres' },
       ],
     },
   },
   gya: {
     ぎゃ: {
-      words: [
-        { word: 'ぎゃく', romaji: 'gyaku', meaning: 'opuesto / inverso' },
-      ],
+      words: [{ word: 'ぎゃく', romaji: 'gyaku', meaning: 'opuesto' }],
     },
     ぎゅ: {
       words: [
@@ -745,13 +743,13 @@ export const wordsHiragana = defineWordGroups({
     じゃ: {
       words: [
         { word: 'じゃがいも', romaji: 'jagaimo', meaning: 'patata' },
-        { word: 'じゃま', romaji: 'jama', meaning: 'molestia / estorbo' },
+        { word: 'じゃま', romaji: 'jama', meaning: 'molestia' },
       ],
     },
     じゅ: {
       words: [
         { word: 'じゅう', romaji: 'juu', meaning: 'diez' },
-        { word: 'じゅぎょう', romaji: 'jugyou', meaning: 'clase / lección' },
+        { word: 'じゅぎょう', romaji: 'jugyou', meaning: 'clase' },
       ],
     },
     じょ: {
@@ -792,7 +790,7 @@ export const wordsHiragana = defineWordGroups({
         {
           word: 'ぴゅう',
           romaji: 'pyuu',
-          meaning: 'silbido agudo / sonido del viento.',
+          meaning: 'silbido agudo',
         },
       ],
     },
