@@ -1,6 +1,6 @@
 import type { PracticeLevel } from '@/lib/routes'
 
-export type KanaType = 'base' | 'dakuten' | 'handakuten' | 'yoon'
+export type KanaType = 'base' | 'dakuten' | 'handakuten' | 'yōon'
 
 export type KanaGroupCategory = 'basico' | 'modificado' | 'combinaciones'
 
@@ -228,7 +228,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones KYA',
     shortTitle: 'KYA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con pequeño ya, yu y yo: kya, kyu, kyo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -237,7 +237,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones SHA',
     shortTitle: 'SHA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con shi y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -246,7 +246,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones CHA',
     shortTitle: 'CHA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con chi y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -255,7 +255,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones NYA',
     shortTitle: 'NYA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con ni y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -264,7 +264,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones HYA',
     shortTitle: 'HYA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con hi y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -273,7 +273,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones MYA',
     shortTitle: 'MYA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con mi y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -282,7 +282,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones RYA',
     shortTitle: 'RYA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con ri y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -291,7 +291,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones GYA',
     shortTitle: 'GYA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con gi y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -300,7 +300,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones JA',
     shortTitle: 'JA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con ji y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -309,7 +309,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones BYA',
     shortTitle: 'BYA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con bi y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -318,7 +318,7 @@ export const KANA_GROUP_DEFINITIONS: Record<
     title: 'Combinaciones PYA',
     shortTitle: 'PYA',
     category: 'combinaciones',
-    type: 'yoon',
+    type: 'yōon',
     description: 'Combinaciones con pi y pequeños ya, yu y yo.',
     recommendedPracticeLevel: 'completo',
   },
@@ -362,4 +362,8 @@ export function getKanaGroupsByCategory(
   category: KanaGroupCategory,
 ): KanaGroup[] {
   return groups.filter((group) => group.category === category)
+}
+
+export function getKanaSoundPath(item: Pick<KanaItem, 'romaji'>): string {
+  return `/assets/audio/sounds/${item.romaji}.mp3`
 }

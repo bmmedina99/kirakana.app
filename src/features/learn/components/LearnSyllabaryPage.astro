@@ -1,0 +1,25 @@
+---
+import type { Syllabary } from '@/features/data/syllabaries'
+import { wordsHiragana } from '@/features/data/wordsHiragana'
+import { wordsKatakana } from '@/features/data/wordsKatakana'
+import { routes } from '@/lib/routes'
+import LearnSyllabaryExperience from '../islands/LearnSyllabaryExperience'
+
+type Props = {
+  syllabary: Syllabary
+}
+
+const { syllabary } = Astro.props
+const practiceHref = routes.practice.modeSyllabary(
+  'reconocimiento',
+  syllabary.slug,
+)
+const wordGroups = syllabary.slug === 'hiragana' ? wordsHiragana : wordsKatakana
+---
+
+<LearnSyllabaryExperience
+  client:load
+  {syllabary}
+  {practiceHref}
+  {wordGroups}
+/>

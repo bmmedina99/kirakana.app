@@ -11,7 +11,7 @@ type GetKanaForPracticeOptions = {
 const levelTypes: Record<PracticeLevel, KanaType[]> = {
   basico: ['base'],
   intermedio: ['base', 'dakuten', 'handakuten'],
-  completo: ['base', 'dakuten', 'handakuten', 'yoon'],
+  completo: ['base', 'dakuten', 'handakuten', 'yōon'],
 }
 
 export function getKanaForPractice({
