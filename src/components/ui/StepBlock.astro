@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import Icon from './Icon.astro'
+import Icon from './Icon'
 
 const {
   id,
@@ -47,7 +47,7 @@ const {
       {
         bullets.map((bullet: string) => (
           <li class="flex items-center gap-3">
-            <Icon name="check" class="text-charcoal-100" aria-hidden="true" />
+            <Icon name="check" className="text-charcoal-100" aria-hidden="true" />
             {bullet}
           </li>
         ))

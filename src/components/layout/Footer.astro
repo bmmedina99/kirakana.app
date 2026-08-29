@@ -1,7 +1,7 @@
 ---
 import { navLinks } from '@/lib/navigation'
 import packageJson from '../../../package.json'
-import Icon from '../ui/Icon.astro'
+import Icon from '../ui/Icon'
 
 const pathname = Astro.url.pathname
 const version = packageJson.version
@@ -12,7 +12,7 @@ const version = packageJson.version
     class="container flex flex-col items-center gap-6 mx-auto text-center"
   >
     <h2 class="flex items-center gap-2 text-3xl font-semibold">
-      <Icon name="cherry" class="text-ochre-200 size-8" />
+      <Icon name="cherry" className="text-ochre-200 size-8" />
       <span>KiraKana</span>
     </h2>
     <figure class="flex flex-col items-center gap-2">

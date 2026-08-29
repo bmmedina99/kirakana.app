@@ -1,6 +1,6 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import Icon from '@/components/ui/Icon.astro'
+import Icon from '@/components/ui/Icon'
 import KanaPreview from '@/components/ui/KanaPreview.astro'
 import Layout from '@/layouts/Layout.astro'
 
@@ -22,7 +22,7 @@ const { error } = Astro.props
             class="flex items-center gap-2 font-semibold font-japanese text-copper-100"
             aria-hidden="true"
           >
-            <Icon name="cherry" class="text-ochre-100 size-4" />
+            <Icon name="cherry" className="text-ochre-100 size-4" />
             <span>キラカナ</span>
           </p>
           <h1 class="font-semibold leading-tight tracking-tight text-balance">

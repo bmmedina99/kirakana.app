@@ -1,6 +1,6 @@
 ---
 import type { Syllabary } from '@/features/data/syllabaries'
-import Icon from './Icon.astro'
+import Icon from './Icon'
 
 type Props = {
   syllabary: Syllabary
@@ -34,7 +34,7 @@ const { syllabary, href, buttonLabel } = Astro.props
       class={`grid size-16 shrink-0 place-items-center rounded-full ${syllabary.theme.badge}`}
       aria-hidden="true"
     >
-      <Icon name={syllabary.iconKana} class="size-8" />
+      <Icon name={syllabary.iconKana} className="size-8" />
     </div>
   </div>
   <dl

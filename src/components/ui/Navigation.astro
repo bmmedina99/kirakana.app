@@ -1,6 +1,6 @@
 ---
 import { navLinks } from '@/lib/navigation'
-import Icon from './Icon.astro'
+import Icon from './Icon'
 
 const pathname = Astro.url.pathname
 ---
@@ -45,8 +45,8 @@ const pathname = Astro.url.pathname
     class="relative flex items-center justify-center transition-colors border-2 rounded-md cursor-pointer size-10 border-sun-100 text-copper-100"
   >
     <span class="sr-only">Abrir menú de navegación</span>
-    <Icon name="menu" class="inset-0 pointer-events-none peer-checked:hidden" />
-    <Icon name="close" class="hidden pointer-events-none peer-checked:block" />
+    <Icon name="menu" className="inset-0 pointer-events-none peer-checked:hidden" />
+    <Icon name="close" className="hidden pointer-events-none peer-checked:block" />
   </label>
   <nav
     id="mobile-nav"

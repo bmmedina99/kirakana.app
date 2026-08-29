@@ -1,6 +1,6 @@
 ---
 import { reasons } from '@/lib/landing'
-import Icon from '../ui/Icon.astro'
+import Icon from '../ui/Icon'
 ---
 
 <section aria-labelledby="why-kirakana-heading">
@@ -47,7 +47,7 @@ import Icon from '../ui/Icon.astro'
               class="flex items-center justify-center rounded-full size-12 shrink-0 bg-charcoal-100"
               aria-hidden="true"
             >
-              <Icon name={reason.icon} class="text-linen-150" />
+              <Icon name={reason.icon} className="text-linen-150" />
             </div>
             <div>
               <h3 class="mb-1 text-lg font-semibold text-charcoal-100 md:text-xl">
