@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import Icon from '@/components/ui/Icon'
 import type { SyllabaryTheme } from '@/features/data/syllabaries'
 import type { KanaWordEntry, Word } from '@/features/data/wordGroups'
 import { getWordAudioPath } from '@/features/data/wordGroups'
@@ -104,18 +105,10 @@ function KanaWordsComponent({
               aria-pressed={isPlaying}
               className={`absolute right-4 top-4 grid size-10 place-items-center rounded-full outline-none transition focus-visible:ring-2 focus-visible:ring-offset-2 ${theme.focusRing} ${isPlaying ? `${theme.softBackground} ${theme.text}` : 'bg-mauve-50 text-copper-100 hover:bg-linen-100'}`}
             >
-              <svg
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                aria-hidden='true'
+              <Icon
+                name='speaker'
                 className='size-5'
-              >
-                <use href='/svg/sprite.svg#speaker'></use>
-              </svg>
+              />
             </button>
           </article>
         )

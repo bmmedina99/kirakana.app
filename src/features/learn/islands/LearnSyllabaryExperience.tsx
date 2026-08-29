@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react'
+import Icon from '@/components/ui/Icon'
 import { getKanaSoundPath, type KanaGroupSlug } from '@/features/data/groups'
 import type { Syllabary } from '@/features/data/syllabaries'
 import type { WordGroups } from '@/features/data/wordGroups'
@@ -15,18 +16,10 @@ type Props = {
 
 function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
   return (
-    <svg
-      viewBox='0 0 24 24'
-      fill='none'
-      stroke='currentColor'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth='2'
-      aria-hidden='true'
+    <Icon
+      name='arrow'
       className={`${direction === 'left' ? 'rotate-90' : '-rotate-90'} size-5`}
-    >
-      <use href={`/svg/sprite.svg#arrow`}></use>
-    </svg>
+    />
   )
 }
 
@@ -217,18 +210,10 @@ export default function LearnSyllabaryExperience({
                 <span
                   className={`mx-auto mb-4 grid size-12 place-items-center rounded-full bg-linen-50 text-copper-100 shadow-sm group-hover:inset-shadow-sm transition group-hover:scale-105`}
                 >
-                  <svg
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    aria-hidden='true'
+                  <Icon
+                    name='speaker'
                     className='size-5'
-                  >
-                    <use href={`/svg/sprite.svg#speaker`}></use>
-                  </svg>
+                  />
                 </span>
                 <span
                   lang='ja'

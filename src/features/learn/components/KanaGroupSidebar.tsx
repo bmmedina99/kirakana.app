@@ -5,6 +5,7 @@ import type {
   KanaGroupSlug,
 } from '@/features/data/groups'
 import type { SyllabaryTheme } from '@/features/data/syllabaries'
+import Icon from '@/components/ui/Icon'
 
 type Props = {
   groups: KanaGroup[]
@@ -87,18 +88,10 @@ function KanaGroupSidebarComponent({
                 className={`flex cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-2.5 text-xs font-semibold uppercase tracking-widest outline-none transition hover:bg-mauve-50 focus-visible:ring-2 focus-visible:ring-offset-2 ${theme.focusRing}`}
               >
                 <span>{categoryLabels[category]}</span>
-                <svg
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  aria-hidden='true'
-                  className='transition-transform size-4 shrink-0 group-open:rotate-180'
-                >
-                  <use href='/svg/sprite.svg#menu-expand' />
-                </svg>
+                <Icon
+                  name='menu-expand'
+                  className='size-5'
+                />
               </summary>
               {groupList}
             </details>
