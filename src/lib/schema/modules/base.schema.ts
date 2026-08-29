@@ -8,7 +8,7 @@ export const organizationSchema: SchemaBase = {
   url: configSite.url,
   logo: {
     '@type': 'ImageObject',
-    url: `${configSite.url}/images/logo.webp`,
+    url: `${configSite.url}/assets/images/logo.webp`,
   },
 }
 
