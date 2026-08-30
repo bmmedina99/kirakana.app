@@ -1,11 +1,11 @@
 import { memo, useId } from 'react'
+import Icon from '@/components/ui/Icon'
 import type {
   KanaGroup,
   KanaGroupCategory,
   KanaGroupSlug,
 } from '@/features/data/groups'
 import type { SyllabaryTheme } from '@/features/data/syllabaries'
-import Icon from '@/components/ui/Icon'
 
 type Props = {
   groups: KanaGroup[]
