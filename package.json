@@ -21,19 +21,19 @@
     "url": "https://github.com/bmmedina99/kirakana.app/issues"
   },
   "dependencies": {
-    "astro": "7.1.1",
+    "@astrojs/react": "6.0.4",
     "@astrojs/sitemap": "3.7.3",
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.2.9",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "7.0.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "@astrojs/react": "6.0.1",
-    "tailwindcss": "4.3.3",
-    "@tailwindcss/vite": "4.3.3",
-    "sharp": "0.35.3"
+    "sharp": "0.35.3",
+    "tailwindcss": "4.3.3"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.9",
+    "@astrojs/check": "0.9.10",
     "@biomejs/biome": "2.5.10",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
