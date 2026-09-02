@@ -21,10 +21,10 @@
     "url": "https://github.com/bmmedina99/kirakana.app/issues"
   },
   "dependencies": {
-    "@astrojs/react": "6.0.4",
-    "@astrojs/sitemap": "3.7.3",
+    "@astrojs/react": "6.0.5",
+    "@astrojs/sitemap": "3.7.4",
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.2.9",
+    "astro": "7.2.10",
     "astro-robots-txt": "1.0.0",
     "astro-seo-schema": "7.0.0",
     "react": "19.2.8",
