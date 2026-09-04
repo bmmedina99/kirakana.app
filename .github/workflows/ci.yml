@@ -36,9 +36,8 @@ jobs:
       - name: Revisando linting
         run: pnpm run lint
 
-      - name: Revisando formato de código
-        run: pnpm run fmt
-        continue-on-error: true
+      - name: Revisando test coverage
+        run: pnpm run test
 
       - name: Realizando la build
         run: pnpm run build --if-present

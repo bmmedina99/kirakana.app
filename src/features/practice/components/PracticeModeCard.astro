@@ -1,0 +1,102 @@
+---
+import Icon from '@/components/ui/Icon'
+import type { PracticeMode } from '@/features/practice/modes'
+import { routes } from '@/lib/routes'
+
+type Props = {
+  mode: PracticeMode
+}
+
+const { mode } = Astro.props
+
+const isDisabled = mode.status !== 'disponible'
+const href = routes.practice.mode(mode.slug)
+---
+
+<article
+  class:list={[
+    "group relative flex min-h-90 flex-col overflow-hidden rounded-xl bg-linen-50 p-6 shadow-sm transition duration-300",
+    isDisabled
+      ? "opacity-60 grayscale"
+      : "hover:-translate-y-1 hover:shadow-xl",
+  ]}
+>
+  <div
+    class="absolute right-0 flex items-center justify-center font-bold leading-none pointer-events-none text-9xl opacity-5 font-japanese"
+    aria-hidden="true"
+  >
+    {mode.decoration.backgroundKana}
+  </div>
+
+  <div class="relative z-10 flex items-start justify-between">
+    <div
+      class="grid text-xl rounded-full shadow-sm bg-mauve-50 size-12 place-items-center text-charcoal-100"
+      aria-hidden="true"
+    >
+      <Icon name={mode.icon} />
+    </div>
+    {
+      isDisabled && (
+        <span class="px-3 py-1 text-xs font-semibold rounded-full shadow-sm bg-mauve-50/80">
+          {mode.disabledReason}
+        </span>
+      )
+    }
+  </div>
+
+  <header class="relative mt-10">
+    <h2 class="mb-2 text-2xl md:text-4xl text-semibold">
+      {mode.name}
+    </h2>
+    <p class="leading-relaxed text-pretty text-copper-100">
+      {mode.description}
+    </p>
+  </header>
+
+  <div
+    class="relative z-10 flex items-center justify-center mt-4 min-h-30"
+    aria-hidden="true"
+  >
+    {
+      mode.decoration.type === "recognition-card" && (
+        <div class="relative w-40 h-24 font-japanese">
+          {mode.decoration.cards.map((card, index) => (
+            <div
+              class:list={[
+                "absolute grid size-20 place-items-center rounded-md bg-mauve-50 text-4xl shadow-lg",
+                card.rotation,
+                index === 0 ? "-left-4" : "-right-2",
+              ]}
+              lang="ja"
+            >
+              {card.kana}
+            </div>
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  <div class="relative pt-6 mt-auto text-sm">
+    {
+      isDisabled ? (
+        <button
+          type="button"
+          disabled
+          class="w-full rounded-md cursor-not-allowed btn bg-sun-100"
+          title={mode.disabledReason}
+          aria-describedby={`${mode.slug}-disabled-reason`}
+        >
+          Próximamente
+        </button>
+      ) : (
+        <a
+          href={href}
+          class={`text-center font-semibold tracking-widest shadow-lg shadow-copper-100  active:shadow-transparent  ${mode.theme.buttonClass}`}
+        >
+          Prácticar {mode.slug}
+        </a>
+      )
+    }
+  </div>
+</article>

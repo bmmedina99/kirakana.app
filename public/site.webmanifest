@@ -1,19 +1,54 @@
 {
-  "name": "KiraKana",
-  "short_name": "kirakana",
+  "id": "/",
+  "name": "kirakana.app",
+  "short_name": "KiraKana",
+  "description": "Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. El método más fácil para empezar japonés desde cero.",
+  "orientation": "natural",
+  "lang": "es",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/android-chrome-192x192.webp?v=260904",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/webp",
+      "purpose": "maskable"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/android-chrome-512x512.webp?v=260904",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/webp",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/fallback-192x192.webp?v=260904",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/fallback-512x512.webp?v=260904",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/kirakana-mobile.webp",
+      "sizes": "400x822",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "KiraKana en móvil"
+    },
+    {
+      "src": "/assets/images/kirakana-desktop.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "KiraKana en escritorio"
     }
   ],
   "theme_color": "#faf0e6",
-  "background_color": "#faf0e6",
-  "display": "standalone"
+  "background_color": "#fbf3eb",
+  "display": "standalone",
+  "start_url": "/"
 }

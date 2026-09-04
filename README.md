@@ -22,11 +22,11 @@
 ## Características
 
 ### Disponibles
-- **Aprende** — fichas de referencia visual para identificar y memorizar los 46 caracteres de hiragana y katakana, con pronunciación en romaji.
+- **Aprende** — organización de referencia visual para identificar y memorizar los 46 caracteres de hiragana y katakana, con pronunciación en romaji.
 - **Practica** — ejercicios de reconocimiento de caracteres (Kana → Romaji) con feedback inmediato tras cada intento.
 - **Progreso** — seguimiento del avance del usuario guardado localmente en el navegador, sin necesidad de cuenta.
 - **Sin registro** — acceso completo sin inicio de sesión ni datos personales.
-- **Responsive** — interfaz adaptada para escritorio y móvil.
+- **Responsive** — interfaz adaptada para multiples dispositivos.
 
 ### En desarrollo
 - **Escucha y responde** — escuchar el sonido de un kana y seleccionar el símbolo correspondiente.
@@ -61,17 +61,15 @@ kirakana.app/
 │   │   │   ├── index.astro      # Selección de modo
 │   │   │   └── [modo]/
 │   │   │       ├── index.astro     # Modo de práctica (Kana → Romaji)
-│   │   │       └── [silabario].astro # Variantes para hiragana o katakana
+│   │   │       └── [silabario].astro # hiragana o katakana
 │   │   └── progreso/
 │   │       └── index.astro      # Panel de progreso
 │   │
 │   ├── features/         # Lógica de negocio y hooks personalizados
 │   ├── components/          # Componentes reutilizables (.astro)
 │   ├── layouts/             # Layouts base de las páginas
-│   ├── lib/                # Datos de caracteres hiragana y katakana
-│   └── site.config.ts     # Configuración de rutas y metadatos
+│   └── lib/                # Datos de caracteres hiragana y katakana
 │
-├── astro.config.ts           # Configuración de Astro
 ├── astro.config.ts           # Configuración de Astro
 ├── biome.json               # Configuración de Biome (linting y formateo)
 └── package.json
@@ -88,3 +86,13 @@ Este proyecto está bajo la [Licencia MIT](./LICENSE). Puedes usarlo, modificarl
 ## Autor
 
 Diseñado y desarrollado por [bmmedina99](https://github.com/bmmedina99) - [bmmedina.dev](https://bmmedina.dev)
+
+---
+
+## Apoyo al proyecto
+
+KiraKana es completamente gratuito y de código abierto. Si te ha resultado útil y quieres apoyar su desarrollo, puedes hacer una pequeña aportación voluntaria.
+
+☕ [Apoyar a KiraKana](https://ko-fi.com/bmmedina99)
+
+---

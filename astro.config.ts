@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig, fontProviders } from 'astro/config'
 import robotsTxt from 'astro-robots-txt'
-import { configSite } from './src/site.config'
+import { configSite } from './src/lib/site.config'
 
 export default defineConfig({
   site: configSite.url,
@@ -16,17 +16,23 @@ export default defineConfig({
       weights: [400, 600],
       subsets: ['latin'],
       styles: ['normal'],
+      fallbacks: [],
     },
     {
       name: 'Noto Serif JP',
       cssVariable: '--font-noto-serif-jp',
       provider: fontProviders.fontsource(),
-      weights: [400, 500],
+      weights: [400],
       subsets: ['japanese'],
       styles: ['normal'],
+      fallbacks: [],
     },
   ],
   vite: {
     plugins: [tailwindcss()],
+  },
+  redirects: {
+    '/practicar/hiragana': '/practicar/reconocimiento/hiragana',
+    '/practicar/katakana': '/practicar/reconocimiento/katakana',
   },
 })

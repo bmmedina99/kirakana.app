@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import Icon from './Icon.astro'
+import Icon from './Icon'
 
 const {
   id,
@@ -17,9 +17,7 @@ const {
 ---
 
 <div {id} class="grid items-center gap-20 pt-12 mb-32 md:grid-cols-2">
-  <div
-    class={`relative ${imageFirst ? "order-2 md:order-1" : "order-2 md:order-2"}`}
-  >
+  <div class:list={[imageFirst ? "order-2 md:order-1" : "order-2 md:order-2"]}>
     <Image
       src={image}
       class="object-cover rounded-md shadow-sm bg-linen-150 md:rounded-2xl shadow-linen-150 aspect-video"
@@ -27,11 +25,11 @@ const {
       width={1280}
       height={720}
       widths={[345, 725, 1280]}
-      sizes="(max-width: 768px) calc(100vw - 2rem), (max-width: 1280px) 585px, 50vw"
-      format='avif'
+      sizes="(min-width: 1540px) 699px, (min-width: 1280px) calc(7.5vw + 488px), (min-width: 1040px) calc(3.6vw + 426px), (min-width: 780px) calc(4.17vw + 302px), (min-width: 720px) 641px, 92.75vw"
+      format="avif"
     />
   </div>
-  <div class={imageFirst ? "order-1 md:order-2" : "order-1 md:order-1"}>
+  <div class:list={[imageFirst ? "order-1 md:order-2" : "order-1 md:order-1"]}>
     <span
       class={`p-4 text-sm font-semibold tracking-widest uppercase rounded-2xl ${badgeClass}`}
       aria-hidden="true"
@@ -49,7 +47,7 @@ const {
       {
         bullets.map((bullet: string) => (
           <li class="flex items-center gap-3">
-            <Icon name="check" class="text-charcoal-100" aria-hidden="true" />
+            <Icon name="check" className="text-charcoal-100" aria-hidden="true" />
             {bullet}
           </li>
         ))
