@@ -24,8 +24,8 @@ export function createPracticeGroupUrl({
   level,
 }: PracticeGroupUrlParams): string {
   return buildUrl(practiceRoutes.modeSyllabary(mode, syllabary), {
-    grupo: group,
-    nivel: level,
+    group,
+    level,
   })
 }
 
