@@ -10,7 +10,8 @@
     "release": "pnpm dlx semantic-release",
     "preview": "astro preview --port=5000",
     "fmt": "biome format --write .",
-    "lint": "biome check && biome lint --write .",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
     "test": "vitest"
   },
   "repository": {
