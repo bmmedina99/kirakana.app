@@ -12,7 +12,8 @@
     "fmt": "biome format --write .",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "test": "vitest"
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
