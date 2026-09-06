@@ -9,7 +9,7 @@ type Props = {
 
 const { mode } = Astro.props
 
-const isDisabled = mode.status !== 'disponible'
+const isDisabled = mode.status !== 'available'
 const href = routes.practice.mode(mode.slug)
 ---
 
@@ -37,7 +37,7 @@ const href = routes.practice.mode(mode.slug)
     {
       isDisabled && (
         <span class="px-3 py-1 text-xs font-semibold rounded-full shadow-sm bg-mauve-50/80">
-          {mode.disabledReason}
+          {mode.statusReason}
         </span>
       )
     }
@@ -80,7 +80,7 @@ const href = routes.practice.mode(mode.slug)
           type="button"
           disabled
           class="w-full rounded-md cursor-not-allowed btn bg-sun-100"
-          title={mode.disabledReason}
+          title={mode.statusReason}
           aria-describedby={`${mode.slug}-disabled-reason`}
         >
           Próximamente
