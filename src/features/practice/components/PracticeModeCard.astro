@@ -27,8 +27,7 @@ const href = routes.practice.mode(mode.slug)
   >
     {mode.decoration.backgroundKana}
   </div>
-
-  <div class="relative z-10 flex items-start justify-between">
+  <div class="relative z-10 flex items-center justify-between">
     <div
       class="grid text-xl rounded-full shadow-sm bg-mauve-50 size-12 place-items-center text-charcoal-100"
       aria-hidden="true"
@@ -43,7 +42,6 @@ const href = routes.practice.mode(mode.slug)
       )
     }
   </div>
-
   <header class="relative mt-10">
     <h2 class="mb-2 text-2xl md:text-4xl text-semibold">
       {mode.name}
@@ -52,7 +50,6 @@ const href = routes.practice.mode(mode.slug)
       {mode.description}
     </p>
   </header>
-
   <div
     class="relative z-10 flex items-center justify-center mt-4 min-h-30"
     aria-hidden="true"
@@ -76,7 +73,6 @@ const href = routes.practice.mode(mode.slug)
       )
     }
   </div>
-
   <div class="relative pt-6 mt-auto text-sm">
     {
       isDisabled ? (
