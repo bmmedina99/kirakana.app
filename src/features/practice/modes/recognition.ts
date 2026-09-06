@@ -9,8 +9,8 @@ export const recognitionMode = {
     'Practica el reconocimiento visual de hiragana y katakana asociando cada carácter japonés con su lectura correcta en romaji.',
   supportedSyllabaries: ['hiragana', 'katakana'],
   island: 'recognition',
-  status: 'disponible',
-  disabledReason: '',
+  status: 'available',
+  statusReason: '',
   icon: 'recognize',
   theme: {
     buttonClass: 'bg-charcoal-100 btn w-full text-mauve-50',
