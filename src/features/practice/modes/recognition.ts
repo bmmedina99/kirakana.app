@@ -11,7 +11,7 @@ export const recognitionMode = {
   island: 'recognition',
   status: 'disponible',
   disabledReason: '',
-  icon: 'learn',
+  icon: 'recognize',
   theme: {
     buttonClass: 'bg-charcoal-100 btn w-full text-mauve-50',
   },
