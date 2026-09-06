@@ -28,6 +28,15 @@
     color: inherit;
   }
 
+  ::-webkit-scrollbar {
+    width: calc(var(--spacing) * 1.5);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: color-mix(in oklab, var(--color-copper-200), transparent);
+    border-radius: calc(infinity * 1px);
+  }
+
   html {
     scroll-behavior: smooth;
   }
