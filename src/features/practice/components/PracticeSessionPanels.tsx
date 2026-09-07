@@ -29,7 +29,6 @@ type PracticeSummaryProps = {
   errors: number
   accuracy: number
   bestStreak: number
-  attendedKana: string[]
   recommendations: string[]
   headingRef: RefObject<HTMLHeadingElement | null>
   onRestart: () => void
@@ -140,7 +139,6 @@ export function PracticeSummary({
   errors,
   accuracy,
   bestStreak,
-  attendedKana,
   recommendations,
   headingRef,
   onRestart,
@@ -158,14 +156,13 @@ export function PracticeSummary({
         tabIndex={-1}
         className='mt-2 text-3xl font-semibold outline-none text-charcoal-100 sm:text-4xl'
       >
-        Este es tu resumen
+        Resultado de tu práctica
       </h2>
       <p className='max-w-2xl mt-3 text-copper-100'>
-        Has atendido {answeredCount} sílabas de {syllabary.name} con una
+        Has practicado {answeredCount} caracteres de {syllabary.name} con una
         precisión del {accuracy}%.
       </p>
-
-      <dl className='grid gap-3 mt-8 sm:grid-cols-2 xl:grid-cols-4'>
+      <dl className='grid gap-3 mt-8 md:grid-cols-3'>
         <MetricCard
           label='Aciertos'
           value={correctAnswers}
@@ -177,69 +174,33 @@ export function PracticeSummary({
           detail='Intentos a repasar'
         />
         <MetricCard
-          label='Precisión'
-          value={`${accuracy}%`}
-          detail='Sobre la sesión completa'
-        />
-        <MetricCard
           label='Mejor racha'
           value={bestStreak}
           detail='Aciertos consecutivos'
         />
       </dl>
-
-      <div className='grid gap-6 mt-8 xl:grid-cols-2'>
-        <section
-          aria-labelledby='attended-title'
-          className='p-5 rounded-2xl bg-linen-100'
+      <section
+        aria-labelledby='recommendations-title'
+        className={`mt-8 rounded-2xl p-5 ${syllabary.theme.softBackground}`}
+      >
+        <h3
+          id='recommendations-title'
+          className={`font-semibold ${syllabary.theme.text}`}
         >
-          <h3
-            id='attended-title'
-            className='font-semibold text-charcoal-100'
-          >
-            Sílabas atendidas · {attendedKana.length}
-          </h3>
-          <div className='flex flex-wrap gap-2 mt-4'>
-            {attendedKana.slice(0, 18).map((kana) => (
-              <span
-                key={kana}
-                lang='ja'
-                className={`rounded-lg bg-linen-50 px-3 py-2 font-japanese text-lg ${syllabary.theme.text}`}
-              >
-                {kana}
-              </span>
-            ))}
-            {attendedKana.length > 18 && (
-              <span className='px-3 py-2 text-sm rounded-lg bg-linen-50 text-copper-200'>
-                +{attendedKana.length - 18} más
-              </span>
-            )}
-          </div>
-        </section>
-        <section
-          aria-labelledby='recommendations-title'
-          className={`rounded-2xl p-5 ${syllabary.theme.softBackground}`}
-        >
-          <h3
-            id='recommendations-title'
-            className={`font-semibold ${syllabary.theme.text}`}
-          >
-            Para tu próxima sesión
-          </h3>
-          <ul className='mt-4 space-y-3 text-sm leading-relaxed text-copper-200'>
-            {recommendations.map((recommendation) => (
-              <li
-                key={recommendation}
-                className='flex gap-2'
-              >
-                <span aria-hidden='true'>•</span>
-                <span>{recommendation}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
-
+          Para tu próxima sesión
+        </h3>
+        <ul className='mt-4 space-y-3 text-sm leading-relaxed text-copper-200'>
+          {recommendations.map((recommendation) => (
+            <li
+              key={recommendation}
+              className='flex gap-2'
+            >
+              <span aria-hidden='true'>•</span>
+              <span>{recommendation}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
       <div className='flex flex-col gap-3 mt-8 sm:flex-row sm:flex-wrap'>
         <button
           type='button'
