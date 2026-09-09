@@ -3,6 +3,7 @@ import type { PracticeLevel } from '@/lib/routes'
 import { shuffle } from '../modes/core'
 
 export const DEFAULT_PRACTICE_LEVEL: PracticeLevel = 'basico'
+export const MAX_PRACTICE_LIVES = 5
 
 export const PRACTICE_LEVELS: PracticeLevel[] = [
   'basico',
@@ -19,6 +20,19 @@ export const PRACTICE_LEVEL_LABELS: Record<PracticeLevel, string> = {
 export type PracticeFilters = {
   group: KanaGroupSlug | null
   level: PracticeLevel
+}
+
+export type SessionEndReason = 'completed' | 'out-of-lives'
+
+type ResolvePracticeTurnOptions = {
+  isCorrect: boolean
+  isLastQuestion: boolean
+  remainingLives: number
+}
+
+export type PracticeTurnResult = {
+  endReason: SessionEndReason | null
+  remainingLives: number
 }
 
 export type ResolvedPracticeFilters = PracticeFilters & {
@@ -72,4 +86,26 @@ export function createPracticeOptions(
 
 export function createPracticeSession(pool: readonly KanaItem[]): KanaItem[] {
   return shuffle(pool)
+}
+
+export function resolvePracticeTurn({
+  isCorrect,
+  isLastQuestion,
+  remainingLives,
+}: ResolvePracticeTurnOptions): PracticeTurnResult {
+  const nextRemainingLives = isCorrect
+    ? remainingLives
+    : Math.max(remainingLives - 1, 0)
+
+  const endReason =
+    nextRemainingLives === 0
+      ? 'out-of-lives'
+      : isLastQuestion
+        ? 'completed'
+        : null
+
+  return {
+    endReason,
+    remainingLives: nextRemainingLives,
+  }
 }
