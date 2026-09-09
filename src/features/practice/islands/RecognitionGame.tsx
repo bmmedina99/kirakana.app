@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Icon from '@/components/ui/Icon'
 import type { KanaGroupSlug, KanaItem } from '@/features/data/groups'
 import type { Syllabary } from '@/features/data/syllabaries'
-import { type PracticeLevel, routes } from '@/lib/routes'
+import type { PracticeLevel } from '@/lib/routes'
 import {
   PracticeMetrics,
   PracticeSummary,
@@ -34,7 +34,7 @@ type AnswerRecord = {
 }
 
 const levelDescriptions: Record<PracticeLevel, string> = {
-  basico: 'Kana base para principiantes.',
+  basico: 'Kana base.',
   intermedio: 'Kana base, dakuten y handakuten.',
   completo: 'Todos los kana, incluidas las combinaciones yōon.',
 }
@@ -313,6 +313,11 @@ export default function RecognitionGame({
             {modeDescription}
           </p>
         </div>
+      </header>
+      <nav
+        aria-label='Navegación de la práctica'
+        className='flex items-center justify-between gap-3 px-4 py-2 my-6 border shadow-sm rounded-2xl border-linen-150 bg-linen-50'
+      >
         <div className='flex flex-wrap gap-2 lg:max-w-80 lg:justify-end'>
           <span
             className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-widest ${syllabary.theme.softBackground} ${syllabary.theme.text}`}
@@ -323,16 +328,27 @@ export default function RecognitionGame({
             {activeGroup?.title ?? 'Todos los grupos'}
           </span>
         </div>
-      </header>
+        <button
+          type='button'
+          onClick={() => {
+            setSettingsError(null)
+            setSettingsOpen((open) => !open)
+          }}
+          aria-expanded={settingsOpen}
+          aria-controls='practice-settings'
+          className={`rounded-xl border px-4 py-2.5 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${settingsOpen ? `${syllabary.theme.border} ${syllabary.theme.softBackground} ${syllabary.theme.text}` : 'border-linen-150 text-copper-200'}`}
+        >
+          Ajustes
+        </button>
+      </nav>
       {filterNotice && (
         <p
           role='status'
-          className='px-5 py-4 mb-6 text-sm border rounded-2xl border-sun-100 bg-sun-50 text-copper-200'
+          className='px-5 py-4 mb-4 text-sm border rounded-2xl border-sun-100 bg-sun-50 text-copper-200'
         >
           {filterNotice}
         </p>
       )}
-
       <div className='grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]'>
         <div className='min-w-0'>
           {phase === 'ready' && (
@@ -352,7 +368,7 @@ export default function RecognitionGame({
                       <span
                         key={item.kana}
                         lang='ja'
-                        className={`grid size-20 place-items-center rounded-2xl border bg-linen-100 font-japanese text-4xl shadow-sm ${syllabary.theme.border} ${syllabary.theme.text} ${index % 2 === 0 ? '-rotate-2' : 'rotate-2'}`}
+                        className={`grid size-20 place-items-center rounded-2xl border bg-linen-100 font-japanese text-4xl shadow-sm hover:animate-wiggle ${syllabary.theme.border} ${syllabary.theme.text} ${index % 2 === 0 ? '-rotate-6' : 'rotate-6'}`}
                       >
                         {item.kana}
                       </span>
@@ -380,7 +396,7 @@ export default function RecognitionGame({
               ) : (
                 <>
                   <p className='text-sm font-semibold tracking-widest uppercase text-copper-200'>
-                    Objetivo vacío
+                    Sesión no disponible
                   </p>
                   <h2 className='mt-3 text-3xl font-semibold text-charcoal-100'>
                     No hay caracteres para esta combinación
@@ -400,7 +416,6 @@ export default function RecognitionGame({
               )}
             </section>
           )}
-
           {phase === 'active' && currentKana && (
             <section
               aria-labelledby='question-title'
@@ -428,7 +443,7 @@ export default function RecognitionGame({
                   <span
                     lang='ja'
                     aria-hidden='true'
-                    className={`font-japanese text-9xl leading-none sm:text-[11rem] ${syllabary.theme.text}`}
+                    className={`font-japanese text-9xl leading-none sm:text-[12rem] ${syllabary.theme.text}`}
                   >
                     {currentKana.kana}
                   </span>
@@ -477,7 +492,6 @@ export default function RecognitionGame({
               </div>
             </section>
           )}
-
           {phase === 'complete' && (
             <PracticeSummary
               syllabary={syllabary}
@@ -493,7 +507,6 @@ export default function RecognitionGame({
             />
           )}
         </div>
-
         <PracticeMetrics
           syllabary={syllabary}
           progress={progress}
@@ -505,175 +518,139 @@ export default function RecognitionGame({
           errors={errors}
           currentStreak={currentStreak}
           bestStreak={bestStreak}
+          settingsOpen={settingsOpen}
         />
-      </div>
-      {settingsOpen && (
-        <section
-          id='practice-settings'
-          aria-labelledby='practice-settings-title'
-          className='p-6 mt-8 border shadow-sm rounded-3xl border-linen-150 bg-linen-50'
-        >
-          <div className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
-            <div>
+        {settingsOpen && (
+          <aside
+            id='practice-settings'
+            aria-labelledby='practice-settings-title'
+            className='p-6 border shadow-sm rounded-3xl border-linen-150 bg-linen-50'
+          >
+            <div className='flex flex-col gap-2'>
               <h2
                 id='practice-settings-title'
-                className='text-xl font-semibold text-charcoal-100'
+                className='mt-1 text-xl font-semibold text-charcoal-100'
               >
-                Ajusta tu objetivo
+                Ajusta tu sesión
               </h2>
-              <p className='mt-1 text-sm text-copper-100'>
+              <p className='text-sm text-copper-100'>
                 Aplicar cambios prepara una ronda nueva con los ajustes
                 seleccionados.
               </p>
             </div>
             {phase === 'active' && (
-              <p className='rounded-md text-pretty bg-charcoal-100 px-3 py-1.5 text-xs text-sun-50'>
-                Se ha detectado una sesión en curso. Aplicar cambios reiniciará
-                la ronda y perderás el progreso actual.
+              <p className='rounded-md mt-4 text-pretty bg-charcoal-100 px-3 py-1.5 text-xs text-sun-50'>
+                Sesión en curso detectada. Aplicar cambios reiniciará la sesión.
               </p>
             )}
-          </div>
-          <div className='grid gap-5 mt-6 md:grid-cols-2'>
-            <label
-              id='practice-level'
-              className='text-sm font-semibold text-charcoal-100'
-            >
-              Nivel
-              <div className='relative'>
-                <select
-                  name='practice-level'
-                  value={draftLevel}
-                  onChange={(event) => {
-                    setDraftLevel(event.target.value as PracticeLevel)
-                    setSettingsError(null)
-                  }}
-                  className={`appearance-none mt-2 w-full rounded-xl border border-linen-150 bg-linen-100 px-4 py-3 font-normal outline-none focus-visible:ring-2 ${syllabary.theme.focusRing}`}
-                >
-                  {PRACTICE_LEVELS.map((level) => (
-                    <option
-                      key={level}
-                      value={level}
-                    >
-                      {PRACTICE_LEVEL_LABELS[level]} -{' '}
-                      {levelDescriptions[level]}
-                    </option>
-                  ))}
-                </select>
-                <Icon
-                  name='menu-expand'
-                  className='absolute pointer-events-none -translate-y-2/3 right-4 top-2/3'
-                />
-              </div>
-            </label>
-            <label
-              id='practice-group'
-              className='text-sm font-semibold text-charcoal-100'
-            >
-              Grupo
-              <div className='relative'>
-                <select
-                  name='practice-group'
-                  value={draftGroup ?? ''}
-                  onChange={(event) => {
-                    const groupSlug =
-                      (event.target.value as KanaGroupSlug) || null
-                    const group = syllabary.groups.find(
-                      ({ slug }) => slug === groupSlug,
-                    )
+            <div className='grid gap-5 mt-6'>
+              <label
+                id='practice-level'
+                className='text-sm font-semibold text-charcoal-100'
+              >
+                Nivel
+                <div className='relative'>
+                  <select
+                    name='practice-level'
+                    value={draftLevel}
+                    onChange={(event) => {
+                      setDraftLevel(event.target.value as PracticeLevel)
+                      setSettingsError(null)
+                    }}
+                    className={`appearance-none mt-2 w-full rounded-xl border border-linen-150 bg-linen-100 px-4 py-3 font-normal outline-none focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+                  >
+                    {PRACTICE_LEVELS.map((level) => (
+                      <option
+                        key={level}
+                        value={level}
+                        className='text-sm font-normal truncate text-charcoal-100'
+                      >
+                        {PRACTICE_LEVEL_LABELS[level]} -{' '}
+                        {levelDescriptions[level]}
+                      </option>
+                    ))}
+                  </select>
+                  <Icon
+                    name='menu-expand'
+                    className='absolute pointer-events-none -translate-y-2/3 right-4 top-2/3'
+                  />
+                </div>
+              </label>
+              <label
+                id='practice-group'
+                className='text-sm font-semibold text-charcoal-100'
+              >
+                Grupo
+                <div className='relative'>
+                  <select
+                    name='practice-group'
+                    value={draftGroup ?? ''}
+                    onChange={(event) => {
+                      const groupSlug =
+                        (event.target.value as KanaGroupSlug) || null
+                      const group = syllabary.groups.find(
+                        ({ slug }) => slug === groupSlug,
+                      )
 
-                    setDraftGroup(groupSlug)
-                    if (
-                      group &&
-                      getKanaForPractice({
-                        syllabary: syllabary.slug,
-                        group: groupSlug,
-                        level: draftLevel,
-                      }).length === 0
-                    ) {
-                      setDraftLevel(group.recommendedPracticeLevel)
-                    }
-                    setSettingsError(null)
-                  }}
-                  className={`appearance-none mt-2 w-full rounded-xl border border-linen-150 bg-linen-100 px-4 py-3 font-normal outline-none focus-visible:ring-2 ${syllabary.theme.focusRing}`}
-                >
-                  <option value=''>Todos los grupos del nivel</option>
-                  {syllabary.groups.map((group) => (
-                    <option
-                      key={group.slug}
-                      value={group.slug}
-                    >
-                      {group.title} - {group.items.length} kana
-                    </option>
-                  ))}
-                </select>
-                <Icon
-                  name='menu-expand'
-                  className='absolute pointer-events-none -translate-y-2/3 right-4 top-2/3'
-                />
-              </div>
-            </label>
-          </div>
-          {settingsError && (
-            <p
-              role='alert'
-              className='px-4 py-3 mt-4 text-sm rounded-xl bg-charcoal-100 text-lavender-100'
-            >
-              {settingsError}
-            </p>
-          )}
-          <div className='flex flex-col gap-3 mt-6 sm:flex-row sm:justify-end'>
-            <button
-              type='button'
-              onClick={() => setSettingsOpen(false)}
-              className='px-5 py-3 text-sm font-semibold transition border rounded-xl border-linen-150 text-copper-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-200'
-            >
-              Continuar sin cambios
-            </button>
-            <button
-              type='button'
-              onClick={applySettings}
-              className={`rounded-xl px-5 py-3 text-sm font-semibold text-mauve-50 transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.background} ${syllabary.theme.focusRing}`}
-            >
-              Aplicar para nueva sesión
-            </button>
-          </div>
-        </section>
-      )}
-      <nav
-        aria-label='Navegación de la práctica'
-        className='flex items-center justify-between gap-3 p-2 mt-8 border shadow-sm rounded-2xl border-linen-150 bg-linen-50'
-      >
-        <div className='flex flex-wrap items-center justify-center gap-1'>
-          <a
-            href={routes.home()}
-            className='rounded-xl px-4 py-2.5 text-sm font-semibold text-copper-200 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-200'
-          >
-            Inicio
-          </a>
-          <a
-            href={routes.progress()}
-            className='inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-copper-200 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-200'
-          >
-            <Icon
-              name='progress'
-              className='size-4'
-            />
-            Progreso
-          </a>
-        </div>
-        <button
-          type='button'
-          onClick={() => {
-            setSettingsError(null)
-            setSettingsOpen((open) => !open)
-          }}
-          aria-expanded={settingsOpen}
-          aria-controls='practice-settings'
-          className={`rounded-xl border px-4 py-2.5 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.focusRing} ${settingsOpen ? `${syllabary.theme.border} ${syllabary.theme.softBackground} ${syllabary.theme.text}` : 'border-linen-150 text-copper-200'}`}
-        >
-          Ajustes
-        </button>
-      </nav>
+                      setDraftGroup(groupSlug)
+                      if (
+                        group &&
+                        getKanaForPractice({
+                          syllabary: syllabary.slug,
+                          group: groupSlug,
+                          level: draftLevel,
+                        }).length === 0
+                      ) {
+                        setDraftLevel(group.recommendedPracticeLevel)
+                      }
+                      setSettingsError(null)
+                    }}
+                    className={`appearance-none mt-2 w-full rounded-xl border border-linen-150 bg-linen-100 px-4 py-3 font-normal outline-none focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+                  >
+                    <option value=''>Todos los grupos del nivel</option>
+                    {syllabary.groups.map((group) => (
+                      <option
+                        key={group.slug}
+                        value={group.slug}
+                      >
+                        {group.title} - {group.items.length} kana
+                      </option>
+                    ))}
+                  </select>
+                  <Icon
+                    name='menu-expand'
+                    className='absolute pointer-events-none -translate-y-2/3 right-4 top-2/3'
+                  />
+                </div>
+              </label>
+            </div>
+            {settingsError && (
+              <p
+                role='alert'
+                className='px-4 py-3 mt-4 text-sm rounded-xl bg-charcoal-100 text-lavender-100 text-pretty'
+              >
+                {settingsError}
+              </p>
+            )}
+            <div className='flex flex-col gap-3 mt-6 sm:justify-end'>
+              <button
+                type='button'
+                onClick={() => setSettingsOpen(false)}
+                className='px-5 py-3 text-sm font-semibold transition border rounded-xl border-linen-150 text-copper-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-200'
+              >
+                Continuar sin cambios
+              </button>
+              <button
+                type='button'
+                onClick={applySettings}
+                className={`rounded-xl px-5 py-3 text-sm font-semibold text-mauve-50 transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${syllabary.theme.background} ${syllabary.theme.focusRing}`}
+              >
+                Aplicar para nueva sesión
+              </button>
+            </div>
+          </aside>
+        )}
+      </div>
     </section>
   )
 }
