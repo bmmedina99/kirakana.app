@@ -199,7 +199,6 @@ export default function RecognitionGame({
   )
   const answeredCount = answers.length
   const totalCharacters = sessionKana.length
-  const pendingCharacters = Math.max(totalCharacters - answeredCount, 0)
   const accuracy =
     answeredCount > 0 ? Math.round((correctAnswers / answeredCount) * 100) : 0
   const progress =
@@ -291,7 +290,7 @@ export default function RecognitionGame({
 
       setCurrentIndex((index) => index + 1)
       window.requestAnimationFrame(() => questionHeadingRef.current?.focus())
-    }, 900)
+    }, 1800)
   }
 
   const recommendations = getRecommendations(accuracy, answers, filters)
@@ -314,10 +313,7 @@ export default function RecognitionGame({
           </p>
         </div>
       </header>
-      <nav
-        aria-label='Navegación de la práctica'
-        className='flex items-center justify-between gap-3 px-4 py-2 my-6 border shadow-sm rounded-2xl border-linen-150 bg-linen-50'
-      >
+      <section className='flex items-center justify-between gap-3 px-4 py-2 my-6 border shadow-sm rounded-2xl border-linen-150 bg-linen-50'>
         <div className='flex flex-wrap gap-2 lg:max-w-80 lg:justify-end'>
           <span
             className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-widest ${syllabary.theme.softBackground} ${syllabary.theme.text}`}
@@ -340,7 +336,7 @@ export default function RecognitionGame({
         >
           Ajustes
         </button>
-      </nav>
+      </section>
       {filterNotice && (
         <p
           role='status'
@@ -512,8 +508,6 @@ export default function RecognitionGame({
           progress={progress}
           answeredCount={answeredCount}
           totalCharacters={totalCharacters}
-          pendingCharacters={pendingCharacters}
-          accuracy={accuracy}
           correctAnswers={correctAnswers}
           errors={errors}
           currentStreak={currentStreak}
