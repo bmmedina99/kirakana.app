@@ -1,4 +1,3 @@
-import type { KanaItem } from '@/features/data/groups'
 import type { PracticeModeSlug, SyllabarySlug } from '@/lib/routes'
 
 export type PracticeIslandType = 'recognition' | 'listening' | 'writing'
@@ -25,7 +24,7 @@ export interface PracticeMode {
   statusReason: string
   icon: string
   decoration: PracticeModeDecoration
-  theme: { buttonClass: string }
+  theme: { button: string }
   teaches: string[]
 }
 

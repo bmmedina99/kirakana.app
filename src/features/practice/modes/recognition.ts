@@ -13,7 +13,7 @@ export const recognitionMode = {
   statusReason: '',
   icon: 'recognize',
   theme: {
-    buttonClass: 'bg-charcoal-100 btn w-full text-mauve-50',
+    button: 'bg-charcoal-100 btn w-full text-mauve-50',
   },
   decoration: {
     type: 'recognition-card',
