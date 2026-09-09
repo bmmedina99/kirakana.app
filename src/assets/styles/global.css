@@ -2,6 +2,7 @@
 
 @theme {
   --animate-wiggle: wiggle 1s ease-in-out infinite;
+  --animate-life-lost: life-lost 400ms ease-out;
   --animate-details: details-content-show 300ms ease-out;
   --color-charcoal-100: oklch(0.4065 0.0393 259.89);
   --color-copper-100: oklch(0.4284 0.0386 71.05);
@@ -107,6 +108,18 @@
     }
     50% {
       transform: rotate(5deg);
+    }
+  }
+
+  @keyframes life-lost {
+    0% {
+      opacity: 0;
+      transform: scale(1.35) rotate(-8deg);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
     }
   }
 
