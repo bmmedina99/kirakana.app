@@ -4,6 +4,7 @@ import type { KanaGroupSlug, KanaItem } from '@/features/data/groups'
 import type { Syllabary } from '@/features/data/syllabaries'
 import type { PracticeLevel } from '@/lib/routes'
 import {
+  PracticeLives,
   PracticeMetrics,
   PracticeSummary,
 } from '../components/PracticeSessionPanels'
@@ -12,10 +13,13 @@ import {
   createPracticeOptions,
   createPracticeSession,
   DEFAULT_PRACTICE_LEVEL,
+  MAX_PRACTICE_LIVES,
   PRACTICE_LEVEL_LABELS,
   PRACTICE_LEVELS,
   type PracticeFilters,
   resolvePracticeFilters,
+  resolvePracticeTurn,
+  type SessionEndReason,
 } from '../utils/practiceSession'
 
 type Props = {
@@ -102,6 +106,8 @@ export default function RecognitionGame({
   const [errors, setErrors] = useState(0)
   const [currentStreak, setCurrentStreak] = useState(0)
   const [bestStreak, setBestStreak] = useState(0)
+  const [remainingLives, setRemainingLives] = useState(MAX_PRACTICE_LIVES)
+  const [endReason, setEndReason] = useState<SessionEndReason | null>(null)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
   const [answers, setAnswers] = useState<AnswerRecord[]>([])
   const [settingsOpen, setSettingsOpen] = useState(false)
@@ -142,6 +148,9 @@ export default function RecognitionGame({
     setCorrectAnswers(0)
     setErrors(0)
     setCurrentStreak(0)
+    setBestStreak(0)
+    setRemainingLives(MAX_PRACTICE_LIVES)
+    setEndReason(null)
     setSelectedAnswer(null)
     setAnswers([])
   }, [clearAdvanceTimer])
@@ -257,8 +266,14 @@ export default function RecognitionGame({
 
     const isCorrect = answer === currentKana.romaji
     const nextStreak = isCorrect ? currentStreak + 1 : 0
+    const turnResult = resolvePracticeTurn({
+      isCorrect,
+      isLastQuestion: currentIndex >= sessionKana.length - 1,
+      remainingLives,
+    })
 
     setSelectedAnswer(answer)
+    setRemainingLives(turnResult.remainingLives)
     setAnswers((currentAnswers) => [
       ...currentAnswers,
       {
@@ -282,7 +297,8 @@ export default function RecognitionGame({
       advanceTimerRef.current = null
       setSelectedAnswer(null)
 
-      if (currentIndex >= sessionKana.length - 1) {
+      if (turnResult.endReason) {
+        setEndReason(turnResult.endReason)
         setPhase('complete')
         window.requestAnimationFrame(() => summaryHeadingRef.current?.focus())
         return
@@ -364,7 +380,7 @@ export default function RecognitionGame({
                       <span
                         key={item.kana}
                         lang='ja'
-                        className={`grid size-20 place-items-center rounded-2xl border bg-linen-100 font-japanese text-4xl shadow-sm hover:animate-wiggle ${syllabary.theme.border} ${syllabary.theme.text} ${index % 2 === 0 ? '-rotate-6' : 'rotate-6'}`}
+                        className={`select-none grid size-20 place-items-center rounded-2xl border bg-linen-100 font-japanese text-4xl shadow-sm hover:animate-wiggle ${syllabary.theme.border} ${syllabary.theme.text} ${index % 2 === 0 ? '-rotate-6' : 'rotate-6'}`}
                       >
                         {item.kana}
                       </span>
@@ -373,10 +389,17 @@ export default function RecognitionGame({
                   <h2 className='text-3xl font-semibold text-charcoal-100 sm:text-4xl'>
                     Practica {totalCharacters} caracteres a tu ritmo
                   </h2>
-                  <p className='max-w-xl mt-4 leading-relaxed text-copper-100'>
+                  <p className='max-w-lg mt-4 leading-relaxed text-pretty text-copper-100'>
                     Responde una vez por carácter. Verás el resultado de cada
                     intento y podrás revisar tus métricas durante toda la ronda.
+                    La sesión termina si pierdes tus cinco vidas.
                   </p>
+                  <PracticeLives
+                    syllabary={syllabary}
+                    remainingLives={remainingLives}
+                    maxLives={MAX_PRACTICE_LIVES}
+                    className='mt-6'
+                  />
                   <button
                     type='button'
                     onClick={startSession}
@@ -422,9 +445,11 @@ export default function RecognitionGame({
                   Pregunta {Math.min(answeredCount + 1, totalCharacters)} de{' '}
                   {totalCharacters}
                 </p>
-                <p className='text-sm text-copper-100'>
-                  Elige la lectura correcta
-                </p>
+                <PracticeLives
+                  syllabary={syllabary}
+                  remainingLives={remainingLives}
+                  maxLives={MAX_PRACTICE_LIVES}
+                />
               </div>
               <div className='py-10 text-center sm:py-14'>
                 <h2
@@ -482,20 +507,26 @@ export default function RecognitionGame({
                   >
                     {selectedAnswer === currentKana.romaji
                       ? '¡Correcto! Sigue así.'
-                      : `La respuesta correcta es ${currentKana.romaji}.`}
+                      : remainingLives === 0
+                        ? `La respuesta correcta es ${currentKana.romaji}. Te has quedado sin vidas.`
+                        : `La respuesta correcta es ${currentKana.romaji}. Pierdes una vida. ${remainingLives === 1 ? 'Te queda 1 vida.' : `Te quedan ${remainingLives} vidas.`}`}
                   </p>
                 )}
               </div>
             </section>
           )}
-          {phase === 'complete' && (
+          {phase === 'complete' && endReason && (
             <PracticeSummary
               syllabary={syllabary}
               answeredCount={answeredCount}
+              totalCharacters={totalCharacters}
               correctAnswers={correctAnswers}
               errors={errors}
               accuracy={accuracy}
               bestStreak={bestStreak}
+              remainingLives={remainingLives}
+              maxLives={MAX_PRACTICE_LIVES}
+              endReason={endReason}
               recommendations={recommendations}
               headingRef={summaryHeadingRef}
               onRestart={startSession}
@@ -557,7 +588,7 @@ export default function RecognitionGame({
                       <option
                         key={level}
                         value={level}
-                        className='text-sm font-normal truncate text-charcoal-100'
+                        className='text-sm font-normal text-charcoal-100'
                       >
                         {PRACTICE_LEVEL_LABELS[level]} -{' '}
                         {levelDescriptions[level]}
