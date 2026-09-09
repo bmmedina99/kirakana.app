@@ -6,7 +6,7 @@ export type SyllabarySlug = 'hiragana' | 'katakana'
 
 export type PracticeModeSlug = 'reconocimiento' | 'escucha' | 'escritura'
 
-export type PracticeLevel = 'basico' | 'intermedio' | 'completo' | string
+export type PracticeLevel = 'basico' | 'intermedio' | 'completo'
 
 export interface PracticeGroupUrlParams {
   mode: PracticeModeSlug | string

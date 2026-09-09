@@ -59,24 +59,24 @@ describe('createPracticeGroupUrl practice path generation', () => {
     ).toBe('/practicar/reconocimiento/hiragana/')
   })
 
-  it('adds ?grupo= when "group" is provided', () => {
+  it('adds ?group= when "group" is provided', () => {
     expect(
       createPracticeGroupUrl({
         mode: 'escucha',
         syllabary: 'hiragana',
         group: 'ka',
       }),
-    ).toBe('/practicar/escucha/hiragana/?grupo=ka')
+    ).toBe('/practicar/escucha/hiragana/?group=ka')
   })
 
-  it('adds ?nivel= when "level" is provided', () => {
+  it('adds ?level= when "level" is provided', () => {
     expect(
       createPracticeGroupUrl({
         mode: 'reconocimiento',
         syllabary: 'hiragana',
         level: 'completo',
       }),
-    ).toBe('/practicar/reconocimiento/hiragana/?nivel=completo')
+    ).toBe('/practicar/reconocimiento/hiragana/?level=completo')
   })
 
   it('with both parameters orders them correctly', () => {
@@ -87,7 +87,7 @@ describe('createPracticeGroupUrl practice path generation', () => {
         group: 'a',
         level: 'completo',
       }),
-    ).toBe('/practicar/escritura/katakana/?grupo=a&nivel=completo')
+    ).toBe('/practicar/escritura/katakana/?group=a&level=completo')
   })
 })
 

@@ -1,9 +1,7 @@
 ---
-import { navLinks } from '@/lib/navigation'
 import packageJson from '../../../package.json'
 import Icon from '../ui/Icon'
 
-const pathname = Astro.url.pathname
 const version = packageJson.version
 ---
 
@@ -23,36 +21,9 @@ const version = packageJson.version
       >
         <p class="text-ochre-200">できるまでやってみよう</p>
       </blockquote>
-      <figcaption class="text-sm italic">«Inténtalo hasta lograrlo»</figcaption>
+      <figcaption class="text-sm italic text-copper-200">«Inténtalo hasta lograrlo»</figcaption>
     </figure>
-    <span class="w-12 h-px bg-ochre-200" aria-hidden="true"></span>
-    <nav
-      class="flex flex-wrap justify-center text-sm gap-x-4 gap-y-2"
-      aria-label="Navegación secundaria"
-    >
-      {
-        navLinks.map((link) => {
-          const isActive =
-            link.href === "/"
-              ? pathname === "/"
-              : pathname === link.href || pathname.startsWith(`${link.href}`);
-          return (
-            <a
-              href={link.href}
-              aria-current={isActive ? "page" : undefined}
-              class:list={[
-                "border-b-2 transition-colors",
-                isActive
-                  ? "border-copper-200 text-copper-200"
-                  : "hover:border-copper-100 border-transparent",
-              ]}
-            >
-              {link.title}
-            </a>
-          );
-        })
-      }
-    </nav>
+    <span class="w-12 h-px bg-copper-200" aria-hidden="true"></span>
     <address
       class="flex flex-col flex-wrap items-center justify-center gap-1 text-xs not-italic"
     >
@@ -70,7 +41,7 @@ const version = packageJson.version
           href="https://bmmedina.dev"
           target="_blank"
           rel="noopener noreferrer author"
-          class="font-semibold transition-colors text-cyan-900 hover:text-copper-200"
+          class="font-semibold text-copper-200 hover:underline"
           aria-label="Portfolio de bmmedina, desarrollador de KiraKana"
         >
           @bmmedina99
@@ -82,7 +53,7 @@ const version = packageJson.version
           href="https://ko-fi.com/bmmedina99"
           target="_blank"
           rel="noopener noreferrer"
-          class="font-semibold transition-colors text-cyan-900 hover:text-copper-200"
+          class="font-semibold text-copper-200 hover:underline"
         >
           Apóyanos voluntariamente
         </a>

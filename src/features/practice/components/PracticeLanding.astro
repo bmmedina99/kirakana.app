@@ -14,7 +14,7 @@ import PracticeModeCard from './PracticeModeCard.astro'
     visual y auditivo de los kana japoneses con ejercicios interactivos. Sin límite
     de intentos.
   </Fragment>
-  <div class="grid gap-6 lg:grid-cols-3 [&>article]:col-start-2">
+  <div class="grid gap-6 place-items-center">
     {practiceModes.map((mode) => <PracticeModeCard mode={mode} />)}
   </div>
 </Section>

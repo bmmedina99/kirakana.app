@@ -4,16 +4,16 @@ export const recognitionMode = {
   slug: 'reconocimiento',
   name: 'Reconocimiento',
   description:
-    'Identifica kana individuales y elige su lectura correcta en romaji.',
+    'Asocia cada carácter japonés con su lectura correcta en romaji. Practica el reconocimiento visual.',
   longDescription:
     'Practica el reconocimiento visual de hiragana y katakana asociando cada carácter japonés con su lectura correcta en romaji.',
   supportedSyllabaries: ['hiragana', 'katakana'],
   island: 'recognition',
-  status: 'disponible',
-  disabledReason: '',
+  status: 'available',
+  statusReason: '',
   icon: 'recognize',
   theme: {
-    buttonClass: 'bg-charcoal-100 btn w-full text-mauve-50',
+    button: 'bg-charcoal-100 btn w-full text-mauve-50',
   },
   decoration: {
     type: 'recognition-card',

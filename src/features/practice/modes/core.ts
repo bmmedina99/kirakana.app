@@ -1,9 +1,8 @@
-import type { KanaItem } from '@/features/data/groups'
 import type { PracticeModeSlug, SyllabarySlug } from '@/lib/routes'
 
 export type PracticeIslandType = 'recognition' | 'listening' | 'writing'
 
-export type PracticeModeStatus = 'disponible' | 'proximamente'
+export type PracticeModeStatus = 'available' | 'coming-soon'
 
 export type PracticeModeDecoration = {
   type: 'recognition-card'
@@ -22,10 +21,10 @@ export interface PracticeMode {
   supportedSyllabaries: SyllabarySlug[]
   island: PracticeIslandType
   status: PracticeModeStatus
-  disabledReason: string
+  statusReason: string
   icon: string
   decoration: PracticeModeDecoration
-  theme: { buttonClass: string }
+  theme: { button: string }
   teaches: string[]
 }
 
@@ -38,13 +37,4 @@ export function shuffle<T>(array: readonly T[]): T[] {
     shuffled[j] = temp as T
   }
   return shuffled
-}
-
-export function Options(correctRomanji: string, pool: KanaItem[]): string[] {
-  const opts = new Set<string>([correctRomanji])
-  while (opts.size < 4 && pool.length > 0) {
-    const pick = pool[(Math.random() * pool.length) | 0]?.romaji
-    if (pick) opts.add(pick)
-  }
-  return shuffle([...opts])
 }
