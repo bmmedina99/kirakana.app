@@ -4,7 +4,7 @@ export const recognitionMode = {
   slug: 'reconocimiento',
   name: 'Reconocimiento',
   description:
-    'Identifica kana individuales y elige su lectura correcta en romaji.',
+    'Asocia cada carácter japonés con su lectura correcta en romaji. Practica el reconocimiento visual.',
   longDescription:
     'Practica el reconocimiento visual de hiragana y katakana asociando cada carácter japonés con su lectura correcta en romaji.',
   supportedSyllabaries: ['hiragana', 'katakana'],
