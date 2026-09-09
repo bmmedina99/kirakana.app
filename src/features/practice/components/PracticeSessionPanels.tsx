@@ -14,8 +14,6 @@ type PracticeMetricsProps = {
   progress: number
   answeredCount: number
   totalCharacters: number
-  pendingCharacters: number
-  accuracy: number
   correctAnswers: number
   errors: number
   currentStreak: number
