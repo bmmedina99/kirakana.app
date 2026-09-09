@@ -2,6 +2,7 @@ import type { RefObject } from 'react'
 import Icon from '@/components/ui/Icon'
 import type { Syllabary } from '@/features/data/syllabaries'
 import { routes } from '@/lib/routes'
+import type { SessionEndReason } from '../utils/practiceSession'
 
 type MetricCardProps = {
   label: string
@@ -24,14 +25,25 @@ type PracticeMetricsProps = {
 type PracticeSummaryProps = {
   syllabary: Syllabary
   answeredCount: number
+  totalCharacters: number
   correctAnswers: number
   errors: number
   accuracy: number
   bestStreak: number
+  remainingLives: number
+  maxLives: number
+  endReason: SessionEndReason
   recommendations: string[]
   headingRef: RefObject<HTMLHeadingElement | null>
   onRestart: () => void
   onOpenSettings: () => void
+}
+
+type PracticeLivesProps = {
+  syllabary: Syllabary
+  remainingLives: number
+  maxLives: number
+  className?: string
 }
 
 function MetricCard({ label, value, detail }: MetricCardProps) {
@@ -46,6 +58,48 @@ function MetricCard({ label, value, detail }: MetricCardProps) {
           {detail}
         </span>
       </dd>
+    </div>
+  )
+}
+
+export function PracticeLives({
+  syllabary,
+  remainingLives,
+  maxLives,
+  className = '',
+}: PracticeLivesProps) {
+  const accessibleLabel =
+    remainingLives === 1
+      ? `Te queda 1 vida de ${maxLives}`
+      : `Te quedan ${remainingLives} vidas de ${maxLives}`
+
+  return (
+    <div className={`inline-flex flex-col gap-1 ${className}`}>
+      <span className='sr-only'>{accessibleLabel}</span>
+      <div
+        aria-hidden='true'
+        className='flex items-center gap-1.5'
+      >
+        <span className='mr-1 text-xs font-semibold tracking-widest uppercase text-copper-200'>
+          Vidas
+        </span>
+        {Array.from({ length: maxLives }, (_, index) => index + 1).map(
+          (lifeNumber) => {
+            const isAvailable = lifeNumber <= remainingLives
+
+            return (
+              <Icon
+                key={`life-${lifeNumber}`}
+                name={isAvailable ? 'heart' : 'heart-broken'}
+                className={`size-5 ${isAvailable ? `${syllabary.theme.text} fill-current` : 'text-copper-100/45 animate-life-lost'}`}
+              />
+            )
+          },
+        )}
+        <span className='ml-1 text-xs font-semibold text-copper-200'>
+          {remainingLives}/{maxLives}
+        </span>
+      </div>
     </div>
   )
 }
@@ -135,34 +189,46 @@ export function PracticeMetrics({
 export function PracticeSummary({
   syllabary,
   answeredCount,
+  totalCharacters,
   correctAnswers,
   errors,
   accuracy,
   bestStreak,
+  remainingLives,
+  maxLives,
+  endReason,
   recommendations,
   headingRef,
   onRestart,
   onOpenSettings,
 }: PracticeSummaryProps) {
+  const ranOutOfLives = endReason === 'out-of-lives'
+
   return (
     <section className='p-6 border shadow-sm rounded-3xl border-linen-150 bg-linen-50 sm:p-10'>
       <p
         className={`text-sm font-semibold uppercase tracking-widest ${syllabary.theme.text}`}
       >
-        Sesión completada
+        {ranOutOfLives ? 'Sesión terminada' : 'Sesión completada'}
       </p>
       <h2
         ref={headingRef}
         tabIndex={-1}
         className='mt-2 text-3xl font-semibold outline-none text-charcoal-100 sm:text-4xl'
       >
-        Resultado de tu práctica
+        {ranOutOfLives ? 'Te has quedado sin vidas' : 'Objetivo completado'}
       </h2>
       <p className='max-w-2xl mt-3 text-copper-100'>
-        Has practicado {answeredCount} caracteres de {syllabary.name} con una
-        precisión del {accuracy}%.
+        Has atendido {answeredCount} de {totalCharacters} caracteres de{' '}
+        {syllabary.name} con una precisión del {accuracy}%.
       </p>
-      <dl className='grid gap-3 mt-8 md:grid-cols-3'>
+      <PracticeLives
+        syllabary={syllabary}
+        remainingLives={remainingLives}
+        maxLives={maxLives}
+        className='mt-6'
+      />
+      <dl className='grid gap-3 mt-8 sm:grid-cols-2 xl:grid-cols-4'>
         <MetricCard
           label='Aciertos'
           value={correctAnswers}
@@ -172,6 +238,11 @@ export function PracticeSummary({
           label='Errores'
           value={errors}
           detail='Intentos a repasar'
+        />
+        <MetricCard
+          label='Precisión'
+          value={`${accuracy}%`}
+          detail='Sobre lo atendido'
         />
         <MetricCard
           label='Mejor racha'
@@ -207,7 +278,7 @@ export function PracticeSummary({
           onClick={onRestart}
           className={`rounded-xl px-6 py-3 font-semibold text-mauve-50 transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 ${syllabary.theme.background} ${syllabary.theme.focusRing}`}
         >
-          Repetir objetivo
+          {ranOutOfLives ? 'Intentarlo de nuevo' : 'Repetir objetivo'}
         </button>
         <button
           type='button'
