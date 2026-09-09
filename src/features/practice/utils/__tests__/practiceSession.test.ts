@@ -3,7 +3,9 @@ import type { KanaGroup, KanaItem } from '@/features/data/groups'
 import {
   createPracticeOptions,
   createPracticeSession,
+  MAX_PRACTICE_LIVES,
   resolvePracticeFilters,
+  resolvePracticeTurn,
 } from '../practiceSession'
 
 const groups: Array<Pick<KanaGroup, 'slug' | 'recommendedPracticeLevel'>> = [
@@ -78,5 +80,72 @@ describe('createPracticeSession', () => {
     expect(session).toHaveLength(kanaPool.length)
     expect(session).toEqual(expect.arrayContaining(kanaPool))
     expect(new Set(session.map((item) => item.kana)).size).toBe(kanaPool.length)
+  })
+})
+
+describe('resolvePracticeTurn', () => {
+  it('keeps every life after a correct answer', () => {
+    expect(
+      resolvePracticeTurn({
+        isCorrect: true,
+        isLastQuestion: false,
+        remainingLives: MAX_PRACTICE_LIVES,
+      }),
+    ).toEqual({
+      endReason: null,
+      remainingLives: MAX_PRACTICE_LIVES,
+    })
+  })
+
+  it('removes exactly one life after an incorrect answer', () => {
+    expect(
+      resolvePracticeTurn({
+        isCorrect: false,
+        isLastQuestion: false,
+        remainingLives: MAX_PRACTICE_LIVES,
+      }),
+    ).toEqual({
+      endReason: null,
+      remainingLives: MAX_PRACTICE_LIVES - 1,
+    })
+  })
+
+  it('finishes the session after the last question', () => {
+    expect(
+      resolvePracticeTurn({
+        isCorrect: true,
+        isLastQuestion: true,
+        remainingLives: 2,
+      }),
+    ).toEqual({
+      endReason: 'completed',
+      remainingLives: 2,
+    })
+  })
+
+  it('finishes without lives when the last life is lost', () => {
+    expect(
+      resolvePracticeTurn({
+        isCorrect: false,
+        isLastQuestion: false,
+        remainingLives: 1,
+      }),
+    ).toEqual({
+      endReason: 'out-of-lives',
+      remainingLives: 0,
+    })
+  })
+
+  it('prioritizes running out of lives on the final question', () => {
+    expect(
+      resolvePracticeTurn({
+        isCorrect: false,
+        isLastQuestion: true,
+        remainingLives: 1,
+      }),
+    ).toEqual({
+      endReason: 'out-of-lives',
+      remainingLives: 0,
+    })
   })
 })
