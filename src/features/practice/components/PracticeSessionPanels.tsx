@@ -20,6 +20,7 @@ type PracticeMetricsProps = {
   errors: number
   currentStreak: number
   bestStreak: number
+  settingsOpen: boolean
 }
 
 type PracticeSummaryProps = {
@@ -60,11 +61,12 @@ export function PracticeMetrics({
   errors,
   currentStreak,
   bestStreak,
+  settingsOpen,
 }: PracticeMetricsProps) {
   return (
     <aside
       aria-labelledby='metrics-title'
-      className='p-5 border shadow-sm rounded-3xl border-linen-150 bg-linen-50'
+      className={`p-6 border shadow-sm rounded-3xl border-linen-150 bg-linen-50 ${settingsOpen ? 'hidden' : ''}`}
     >
       <div className='flex items-center justify-between gap-3'>
         <div>
