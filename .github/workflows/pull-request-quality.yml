@@ -37,7 +37,10 @@ jobs:
         with:
           runtime: node@${{ env.NODE_VERSION }}
           cache: true
-          require-lockfile: true
+          install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Run Biome checks
         run: pnpm run lint
@@ -47,6 +50,7 @@ jobs:
 
   test:
     name: Unit tests
+    needs: quality
     runs-on: ubuntu-24.04
     timeout-minutes: 10
 
@@ -61,7 +65,10 @@ jobs:
         with:
           runtime: node@${{ env.NODE_VERSION }}
           cache: true
-          require-lockfile: true
+          install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Run tests with coverage
         run: pnpm run test:coverage
@@ -92,7 +99,10 @@ jobs:
         with:
           runtime: node@${{ env.NODE_VERSION }}
           cache: true
-          require-lockfile: true
+          install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Build static site
         run: pnpm exec astro build
