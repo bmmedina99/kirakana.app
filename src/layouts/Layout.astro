@@ -1,8 +1,19 @@
 ---
 import Footer from '@/components/layout/Footer.astro'
 import Header from '@/components/layout/Header.astro'
+import type { BreadcrumbItem, SchemaBase } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 import Meta from '../components/Meta.astro'
-import { configSite } from '../site.config'
+
+interface Props {
+  title: string
+  description: string
+  canonical?: string
+  schemas?: SchemaBase[]
+  breadcrumbs?: BreadcrumbItem[] | false
+  ogImage?: string
+  noindex?: boolean
+}
 
 const { ...meta } = Astro.props
 ---

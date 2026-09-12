@@ -1,156 +1,19 @@
 ---
-import { Image } from 'astro:assets'
-import japaneseBrush from '@/assets/pincel-kirakana.avif'
 import Main from '@/components/layout/Main.astro'
-import KanaCard from '@/components/ui/KanaCard.astro'
-import Section from '@/components/ui/Section.astro'
+import LearnLanding from '@/features/learn/components/LearnLanding.astro'
 import Layout from '@/layouts/Layout.astro'
-import { baseSchema } from '@/lib/seo/baseSchema'
-import { createKanaCards } from '@/lib/utils/kanacards'
+import { learnIndexSchema } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 
-const learnTitle = 'Aprende el silabario japonés: Hiragana y Katakana'
-const learnDescription =
+const title = 'Aprende el silabario japonés: Hiragana y Katakana'
+const description =
   'Domina los silabarios japoneses con lecciones visuales y audio. Elige hiragana o katakana y aprende los 92 caracteres paso a paso, sin registro.'
-
-const learnCards = createKanaCards({
-  basePath: 'aprender',
-  buttonLabel: 'Aprender',
-})
-
-const learnSchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    ...baseSchema,
-    {
-      '@type': 'CollectionPage',
-      '@id': 'https://kirakana.app/aprender/#webpage',
-      url: 'https://kirakana.app/aprender/',
-      name: `${learnTitle} | Kirakana`,
-      description: learnDescription,
-      inLanguage: 'es',
-      isPartOf: {
-        '@id': 'https://kirakana.app/#website',
-      },
-      mainEntity: {
-        '@id': 'https://kirakana.app/aprender/#learning-resource',
-      },
-    },
-    {
-      '@type': 'LearningResource',
-      '@id': 'https://kirakana.app/aprender/#learning-resource',
-      name: learnTitle,
-      description: learnDescription,
-      inLanguage: 'es',
-      isAccessibleForFree: true,
-      educationalUse: 'Aprendizaje',
-      teaches: ['Hiragana', 'Katakana', 'Silabarios japoneses'],
-      learningResourceType: 'Modulo de aprendizaje',
-      provider: {
-        '@id': 'https://kirakana.app/#organization',
-      },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      '@id': 'https://kirakana.app/aprender/#breadcrumb',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Inicio',
-          item: 'https://kirakana.app/',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Aprender',
-          item: 'https://kirakana.app/aprender/',
-        },
-      ],
-    },
-  ],
-}
+const canonical = `${configSite.url}/aprender`
+const schemas = learnIndexSchema({ url: canonical, title, description })
 ---
 
-<Layout title={learnTitle} description={learnDescription} schema={learnSchema}>
-  <Main class="container mx-auto">
-    <Section heading="learn-heading">
-      <Fragment slot="title">
-        Aprende los silabarios <span class="text-ochre-200">japoneses</span>
-      </Fragment>
-      <Fragment slot="description">
-        Aprende <span class="font-semibold text-ochre-200">hiragana</span>
-        y <span class="font-semibold text-cyan-900">katakana</span> de forma visual
-        y progresiva. Elige el silabario japonés que quieres dominar y haz seguimiento
-        de tu avance con KiraKana.
-      </Fragment>
-      <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2">
-        {
-          learnCards.map((card) => (
-            <li>
-              <KanaCard {...card} />
-            </li>
-          ))
-        }
-      </ul>
-    </Section>
-    <section
-      class="grid items-center grid-cols-1 gap-12 px-6 pb-8 md:grid-cols-4"
-      aria-labelledby="simplicity-heading"
-    >
-      <div class="flex justify-center order-2 md:order-1 md:col-span-1">
-        <Image
-          src={japaneseBrush}
-          class="object-cover transition-transform duration-300 aspect-square hover:-rotate-12 hover:animate-wiggle"
-          alt="Pincel de caligrafía japonesa sobre papel de arroz"
-          width={512}
-          height={512}
-          format="avif"
-        />
-      </div>
-      <div class="order-1 md:order-2 md:col-span-3">
-        <h3
-          id="simplicity-heading"
-          class="mb-8 text-3xl leading-tight tracking-tight md:text-5xl text-balance"
-        >
-          <span class="text-ochre-200">A tu ritmo</span>, trazo a trazo.
-        </h3>
-        <p class="mb-6 text-lg text-pretty">
-          En KiraKana, aprender japonés no debería sentirse como una carga. Cada
-          carácter es un elemento con su propia lógica y su propia forma, y
-          practicarlos tranquilamente permite que se queden.
-        </p>
-        <p class="text-lg text-pretty">
-          Nuestra metodología se basa en la repetición consciente y y en avanzar
-          lentamente sin presión y sin límite de intentos. De esta manera se
-          aprende a dominar los silabarios de manera natural.
-        </p>
-        <dl class="grid items-center grid-cols-2 gap-8 mt-8 text-center">
-          <div>
-            <dt class="text-xs tracking-widest uppercase">Hiragana base</dt>
-            <dd class="text-3xl text-ochre-200">46</dd>
-          </div>
-          <div>
-            <dt class="text-xs tracking-widest uppercase">Katakana base</dt>
-            <dd class="text-3xl text-cyan-900">46</dd>
-          </div>
-          <div>
-            <dt class="text-xs tracking-widest uppercase">
-              Dakuten y handakuten
-            </dt>
-            <dd class="text-3xl font-japanese text-copper-100" lang="ja">
-              ゛゜
-            </dd>
-          </div>
-          <div>
-            <dt class="text-xs tracking-widest uppercase">
-              Combinaciones yōon
-            </dt>
-            <dd class="text-3xl font-japanese text-copper-100" lang="ja">
-              きゃ
-            </dd>
-          </div>
-        </dl>
-      </div>
-    </section>
+<Layout {title} {description} {canonical} {schemas}>
+  <Main>
+    <LearnLanding />
   </Main>
 </Layout>

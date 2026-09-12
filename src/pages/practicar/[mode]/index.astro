@@ -1,0 +1,36 @@
+---
+import Main from '@/components/layout/Main.astro'
+import PracticeModeLanding from '@/features/practice/components/PracticeModeLanding.astro'
+import { practiceModes } from '@/features/practice/modes'
+import Layout from '@/layouts/Layout.astro'
+import { practiceModeSchema } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
+
+export function getStaticPaths() {
+  return practiceModes.map((mode) => ({
+    params: {
+      mode: mode.slug,
+    },
+    props: {
+      mode,
+    },
+  }))
+}
+
+const { mode } = Astro.props
+const title = `Practicar ${mode.name.toLowerCase()} de los silabarios japoneses`
+const description = mode.longDescription
+const canonical = `${configSite.url}/practicar/${mode.slug}`
+const schemas = practiceModeSchema({
+  mode: mode.slug,
+  url: canonical,
+  title,
+  description,
+})
+---
+
+<Layout {title} {description} {canonical} {schemas}>
+  <Main>
+    <PracticeModeLanding mode={mode} />
+  </Main>
+</Layout>

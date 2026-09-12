@@ -1,14 +1,16 @@
 ---
-import { navLinks } from '@/site.config'
-import Icon from '../ui/Icon.astro'
+import packageJson from '../../../package.json'
+import Icon from '../ui/Icon'
 
-const pathname = Astro.url.pathname
+const version = packageJson.version
 ---
 
-<footer class="w-full pt-8 pb-10 bg-linen-50">
-  <div class="container flex flex-col items-center gap-6 mx-auto text-center">
+<footer id="footer-content" class="w-full pt-8 pb-10 bg-linen-50">
+  <section
+    class="container flex flex-col items-center gap-6 mx-auto text-center"
+  >
     <h2 class="flex items-center gap-2 text-3xl font-semibold">
-      <Icon name="cherry" class="text-ochre-200 size-8" />
+      <Icon name="cherry" className="text-ochre-200 size-8" />
       <span>KiraKana</span>
     </h2>
     <figure class="flex flex-col items-center gap-2">
@@ -19,45 +21,43 @@ const pathname = Astro.url.pathname
       >
         <p class="text-ochre-200">できるまでやってみよう</p>
       </blockquote>
-      <figcaption class="text-sm italic">«Inténtalo hasta lograrlo»</figcaption>
+      <figcaption class="text-sm italic text-copper-200">«Inténtalo hasta lograrlo»</figcaption>
     </figure>
-    <span class="w-12 h-px bg-ochre-200" aria-hidden="true"></span>
-    <nav
-      class="flex flex-wrap justify-center text-sm gap-x-4 gap-y-2"
-      aria-label="Navegación secundaria"
-    >
-      {
-        navLinks.map((link) => {
-          const isActive =
-            link.href === "/"
-              ? pathname === "/"
-              : pathname === link.href || pathname.startsWith(`${link.href}`);
-          return (
-            <a
-              href={link.href}
-              aria-current={isActive ? "page" : undefined}
-              class={`${isActive ? "border-ochre-200 text-ochre-200" : "hover:border-ochre-100 border-transparent"} border-b-2 transition-colors`}
-            >
-              {link.title}
-            </a>
-          );
-        })
-      }
-    </nav>
+    <span class="w-12 h-px bg-copper-200" aria-hidden="true"></span>
     <address
-      class="flex flex-wrap items-center justify-center gap-1 text-xs not-italic"
+      class="flex flex-col flex-wrap items-center justify-center gap-1 text-xs not-italic"
     >
-      <span>© {new Date().getFullYear()} KiraKana.</span>
-      <span>Diseñado y desarrollado por</span>
       <a
-        href="https://bmmedina.dev"
+        href={`https://github.com/bmmedina99/kirakana.app/releases/tag/v${version}`}
         target="_blank"
-        rel="noopener noreferrer author"
-        class="font-semibold transition-colors text-cyan-900 hover:text-ochre-200"
-        aria-label="Portfolio de bmmedina, desarrollador de KiraKana"
+        rel="noopener noreferrer"
+        class="font-semibold hover:underline text-copper-200"
       >
-        @bmmedina99
+        KiraKana v{version}
       </a>
+      <span>
+        Diseñado y desarrollado por{" "}
+        <a
+          href="https://bmmedina.dev"
+          target="_blank"
+          rel="noopener noreferrer author"
+          class="font-semibold text-copper-200 hover:underline"
+          aria-label="Portfolio de bmmedina, desarrollador de KiraKana"
+        >
+          @bmmedina99
+        </a>
+      </span>
+      <span>
+        ¿KiraKana te ha sido útil?{" "}
+        <a
+          href="https://ko-fi.com/bmmedina99"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-semibold text-copper-200 hover:underline"
+        >
+          Apóyanos voluntariamente
+        </a>
+      </span>
     </address>
-  </div>
+  </section>
 </footer>

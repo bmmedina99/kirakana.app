@@ -1,0 +1,65 @@
+---
+import { reasons } from '@/lib/landing'
+import Icon from '../ui/Icon'
+---
+
+<section aria-labelledby="why-kirakana-heading">
+  <div class="container grid items-center gap-8 mx-auto lg:grid-cols-2">
+    <header class="max-w-2xl mx-auto col-span-2 text-center">
+      <h2
+        id="why-kirakana-heading"
+        class="mb-4 text-3xl font-semibold leading-tight tracking-tight lg:text-5xl text-balance"
+      >
+        Hecho para aprender, no para vender
+      </h2>
+      <p class="text-lg text-copper-100 text-pretty">
+        Aprendes, practicas y progresas en tu dominio del
+        <span class="text-ochre-200"> hiragana</span> y
+        <span class="text-cyan-900"> katakana</span>. Sin distracciones, sin
+        anuncios y sin suscripciones, solo aprendizaje de japonés.
+      </p>
+    </header>
+    <figure
+      class="relative flex items-center justify-center bg-linen-150 rounded-4xl aspect-square size-128 mx-auto"
+      aria-hidden="true"
+    >
+      <figcaption class="text-center">
+        <span
+          class="block mb-4 text-6xl font-japanese lg:text-9xl text-charcoal-100"
+          lang="ja"
+        >
+          静
+        </span>
+        <p class="text-lg italic lg:text-2xl text-copper-200 text-pretty">
+          "Shizuka" — «Aprender en calma»
+        </p>
+      </figcaption>
+      <div
+        class="absolute inset-0 m-4 border-2 border-charcoal-100 rounded-2xl"
+      >
+      </div>
+    </figure>
+    <ul class="space-y-8" role="list">
+      {
+        reasons.map((reason) => (
+          <li class="flex gap-6">
+            <div
+              class="flex items-center justify-center rounded-full size-12 shrink-0 bg-charcoal-100"
+              aria-hidden="true"
+            >
+              <Icon name={reason.icon} className="text-linen-150" />
+            </div>
+            <div>
+              <h3 class="mb-1 text-lg font-semibold text-charcoal-100 md:text-xl">
+                {reason.title}
+              </h3>
+              <p class="text-copper-100 md:text-lg text-pretty">
+                {reason.description}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+---
+import { howItWorkSteps } from '@/lib/landing'
+import Icon from '../ui/Icon'
+import StepBlock from '../ui/StepBlock.astro'
+---
+
+<section id="como-funciona" class="bg-linen-50" aria-labelledby="works-heading">
+  <div class="container mx-auto">
+    <header class="mb-20 text-center">
+      <h2 id="works-heading" class="mb-6 text-3xl font-semibold lg:text-5xl">
+        ¿Cómo funciona KiraKana?
+      </h2>
+      <p class="max-w-xl mx-auto text-lg text-copper-100 text-pretty">
+        Aprende <span class="text-ochre-200"> hiragana </span>
+        y <span class="text-cyan-900">katakana </span>
+        con un método de aprendizaje progresivo, combinando teoría, práctica interactiva
+        y seguimiento del progreso para aprender japonés desde cero de forma efectiva.
+      </p>
+    </header>
+    <nav aria-label="Pasos del método Kirakana">
+      <ul class="flex flex-wrap items-center justify-center mb-20">
+        <li>
+          <a
+            href="#aprende"
+            class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+          >
+            <div
+              class="flex items-center justify-center rounded-full size-12 bg-sun-100"
+              aria-hidden="true"
+            >
+              <Icon name="learn" />
+            </div>
+            <span class="tracking-wide text-copper-100">Aprende</span>
+          </a>
+        </li>
+        <li aria-hidden="true" class="hidden w-12 h-px bg-copper-200 md:block">
+        </li>
+        <li>
+          <a
+            href="#practica"
+            class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+          >
+            <div
+              class="flex items-center justify-center rounded-full size-12 bg-copper-100"
+              aria-hidden="true"
+            >
+              <Icon name="practice" className="text-mauve-50" />
+            </div>
+            <span class="tracking-wide text-copper-100">Practica</span>
+          </a>
+        </li>
+        <li aria-hidden="true" class="hidden w-12 h-px bg-copper-200 md:block">
+        </li>
+        <li>
+          <a
+            href="#progresa"
+            class="flex items-center gap-3 py-4 border-b-2 px-7 border-b-transparent hover:border-b-sun-100"
+          >
+            <div
+              class="flex items-center justify-center rounded-full size-12 bg-ochre-200"
+              aria-hidden="true"
+            >
+              <Icon name="progress" className="text-mauve-50" />
+            </div>
+            <span class="tracking-wide text-copper-100">Progresa</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    {howItWorkSteps.map((step) => <StepBlock {...step} />)}
+  </div>
+</section>

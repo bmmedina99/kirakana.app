@@ -1,110 +1,19 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import KanaCard from '@/components/ui/KanaCard.astro'
-import Section from '@/components/ui/Section.astro'
+import PracticeLanding from '@/features/practice/components/PracticeLanding.astro'
 import Layout from '@/layouts/Layout.astro'
-import { baseSchema } from '@/lib/seo/baseSchema'
-import { createKanaCards } from '@/lib/utils/kanacards'
+import { practiceIndexSchema } from '@/lib/schema'
+import { configSite } from '@/lib/site.config'
 
-const practiceTitle = 'Practica el silabario japonés: Hiragana y Katakana'
-const practiceDescription =
-  'Practica hiragana y katakana con ejercicios interactivos. Reconocimiento visual, feedback inmediato y sin límite de intentos. ¡Empieza gratis!'
-
-const practiceCards = createKanaCards({
-  basePath: 'practicar',
-  buttonLabel: 'practicar',
-})
-
-const practiceSchema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    ...baseSchema,
-    {
-      '@type': 'CollectionPage',
-      '@id': 'https://kirakana.app/practicar/#webpage',
-      url: 'https://kirakana.app/practicar/',
-      name: 'Practicar Hiragana y Katakana | KiraKana',
-      description:
-        'Practica Hiragana y Katakana con ejercicios interactivos de reconocimiento visual y escucha.',
-      inLanguage: 'es',
-      isPartOf: {
-        '@id': 'https://kirakana.app/#website',
-      },
-      mainEntity: {
-        '@id': 'https://kirakana.app/practicar/#learning-resource',
-      },
-    },
-    {
-      '@type': 'LearningResource',
-      '@id': 'https://kirakana.app/practicar/#learning-resource',
-      name: 'Práctica de Hiragana y Katakana',
-      description:
-        'Ejercicios interactivos para practicar Hiragana y Katakana mediante reconocimiento visual y escucha.',
-      inLanguage: 'es',
-      isAccessibleForFree: true,
-      educationalLevel: 'Beginner',
-      educationalUse: 'Practice',
-      teaches: [
-        'Hiragana',
-        'Katakana',
-        'Lectura de kana',
-        'Reconocimiento de kana',
-      ],
-      learningResourceType: ['Interactive exercise', 'Practice activity'],
-      provider: {
-        '@id': 'https://kirakana.app/#organization',
-      },
-      isPartOf: {
-        '@id': 'https://kirakana.app/#app',
-      },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      '@id': 'https://kirakana.app/practicar/#breadcrumb',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Inicio',
-          item: 'https://kirakana.app/',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Practicar',
-          item: 'https://kirakana.app/practicar/',
-        },
-      ],
-    },
-  ],
-}
+const title = 'Practica el silabario japonés: Hiragana y Katakana'
+const description =
+  'Elige tu modo de práctica: reconocimiento visual, comprensión auditiva o práctica de escritura de Hiragana y Katakana sin límite de intentos. ¡Empieza gratis!'
+const canonical = `${configSite.url}/practicar`
+const schemas = practiceIndexSchema({ url: canonical, title, description })
 ---
 
-<Layout
-  title={practiceTitle}
-  description={practiceDescription}
-  schema={practiceSchema}
->
-  <Main class="container mx-auto">
-    <Section heading="practice-heading">
-      <Fragment slot="title">
-        Practica con ejercicios <span class="text-ochre-200">interactivos</span>
-      </Fragment>
-      <Fragment slot="description">
-        Practica <span class="font-semibold text-ochre-200">hiragana</span>
-        y <span class="font-semibold text-cyan-900">katakana</span> poniendo a prueba
-        tu reconocimiento visual y auditivo de los kana japoneses con ejercicios interactivos.
-        Sin límite de intentos.
-      </Fragment>
-      <ul class="grid items-start grid-cols-1 gap-12 lg:grid-cols-2">
-        {
-          practiceCards.map((card) => (
-            <li>
-              <KanaCard {...card} />
-            </li>
-          ))
-        }
-      </ul>
-    </Section>
+<Layout {title} {description} {canonical} {schemas}>
+  <Main>
+    <PracticeLanding />
   </Main>
 </Layout>

@@ -1,0 +1,25 @@
+---
+import type { Syllabary } from '@/features/data/syllabaries'
+import RecognitionGame from '@/features/practice/islands/RecognitionGame'
+import type { PracticeMode } from '@/features/practice/modes'
+
+type Props = {
+  mode: PracticeMode
+  syllabary: Syllabary
+}
+
+const { mode, syllabary } = Astro.props
+
+const shouldRenderRecognition = mode.island === 'recognition'
+---
+
+{
+  shouldRenderRecognition && (
+    <RecognitionGame
+      client:load
+      modeName={mode.name}
+      modeDescription={mode.description}
+      syllabary={syllabary}
+    />
+  )
+}
