@@ -350,20 +350,6 @@ export function getKanaItemsFromGroups(groups: KanaGroup[]): KanaItem[] {
   return groups.flatMap((group) => group.items)
 }
 
-export function getKanaGroupBySlug(
-  groups: KanaGroup[],
-  slug: KanaGroupSlug | string,
-): KanaGroup | undefined {
-  return groups.find((group) => group.slug === slug)
-}
-
-export function getKanaGroupsByCategory(
-  groups: KanaGroup[],
-  category: KanaGroupCategory,
-): KanaGroup[] {
-  return groups.filter((group) => group.category === category)
-}
-
 export function getKanaSoundPath(item: Pick<KanaItem, 'romaji'>): string {
   return `/assets/audio/sounds/${item.romaji}.mp3`
 }
