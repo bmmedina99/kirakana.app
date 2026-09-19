@@ -41,6 +41,15 @@ describe('resolvePracticeFilters', () => {
     })
   })
 
+  it('uses the requested level when it is valid', () => {
+    expect(resolvePracticeFilters('?group=g&level=completo', groups)).toEqual({
+      group: 'g',
+      level: 'completo',
+      invalidGroup: null,
+      invalidLevel: null,
+    })
+  })
+
   it('falls back safely and reports invalid values', () => {
     expect(
       resolvePracticeFilters('?group=desconocido&level=experto', groups),
