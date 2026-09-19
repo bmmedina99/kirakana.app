@@ -87,10 +87,6 @@ export const syllabaries: Syllabary[] = [
   },
 ]
 
-function getSyllabaryBySlug(slug: string): Syllabary | undefined {
-  return syllabaries.find((syllabary) => syllabary.slug === slug)
-}
-
 export function getSyllabaryKana(slug: string): KanaItem[] {
-  return getSyllabaryBySlug(slug)?.kana ?? []
+  return syllabaries.find((syllabary) => syllabary.slug === slug)?.kana ?? []
 }
