@@ -35,6 +35,16 @@ describe('getKanaForPractice', () => {
     expect(completeKana).toHaveLength(104)
   })
 
+  it('falls back to the basic level for an unknown level', () => {
+    const kana = getKanaForPractice({
+      syllabary: 'hiragana',
+      level: 'desconocido' as never,
+    })
+
+    expect(kana).toHaveLength(46)
+    expect(kana.every((item) => item.type === 'base')).toBe(true)
+  })
+
   it('returns an empty pool for an incompatible group and level', () => {
     expect(
       getKanaForPractice({
