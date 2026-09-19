@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { getKanaSoundPath, type KanaGroup } from '../groups'
 import { hiraganaGroups } from '../hiragana'
 import { katakanaGroups } from '../katakana'
+import { getSyllabaryKana } from '../syllabaries'
 import { getWordAudioPath, type WordGroups } from '../wordGroups'
 import { wordsHiragana } from '../wordsHiragana'
 import { wordsKatakana } from '../wordsKatakana'
@@ -74,6 +75,24 @@ describe('kana sound paths', () => {
     }
   })
 })
+describe('getSyllabaryKana', () => {
+  it('returns hiragana kana for "hiragana" slug', () => {
+    expect(getSyllabaryKana('hiragana')).toEqual(
+      expect.arrayContaining([expect.objectContaining({ kana: 'あ' })]),
+    )
+  })
+
+  it('returns katakana kana for "katakana" slug', () => {
+    expect(getSyllabaryKana('katakana')).toEqual(
+      expect.arrayContaining([expect.objectContaining({ kana: 'ア' })]),
+    )
+  })
+
+  it('returns an empty list for an unknown syllabary slug', () => {
+    expect(getSyllabaryKana('syllabary')).toEqual([])
+  })
+})
+
 describe('getWordAudioPath', () => {
   it('uses romaji as the shared audio key by default', () => {
     expect(getWordAudioPath({ romaji: 'ame' })).toBe(
