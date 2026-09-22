@@ -8,6 +8,7 @@ import {
   PracticeMetrics,
   PracticeSummary,
 } from '../components/PracticeSessionPanels'
+import { usePracticeProgress } from '../hooks/usePracticeProgress'
 import { getKanaForPractice } from '../utils/getKanaForPractice'
 import {
   createPracticeOptions,
@@ -116,6 +117,10 @@ export default function RecognitionGame({
   const advanceTimerRef = useRef<number | null>(null)
   const questionHeadingRef = useRef<HTMLHeadingElement | null>(null)
   const summaryHeadingRef = useRef<HTMLHeadingElement | null>(null)
+  const answerLockedRef = useRef(false)
+  const roundActiveRef = useRef(false)
+  const { begin, abandon, recordAnswer, retry, storageNotice } =
+    usePracticeProgress(syllabary.slug)
 
   const kanaPool = useMemo(
     () =>
@@ -144,6 +149,7 @@ export default function RecognitionGame({
 
   const resetMetrics = useCallback(() => {
     clearAdvanceTimer()
+    answerLockedRef.current = false
     setCurrentIndex(0)
     setCorrectAnswers(0)
     setErrors(0)
@@ -164,10 +170,12 @@ export default function RecognitionGame({
       })
 
       resetMetrics()
+      abandon()
+      roundActiveRef.current = false
       setSessionKana(createPracticeSession(nextPool))
       setPhase('ready')
     },
-    [resetMetrics, syllabary.slug],
+    [abandon, resetMetrics, syllabary.slug],
   )
 
   useEffect(() => {
@@ -219,11 +227,14 @@ export default function RecognitionGame({
     : null
 
   const startSession = useCallback(() => {
+    if (roundActiveRef.current || kanaPool.length === 0) return
+    roundActiveRef.current = true
     resetMetrics()
+    begin(filters)
     setSessionKana(createPracticeSession(kanaPool))
     setPhase('active')
     window.requestAnimationFrame(() => questionHeadingRef.current?.focus())
-  }, [kanaPool, resetMetrics])
+  }, [begin, filters, kanaPool, resetMetrics])
 
   function updatePracticeUrl(nextFilters: PracticeFilters) {
     const url = new URL(window.location.href)
@@ -262,7 +273,14 @@ export default function RecognitionGame({
   }
 
   function handleAnswer(answer: string) {
-    if (!currentKana || selectedAnswer || phase !== 'active') return
+    if (
+      !currentKana ||
+      selectedAnswer ||
+      answerLockedRef.current ||
+      phase !== 'active'
+    )
+      return
+    answerLockedRef.current = true
 
     const isCorrect = answer === currentKana.romaji
     const nextStreak = isCorrect ? currentStreak + 1 : 0
@@ -271,6 +289,7 @@ export default function RecognitionGame({
       isLastQuestion: currentIndex >= sessionKana.length - 1,
       remainingLives,
     })
+    recordAnswer(currentIndex + 1, currentKana.kana, isCorrect)
 
     setSelectedAnswer(answer)
     setRemainingLives(turnResult.remainingLives)
@@ -298,6 +317,7 @@ export default function RecognitionGame({
       setSelectedAnswer(null)
 
       if (turnResult.endReason) {
+        roundActiveRef.current = false
         setEndReason(turnResult.endReason)
         setPhase('complete')
         window.requestAnimationFrame(() => summaryHeadingRef.current?.focus())
@@ -305,6 +325,7 @@ export default function RecognitionGame({
       }
 
       setCurrentIndex((index) => index + 1)
+      answerLockedRef.current = false
       window.requestAnimationFrame(() => questionHeadingRef.current?.focus())
     }, 1800)
   }
@@ -329,6 +350,29 @@ export default function RecognitionGame({
           </p>
         </div>
       </header>
+      <div
+        className={
+          storageNotice
+            ? 'mb-4 rounded-xl border border-linen-150 bg-linen-50 p-4 text-sm text-copper-200'
+            : 'sr-only'
+        }
+      >
+        <p
+          role='status'
+          aria-atomic='true'
+        >
+          {storageNotice?.message}
+        </p>
+        {storageNotice?.canRetry && (
+          <button
+            type='button'
+            onClick={retry}
+            className={`mt-3 rounded-lg border border-linen-150 px-3 py-2 font-semibold focus-visible:outline-none focus-visible:ring-2 ${syllabary.theme.focusRing}`}
+          >
+            Reintentar guardado
+          </button>
+        )}
+      </div>
       <section className='flex items-center justify-between gap-3 px-4 py-2 my-6 border shadow-sm rounded-2xl border-linen-150 bg-linen-50'>
         <div className='flex flex-wrap gap-2 lg:max-w-80 lg:justify-end'>
           <span

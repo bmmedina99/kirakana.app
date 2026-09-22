@@ -21,11 +21,43 @@ import Section from '@/components/layout/Section.astro'
   </div>
   <div class="flex items-center justify-center mt-4 gap-4">
     <button
+      id="clear-progress"
       type="button"
       class="shadow-lg cursor-default btn bg-ochre-200 text-mauve-50 hover:scale-95"
-      onclick="localStorage.clear(); location.reload();"
+      aria-describedby="clear-progress-status"
     >
       Borrar historial
     </button>
   </div>
+  <p
+    id="clear-progress-status"
+    role="status"
+    class="mt-4 text-center text-sm text-copper-200"
+  ></p>
 </Section>
+
+<script>
+  import { clearStoredProgress } from '@/features/progress/utils/storage'
+
+  const button = document.querySelector<HTMLButtonElement>('#clear-progress')
+  const status = document.querySelector<HTMLParagraphElement>(
+    '#clear-progress-status',
+  )
+
+  button?.addEventListener('click', async () => {
+    if (
+      !window.confirm(
+        '¿Quieres borrar tu historial de KiraKana? Esta acción no se puede deshacer.',
+      )
+    ) return
+
+    button.disabled = true
+    const result = await clearStoredProgress()
+    if (status) {
+      status.textContent = result.ok
+        ? 'Se ha borrado el historial de KiraKana.'
+        : 'No se ha podido borrar el historial. Comprueba que el navegador permite acceder a los datos del sitio.'
+    }
+    button.disabled = false
+  })
+</script>

@@ -6,6 +6,7 @@ import type { WordGroups } from '@/features/data/wordGroups'
 import { KanaGroupSidebar } from '../components/KanaGroupSidebar'
 import { KanaWords } from '../components/KanaWords'
 import { useAudioPlayer } from '../hooks/useAudioPlayer'
+import { useLearningProgress } from '../hooks/useLearningProgress'
 import { getKanaNote } from '../utils/getKanaNote'
 
 type Props = {
@@ -33,6 +34,7 @@ export default function LearnSyllabaryExperience({
   )
   const [activeKanaIndex, setActiveKanaIndex] = useState(0)
   const { error: audioError, playingId, play, stop } = useAudioPlayer()
+  const { recordView, storageError } = useLearningProgress(syllabary.slug)
 
   const activeGroup = useMemo(
     () =>
@@ -52,9 +54,14 @@ export default function LearnSyllabaryExperience({
 
   const selectGroup = useCallback(
     (slug: KanaGroupSlug) => {
+      const firstKana = syllabary.groups.find((group) => group.slug === slug)
+        ?.items[0]
+      if (!firstKana) return
+
       stop()
       setActiveGroupSlug(slug)
       setActiveKanaIndex(0)
+      void recordView(firstKana.kana)
 
       if (window.innerWidth < 1024) {
         window.requestAnimationFrame(() => {
@@ -64,7 +71,7 @@ export default function LearnSyllabaryExperience({
         })
       }
     },
-    [stop],
+    [recordView, stop, syllabary.groups],
   )
 
   const selectKana = useCallback(
@@ -74,8 +81,9 @@ export default function LearnSyllabaryExperience({
 
       stop()
       setActiveKanaIndex(index)
+      void recordView(kana)
     },
-    [activeGroup?.items, stop],
+    [activeGroup?.items, recordView, stop],
   )
 
   const moveToGroup = useCallback(
@@ -126,6 +134,17 @@ export default function LearnSyllabaryExperience({
           </div>
         </dl>
       </header>
+      <p
+        role='status'
+        aria-atomic='true'
+        className={
+          storageError
+            ? 'mb-6 rounded-xl border border-linen-150 bg-linen-50 p-4 text-sm text-copper-200'
+            : 'sr-only'
+        }
+      >
+        {storageError}
+      </p>
       <div className='mb-6 lg:hidden'>
         <details className='p-4 border group rounded-2xl border-linen-150 bg-linen-50'>
           <summary className='flex items-center justify-between font-semibold list-none cursor-pointer'>
