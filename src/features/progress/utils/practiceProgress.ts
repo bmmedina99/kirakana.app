@@ -120,8 +120,7 @@ export function isRecognitionSession(
 export function isPracticeProgress(value: Record<string, unknown>): boolean {
   if ('practice' in value && !isRecord(value.practice)) return false
   if ('sessions' in value && !Array.isArray(value.sessions)) return false
-  const sessions = value.sessions ?? []
-  if (!Array.isArray(sessions)) return false
+  const sessions = Array.isArray(value.sessions) ? value.sessions : []
   const ids = new Set<string>()
   const totals = {
     hiragana: { correct: 0, incorrect: 0 },
@@ -236,6 +235,7 @@ export function applyPracticeAnswers(
   )
   if (!stored) throw new Error('Sesión faltante')
   let session = { ...stored }
+  const sessions = snapshot.sessions as Record<string, unknown>[]
   const practice = recognitionProgress(snapshot)
   const characters = { ...practice.characters[session.syllabary] }
   const activityDays = new Set(snapshot.activityDays)
@@ -297,8 +297,7 @@ export function applyPracticeAnswers(
         characters: { ...practice.characters, [session.syllabary]: characters },
       },
     },
-    sessions:
-      snapshot.sessions?.map((item) => (item.id === id ? session : item)) ?? [],
+    sessions: sessions.map((item) => (item.id === id ? session : item)),
     activityDays: [...activityDays].sort(),
   }
 }

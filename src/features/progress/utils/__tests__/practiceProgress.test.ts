@@ -82,6 +82,26 @@ describe('recognition progress', () => {
     expect(isProgressSnapshot(snapshot)).toBe(true)
   })
 
+  it('keeps the latest stored timestamps for repeated characters and sessions', () => {
+    const initial = addRecognitionSession(emptyProgress(), session())
+    const snapshot = applyPracticeAnswers(initial, 'round-1', [
+      { ...answer(1), answeredAt: '2026-09-20T10:02:00.000Z' },
+      {
+        ...answer(2),
+        kana: 'あ',
+        answeredAt: '2026-09-20T09:59:00.000Z',
+      },
+    ])
+    expect(recognitionProgress(snapshot).characters.hiragana.あ).toEqual({
+      correct: 2,
+      incorrect: 0,
+      lastPracticedAt: '2026-09-20T10:02:00.000Z',
+    })
+    expect(recognitionSessions(snapshot)[0]?.lastActivityAt).toBe(
+      '2026-09-20T10:02:00.000Z',
+    )
+  })
+
   it('retries are idempotent and replay only answers not yet persisted', () => {
     const initial = addRecognitionSession(emptyProgress(), session())
     const first = applyPracticeAnswers(initial, 'round-1', [answer(1)])
@@ -176,6 +196,22 @@ describe('recognition progress', () => {
     expect(recognitionSessions(snapshot)).toEqual(recognitionSessions(initial))
   })
 
+  it('supports abandonment with a later end time and no open sessions', () => {
+    const initial = addRecognitionSession(emptyProgress(), session())
+    const snapshot = abandonRecognitionSessions(
+      initial,
+      ['round-1'],
+      '2026-09-21T10:00:00.000Z',
+    )
+    expect(recognitionSessions(snapshot)[0]).toMatchObject({
+      status: 'abandoned',
+      endedAt: '2026-09-21T10:00:00.000Z',
+    })
+    expect(
+      abandonRecognitionSessions(emptyProgress(), ['missing']).sessions,
+    ).toEqual([])
+  })
+
   it('keeps independent sessions and exact characters with the same reading', () => {
     let snapshot = addRecognitionSession(
       emptyProgress(),
@@ -239,6 +275,9 @@ describe('recognition progress', () => {
       applyPracticeAnswers(initial, 'missing', [answer(1)]),
     ).toThrow()
     expect(() =>
+      applyPracticeAnswers(initial, 'round-1', [answer(0)]),
+    ).toThrow()
+    expect(() =>
       applyPracticeAnswers(initial, 'round-1', [answer(2)]),
     ).toThrow()
     expect(() =>
@@ -260,9 +299,14 @@ describe('recognition progress', () => {
     const badSessions = [
       { ...session(), correct: 1.5 },
       { ...session(), incorrect: -1 },
+      { ...session(), incorrect: 6 },
       { ...session(), endedAt: startedAt },
       { ...session(), status: 'unknown' },
       { ...session(), lastActivityAt: 'invalid' },
+      {
+        ...session(),
+        lastActivityAt: '2026-09-19T10:00:00.000Z',
+      },
       { ...session(), filters: { group: 'missing', level: 'basico' } },
       { ...session(), filters: { group: null, level: 'invalid' } },
       { ...session(), correct: 1 },
@@ -277,6 +321,58 @@ describe('recognition progress', () => {
     expect(
       isProgressSnapshot({ ...initial, practice: { reconocimiento: {} } }),
     ).toBe(false)
+    expect(isProgressSnapshot({ ...initial, practice: 'invalid' })).toBe(false)
+    expect(
+      isProgressSnapshot({
+        ...initial,
+        practice: {
+          reconocimiento: {
+            characters: {
+              hiragana: {},
+              katakana: {},
+              extra: {},
+            },
+          },
+        },
+      }),
+    ).toBe(false)
+    expect(
+      isProgressSnapshot({
+        ...initial,
+        practice: {
+          reconocimiento: {
+            characters: { hiragana: {}, katakana: null },
+          },
+        },
+      }),
+    ).toBe(false)
+    expect(
+      isProgressSnapshot({
+        ...initial,
+        practice: {
+          reconocimiento: {
+            characters: {
+              hiragana: {
+                あ: {
+                  correct: 0,
+                  incorrect: 0,
+                  lastPracticedAt: startedAt,
+                },
+              },
+              katakana: {},
+            },
+          },
+        },
+      }),
+    ).toBe(false)
+    expect(() =>
+      createRecognitionSession(
+        'invalid-start',
+        'hiragana',
+        { group: 'vocales', level: 'basico' },
+        'invalid',
+      ),
+    ).toThrow()
     expect(isProgressSnapshot({ ...initial, sessions: 'invalid' })).toBe(false)
   })
 })
