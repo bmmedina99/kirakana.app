@@ -3,6 +3,7 @@ import { emptyProgress } from '../progress'
 import {
   clearProgress,
   clearStoredProgress,
+  learningStorageMessage,
   PROGRESS_STORAGE_KEY,
   readProgress,
   recordLearningView,
@@ -46,6 +47,21 @@ afterEach(() => {
 })
 
 describe('progress storage', () => {
+  it('provides a message for every learning storage error', () => {
+    expect(learningStorageMessage('invalid-data')).toContain(
+      'historial tiene datos',
+    )
+    expect(learningStorageMessage('unsupported-version')).toContain(
+      'otra versión',
+    )
+    expect(learningStorageMessage('coordination-unavailable')).toContain(
+      'no está disponible',
+    )
+    expect(learningStorageMessage('write-failed')).toContain(
+      'No se ha podido guardar',
+    )
+  })
+
   it('returns an empty document without writing on read', () => {
     const storage = memoryStorage()
     expect(readProgress(storage)).toEqual({
