@@ -30,6 +30,8 @@ coverage/
 # Archivos de IDE
 .vscode/
 .idea/
+AGENTS.md
+SKILLS.md
 *.swp
 *.swo
 
