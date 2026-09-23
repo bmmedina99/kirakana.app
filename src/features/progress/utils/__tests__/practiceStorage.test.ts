@@ -67,7 +67,11 @@ function browser() {
   )
   const locks = {
     request,
-    query: vi.fn(async () => ({ held: [...held].map((name) => ({ name })) })),
+    query: vi.fn(
+      async (): Promise<{ held: { name: string }[] | undefined }> => ({
+        held: [...held].map((name) => ({ name })),
+      }),
+    ),
   }
   const target = Object.assign(new EventTarget(), {
     localStorage: storage,
@@ -117,6 +121,84 @@ describe('practice persistence lifecycle', () => {
     ).toBe(1)
   })
 
+  it('plays without saving when the session lock is already held', async () => {
+    const { held, values } = browser()
+    vi.stubGlobal('crypto', { randomUUID: vi.fn(() => 'blocked') })
+    held.add('kirakana.practice.session:blocked')
+    const { instance, notify } = recorder()
+    await instance.ready
+    expect(values.size).toBe(0)
+    expect(notify).toHaveBeenLastCalledWith(
+      expect.objectContaining({ canRetry: false }),
+    )
+  })
+
+  it('reports a rejected session lock request as unavailable', async () => {
+    const { locks } = browser()
+    locks.request.mockImplementationOnce((name, options, callback) => {
+      const run = typeof options === 'function' ? options : callback
+      if (!run) throw new Error('Missing callback')
+      return Promise.resolve(run({ name }))
+    })
+    locks.request.mockRejectedValueOnce(new Error('Locks failed'))
+    const { instance, notify } = recorder()
+    await instance.ready
+    expect(notify).toHaveBeenLastCalledWith(
+      expect.objectContaining({ canRetry: false }),
+    )
+  })
+
+  it('does not abandon a session whose lock is still owned', async () => {
+    const { snapshot } = browser()
+    const { instance } = recorder()
+    await instance.ready
+    await recoverInterruptedPractice()
+    expect(recognitionSessions(snapshot())[0]?.status).toBe('in-progress')
+  })
+
+  it('recovers a session when the lock query has no held collection', async () => {
+    const { locks, snapshot } = browser()
+    const { instance } = recorder()
+    await instance.ready
+    locks.query.mockResolvedValueOnce({ held: undefined })
+    await recoverInterruptedPractice()
+    expect(recognitionSessions(snapshot())[0]?.status).toBe('abandoned')
+  })
+
+  it('reports unreadable storage while recovering interrupted practice', async () => {
+    const { values } = browser()
+    values.set(PROGRESS_STORAGE_KEY, '{broken')
+    await expect(recoverInterruptedPractice()).resolves.toEqual({
+      ok: false,
+      error: 'invalid-data',
+    })
+  })
+
+  it('reports a failed recovery write', async () => {
+    const { values, storage } = browser()
+    values.set(
+      PROGRESS_STORAGE_KEY,
+      JSON.stringify(
+        addRecognitionSession(
+          emptyProgress(),
+          createRecognitionSession(
+            'orphan-write',
+            'hiragana',
+            filters,
+            '2026-09-20T10:00:00.000Z',
+          ),
+        ),
+      ),
+    )
+    storage.setItem.mockImplementationOnce(() => {
+      throw new Error('Full')
+    })
+    await expect(recoverInterruptedPractice()).resolves.toEqual({
+      ok: false,
+      error: 'write-failed',
+    })
+  })
+
   it('deduplicates repeated answer delivery and retries', async () => {
     const { snapshot } = browser()
     const { instance } = recorder()
@@ -126,6 +208,56 @@ describe('practice persistence lifecycle', () => {
       instance.retry(),
     ])
     expect(recognitionSessions(snapshot())[0]?.correct).toBe(1)
+  })
+
+  it('keeps the session unchanged when a response cannot be applied', async () => {
+    const { snapshot } = browser()
+    const { instance, notify } = recorder()
+    await instance.answer(1, 'invalid', true)
+    expect(recognitionSessions(snapshot())[0]).toMatchObject({
+      correct: 0,
+      incorrect: 0,
+      status: 'in-progress',
+    })
+    expect(notify).toHaveBeenLastCalledWith(
+      expect.objectContaining({ canRetry: true }),
+    )
+  })
+
+  it('reports unreadable storage while flushing a response', async () => {
+    const { values } = browser()
+    const { instance, notify } = recorder()
+    await instance.ready
+    values.set(PROGRESS_STORAGE_KEY, '{broken')
+    await instance.answer(1, 'あ', true)
+    expect(notify).toHaveBeenLastCalledWith(
+      expect.objectContaining({ canRetry: true }),
+    )
+  })
+
+  it('ignores storage events for unrelated keys', async () => {
+    const { target } = browser()
+    const { instance, notify } = recorder()
+    await instance.ready
+    notify.mockClear()
+    target.dispatchEvent(
+      Object.assign(new Event('storage'), { key: 'unrelated-key' }),
+    )
+    await Promise.resolve()
+    expect(notify).not.toHaveBeenCalled()
+  })
+
+  it('does not enqueue work after closing a server-side recorder', async () => {
+    vi.unstubAllGlobals()
+    const notify = vi.fn()
+    const instance = createPracticeRecorder('hiragana', filters, notify)
+    recorders.push(instance)
+    await instance.ready
+    await instance.close()
+    await instance.retry()
+    expect(notify).toHaveBeenLastCalledWith(
+      expect.objectContaining({ canRetry: false }),
+    )
   })
 
   it('persists both endings with the final response and releases session ownership', async () => {
@@ -280,6 +412,60 @@ describe('practice persistence lifecycle', () => {
     )
     await instance.answer(1, 'あ', true)
     expect(recognitionSessions(snapshot())[0]?.correct).toBe(1)
+  })
+
+  it('ignores storage events after deletion has disabled the recorder', async () => {
+    const { target } = browser()
+    const { instance, notify } = recorder()
+    await instance.ready
+    await clearStoredProgress()
+    target.dispatchEvent(
+      Object.assign(new Event('storage'), {
+        key: PROGRESS_STORAGE_KEY,
+        newValue: null,
+      }),
+    )
+    await Promise.resolve()
+    notify.mockClear()
+    target.dispatchEvent(
+      Object.assign(new Event('storage'), {
+        key: PROGRESS_STORAGE_KEY,
+        newValue: null,
+      }),
+    )
+    await Promise.resolve()
+    expect(notify).not.toHaveBeenCalled()
+  })
+
+  it('does not report a flush that finishes after deletion disables the recorder', async () => {
+    const { locks, target, values } = browser()
+    const { instance, notify } = recorder()
+    await instance.ready
+    let releaseUpdate = () => {}
+    const updatePaused = new Promise<void>((resolve) => {
+      releaseUpdate = resolve
+    })
+    locks.request.mockImplementationOnce(async (name, options, callback) => {
+      await updatePaused
+      const run = typeof options === 'function' ? options : callback
+      if (!run) throw new Error('Missing callback')
+      return run({ name })
+    })
+    const pending = instance.answer(1, 'あ', true)
+    await Promise.resolve()
+    values.delete(PROGRESS_STORAGE_KEY)
+    target.dispatchEvent(
+      Object.assign(new Event('storage'), {
+        key: PROGRESS_STORAGE_KEY,
+        newValue: null,
+      }),
+    )
+    await Promise.resolve()
+    releaseUpdate()
+    await pending
+    expect(notify).toHaveBeenLastCalledWith(
+      expect.objectContaining({ canRetry: false }),
+    )
   })
 
   it('orders deletion after session creation already requested, preventing late resurrection', async () => {
