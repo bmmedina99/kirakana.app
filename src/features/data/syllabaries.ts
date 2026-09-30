@@ -8,6 +8,7 @@ export type SyllabaryTheme = {
   background: string
   softBackground: string
   focusRing: string
+  focusOutline: string
   border: string
   button: string
   badge: string
@@ -51,6 +52,7 @@ export const syllabaries: Syllabary[] = [
       background: 'bg-ochre-200',
       softBackground: 'bg-ochre-200/10',
       focusRing: 'focus-visible:ring-ochre-200',
+      focusOutline: 'focus-visible:outline-ochre-200',
       border: 'border-ochre-200',
       button: 'bg-ochre-200 btn w-full shadow-ochre-200 text-mauve-50',
       badge: 'bg-ochre-200 text-mauve-50',
@@ -78,6 +80,7 @@ export const syllabaries: Syllabary[] = [
       background: 'bg-cyan-900',
       softBackground: 'bg-cyan-900/10',
       focusRing: 'focus-visible:ring-cyan-900',
+      focusOutline: 'focus-visible:outline-cyan-900',
       border: 'border-cyan-900',
       button: 'bg-cyan-900 btn w-full shadow-cyan-900 text-mauve-50',
       badge: 'bg-cyan-900 text-mauve-50',

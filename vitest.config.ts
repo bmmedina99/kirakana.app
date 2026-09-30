@@ -5,6 +5,7 @@ export default getViteConfig({
   test: {
     globals: true,
     environment: 'node',
+    fsModuleCache: true,
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov'],

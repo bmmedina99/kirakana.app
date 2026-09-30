@@ -1,5 +1,6 @@
 import aprender from '@/assets/images/aprender-kirakana.webp'
 import practicar from '@/assets/images/practicar-kirakana.webp'
+import progreso from '@/assets/images/progreso-kirakana.webp'
 
 export const howItWorkSteps = [
   {
@@ -27,7 +28,7 @@ export const howItWorkSteps = [
     badgeClass: 'bg-copper-100 text-mauve-50',
     title: 'Practica Hiragana y Katakana con ejercicios interactivos',
     description:
-      'Refuerza lo aprendido con ejercicios de reconocimiento rápido. Entrena tu memoria para identificar caracteres japoneses al instante mediante desafíos  visuales y auditivos.',
+      'Refuerza lo aprendido con ejercicios de reconocimiento rápido. Entrena tu memoria para identificar caracteres japoneses al instante mediante desafíos visuales.',
     bullets: [
       'Reconocimiento rápido de kana',
       'Feedback de errores en tiempo real',
@@ -35,7 +36,7 @@ export const howItWorkSteps = [
     ],
     image: practicar,
     imageAlt:
-      'Ejercicio interactivo de KiraKana para practicar el reconocimiento de los kanas',
+      'Pantalla de ejercicios de KiraKana, para practicar hiragana y katakana',
     imageFirst: false,
   },
   {
@@ -45,15 +46,14 @@ export const howItWorkSteps = [
     badgeClass: 'bg-ochre-200 text-mauve-50',
     title: 'Domina el japonés básico con seguimiento de progreso',
     description:
-      'Consolida tu aprendizaje con un sistema de progreso inteligente. Visualiza qué caracteres dominas y cuáles necesitas repasar para mejorar tu fluidez en hiragana y katakana.',
+      'Consulta tu precisión, tu racha diaria y el dominio estimado de cada kana en reconocimiento. Encuentra caracteres con errores y accede a sus grupos para repasarlos.',
     bullets: [
-      'Seguimiento del progreso guardado localmente, sin cuenta ni contraseña',
       'Identificación de puntos débiles',
-      'Aprendizaje personalizado',
+      'Sugerencias de repaso según tus resultados',
+      'Seguimiento del progreso guardado localmente, sin cuenta ni contraseña',
     ],
-    image: aprender,
-    imageAlt:
-      'Panel de progreso de KiraKana mostrando caracteres dominados y pendientes de repaso',
+    image: progreso,
+    imageAlt: 'Pantalla de seguimiento de progreso de KiraKana',
     imageFirst: true,
   },
 ]
@@ -96,7 +96,7 @@ export const reasons = [
     icon: 'speaker',
     title: 'Aprende la pronunciación correcta del hiragana y katakana',
     description:
-      'Ejercicios de reconocimiento visual con audio para dominar la pronunciación de cada carácter.',
+      'Escucha el audio de cada kana en Aprender y refuerza su lectura con ejercicios de reconocimiento visual.',
   },
   {
     icon: 'dont-stress',
@@ -130,7 +130,7 @@ export const questions = [
   {
     question: '¿KiraKana guarda mi progreso?',
     answer:
-      'Sí. Tu progreso se guarda localmente en el navegador usando almacenamiento local. Mientras no borres los datos del sitio o la caché del navegador, tu progreso seguirá disponible en el mismo dispositivo.',
+      'Sí, en navegadores compatibles. Tus consultas, resultados de reconocimiento y días de actividad se guardan en este navegador y dispositivo, sin cuenta. Puedes verlos en Progreso. No se sincronizan ni tienen copia de seguridad; borrar los datos del sitio elimina el historial.',
   },
   {
     question: '¿Se puede aprender japonés solo con hiragana y katakana?',

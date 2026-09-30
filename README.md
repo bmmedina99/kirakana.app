@@ -24,14 +24,13 @@
 ### Disponibles
 - **Aprende** — organización de referencia visual para identificar y memorizar los 46 caracteres de hiragana y katakana, con pronunciación en romaji.
 - **Practica** — ejercicios de reconocimiento de caracteres (Kana → Romaji) con feedback inmediato tras cada intento.
-- **Progreso** — seguimiento del avance del usuario guardado localmente en el navegador, sin necesidad de cuenta.
+- **Progreso** — consultas, precisión de reconocimiento, dominio estimado por kana, sugerencias de repaso, actividad diaria e historial de sesiones. Guardado en el mismo navegador y dispositivo, sin cuenta ni sincronización.
 - **Sin registro** — acceso completo sin inicio de sesión ni datos personales.
 - **Responsive** — interfaz adaptada para multiples dispositivos.
 
 ### En desarrollo
 - **Escucha y responde** — escuchar el sonido de un kana y seleccionar el símbolo correspondiente.
 - **Niveles de dificultad** — modos diferenciados para principiantes y estudiantes avanzados.
-- **Estadísticas mejoradas** — métricas detalladas de aciertos, errores y racha de práctica.
 
 ---
 

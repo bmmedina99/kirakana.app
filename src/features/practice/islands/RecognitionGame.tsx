@@ -333,19 +333,20 @@ export default function RecognitionGame({
   const recommendations = getRecommendations(accuracy, answers, filters)
 
   return (
-    <section className='max-w-6xl mx-auto sm:px-12'>
-      <header className='mb-8 grid gap-5 border-b border-linen-150 pb-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end'>
+    <section className='container mx-auto'>
+      <header className='mb-8 grid gap-5 border-b border-linen-150 pb-8'>
         <div>
           <p
-            className={`mb-2 text-sm font-semibold uppercase tracking-widest ${syllabary.theme.text}`}
+            className={`mb-2 text-sm font-semibold font-japanese uppercase tracking-widest ${syllabary.theme.text}`}
           >
-            Práctica de {syllabary.name}
+            {syllabary.japaneseName}
+            <span className='text-neutral-800'>を練習する</span>
           </p>
           <h1 className='text-4xl font-semibold text-charcoal-100 sm:text-5xl'>
             {modeName} de{' '}
             <span className={syllabary.theme.text}>{syllabary.name}</span>
           </h1>
-          <p className='max-w-3xl mt-4 text-base leading-relaxed text-copper-100 sm:text-lg'>
+          <p className='max-w-2xl mt-4 text-base leading-relaxed text-copper-100 sm:text-lg'>
             {modeDescription}
           </p>
         </div>

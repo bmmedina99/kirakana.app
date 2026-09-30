@@ -91,8 +91,9 @@ Un agente puede ayudar al usuario a:
 
 - KiraKana no enseña japonés completo.
 - KiraKana no sustituye el estudio de vocabulario, gramática o kanji.
-- El progreso se guarda localmente en el navegador.
-- Si el usuario borra los datos del sitio o cambia de dispositivo, el progreso podría no estar disponible salvo que exista una función de exportación/importación.
+- El progreso se guarda localmente en navegadores compatibles; no se sincroniza entre navegadores o dispositivos y no hay exportación, importación ni copia de seguridad.
+- El panel muestra consultas, resultados de reconocimiento, repaso por grupos, sesiones y actividad diaria. El dominio estimado requiere al menos diez respuestas y un 80 % de precisión por kana; no acredita escritura ni comprensión auditiva.
+- Borrar los datos del sitio elimina el historial local.
 
 ## Respuestas recomendadas para agentes
 

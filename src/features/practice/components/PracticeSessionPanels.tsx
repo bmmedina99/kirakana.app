@@ -219,7 +219,7 @@ export function PracticeSummary({
         {ranOutOfLives ? 'Te has quedado sin vidas' : 'Objetivo completado'}
       </h2>
       <p className='max-w-2xl mt-3 text-copper-100'>
-        Has atendido {answeredCount} de {totalCharacters} caracteres de{' '}
+        Ha respondido {answeredCount} de {totalCharacters} caracteres de{' '}
         {syllabary.name} con una precisión del {accuracy}%.
       </p>
       <PracticeLives
@@ -242,7 +242,7 @@ export function PracticeSummary({
         <MetricCard
           label='Precisión'
           value={`${accuracy}%`}
-          detail='Sobre lo atendido'
+          detail='Sobre el total de respuestas'
         />
         <MetricCard
           label='Mejor racha'

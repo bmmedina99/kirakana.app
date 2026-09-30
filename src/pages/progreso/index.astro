@@ -1,19 +1,19 @@
 ---
 import Main from '@/components/layout/Main.astro'
-import ProgressLanding from '@/features/progress/components/ProgressLanding.astro'
+import ProgressDashboard from '@/features/progress/islands/ProgressDashboard'
 import Layout from '@/layouts/Layout.astro'
 import { progressSchema } from '@/lib/schema'
 import { configSite } from '@/lib/site.config'
 
 const title = 'Tu progreso aprendiendo japonés'
 const description =
-  'Visualiza tu progreso aprendiendo japonés: caracteres dominados, puntos débiles y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria.'
+  'Visualiza tu progreso aprendiendo japonés: consultas, dominio estimado en reconocimiento, kana para repasar y racha diaria. Guardado localmente, sin cuenta ni suscripción necesaria.'
 const canonical = `${configSite.url}/progreso`
 const schemas = progressSchema({ url: canonical, title, description })
 ---
 
 <Layout {title} {description} {canonical} {schemas}>
   <Main>
-    <ProgressLanding />
+    <ProgressDashboard client:only="react" />
   </Main>
 </Layout>
