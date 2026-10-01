@@ -48,7 +48,7 @@ export default function ProgressDashboard() {
             あなたの進捗状況
           </p>
           <h1 className='text-4xl font-semibold sm:text-5xl'>
-            <span className='text-ochre-200'>Tu progreso</span> aprendiendo
+            <span className='text-copper-200'>Tu progreso</span> aprendiendo
             japonés
           </h1>
           <p className='max-w-2xl mt-4 text-base leading-relaxed text-copper-100 sm:text-lg'>
