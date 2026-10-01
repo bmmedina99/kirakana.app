@@ -188,11 +188,14 @@ describe('calendar streaks', () => {
     [['2026-09-23', '2026-09-24'], 2, 2],
     [['2026-09-21', '2026-09-22', '2026-09-23'], 0, 3],
     [['2026-09-25', '2026-09-23', '2026-09-24', '2026-09-24'], 3, 3],
-  ])('calculates current and best for %j', (days: readonly string[], current: number, best: number) => {
-    const metrics = activityMetrics(days, now)
-    expect(metrics.current).toBe(current)
-    expect(metrics.best).toBe(best)
-  })
+  ])(
+    'calculates current and best for %j',
+    (days: readonly string[], current: number, best: number) => {
+      const metrics = activityMetrics(days, now)
+      expect(metrics.current).toBe(current)
+      expect(metrics.best).toBe(best)
+    },
+  )
 
   it('uses local midnight across the year boundary', () => {
     vi.stubEnv('TZ', 'Asia/Tokyo')
@@ -207,12 +210,15 @@ describe('calendar streaks', () => {
     ['2026-03-27', '2026-03-28', '2026-03-29', '2026-03-30'],
     ['2026-10-23', '2026-10-24', '2026-10-25', '2026-10-26'],
     ['2024-02-27', '2024-02-28', '2024-02-29', '2024-03-01'],
-  ])('handles daylight saving and leap days starting %s', (...days: readonly string[]) => {
-    vi.stubEnv('TZ', 'Europe/Madrid')
-    expect(
-      activityMetrics(days, new Date(`${days[3]}T12:00:00Z`)).current,
-    ).toBe(4)
-  })
+  ])(
+    'handles daylight saving and leap days starting %s',
+    (...days: readonly string[]) => {
+      vi.stubEnv('TZ', 'Europe/Madrid')
+      expect(
+        activityMetrics(days, new Date(`${days[3]}T12:00:00Z`)).current,
+      ).toBe(4)
+    },
+  )
 })
 
 describe('recent accuracy comparison', () => {
