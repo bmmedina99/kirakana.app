@@ -342,7 +342,7 @@ export default function RecognitionGame({
             {syllabary.japaneseName}
             <span className='text-neutral-800'>を練習する</span>
           </p>
-          <h1 className='text-4xl font-semibold text-charcoal-100 sm:text-5xl'>
+          <h1 className='text-4xl font-semibold sm:text-5xl'>
             {modeName} de{' '}
             <span className={syllabary.theme.text}>{syllabary.name}</span>
           </h1>
