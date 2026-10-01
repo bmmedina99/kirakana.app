@@ -128,7 +128,9 @@ export function progressMetrics(snapshot: ProgressSnapshot, now = new Date()) {
       }
     })
     const consulted = characters.filter(
-      (character): character is typeof character & {
+      (
+        character,
+      ): character is typeof character & {
         learning: NonNullable<(typeof character)['learning']>
       } => character.learning !== undefined,
     )
