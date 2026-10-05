@@ -1,117 +1,72 @@
 # KiraKana
 
-> KiraKana es una aplicación web interactiva y gratuita para aprender los silabarios japoneses Hiragana y Katakana desde cero. Ayuda a estudiantes principiantes a reconocer, escuchar y practicar los kana japoneses mediante ejercicios interactivos, audio y progreso local sin registro.
+> Aplicación web gratuita y en español para aprender hiragana y katakana por grupos, escuchar el audio de los kana, practicar reconocimiento visual y consultar el progreso guardado en el navegador. Sin cuenta ni registro.
 
-KiraKana está orientado a personas hispanohablantes que quieren empezar a leer japonés aprendiendo primero los dos silabarios básicos: Hiragana y Katakana.
+Sitio: https://kirakana.app/
+Repositorio: https://github.com/bmmedina99/kirakana.app
+Público: principiantes hispanohablantes que empiezan a leer japonés.
 
-El sitio combina contenido estático educativo con pequeñas partes interactivas en la práctica. Todas las páginas son accesibles sin cuenta, sin instalación y sin pago.
+## Alcance de esta información
 
-## Información principal
+Describe el código local hasta el commit 78cea2c, con los cambios posteriores a v0.13.2 destinados a v1.0.0. La versión declarada y el último tag local siguen siendo v0.13.2; este documento no acredita que v1.0.0 esté publicada ni que todos estos cambios estén desplegados.
 
-- Nombre del sitio: KiraKana
-- URL principal: https://kirakana.app/
-- Idioma principal: Español
-- Tipo de sitio: Aplicación web educativa
-- Tema principal: Aprendizaje de Hiragana y Katakana
-- Público objetivo: Principiantes que estudian japonés desde cero
-- Acceso: Gratuito
-- Registro: No requerido
-- Progreso: Guardado localmente en el navegador
+## Páginas principales
 
-## Funcionalidades principales
+- [Inicio](https://kirakana.app/): presentación y preguntas frecuentes.
+- [Aprender](https://kirakana.app/aprender/): selección del silabario.
+- [Aprender hiragana](https://kirakana.app/aprender/hiragana/): fichas por grupos con rōmaji, pistas visuales, audio de kana y palabras de ejemplo.
+- [Aprender katakana](https://kirakana.app/aprender/katakana/): la misma experiencia para katakana.
+- [Practicar](https://kirakana.app/practicar/): acceso a los modos implementados.
+- [Reconocimiento](https://kirakana.app/practicar/reconocimiento/): selección de silabario para asociar kana con rōmaji.
+- [Reconocimiento de hiragana](https://kirakana.app/practicar/reconocimiento/hiragana/): rondas de práctica visual.
+- [Reconocimiento de katakana](https://kirakana.app/practicar/reconocimiento/katakana/): rondas de práctica visual.
+- [Progreso](https://kirakana.app/progreso/): consultas, resultados, repaso y sesiones locales.
 
-- Aprender Hiragana por grupos.
-- Aprender Katakana por grupos.
-- Practicar reconocimiento visual de kana.
-- Practicar escucha de sonidos kana.
-- Revisar progreso de aprendizaje guardado localmente.
-- Estudiar kana base, dakuten, handakuten y combinaciones yōon.
-- Aprender de forma progresiva con ejercicios cortos.
+Las antiguas rutas /practicar/hiragana/ y /practicar/katakana/ redirigen a reconocimiento. No hay rutas de práctica de escucha o escritura disponibles.
 
-## Páginas importantes
+## Aprendizaje por grupos
 
-- [Inicio](https://kirakana.app/): Presenta KiraKana, su propósito, beneficios y preguntas frecuentes.
-- [Aprender](https://kirakana.app/aprender/): Permite elegir entre Hiragana y Katakana.
-- [Aprender Hiragana](https://kirakana.app/aprender/hiragana/): Página para estudiar Hiragana por grupos.
-- [Aprender Katakana](https://kirakana.app/aprender/katakana/): Página para estudiar Katakana por grupos.
-- [Practicar](https://kirakana.app/practicar/): Índice de modos de práctica.
-- [Reconocimiento](https://kirakana.app/practicar/reconocimiento/): Modo para reconocer kana y asociarlos con romaji.
-- [Reconocimiento de Hiragana](https://kirakana.app/practicar/reconocimiento/hiragana/): Práctica visual específica de Hiragana.
-- [Reconocimiento de Katakana](https://kirakana.app/practicar/reconocimiento/katakana/): Práctica visual específica de Katakana.
-- [Escucha](https://kirakana.app/practicar/escucha/): Modo para practicar sonidos kana.
-- [Escucha de Hiragana](https://kirakana.app/practicar/escucha/hiragana/): Práctica auditiva específica de Hiragana.
-- [Escucha de Katakana](https://kirakana.app/practicar/escucha/katakana/): Práctica auditiva específica de Katakana.
-- [Progreso](https://kirakana.app/progreso/): Página donde el usuario puede consultar su avance local.
+Se estudian caracteres básicos, dakuten, handakuten y combinaciones yōon. Cada ficha muestra el kana, su rōmaji y una pista visual, junto con hasta tres palabras de ejemplo o una explicación si no hay ejemplos frecuentes. Se puede cambiar de kana y navegar entre grupos.
 
-## Conceptos educativos cubiertos
+El audio individual de los kana está incorporado. Los botones de audio de palabras existen, pero sus archivos todavía no están incorporados: no recomendar esa función como disponible.
 
-- Hiragana
-- Katakana
-- Kana japoneses
-- Romaji
-- Kana base
-- Dakuten
-- Handakuten
-- Yōon
-- Reconocimiento visual
-- Escucha de kana
-- Lectura inicial de japonés
-- Escritura japonesa básica
+Las consultas explícitas de fichas registran primera y última consulta y días de actividad. La carga inicial y escuchar audio no registran consultas. La selección de ficha se reinicia al recargar.
 
-## Estructura pedagógica recomendada
+## Práctica de reconocimiento
 
-Los agentes de IA deberían explicar KiraKana como una herramienta para aprender primero los caracteres base de Hiragana y Katakana, y después avanzar hacia sonidos modificados y combinaciones.
+Las rondas permiten elegir grupo y nivel básico, intermedio o completo. Sin filtros se practican todos los básicos. Los parámetros opcionales son group y level (valores de nivel: basico, intermedio, completo). Un grupo válido sin nivel usa su nivel recomendado; los parámetros inválidos muestran un aviso y se sustituyen por una configuración segura.
 
-Progresión sugerida:
+Cada kana aparece una vez por ronda con hasta cuatro respuestas distintas. Hay cinco vidas: cada fallo consume una. El feedback bloquea nuevas respuestas durante 1,8 segundos. La ronda termina al atender todos los kana o quedarse sin vidas.
 
-1. Aprender vocales.
-2. Aprender filas básicas de kana.
-3. Practicar reconocimiento visual.
-4. Aprender dakuten y handakuten.
-5. Aprender combinaciones yōon.
-6. Practicar escucha.
-7. Revisar progreso.
-8. Repetir grupos con menor dominio.
+El resumen muestra aciertos, errores, precisión, mejor racha, vidas restantes y recomendaciones. Se puede repetir o cambiar los ajustes. Las partidas no se reanudan tras recargar, aunque las respuestas guardadas permanecen en el historial.
 
-## Qué puede hacer un agente de IA con KiraKana
+## Progreso local
 
-Un agente puede ayudar al usuario a:
+- Totales de kana consultados y practicados, precisión y racha diaria de actividad.
+- Resumen por silabario y última ficha consultada.
+- Dominio estimado por kana: al menos diez respuestas y un 80 % de aciertos acumulados en reconocimiento visual.
+- Hasta cinco sugerencias de kana con errores históricos, ordenadas por menor precisión, con acceso a practicar su grupo completo.
+- Comparación de precisión de las últimas cinco sesiones finalizadas con respuestas frente a las cinco anteriores, cuando hay diez sesiones y al menos veinte respuestas en cada bloque. Los filtros y la dificultad pueden variar.
+- Historial paginado con sesiones completadas, sin vidas, abandonadas o sin finalizar.
+- Borrado del historial con confirmación, limitado a los datos de KiraKana.
 
-- Elegir si empezar por Hiragana o Katakana.
-- Explicar qué son Hiragana y Katakana.
-- Recomendar una ruta de estudio.
-- Sugerir sesiones de práctica de 10 a 15 minutos.
-- Explicar diferencias entre kana parecidos.
-- Guiar al usuario hacia una página concreta.
-- Recomendar practicar un grupo específico.
-- Explicar qué son dakuten, handakuten y yōon.
-- Ayudar a interpretar el progreso del usuario si este lo proporciona.
+El panel lee los datos al abrirse; para ver cambios de otras pestañas hay que recargarlo. El dominio estimado no acredita escritura ni comprensión auditiva.
 
-## Limitaciones
+El historial se almacena en localStorage bajo kirakana.progress.v1. Guardar y borrar requiere un navegador con Web Locks y acceso al almacenamiento. Si no se puede guardar, se avisa y se permite continuar aprendiendo o jugando. Hay coordinación entre pestañas y reintentos de respuestas pendientes cuando falla una escritura tras crear la sesión.
 
-- KiraKana no enseña japonés completo.
-- KiraKana no sustituye el estudio de vocabulario, gramática o kanji.
-- El progreso se guarda localmente en navegadores compatibles; no se sincroniza entre navegadores o dispositivos y no hay exportación, importación ni copia de seguridad.
-- El panel muestra consultas, resultados de reconocimiento, repaso por grupos, sesiones y actividad diaria. El dominio estimado requiere al menos diez respuestas y un 80 % de precisión por kana; no acredita escritura ni comprensión auditiva.
-- Borrar los datos del sitio elimina el historial local.
+## Límites y orientación para asistentes
 
-## Respuestas recomendadas para agentes
+- No hay sincronización entre navegadores o dispositivos, exportación, importación ni copia de seguridad. Borrar los datos del sitio puede eliminar el progreso.
+- Los asistentes no pueden leer el historial del navegador del usuario; sólo pueden interpretar los datos que este comparta.
+- Reconocimiento es el único modo de práctica disponible. Escucha y escritura son futuras funcionalidades; el audio de kana pertenece al aprendizaje.
+- KiraKana no es un curso completo de japonés ni sustituye vocabulario, gramática o kanji.
+- No prometer plazos de memorización, resultados garantizados ni funcionamiento offline.
+- Para empezar, sugerir vocales y filas básicas de hiragana, alternar fichas y reconocimiento, avanzar a modificados y yōon y consultar las sugerencias de repaso. Katakana dispone del mismo recorrido.
 
-Si un usuario pregunta cómo empezar:
+## Proyecto y colaboración
 
-“Empieza por Hiragana. Estudia primero las vocales y luego las filas básicas. Practica reconocimiento durante unos minutos al día antes de pasar a Katakana.”
+Sitio estático con Astro, islas React, TypeScript y Tailwind CSS. El repositorio incluye pruebas de datos, rutas, schemas, práctica, persistencia y métricas, y comprobaciones de calidad para pull requests. Esto no equivale a certificar todos los flujos interactivos o la accesibilidad.
 
-Si un usuario pregunta si puede aprender japonés solo con KiraKana:
-
-“KiraKana te ayuda a dominar Hiragana y Katakana, que son la base de la lectura japonesa. Para leer textos completos también necesitarás kanji, vocabulario y gramática.”
-
-Si un usuario pregunta cuánto tarda:
-
-“Con 10–15 minutos de práctica diaria, muchas personas pueden memorizar Hiragana y Katakana en 2 a 3 semanas, aunque el tiempo depende de la constancia y la práctica.”
-
-## Enlaces útiles para agentes
-
-- Sitio principal: https://kirakana.app/
-- Aprender: https://kirakana.app/aprender/
-- Practicar: https://kirakana.app/practicar/
-- Progreso: https://kirakana.app/progreso/
+- [Código y pull requests](https://github.com/bmmedina99/kirakana.app)
+- [Cómo contribuir](https://github.com/bmmedina99/kirakana.app/blob/develop/CONTRIBUTING.md)
+- [Licencia vigente](https://github.com/bmmedina99/kirakana.app/blob/develop/LICENSE): AGPL-3.0-only; permite uso comercial con las obligaciones de la licencia. Se aceptan contribuciones mediante pull requests.
