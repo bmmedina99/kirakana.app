@@ -4,6 +4,7 @@
   "type": "module",
   "version": "0.13.2",
   "private": true,
+  "license": "AGPL-3.0-only",
   "scripts": {
     "dev": "astro dev --port=4000",
     "build": "astro check && astro build",
