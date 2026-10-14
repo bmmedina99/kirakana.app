@@ -1,0 +1,40 @@
+---
+import { questions } from '@/lib/landing'
+import Icon from '../ui/Icon'
+---
+
+<section class="bg-linen-50" aria-labelledby="faq-heading">
+  <div class="container mx-auto">
+    <header class="mb-20 text-center">
+      <h2 id="faq-heading" class="mb-6 text-3xl font-semibold lg:text-5xl">
+        Preguntas frecuentes
+      </h2>
+      <p class="max-w-lg mx-auto text-lg text-copper-100 text-pretty">
+        Todo lo que necesitas saber antes de empezar a aprender japonés con
+        KiraKana.
+      </p>
+    </header>
+    <div class="max-w-2xl mx-auto space-y-6">
+      {
+        questions.map((faq) => (
+          <details name="questions" class="group">
+            <summary class="flex items-center justify-between p-6 border rounded-2xl border-sun-100 bg-charcoal-100 text-mauve-50">
+              <h3 class="text-lg font-semibold">{faq.question}</h3>
+              <span
+                aria-hidden="true"
+                class="grid transition-transform duration-300 size-8 place-items-center group-open:rotate-x-180"
+              >
+                <Icon name="menu-expand" />
+              </span>
+            </summary>
+            <article class="mt-4 group-open:animate-details">
+              <p class="p-5 border rounded-lg bg-linen-150 border-sun-100 text-pretty">
+                {faq.answer}
+              </p>
+            </article>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

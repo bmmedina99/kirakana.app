@@ -1,0 +1,72 @@
+# KiraKana
+
+> Aplicación web gratuita y en español para aprender hiragana y katakana por grupos, escuchar el audio de los kana, practicar reconocimiento visual y consultar el progreso guardado en el navegador. Sin cuenta ni registro.
+
+Sitio: https://kirakana.app/
+Repositorio: https://github.com/bmmedina99/kirakana.app
+Público: principiantes hispanohablantes que empiezan a leer japonés.
+
+## Alcance de esta información
+
+Describe el código local hasta el commit 78cea2c, con los cambios posteriores a v0.13.2 destinados a v1.0.0. La versión declarada y el último tag local siguen siendo v0.13.2; este documento no acredita que v1.0.0 esté publicada ni que todos estos cambios estén desplegados.
+
+## Páginas principales
+
+- [Inicio](https://kirakana.app/): presentación y preguntas frecuentes.
+- [Aprender](https://kirakana.app/aprender/): selección del silabario.
+- [Aprender hiragana](https://kirakana.app/aprender/hiragana/): fichas por grupos con rōmaji, pistas visuales, audio de kana y palabras de ejemplo.
+- [Aprender katakana](https://kirakana.app/aprender/katakana/): la misma experiencia para katakana.
+- [Practicar](https://kirakana.app/practicar/): acceso a los modos implementados.
+- [Reconocimiento](https://kirakana.app/practicar/reconocimiento/): selección de silabario para asociar kana con rōmaji.
+- [Reconocimiento de hiragana](https://kirakana.app/practicar/reconocimiento/hiragana/): rondas de práctica visual.
+- [Reconocimiento de katakana](https://kirakana.app/practicar/reconocimiento/katakana/): rondas de práctica visual.
+- [Progreso](https://kirakana.app/progreso/): consultas, resultados, repaso y sesiones locales.
+
+Las antiguas rutas /practicar/hiragana/ y /practicar/katakana/ redirigen a reconocimiento. No hay rutas de práctica de escucha o escritura disponibles.
+
+## Aprendizaje por grupos
+
+Se estudian caracteres básicos, dakuten, handakuten y combinaciones yōon. Cada ficha muestra el kana, su rōmaji y una pista visual, junto con hasta tres palabras de ejemplo o una explicación si no hay ejemplos frecuentes. Se puede cambiar de kana y navegar entre grupos.
+
+El audio individual de los kana está incorporado. Los botones de audio de palabras existen, pero sus archivos todavía no están incorporados: no recomendar esa función como disponible.
+
+Las consultas explícitas de fichas registran primera y última consulta y días de actividad. La carga inicial y escuchar audio no registran consultas. La selección de ficha se reinicia al recargar.
+
+## Práctica de reconocimiento
+
+Las rondas permiten elegir grupo y nivel básico, intermedio o completo. Sin filtros se practican todos los básicos. Los parámetros opcionales son group y level (valores de nivel: basico, intermedio, completo). Un grupo válido sin nivel usa su nivel recomendado; los parámetros inválidos muestran un aviso y se sustituyen por una configuración segura.
+
+Cada kana aparece una vez por ronda con hasta cuatro respuestas distintas. Hay cinco vidas: cada fallo consume una. El feedback bloquea nuevas respuestas durante 1,8 segundos. La ronda termina al atender todos los kana o quedarse sin vidas.
+
+El resumen muestra aciertos, errores, precisión, mejor racha, vidas restantes y recomendaciones. Se puede repetir o cambiar los ajustes. Las partidas no se reanudan tras recargar, aunque las respuestas guardadas permanecen en el historial.
+
+## Progreso local
+
+- Totales de kana consultados y practicados, precisión y racha diaria de actividad.
+- Resumen por silabario y última ficha consultada.
+- Dominio estimado por kana: al menos diez respuestas y un 80 % de aciertos acumulados en reconocimiento visual.
+- Hasta cinco sugerencias de kana con errores históricos, ordenadas por menor precisión, con acceso a practicar su grupo completo.
+- Comparación de precisión de las últimas cinco sesiones finalizadas con respuestas frente a las cinco anteriores, cuando hay diez sesiones y al menos veinte respuestas en cada bloque. Los filtros y la dificultad pueden variar.
+- Historial paginado con sesiones completadas, sin vidas, abandonadas o sin finalizar.
+- Borrado del historial con confirmación, limitado a los datos de KiraKana.
+
+El panel lee los datos al abrirse; para ver cambios de otras pestañas hay que recargarlo. El dominio estimado no acredita escritura ni comprensión auditiva.
+
+El historial se almacena en localStorage bajo kirakana.progress.v1. Guardar y borrar requiere un navegador con Web Locks y acceso al almacenamiento. Si no se puede guardar, se avisa y se permite continuar aprendiendo o jugando. Hay coordinación entre pestañas y reintentos de respuestas pendientes cuando falla una escritura tras crear la sesión.
+
+## Límites y orientación para asistentes
+
+- No hay sincronización entre navegadores o dispositivos, exportación, importación ni copia de seguridad. Borrar los datos del sitio puede eliminar el progreso.
+- Los asistentes no pueden leer el historial del navegador del usuario; sólo pueden interpretar los datos que este comparta.
+- Reconocimiento es el único modo de práctica disponible. Escucha y escritura son futuras funcionalidades; el audio de kana pertenece al aprendizaje.
+- KiraKana no es un curso completo de japonés ni sustituye vocabulario, gramática o kanji.
+- No prometer plazos de memorización, resultados garantizados ni funcionamiento offline.
+- Para empezar, sugerir vocales y filas básicas de hiragana, alternar fichas y reconocimiento, avanzar a modificados y yōon y consultar las sugerencias de repaso. Katakana dispone del mismo recorrido.
+
+## Proyecto y colaboración
+
+Sitio estático con Astro, islas React, TypeScript y Tailwind CSS. El repositorio incluye pruebas de datos, rutas, schemas, práctica, persistencia y métricas, y comprobaciones de calidad para pull requests. Esto no equivale a certificar todos los flujos interactivos o la accesibilidad.
+
+- [Código y pull requests](https://github.com/bmmedina99/kirakana.app)
+- [Cómo contribuir](https://github.com/bmmedina99/kirakana.app/blob/develop/CONTRIBUTING.md)
+- [Licencia vigente](https://github.com/bmmedina99/kirakana.app/blob/develop/LICENSE): AGPL-3.0-only; permite uso comercial con las obligaciones de la licencia. Se aceptan contribuciones mediante pull requests.
