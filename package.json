@@ -2,7 +2,7 @@
   "name": "kirakana",
   "description": "Aprende Hiragana (ひらがな) y Katakana (カタカナ) con práctica interactiva de reconocimiento y escucha. El método más fácil para empezar japonés desde cero.",
   "type": "module",
-  "version": "0.13.2",
+  "version": "1.0.0",
   "private": true,
   "license": "AGPL-3.0-only",
   "scripts": {
