@@ -1,6 +1,6 @@
 # Kirakana 🍒
 
-> できるまでやってみよう — *«Inténtalo hasta lograrlo»*
+> できるまでやってみよう — _«Inténtalo hasta lograrlo»_
 
 **KiraKana** es una aplicación web interactiva y gratuita para aprender los silabarios japoneses **hiragana** y **katakana**. A través de ejercicios visuales y progresivos, los estudiantes pueden memorizar los caracteres, practicar su reconocimiento y hacer seguimiento de su avance sin necesidad de registro ni instalación.
 
@@ -22,6 +22,7 @@
 ## Características
 
 ### Disponibles
+
 - **Aprende** — organización de referencia visual para identificar y memorizar los 46 caracteres de hiragana y katakana, con pronunciación en romaji.
 - **Practica** — ejercicios de reconocimiento de caracteres (Kana → Romaji) con feedback inmediato tras cada intento.
 - **Progreso** — consultas, dominio estimado por kana, sugerencias de repaso, actividad diaria e historial de sesiones. Guardado en el mismo navegador.
@@ -29,17 +30,18 @@
 - **Responsive** — interfaz adaptada para multiples dispositivos.
 
 ### Próximamente
+
 - **Trazo** — visualiza el trazado de cada kana para aprender como escribir.
 - **Escucha** — reproduce el sonido de un kana y selecciona el símbolo correcto.
 
 ## Tecnologías
 
-| Tecnología | Descripción |
-|---|---|
-| [Astro](https://astro.build/) | Framework principal, genera contenido estático con islands interactivas |
-| [React](https://react.dev) | Componentes interactivos (islands) para los modos de práctica |
-| [TypeScript](https://www.typescriptlang.org/) | Aporta tipado estático al código |
-| [Tailwind CSS](https://tailwindcss.com/) | Framework de estilos CSS y diseño responsive |
+| Tecnología                                    | Descripción                                                             |
+| --------------------------------------------- | ----------------------------------------------------------------------- |
+| [Astro](https://astro.build/)                 | Framework principal, genera contenido estático con islands interactivas |
+| [React](https://react.dev)                    | Componentes interactivos (islands) para los modos de práctica           |
+| [TypeScript](https://www.typescriptlang.org/) | Aporta tipado estático al código                                        |
+| [Tailwind CSS](https://tailwindcss.com/)      | Framework de estilos CSS y diseño responsive                            |
 
 ## Estructura del proyecto
 
