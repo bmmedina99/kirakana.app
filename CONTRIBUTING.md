@@ -13,11 +13,11 @@ Mantén cada PR centrado en un objetivo. Evita mezclar una corrección con refac
 
 ## Ramas y forma de integrar cambios
 
-| Origen | Destino | Método | Responsable |
-| --- | --- | --- | --- |
-| Rama de trabajo | `develop` | PR con **Squash and merge** | Colaboradores y mantenedor |
-| `develop` | `production` | PR con **Create a merge commit** | Mantenedor |
-| `production` | `develop` | Merge de sincronización tras el release | Mantenedor |
+| Origen          | Destino      | Método                                  | Responsable                |
+| --------------- | ------------ | --------------------------------------- | -------------------------- |
+| Rama de trabajo | `develop`    | PR con **Squash and merge**             | Colaboradores y mantenedor |
+| `develop`       | `production` | PR con **Create a merge commit**        | Mantenedor                 |
+| `production`    | `develop`    | Merge de sincronización tras el release | Mantenedor                 |
 
 `develop` reúne los cambios en desarrollo. **Abre los PR de contribuciones
 contra `develop`**, no contra `production`.
@@ -89,15 +89,15 @@ ci: update release checks
 chore: update development dependencies
 ```
 
-| Prefijo | Cuándo usarlo |
-|---|---|
-| `feat:` | Nueva funcionalidad |
-| `fix:` | Corrección de un error |
-| `perf:` | Mejora de rendimiento |
-| `docs:` | Cambios en documentación |
-| `style:` | Cambios de formato o estilo (sin lógica) |
-| `chore:` | Tareas de mantenimiento general |
-| `refactor:` | Refactorización de código existente |
+| Prefijo     | Cuándo usarlo                            |
+| ----------- | ---------------------------------------- |
+| `feat:`     | Nueva funcionalidad                      |
+| `fix:`      | Corrección de un error                   |
+| `perf:`     | Mejora de rendimiento                    |
+| `docs:`     | Cambios en documentación                 |
+| `style:`    | Cambios de formato o estilo (sin lógica) |
+| `chore:`    | Tareas de mantenimiento general          |
+| `refactor:` | Refactorización de código existente      |
 
 Para un cambio incompatible, utiliza `!` antes de los dos puntos y explica cómo
 adaptarse. También se reconoce el pie `BREAKING CHANGE:` o `BREAKING-CHANGE:`:
