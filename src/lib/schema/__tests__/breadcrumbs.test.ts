@@ -3,32 +3,37 @@ import { configSite } from '@/lib/site.config'
 import {
   type BreadcrumbItem,
   buildBreadcrumbItems,
+  buildBreadcrumbSchema,
+  getBreadcrumbSchema,
   shouldHaveBreadcrumbs,
 } from '..'
 
 const BREADCRUMB_LEARN_HIRAGANA: BreadcrumbItem[] = [
-  { name: 'Inicio', url: configSite.url },
-  { name: 'Aprender', url: `${configSite.url}/aprender` },
-  { name: 'Hiragana', url: `${configSite.url}/aprender/hiragana` },
+  { name: 'Inicio', url: `${configSite.url}/` },
+  { name: 'Aprender', url: `${configSite.url}/aprender/` },
+  { name: 'Hiragana', url: `${configSite.url}/aprender/hiragana/` },
 ]
 
 const BREADCRUMB_PRACTICE_RECOGNITION: BreadcrumbItem[] = [
-  { name: 'Inicio', url: configSite.url },
-  { name: 'Practicar', url: `${configSite.url}/practicar` },
-  { name: 'Reconocimiento', url: `${configSite.url}/practicar/reconocimiento` },
+  { name: 'Inicio', url: `${configSite.url}/` },
+  { name: 'Practicar', url: `${configSite.url}/practicar/` },
+  {
+    name: 'Reconocimiento',
+    url: `${configSite.url}/practicar/reconocimiento/`,
+  },
   {
     name: 'Hiragana',
-    url: `${configSite.url}/practicar/reconocimiento/hiragana`,
+    url: `${configSite.url}/practicar/reconocimiento/hiragana/`,
   },
 ]
 
 const URLS = {
   home: `${configSite.url}`,
-  learnHiragana: `${configSite.url}/aprender/hiragana`,
-  learnKatakana: `${configSite.url}/aprender/katakana`,
-  practiceRecognition: `${configSite.url}/practicar/reconocimiento/hiragana`,
-  practiceListening: `${configSite.url}/practicar/escucha/katakana`,
-  practiceWriting: `${configSite.url}/practicar/escritura/hiragana`,
+  learnHiragana: `${configSite.url}/aprender/hiragana/`,
+  learnKatakana: `${configSite.url}/aprender/katakana/`,
+  practiceRecognition: `${configSite.url}/practicar/reconocimiento/hiragana/`,
+  practiceListening: `${configSite.url}/practicar/escucha/katakana/`,
+  practiceWriting: `${configSite.url}/practicar/escritura/hiragana/`,
 } as const
 
 describe('shouldHaveBreadcrumbs', () => {
@@ -46,6 +51,17 @@ describe('shouldHaveBreadcrumbs', () => {
 })
 
 describe('buildBreadcrumbItems', () => {
+  it.each(['', '/', '/?group=vocales&level=basico#practica'])(
+    'uses canonical paths for an input ending in "%s"',
+    (suffix) => {
+      expect(
+        buildBreadcrumbItems(
+          `${configSite.url}/practicar/reconocimiento/hiragana${suffix}`,
+        ),
+      ).toEqual(BREADCRUMB_PRACTICE_RECOGNITION)
+    },
+  )
+
   describe('learn hiragana route', () => {
     const items = buildBreadcrumbItems(URLS.learnHiragana)
 
@@ -55,12 +71,12 @@ describe('buildBreadcrumbItems', () => {
 
     it('uses Home as the first breadcrumb item pointing to the site root', () => {
       expect(items[0]?.name).toBe('Inicio')
-      expect(items[0]?.url).toBe(configSite.url)
+      expect(items[0]?.url).toBe(`${configSite.url}/`)
     })
 
     it('uses Learn as the second breadcrumb item with the expected URL', () => {
       expect(items[1]?.name).toBe('Aprender')
-      expect(items[1]?.url).toBe(`${configSite.url}/aprender`)
+      expect(items[1]?.url).toBe(`${configSite.url}/aprender/`)
     })
 
     it('uses Hiragana as the third breadcrumb item with its canonical URL', () => {
@@ -114,4 +130,39 @@ describe('buildBreadcrumbItems', () => {
       })
     })
   })
+})
+
+describe('breadcrumb schemas', () => {
+  it('normalizes custom breadcrumb URLs without mutating the input', () => {
+    const items = [{ name: 'Aprender', url: `${configSite.url}/aprender` }]
+
+    expect(buildBreadcrumbSchema(items).itemListElement).toEqual([
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Aprender',
+        item: `${configSite.url}/aprender/`,
+      },
+    ])
+    expect(items[0]?.url).toBe(`${configSite.url}/aprender`)
+  })
+
+  it('serializes canonical URLs for every breadcrumb level', () => {
+    expect(getBreadcrumbSchema(URLS.practiceRecognition)).toEqual({
+      '@type': 'BreadcrumbList',
+      itemListElement: BREADCRUMB_PRACTICE_RECOGNITION.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: item.url,
+      })),
+    })
+  })
+
+  it.each([configSite.url, `${configSite.url}/`])(
+    'omits breadcrumbs for the home URL "%s"',
+    (url) => {
+      expect(getBreadcrumbSchema(url)).toBeNull()
+    },
+  )
 })
