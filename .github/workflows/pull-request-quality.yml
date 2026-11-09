@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  NODE_VERSION: 24
+  NODE_VERSION: 26
 
 defaults:
   run:
@@ -23,7 +23,7 @@ concurrency:
 jobs:
   quality:
     name: Code quality
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     steps:
@@ -33,25 +33,25 @@ jobs:
           persist-credentials: false
 
       - name: Set up pnpm and Node.js
-        uses: pnpm/setup@v2
+        uses: pnpm/setup@v3
         with:
           runtime: node@${{ env.NODE_VERSION }}
           cache: true
           install: false
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm ci
 
       - name: Run Biome checks
         run: pnpm run lint
 
-      - name: Run Astro diagnostics
-        run: pnpm exec astro check
+      - name: Run TypeScript diagnostics
+        run: pnpm exec tsc --noEmit
 
   test:
     name: Unit tests
     needs: quality
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     steps:
@@ -61,14 +61,14 @@ jobs:
           persist-credentials: false
 
       - name: Set up pnpm and Node.js
-        uses: pnpm/setup@v2
+        uses: pnpm/setup@v3
         with:
           runtime: node@${{ env.NODE_VERSION }}
           cache: true
           install: false
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm ci
 
       - name: Run tests with coverage
         run: pnpm run test:coverage
@@ -85,7 +85,7 @@ jobs:
   build:
     name: Production build
     needs: [quality, test]
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     steps:
@@ -95,14 +95,14 @@ jobs:
           persist-credentials: false
 
       - name: Set up pnpm and Node.js
-        uses: pnpm/setup@v2
+        uses: pnpm/setup@v3
         with:
           runtime: node@${{ env.NODE_VERSION }}
           cache: true
           install: false
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm ci
 
       - name: Build static site
         run: pnpm exec astro build
