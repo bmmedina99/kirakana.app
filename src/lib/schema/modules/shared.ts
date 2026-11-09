@@ -21,17 +21,24 @@ export const MODE_DESCRIPTIONS: Record<PracticeModeSlug, string> = {
   escritura: 'Trazando los caracteres con la secuencia correcta de trazos.',
 }
 
+export function normalizePageUrl(value: string): string {
+  const url = new URL(value)
+  url.pathname = `${url.pathname.replace(/\/+$/, '')}/`
+  return url.href
+}
+
 export function webPageSchema(params: {
   url: string
   title: string
   description?: string
   type?: 'WebPage' | 'CollectionPage'
 }): SchemaBase {
-  const { url, title, description, type = 'WebPage' } = params
+  const { title, description, type = 'WebPage' } = params
+  const url = normalizePageUrl(params.url)
   return {
     '@type': type,
-    '@id': `${url}/#webpage`,
-    url: url,
+    '@id': `${url}#webpage`,
+    url,
     name: title,
     ...(description && { description }),
     inLanguage: configSite.lang,
