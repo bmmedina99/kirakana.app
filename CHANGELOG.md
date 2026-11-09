@@ -47,7 +47,6 @@
 - update image paths to use assets directory ([023b713](https://github.com/bmmedina99/kirakana.app/commit/023b713431219e97e2d9cc2dba7d522072ba4215))
 - update robots meta tag to noindex for pages ([bd050e5](https://github.com/bmmedina99/kirakana.app/commit/bd050e593bad3469713d87d14b2bf5bcce8a5230))
 
-
 ### Features
 
 - add core schema definitions and interfaces ([5110660](https://github.com/bmmedina99/kirakana.app/commit/51106600bc0bb5e4e384b43764cdbc8a7ffccd0e))
@@ -88,11 +87,9 @@
 - **syllabary-card:** add scalable SyllabaryCard component ([b6f30fa](https://github.com/bmmedina99/kirakana.app/commit/b6f30fa4ea7d76b972a733c374f2c3d74868a985))
 - update syllabary page to use new schema ([33be3ae](https://github.com/bmmedina99/kirakana.app/commit/33be3ae7c6b74bdf3958db04bb4567248432fef2))
 
-
 ### Performance Improvements
 
 - **seo:** reorder meta tags to improve performance ([e98b589](https://github.com/bmmedina99/kirakana.app/commit/e98b589aba626367b436c4665169b971ef45eaa4))
-
 
 ### Reverts
 
@@ -104,7 +101,6 @@
 
 - **issue-template:** correct spelling errors in contact links ([ebea465](https://github.com/bmmedina99/kirakana.app/commit/ebea465cff593d2ba2afe86d5831b7acbf38428c))
 - **navigation:** add autocomplete="off" to mobile menu ([320363d](https://github.com/bmmedina99/kirakana.app/commit/320363da94ed283bf2f5c5097d009ce50068ef2d))
-
 
 ### Performance Improvements
 
@@ -155,7 +151,6 @@
 - **tsconfig:** add coverage directory to exclude list ([3701bb4](https://github.com/bmmedina99/kirakana.app/commit/3701bb42884baa654a8ebca034c6086eae514b24))
 - **why-kirakana:** update content and icons for target audience section ([e9b3efd](https://github.com/bmmedina99/kirakana.app/commit/e9b3efd8aa466d18c28562bfc9bca9bc4f609066))
 
-
 ### Features
 
 - **animation:** add details content show animation ([279ab15](https://github.com/bmmedina99/kirakana.app/commit/279ab15d850c42c389bcb918bd380af2866a409b))
@@ -185,7 +180,6 @@
 - **svg:** add new symbols for why-kirakana section ([f13891d](https://github.com/bmmedina99/kirakana.app/commit/f13891d83e6a5f253f9524c0a468cf6045ccf207))
 - **svg:** add speaker and recognize symbols ([7e9286b](https://github.com/bmmedina99/kirakana.app/commit/7e9286bbb4321084ba64b1f8f9407868f568a956))
 - **ui:** add reusable Section component ([d100ea0](https://github.com/bmmedina99/kirakana.app/commit/d100ea0e025edcfcf773cf561a90de7fbaf8edba))
-
 
 ### Performance Improvements
 
@@ -217,7 +211,6 @@
 - **styles:** update color variables ([9d58cc4](https://github.com/bmmedina99/kirakana.app/commit/9d58cc42356ca1d8a70362bea9581ec918c9b96c))
 - **ui:** correct character container rendering in mobile ([811bf6e](https://github.com/bmmedina99/kirakana.app/commit/811bf6ef72beae2a1c83a7582a65c2dc8150be66))
 
-
 ### Features
 
 - **components:** create TargetAudience component ([4c761b9](https://github.com/bmmedina99/kirakana.app/commit/4c761b960a8e9a5ad8325a72d3c04bf9189c3950))
@@ -237,11 +230,9 @@
 - **sections:** add HowItWorks component with interactive learning steps ([352cf22](https://github.com/bmmedina99/kirakana.app/commit/352cf22d915d22bd1e8e7bec4ff50533910e4b11))
 - **seo:** improve meta description for better SERP visibility ([f1d41a4](https://github.com/bmmedina99/kirakana.app/commit/f1d41a45ac9943300e6bf185464d29a467d4050b))
 
-
 ### Performance Improvements
 
 - **header:** optimize main image loading priority ([0c9c38d](https://github.com/bmmedina99/kirakana.app/commit/0c9c38dba20203056eed06e46a6af8fb4f74f990))
-
 
 ### Reverts
 
@@ -267,7 +258,6 @@
 
 - refactor release workflow to use environment variables ([b1ec392](https://github.com/bmmedina99/kirakana.app/commit/b1ec39213e39febb588d38e791e1b7dbaa64f2a9))
 
-
 ### Features
 
 - **benefits:** replace SVG icons with Icon component ([ea1c1f9](https://github.com/bmmedina99/kirakana.app/commit/ea1c1f90b853319d0e113e8882abd2ca59b86666))
@@ -284,7 +274,6 @@
 - update background color for consistency across sections ([12765d0](https://github.com/bmmedina99/kirakana.app/commit/12765d004480809c4e3f241575416bc734bbfa26))
 - **workcards:** update color properties ([54e8479](https://github.com/bmmedina99/kirakana.app/commit/54e84796df905c8989179eec7aab32ad0df9c80e))
 - **workcards:** update text color for consistency across cards ([d67e54b](https://github.com/bmmedina99/kirakana.app/commit/d67e54bcc019202b4dc7eaa348d420b34f9f8f0e))
-
 
 ### Features
 
@@ -332,13 +321,11 @@
 
 - **ui:** :bug: correcto romaji labels in kana decoration ([9df79b3](https://github.com/bmmedina99/kirakana.app/commit/9df79b3e5eb818acd10460f5b72642bb97a4c467))
 
-
 ### Features
 
 - **icons:** :sparkles: add challenge icon ([e2ce037](https://github.com/bmmedina99/kirakana.app/commit/e2ce0374a86a049d6a22d85c7198074d7105fdcc))
 - **landing:** :sparkles: add CTA section ([60e2ed4](https://github.com/bmmedina99/kirakana.app/commit/60e2ed4ead681887ca1af7b02cba7127d7835848))
 - **landing:** :sparkles: add Features section ([b02cae8](https://github.com/bmmedina99/kirakana.app/commit/b02cae88549674153a9fdfbbb8d643aa69a7d798))
-
 
 ### Performance Improvements
 
@@ -352,12 +339,10 @@
 - **page:** :coffin: remove import error for quizHistory ([8a44f7d](https://github.com/bmmedina99/kirakana.app/commit/8a44f7d42ed761efe54ce27e4c51bfcdf99e3e97))
 - **seo:** :mag: correct description handling in Meta component ([aadf42b](https://github.com/bmmedina99/kirakana.app/commit/aadf42b1c564e8f9eb647232e21a8ccd3849524e))
 
-
 ### Features
 
 - **page:** :sparkles: implement real logic for `Estadística` page ([30223ca](https://github.com/bmmedina99/kirakana.app/commit/30223cac5b189bbfdffb075a33e4c6729912268f))
 - **puzzle:** :sparkles: add persist data with localStorage ([5b095db](https://github.com/bmmedina99/kirakana.app/commit/5b095db2bc30048b546b5995b09f23842beb52ef))
-
 
 ### Performance Improvements
 
@@ -379,7 +364,6 @@
 
 - **landing:** :bug: correct layout sizing on large screens ([e43a2c4](https://github.com/bmmedina99/kirakana.app/commit/e43a2c42dee1052370239d7166c40aa34d53352a))
 
-
 ### Features
 
 - **puzzle:** :sparkles: add shuffle answer options ([ef7320a](https://github.com/bmmedina99/kirakana.app/commit/ef7320a225d826bf0106e7d7b7efd5bb2bc1c760))
@@ -398,7 +382,6 @@
 - **header:** :adhesive_bandage: correct sticky behavior ([9a6d64a](https://github.com/bmmedina99/kirakana.app/commit/9a6d64a27bb514088c2b4f0d66ba88de97f8f60d))
 - **navigation:** :bug: close mobile nav on outsite click ([a62e3ca](https://github.com/bmmedina99/kirakana.app/commit/a62e3cabd36940ed80f212094dd0d30c9f7a1074))
 
-
 ### Features
 
 - **a11y:** :wheelchair: add `skip to home` link for accessibility ([37a1ab0](https://github.com/bmmedina99/kirakana.app/commit/37a1ab00e34289517d00becc5388d78a6b820e0c))
@@ -413,7 +396,6 @@
 - **css:** :adhesive_bandage: fix correct `font-family` to use 'Noto Sans JP' ([0ff0bee](https://github.com/bmmedina99/kirakana.app/commit/0ff0bee0a0320ac4ef8bc6c7822fff171b0da47b))
 - **main:** :bug: prevent `undefined` class prop in Main component ([974749e](https://github.com/bmmedina99/kirakana.app/commit/974749ec407a649be80e6b7a282bad43dc7bf7ff))
 
-
 ### Features
 
 - **ui:** :lipstick: add dropdown menu for mobile view ([399f152](https://github.com/bmmedina99/kirakana.app/commit/399f152a0d0ce29f727eac1a14f5761e68061bc8))
@@ -423,7 +405,6 @@
 ### Bug Fixes
 
 - **css:** :bug: adjust CSS export to fix cumulative layout shift ([0bb2ff3](https://github.com/bmmedina99/kirakana.app/commit/0bb2ff37ae5e71c503459dffd764d9d569dd6570))
-
 
 ### Features
 
@@ -440,14 +421,12 @@
 - **icon:** :wheelchair: add `aria-hidden="true"` to Icon component ([01f9383](https://github.com/bmmedina99/kirakana.app/commit/01f9383708ed927707962beda5627be0505280d2))
 - **release:** :ambulance: correct Ubuntu version in release.yml ([454a3a1](https://github.com/bmmedina99/kirakana.app/commit/454a3a12f67a8095df5dd15e3137234c1d35fa6f))
 
-
 ### Features
 
 - **fonts:** :sparkles: add primary project fonts ([9b13a1c](https://github.com/bmmedina99/kirakana.app/commit/9b13a1cc8096ead7a346cc9aa6b4ad390e30e202))
 - **icon:** :sparkles: add round icons in Icon.astro component ([5771e2d](https://github.com/bmmedina99/kirakana.app/commit/5771e2d59c3d04a11b140dad54d72f82953eada3))
 - **icons:** :sparkles: add new menu icon ([eb95cb8](https://github.com/bmmedina99/kirakana.app/commit/eb95cb8bcfe2f95521778bc74209cc6b078cc7d5))
 - **nav:** :sparkles: integrate nav links defined in site.config.ts ([017cba2](https://github.com/bmmedina99/kirakana.app/commit/017cba2b60e3db0951aff2176186df1e29ce132d))
-
 
 ### Performance Improvements
 
