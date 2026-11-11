@@ -1,7 +1,7 @@
 import type { PracticeModeSlug, SyllabarySlug } from '@/lib/routes'
 import { configSite } from '@/lib/site.config'
 import type { SchemaBase } from '../core'
-import { SYLLABARY_LABELS, webPageSchema } from './shared'
+import { normalizePageUrl, SYLLABARY_LABELS, webPageSchema } from './shared'
 
 export function practiceSessionSchema(params: {
   mode: PracticeModeSlug
@@ -10,13 +10,14 @@ export function practiceSessionSchema(params: {
   title: string
   description: string
 }): SchemaBase[] {
-  const { mode, syllabary, url, title, description } = params
+  const { mode, syllabary, title, description } = params
+  const url = normalizePageUrl(params.url)
   const syllabaryLabel = SYLLABARY_LABELS[syllabary]
   return [
     webPageSchema({ url, title, description }),
     {
       '@type': 'LearningResource',
-      '@id': `${url}/#learning-resource`,
+      '@id': `${url}#learning-resource`,
       name: title,
       description,
       url,

@@ -11,7 +11,6 @@ export function homepageSchema(params: {
   return [
     {
       ...webPageSchema(params),
-      specialCommitments: 'FreeToUse',
       mainEntity: { '@id': `${url}/#app` },
     },
   ]

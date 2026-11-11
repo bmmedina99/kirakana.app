@@ -1,9 +1,10 @@
-import type { PracticeModeSlug, SyllabarySlug } from '@/lib/routes'
+import { type PracticeModeSlug, routes, type SyllabarySlug } from '@/lib/routes'
 import { configSite } from '@/lib/site.config'
 import type { SchemaBase } from '../core'
 import {
   MODE_DESCRIPTIONS,
   MODE_LABELS,
+  normalizePageUrl,
   SYLLABARY_LABELS,
   webPageSchema,
 } from './shared'
@@ -22,11 +23,11 @@ export function practiceModeSchema(params: {
     webPageSchema({ url, title, description, type: 'CollectionPage' }),
     ...SYLLABARIES.map((syllabary): SchemaBase => {
       const syllabaryLabel = SYLLABARY_LABELS[syllabary]
-      const syllabaryUrl = `${url}/${syllabary}`
+      const syllabaryUrl = `${configSite.url}${routes.practice.modeSyllabary(mode, syllabary)}`
 
       return {
         '@type': 'LearningResource',
-        '@id': `${syllabaryUrl}/#learning-resource`,
+        '@id': `${syllabaryUrl}#learning-resource`,
         name: `${modeLabel} de ${syllabaryLabel}`,
         description: `${MODE_DESCRIPTIONS[mode]} Silabario: ${syllabaryLabel}.`,
         url: syllabaryUrl,
@@ -36,7 +37,7 @@ export function practiceModeSchema(params: {
         teaches: syllabaryLabel,
         isAccessibleForFree: true,
         provider: { '@id': `${configSite.url}/#organization` },
-        isPartOf: { '@id': `${url}/#webpage` },
+        isPartOf: { '@id': `${normalizePageUrl(url)}#webpage` },
       }
     }),
   ]

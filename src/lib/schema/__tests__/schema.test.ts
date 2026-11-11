@@ -21,7 +21,7 @@ describe('organizationSchema', () => {
   })
 
   it('uses the configured site root URL', () => {
-    expect(organizationSchema.url).toBe(configSite.url)
+    expect(organizationSchema.url).toBe(`${configSite.url}/`)
   })
 
   it('uses a logo URL that belongs to the site domain', () => {
