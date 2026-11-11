@@ -1,4 +1,4 @@
-name: Pull Request Quality
+name: Pull Request Checks
 
 run-name: "Validate PR #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}"
 
@@ -46,7 +46,7 @@ jobs:
         run: pnpm run lint
 
       - name: Run TypeScript diagnostics
-        run: pnpm exec tsc --noEmit
+        run: pnpm run check
 
   test:
     name: Unit tests
