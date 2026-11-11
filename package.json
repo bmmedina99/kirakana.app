@@ -7,7 +7,8 @@
   "license": "AGPL-3.0-only",
   "scripts": {
     "dev": "astro dev --port=4000",
-    "build": "tsc --noEmit && astro build",
+    "check": "astro sync && tsc --noEmit",
+    "build": "pnpm run check && astro build",
     "release": "pnpm dlx semantic-release",
     "preview": "astro preview --port=5000",
     "fmt": "biome format --write .",
