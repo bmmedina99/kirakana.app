@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/bmmedina99/kirakana.app/compare/v1.0.0...v1.0.1) (2026-11-12)
+
+
+### Bug Fixes
+
+* ensure correct comparison of lastActivityAt ([4fb5d87](https://github.com/bmmedina99/kirakana.app/commit/4fb5d87085de2ddaa3e64013e4db11abbcca1a35))
+* normalize URLs across schema modules ([#29](https://github.com/bmmedina99/kirakana.app/issues/29)) ([6b212e4](https://github.com/bmmedina99/kirakana.app/commit/6b212e4c3f6dd07fdccc2fb669728ab3e612fd47))
+
 # [1.0.0](https://github.com/bmmedina99/kirakana.app/compare/v0.13.2...v1.0.0) (2026-10-14)
 
 ### Bug Fixes
