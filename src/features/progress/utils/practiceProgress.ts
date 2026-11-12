@@ -275,7 +275,7 @@ export function applyPracticeAnswers(
       correct: session.correct + correct,
       incorrect: session.incorrect + incorrect,
       lastActivityAt:
-        session.lastActivityAt > answer.answeredAt
+        Date.parse(session.lastActivityAt) > Date.parse(answer.answeredAt)
           ? session.lastActivityAt
           : answer.answeredAt,
     }

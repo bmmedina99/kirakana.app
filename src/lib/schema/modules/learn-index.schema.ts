@@ -1,3 +1,4 @@
+import { routes } from '@/lib/routes'
 import { configSite } from '@/lib/site.config'
 import type { SchemaBase } from '../core'
 import { webPageSchema } from './shared'
@@ -12,11 +13,11 @@ export function learnIndexSchema(params: {
     webPageSchema({ url, title, description, type: 'CollectionPage' }),
     {
       '@type': 'Course',
-      '@id': `${url}/hiragana/#course`,
+      '@id': `${configSite.url}${routes.learn.syllabary('hiragana')}#course`,
       name: `Aprende hiragana`,
       description:
         'Aprende a leer y escribir Hiragana, el silabario japonés fundamental.',
-      url: `${url}/hiragana`,
+      url: `${configSite.url}${routes.learn.syllabary('hiragana')}`,
       inLanguage: configSite.lang,
       isAccessibleForFree: true,
       educationalLevel: 'Beginner',
@@ -25,11 +26,11 @@ export function learnIndexSchema(params: {
     },
     {
       '@type': 'Course',
-      '@id': `${url}/katakana/#course`,
+      '@id': `${configSite.url}${routes.learn.syllabary('katakana')}#course`,
       name: `Aprende katakana`,
       description:
         'Aprende a leer y escribir Katakana, el silabario para palabras extranjeras.',
-      url: `${url}/katakana`,
+      url: `${configSite.url}${routes.learn.syllabary('katakana')}`,
       inLanguage: configSite.lang,
       isAccessibleForFree: true,
       educationalLevel: 'Beginner',

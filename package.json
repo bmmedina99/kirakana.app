@@ -7,7 +7,8 @@
   "license": "AGPL-3.0-only",
   "scripts": {
     "dev": "astro dev --port=4000",
-    "build": "astro check && astro build",
+    "check": "astro sync && tsc --noEmit",
+    "build": "pnpm run check && astro build",
     "release": "pnpm dlx semantic-release",
     "preview": "astro preview --port=5000",
     "fmt": "biome format --write .",
@@ -24,28 +25,27 @@
     "url": "https://github.com/bmmedina99/kirakana.app/issues"
   },
   "dependencies": {
-    "@astrojs/react": "7.0.1",
+    "@astrojs/react": "7.1.8",
     "@astrojs/sitemap": "3.7.4",
-    "@tailwindcss/vite": "4.3.3",
-    "astro": "7.3.8",
+    "@tailwindcss/vite": "4.3.5",
+    "astro": "7.4.11",
     "astro-robots-txt": "1.0.0",
-    "astro-seo-schema": "7.0.0",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
+    "astro-seo-schema": "7.0.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "sharp": "0.35.5",
-    "tailwindcss": "4.3.3"
+    "tailwindcss": "4.3.5"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.10",
-    "@biomejs/biome": "2.5.15",
+    "@biomejs/biome": "2.6.6",
     "@semantic-release/changelog": "7.0.0",
     "@semantic-release/git": "11.0.1",
-    "@types/node": "26.6.5",
+    "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@vitest/coverage-v8": "5.0.4",
+    "@vitest/coverage-v8": "5.1.0",
     "typescript": "6.0.3",
-    "vitest": "5.0.4"
+    "vitest": "5.1.0"
   },
-  "packageManager": "pnpm@12.11.2"
+  "packageManager": "pnpm@12.18.0"
 }
